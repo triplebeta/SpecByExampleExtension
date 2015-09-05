@@ -1,0 +1,150 @@
+﻿namespace SpecByExample.T4.Wizard_pages
+{
+    partial class WebsiteInfo
+    {
+        /// <summary> 
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Component Designer generated code
+
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtUrl = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblWaiting = new System.Windows.Forms.Label();
+            this.chkExcludeNonUniqueControls = new System.Windows.Forms.CheckBox();
+            this.webbrowser = new System.Windows.Forms.WebBrowser();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(21, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(194, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Create an adapter for a webpage";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(21, 68);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(408, 13);
+            this.label1.TabIndex = 60;
+            this.label1.Text = "Enter the address of the webpage for which you want to create a Page Adapter clas" +
+    "s";
+            // 
+            // txtUrl
+            // 
+            this.txtUrl.Location = new System.Drawing.Point(24, 120);
+            this.txtUrl.Name = "txtUrl";
+            this.txtUrl.Size = new System.Drawing.Size(471, 20);
+            this.txtUrl.TabIndex = 0;
+            this.txtUrl.Validating += new System.ComponentModel.CancelEventHandler(this.txtUrl_Validating);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(22, 104);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Web address:";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // lblWaiting
+            // 
+            this.lblWaiting.AutoSize = true;
+            this.lblWaiting.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWaiting.Location = new System.Drawing.Point(22, 185);
+            this.lblWaiting.Name = "lblWaiting";
+            this.lblWaiting.Size = new System.Drawing.Size(143, 13);
+            this.lblWaiting.TabIndex = 61;
+            this.lblWaiting.Text = "Validating the web address...";
+            this.lblWaiting.Visible = false;
+            // 
+            // chkExcludeNonUniqueControls
+            // 
+            this.chkExcludeNonUniqueControls.AutoSize = true;
+            this.chkExcludeNonUniqueControls.Checked = true;
+            this.chkExcludeNonUniqueControls.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkExcludeNonUniqueControls.Location = new System.Drawing.Point(41, 146);
+            this.chkExcludeNonUniqueControls.Name = "chkExcludeNonUniqueControls";
+            this.chkExcludeNonUniqueControls.Size = new System.Drawing.Size(255, 17);
+            this.chkExcludeNonUniqueControls.TabIndex = 62;
+            this.chkExcludeNonUniqueControls.Text = "Ignore controls that cannot be identified uniquely";
+            this.chkExcludeNonUniqueControls.UseVisualStyleBackColor = true;
+            // 
+            // webbrowser
+            // 
+            this.webbrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.webbrowser.Location = new System.Drawing.Point(25, 213);
+            this.webbrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webbrowser.Name = "webbrowser";
+            this.webbrowser.Size = new System.Drawing.Size(537, 105);
+            this.webbrowser.TabIndex = 63;
+            this.webbrowser.Visible = false;
+            // 
+            // WebsiteInfo
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Controls.Add(this.webbrowser);
+            this.Controls.Add(this.chkExcludeNonUniqueControls);
+            this.Controls.Add(this.lblWaiting);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtUrl);
+            this.Name = "WebsiteInfo";
+            this.Size = new System.Drawing.Size(626, 342);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtUrl;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label lblWaiting;
+        protected internal System.Windows.Forms.CheckBox chkExcludeNonUniqueControls;
+        private System.Windows.Forms.WebBrowser webbrowser;
+    }
+}

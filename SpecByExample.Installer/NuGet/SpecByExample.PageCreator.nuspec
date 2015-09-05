@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+	<metadata>
+	  <id>SpecByExample.PageCreator</id>
+	  <version>1.0.0</version>
+	  <authors>Triple Beta</authors>
+	  <description>
+			The goal of this package is to offer an intuitive way to support Specification by Example and automate webbased application elements and to make it very easy to write maintainable tests.</description>
+		<tags>NuGet Specification by Example Selenium PageObject Specflow</tags>
+		<language>en-US</language>
+    <dependencies>
+      <dependency id="Castle.Core" version="[3.3,)" />
+      <dependency id="Castle.Windsor" version="[3.3,)" />
+      <dependency id="HtmlAgilityPack" version="[1.4.9,)" />
+      <dependency id="Specflow" version="[1.9.0,)" />
+      <dependency id="Selenium.WebDriver" version="[2.47,)" />
+      <dependency id="Selenium.Support" version="[2.47,)" />
+    </dependencies>
+	</metadata>
+  <files>
+    <file src="lib\net45\SpecByExample.Common.dll" target="lib\net45" />
+  </files>
+</package>

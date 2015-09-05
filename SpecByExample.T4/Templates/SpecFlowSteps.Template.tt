@@ -1,0 +1,209 @@
+﻿using System;
+using System.Linq;
+using System.Text;
+using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TechTalk.SpecFlow;
+using SpecByExample.Common;
+using $basename$.Pages;
+
+namespace $basename$.Specs
+{
+    [Binding]
+    public class $specflowstepsclass$ : BaseSeleniumSteps
+    {
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="state">State is passed in using Constructor Injection</param>
+        public $specflowstepsclass$(SeleniumBrowserInfo state) : base(state) { }
+
+
+        #region Arrange - Given
+
+        [Given("I go to the <#= className #> on url '(.*)'")]
+        public void Given_I_Go_To_Url(string url)
+        {
+            CurrentWebDriver.Url = url;
+            CurrentWebDriver.Navigate();
+        }
+
+        #endregion
+
+
+        #region Act - When
+
+<#
+foreach(var node in Settings.SelectedHtmlElements) {
+
+	// Only  create code for nodes we want to have ant to
+	if (node.GenerateCodeForThisItem==false)
+		continue;
+
+	if (node.HtmlControlType == HtmlControlTypeEnum.Link ||
+		node.HtmlControlType == HtmlControlTypeEnum.Button)
+    {
+#>
+
+        [When(@"I click the <#=node.CodeControlName #> <#=node.HtmlControlType.ToString().ToLower() #>")]
+        public void When_I_Click_The_<#=node.CodeControlName #>_<#=node.HtmlControlType #>()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.<#=node.CodeControlName #>.Click();
+        }
+<#
+    } else if (node.HtmlControlType == HtmlControlTypeEnum.Select || node.HtmlControlType == HtmlControlTypeEnum.Listbox) {
+#>
+
+        [When(@"I select item ""(.*)"" in <#=node.HtmlControlType.ToString().ToLower() #> <#=node.CodeControlName #>")]
+        public void When_I_Select_Item_In_<#=node.HtmlControlType #>_<#=node.CodeControlName #>(string itemText)
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.<#=node.CodeControlName #>.Select(itemText);
+        }
+
+        [When(@"I clear the selection of <#=node.HtmlControlType.ToString().ToLower() #> <#=node.CodeControlName #>")]
+        public void When_I_Clear_The_Selection_Of_<#=node.HtmlControlType #>_<#=node.CodeControlName #>()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.<#=node.CodeControlName #>.Clear();
+        }
+<#
+    } else if (node.HtmlControlType == HtmlControlTypeEnum.Text || node.HtmlControlType == HtmlControlTypeEnum.Textarea) {
+#>
+
+        [When(@"I type ""(.*)"" in <#=node.HtmlControlType.ToString().ToLower() #> <#=node.CodeControlName #>")]
+        public void When_I_Type_In_<#=node.HtmlControlType #>_<#=node.CodeControlName #>(string text)
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.<#=node.CodeControlName #>.Text = text;
+        }
+<#
+	} // if
+} // foreach
+#>
+
+        #endregion
+
+
+        #region Assert - Then
+<#
+foreach(var node in Settings.SelectedHtmlElements) {
+
+	// Only  create code for nodes we want to have ant to
+	if (node.GenerateCodeForThisItem==false)
+		continue;
+
+	// For each control: generate a Then step to check if it's enabled or displayed
+#>
+
+        [Then(@"<#=node.HtmlControlType.ToString().ToLower() #> <#=node.CodeControlName #> is ([not]?) visible")]
+        public void Then_<#=node.HtmlControlType #>_<#=node.CodeControlName #>_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.<#=node.CodeControlName #>.IsDisplayed, visible);
+        }
+<#	if (node.HtmlControlType == HtmlControlTypeEnum.Link || node.HtmlControlType == HtmlControlTypeEnum.Textarea ||
+		node.HtmlControlType == HtmlControlTypeEnum.Button || node.HtmlControlType == HtmlControlTypeEnum.Select ||
+		node.HtmlControlType == HtmlControlTypeEnum.Listbox || node.HtmlControlType == HtmlControlTypeEnum.Text  ||
+		node.HtmlControlType == HtmlControlTypeEnum.Checkbox || node.HtmlControlType == HtmlControlTypeEnum.Radiobutton
+		) {
+#>
+
+        [Then(@"<#=node.HtmlControlType.ToString().ToLower() #> <#=node.CodeControlName #> is ([not]?) enabled")]
+        public void Then_<#=node.HtmlControlType #>_<#=node.CodeControlName #>_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.<#=node.CodeControlName #>.IsEnabled, enabled);
+        }
+<#	}
+
+	if (node.HtmlControlType == HtmlControlTypeEnum.Span)
+    {
+#>
+
+        [Then(@"<#=node.HtmlControlType.ToString().ToLower() #> <#=node.CodeControlName #> is ""(.*)""")]
+        public void Then_<#=node.HtmlControlType #>_<#=node.CodeControlName #>_Check_Enabled(string text)
+        {
+			var screen = GetScreen<$pageclass$>();
+			Assert.AreEqual (screen.<#=node.CodeControlName #>.Text, text);
+        }
+<#
+    } else if (node.HtmlControlType == HtmlControlTypeEnum.Select || node.HtmlControlType == HtmlControlTypeEnum.Listbox) {
+#>
+
+        [Then(@"I <#=node.HtmlControlType.ToString().ToLower() #> <#=node.CodeControlName #> has selected item ""(.*)""")]
+        public void Then_The_Select_Item_In_<#=node.HtmlControlType #>_<#=node.CodeControlName #>_Is(string selectedOption)
+        {
+            var screen = GetScreen<$pageclass$>();
+            Assert.AreEqual(screen.<#=node.CodeControlName #>.CurrentSelectedItem, selectedOption);
+        }
+<#
+    } else if (node.HtmlControlType == HtmlControlTypeEnum.Text || node.HtmlControlType == HtmlControlTypeEnum.Textarea) {
+#>
+
+        [Then(@"The text in <#=node.HtmlControlType.ToString().ToLower() #> <#=node.CodeControlName #> is ""(.*)""")]
+        public void Then_The_Text_in_<#=node.HtmlControlType #>_<#=node.CodeControlName #>_Is(string text)
+        {
+            var screen = GetScreen<$pageclass$>();
+            Assert.AreEqual(screen.<#=node.CodeControlName #>.Text, text);
+        }
+<#
+    } else if (node.HtmlControlType == HtmlControlTypeEnum.Radiobutton ||
+			   node.HtmlControlType == HtmlControlTypeEnum.Checkbox) {
+#>
+
+        [Then(@"The <#=node.HtmlControlType.ToString().ToLower() #> <#=node.CodeControlName #> is ([not]?) checked")]
+        public void Then_<#=node.HtmlControlType #>_<#=node.CodeControlName #>_Checked(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool isChecked = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.<#=node.CodeControlName #>.IsChecked, isChecked);
+        }
+<#
+    } else if (node.HtmlControlType == HtmlControlTypeEnum.Table)
+	{ // Create the controls for all tables
+#>
+
+        [Then(@"The title of table <#=node.CodeControlName #> should be ""(.*)""")]
+        public void Then_The_Title_Of_Table_<#=node.CodeControlName #>_Should_Be(string title)
+        {
+            var screen = GetScreen<$pageclass$>();
+            Assert.AreEqual(screen.<#=node.CodeControlName #>.Title, title);
+        }
+
+
+        [Then(@"Table <#=node.CodeControlName #> should contain a header row")]
+        public void Then_Table_<#=node.CodeControlName #>_Should_Contain_A_HeaderRow()
+        {
+            var screen = GetScreen<$pageclass$>();
+            Assert.IsTrue(screen.<#=node.CodeControlName #>.HasHeaderRow);
+        }
+
+<#
+		if (Settings.TypeOfPage == PageTemplatesEnum.TablePage) {
+			// Add code for typed datasets
+#>
+
+        [Then(@"Table <#=node.CodeControlName #> should contain (\d+) rows")]
+        public void Then_Table_<#=node.CodeControlName #>_Should_Contain_X_Rows(int expectedRowCount)
+        {
+            var screen = GetScreen<$pageclass$>();
+            Assert.AreEqual(expectedRowCount, screen.<#= Settings.TableInfo.EntityName + "Container" #>.Rows.Count);
+        }
+
+        [Then(@"In table <#=node.CodeControlName #> the value in cell \((\d+),(\d+)\) should be ""(.*)""")]
+        public void Then_In_Table_<#=node.CodeControlName #>_The_Value_In_Cell_Should_Be(int x, int y, string value)
+        {
+            var screen = GetScreen<$pageclass$>();
+            Assert.AreEqual(value, screen.<#= Settings.TableInfo.EntityName + "Container" #>.Rows[y][x] ?? "");
+        }
+<#   } // if TablePage
+   } // if Table
+} // foreach
+#>
+        #endregion
+    }
+}

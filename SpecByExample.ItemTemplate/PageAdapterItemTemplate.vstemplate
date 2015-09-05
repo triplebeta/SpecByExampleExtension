@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>SpecByExample PageObject</Name>
+    <Description>Create an adapter for an HTML page to access the elements on that page using an object model.</Description>
+    <Icon>PageAdapterItemTemplate.ico</Icon>
+    <TemplateID>71480193-fe09-497d-9003-0058e61acf4f</TemplateID>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <DefaultName>MyPage.cs</DefaultName>
+    <ProvideDefaultName>false</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectItem ItemType="None">PageAdapterWizardConfig.xml</ProjectItem>
+
+    <ProjectItem ItemType="Code">T4\PageObject.Init.tt</ProjectItem>
+    <ProjectItem ItemType="Code">T4\PageObject.Main.tt</ProjectItem>
+    <ProjectItem ItemType="Code">T4\PageObject.Template.tt</ProjectItem>
+    <ProjectItem ItemType="Code">T4\PageObject.Template.GenericPage.tt</ProjectItem>
+    <ProjectItem ItemType="Code">T4\PageObject.Template.TablePage.tt</ProjectItem>
+    <ProjectItem ItemType="Code">T4\PageObject.Template.TableHelpers.tt</ProjectItem>
+
+    <ProjectItem ItemType="Code">T4\SpecFlowSteps.Init.tt</ProjectItem>
+    <ProjectItem ItemType="Code">T4\SpecFlowSteps.Main.tt</ProjectItem>
+    <ProjectItem ItemType="Code">T4\SpecFlowSteps.Template.tt</ProjectItem>
+
+    <ProjectItem ItemType="Code">T4\SpecFlowFeature.Init.tt</ProjectItem>
+    <ProjectItem ItemType="Code">T4\SpecFlowFeature.Main.tt</ProjectItem>
+    
+    <ProjectItem ItemType="Compile" TargetFileName="$targetfilename$" ReplaceParameters="true">PageClassPlaceholder.txt</ProjectItem>
+  </TemplateContent>
+
+  <!-- Install a NuGet package when using this wizard -->
+  <WizardExtension>
+    <!-- These names must be fully qualified! Registration in the GAC is NOT necessary -->
+    <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
+    <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
+  </WizardExtension>
+  <WizardExtension>
+    <!-- Our wizards assembly must have a strong name as well -->
+    <Assembly>SpecByExample.T4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6c92e879ce97be78</Assembly>
+    <FullClassName>SpecByExample.T4.CreatePageAdapterWizard</FullClassName>
+  </WizardExtension>
+
+  <!-- Define which NuGet packages to install -->
+  <WizardData>
+    <!-- BE CAREFUL: These MUST be all lowercases! As well as the directory must be named in all lowercase: packages -->
+    <packages repository="extension" repositoryId="SpecByExample.baa6f5bb-f971-45f3-a7fa-9b3be5ffb8fe">
+      <package id="Castle.Core" version="3.3.3" />
+      <package id="Castle.Windsor" version="3.3.0" />
+      <package id="Selenium.WebDriver" version="2.47.0" />
+      <package id="Selenium.Support" version="2.47.0" />
+      <package id="SpecFlow" version="1.9.0" />
+      <package id="HtmlAgilityPack" version="1.4.9" />
+      <package id="SpecByExample.PageCreator" version="1.0.0" />
+    </packages>
+  </WizardData>
+  </VSTemplate>
