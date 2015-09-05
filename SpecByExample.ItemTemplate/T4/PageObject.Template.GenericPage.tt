@@ -1,0 +1,71 @@
+﻿<#  
+	// Show a list of all excluded items
+	var excludedItems = Settings.SelectedHtmlElements.Where(x=>x.GenerateCodeForThisItem==false);
+	if (excludedItems.Count()>0)
+	{ 
+		WriteLine("\t\t/* For the following controls we did not generate code since they could not be uniquely identified");
+		foreach(var node in excludedItems)
+		{
+			string line = string.Format("{0}\t{1}\t{2}",node.HtmlId, node.HtmlName, node.HtmlCssClass).Trim();
+			if (line!="") WriteLine("\t\t\t" + line);
+		}
+		WriteLine("\t\t*/");
+	}
+#>
+
+        #region Selenium IWebElement items on this page
+
+// Disable warning for: Field XYZ is never assigned to, and will always have its default value XX
+#pragma warning disable 0649
+<#
+foreach(var node in Settings.SelectedHtmlElements) {
+
+	// Only  create code for nodes we want to have ant to
+	if (node.GenerateCodeForThisItem==false)
+		continue;
+ #>
+
+        /// <summary>
+        /// Html <#=node.CodeControlType #> element: <#=node.Description#>
+		/// </summary>
+<# if (node.IdentifiedBy==ControlIdentificationType.Id) { #>
+        [FindsBy(How=How.Id, Using="<#= node.HtmlId #>")]
+<# } else if (node.IdentifiedBy==ControlIdentificationType.Name) { #>
+        [FindsBy(How=How.Name, Using="<#= node.HtmlName #>")]
+<# } else if (node.IdentifiedBy==ControlIdentificationType.Cssclass) { #>
+        [FindsBy(How=How.ClassName, Using="<#= node.HtmlCssClass #>")]
+<# } #>
+        private IWebElement <#=node.CodeControlName #>Control;
+<# } #>
+
+#pragma warning restore 0649
+
+        #endregion
+
+
+		#region Controls to wrap the HTML items
+<#
+/* For a TablePage: do not create the WebTable control since it will be created lateron */
+string tableToExclude = null;
+if (Settings.TableInfo!=null) tableToExclude = Settings.TableInfo.TableControlName;
+foreach(var node in Settings.SelectedHtmlElements)
+{
+	// Only  create code for nodes we want to have
+	if (node.GenerateCodeForThisItem==false)
+		continue;
+
+	// Skip it if it's that table
+	if (tableToExclude!=null && node.CodeControlName == tableToExclude)
+		continue;
+#>
+
+        /// <summary>
+        /// <#= node.CodeControlType #>: <#= node.HtmlName #>
+        /// </summary>
+        public <#= node.CodeControlType #> <#= node.CodeControlName #>
+        {
+            get { return <#=node.CodeControlName #>Control.As<<#= node.CodeControlType #>>(CurrentWebDriver); }
+        }
+<# } /* foreach */ #>
+
+		#endregion

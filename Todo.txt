@@ -1,0 +1,50 @@
+
+TODO:
+-----
+- SpecFlow tags gebruiken voor partitioneren van testen
+- Uitwerken regels voor granulariteit van steps en testen: wat bij elkaar?
+- Wrapper voor jqGrid
+- Wrapper voor Infragistics grid
+- Screenshots maken bij errors en beheren op een vaste plaats
+- Check of een sectie zichtbaar is en maak een sectie wel/niet zichtbaar
+- Attribuut toevoegen op de control-properties met de naam om het veld via SpecFlow aan te spreken
+   --> In steps: reflection op Steps assemblies doen om de scherm- en controlnamen ophalen
+   --> Lijst van die namen opbouwen en cachen
+- Generieke steps definieren voor het checken van een waarde van een veld en wel/niet zichtbaar zijn ervan (autorisatie)
+- Basis COProfPage class maken die ook toegang geeft tot de vaste elementen van de COProf pagina
+- Voor de 3 soorten pagina's in COProf een base-Screen-class maken om snel nieuwe testen te kunnen bouwen
+- T4 template ook de baseclass van de gegenereerde page goed laten zetten
+- Eigen subtype definieren voor het project in Visual Studio en daarbij extra properties opslaan uit de originele wizard zoals de settings van de wizard
+- Multi-project template aan installer toevoegen
+- Icons in de installer aanpassen
+- Getting Started guide maken
+- Step genereren voor het aanklikken van de links + aanklikken van buttons + Invullen van een tekstbox
+- In Wizard ook de controls meteen laten aanpassen qua properties: naam van de property + wel/niet genereren
+
+
+GEPARKEERD
+==========
+- Inloggen met Windows authentication  (WindowsIntegratedAuthenticationHelper gemaakt, werkt nog niet)
+
+
+DONE
+====
+- Ondersteuning voor culture in parsen van nummers
+- Foutmeldingstekst in Page object toevoegen
+- HasError toevoegn aan Page object die True is als er een COProf error wordt getoond
+- Wrapper voor Label
+- Op een page de controls beschikbaar stellen via een Wrapper
+- Wrapper voor tekstbox
+- Wrapper voor checkbox
+- Wrapper voor combobox
+- JavaScript helper om stukjes JavaScript uit te voeren
+- Uitlezen of er een JavaScript alert is + Tekst
+- Klikken op een bepaalde knop van een JavaScript alert
+- Hoe gaan we urls vastleggen van bv directe schermen?   (Wellknown url class)
+- Url Helper maken voor opbouwen van url parameters in de url
+- Table helper maken om eenvoudig een tabel uit te lezen
+	--> Kolomnamen uitlezen
+	--> Waarden van een rij getypeerd uitlezen via een POCO entity
+- Compiler warnings verbergen met #pragma
+- Data Driven testing voorbeeld (tabel doorgeven aan SpecFlow test) om bv een tabel te checken
+- Versnellen uitlezen van tabellen mbv HtmlAgilityPack

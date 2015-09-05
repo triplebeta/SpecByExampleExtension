@@ -1,0 +1,39 @@
+﻿<#@ output extension=".txt" #>
+<#@ assembly name="$(SolutionDir)\packages\HtmlAgilityPack.1.4.6\lib\Net40\HtmlAgilityPack.dll" #>
+<#@ assembly name="$(SolutionDir)\SpecByExample.T4\bin\Debug\SpecByExample.T4.dll" #>
+<#
+	/* This file is just to start another template for testing */
+
+	var testSettings = new CodeGenerationSettings(); 
+	testSettings.PageName= "MyTestPage";
+	testSettings.PageInfo.PageNumber = "S123";
+	testSettings.PageUrl = "http://www.google.nl";
+	testSettings.CreateSpecFlowStepsFile = true;
+	testSettings.CreateSpecFlowFeatureFile = true;
+
+	// Use the WebBrowser control to load the page and render it, this ensures all JavaScript will be executed as well.
+    // Then feed the HTML to the HtmlAgilityPack document.
+	var webbrowser = new WebBrowser();
+    webbrowser.Navigate(new Uri(testSettings.PageUrl));
+    while (webbrowser.ReadyState != WebBrowserReadyState.Complete)
+    {
+        // Dirty but the most easy way to wait for it synchroneously
+        System.Threading.Thread.Sleep(250);
+        Application.DoEvents();
+    }
+
+	// NOTE: This works only because the Template tag in the Main file contains the attribute hostspecific="true"
+	string configFile = Host.ResolvePath(@"..\PageAdapterWizardConfig.xml");
+	var config = WizardConfigLoader.LoadWizardConfiguration(configFile);
+	if (config==null)
+		throw new InvalidOperationException("Configuration file not found or it is invalid. ");
+
+	// At this point, the HTML is loaded completely
+    string html = webbrowser.DocumentText;
+    var doc = HtmlLoader.LoadDocumentFromHtml(html);
+	testSettings.SelectedHtmlElements = HtmlLoader.GetHtmlControls(doc, config.Controls, false, testSettings.Options);
+	testSettings.PageInfo = HtmlLoader.GetPageInfo(doc);
+
+	Session.Add("WizardSettings",testSettings);
+#>
+<#@ include file="SpecFlowFeature.Main.tt" #>

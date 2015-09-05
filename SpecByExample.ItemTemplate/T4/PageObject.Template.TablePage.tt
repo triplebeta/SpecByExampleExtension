@@ -1,0 +1,60 @@
+﻿        #region Implement methods for the table
+
+        protected override ITableMappingDefinition<$entityname$Columns> CreateTableMapping()
+        {
+            return new <#= className #>TableMappingDefinition();
+        }
+
+        protected override List<$entityname$Columns> CreateListOfColumns()
+        {
+            return new List<$entityname$Columns>() { 
+				
+<# foreach(var column in Settings.TableInfo.Columns)
+	   WriteLine("\t\t\t\t$entityname$Columns.{0},",column.CodeEnumItem);
+#>
+			};
+        }
+
+        protected override HtmlTable CreateHtmlTable()
+        {
+            return $tablecontrolname$.As<HtmlTable>(CurrentWebDriver);
+        }
+
+
+        /// <summary>
+        /// Data for the $entityname$
+        /// </summary>
+        private $entityname$Container dataContainer = null;
+        public $entityname$Container $entityname$Container
+        {
+            get
+            {
+                // Lazy initialization
+                if (dataContainer == null)
+                {
+                    dataContainer = new $entityname$Container();
+
+					// TODO Assign key columns (for now we don't use any keys)
+					// var keyColumns = new $entityname$Columns[] { $entityname$Columns.$entityname$ID };
+					var keyColumns = new $entityname$Columns[] { };
+
+                    GetTableData<$entityname$Container, $entityname$Row, $entityname$Columns>(HtmlTableControl, "$entityname$", $entityname$Container, Columns, keyColumns);
+                }
+                return dataContainer;
+            }
+        }
+
+
+        /// <summary>
+        /// Provides access to the HTML elements of the table.
+        /// Use the HtmlTableControl property to access its data.
+        /// </summary>
+        public WebTable $tablecontrolname$Table
+        {
+            get
+            {
+                return new WebTable(CurrentWebDriver, HtmlTableControl);
+            }
+        }
+
+        #endregion

@@ -1,0 +1,74 @@
+<html>
+<head>
+<script>
+</script>
+</head>
+<body>
+<p>
+Pagina om te testen of we ook pagina's met dubbele of ontbrekende IDs goed kunnen uitlezen met de T4 template.
+</p>
+<button>Button zonder ID, class of name</button>
+<button name="ButtonWithName">Button met alleen een name</button>
+<button id="ButtonWithID_ID" name="ButtonWithID_Name">Button met een name en ID</button>
+<button class="ButtonWithClass">Button met alleen een class</button>
+
+<input type="radio" id="RadiobuttonWithID" value="Radio button with ID" />
+<textarea id="TextAreaWithIDAndName_ID" name="TextAreaWithIDAndName_Name" rows="6" cols="40">Textarea met een ID en een naam</textarea>
+
+<a class="MyLinkClass">Link1 (zelfde class als Link2)</a>
+<a class="MyLinkClass">Link2 (zelfde class als Link1)</a>
+
+<a id="LinkID" name="LinkName" class="LinkClass">Link met id, name en class</a>
+
+<input type="checkbox" id="CheckboxMetID" value="Checkbox met ID" />
+<input type="checkbox" value="Checkbox zonder ID" />
+
+<input type="text" value="Textbox without ID"/>
+<input type="text" name="TextboxWithName" value="Textbox with name"/>
+
+<input type="select" value="Select zonder ID" />
+<input type="select" id="SelectMetID" value="Select met ID" />
+
+
+<form>
+<!-- Twee tabellen in dit document -->
+<tABle id="MyEmployeeTable">
+    <caption>Medewerkers</caption>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Date of birth</th>
+        <th>Male</th>
+    </tr>
+    <tr>
+        <td>123</td>
+        <td>Jan</td>
+        <td>15-8-1975</td>
+        <td>True</td>
+    </tr>
+    <tr>
+        <td>456</td>
+        <td>Kim</td>
+        <td>2-4-1990</td>
+        <td>False</td>
+    </tr>
+    <tr>
+        <td>789</td>
+        <td>Piet</td>
+        <td>12-10-1980</td>
+        <td>True</td>
+    </tr>
+</tABle>
+
+<br />
+<br />
+<br />
+<table id="DezeNietGebruiken">
+    <tr>
+        <td>15</td>
+        <td>16</td>
+    </tr>
+</table>
+</form>
+</body>
+</html>
