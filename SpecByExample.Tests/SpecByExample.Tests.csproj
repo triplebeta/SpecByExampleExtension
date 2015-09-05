@@ -93,8 +93,12 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Testdata\" />
+    <Content Include="Testdata\PaginaMetDubbeleIDs.htm" />
+    <Content Include="Testdata\TestMetAlert.htm" />
+    <Content Include="Testdata\TestMetExterneLink.htm" />
+    <Content Include="Testdata\TestMetTabel.htm" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
