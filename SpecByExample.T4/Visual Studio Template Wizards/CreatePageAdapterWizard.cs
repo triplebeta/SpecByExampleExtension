@@ -24,7 +24,7 @@ namespace SpecByExample.T4
     {
         // Add items only if the wizard is completed successfully
         private CodeGenerationSettings settings = null;
-        const string WIZARD_CONFIG_FILENAME = "PageAdapterWizardConfig.xml";
+        const string WIZARD_CONFIG_FILENAME = "PageObjectControlMappingConfig.xml";
 
         // Declare a set of variables to remember some values when enterin ProjectItemFinishedGenerating
         private _DTE Dte { get; set; }

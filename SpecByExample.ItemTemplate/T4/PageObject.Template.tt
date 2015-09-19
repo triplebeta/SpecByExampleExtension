@@ -32,7 +32,7 @@ if (Settings.TypeOfPage == PageTemplatesEnum.GenericPage)
 {
 #>
     /// <summary>
-    /// Standard Page Adapter for <#= Settings.PageName #> for module <#= Settings.ApplicationModule ?? "" #>
+    /// Implements the <seealso cref="https://code.google.com/p/selenium/wiki/PageObjects">PageObject</seealso> for <#= Settings.PageName #> for module <#= Settings.ApplicationModule ?? "" #>.
     /// </summary>
 	/// <remarks>Generated using the T4 tempate.</remarks>
     public class <#= className #> : $basepageclass$

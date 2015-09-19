@@ -18,6 +18,7 @@ namespace SpecByExample.T4
             DefaultOptions.PreferredIdentifications = new ControlIdentificationType[] {
                     ControlIdentificationType.Id, 
                     ControlIdentificationType.Name,
+                    ControlIdentificationType.LinkText,
                     ControlIdentificationType.Cssclass };
         }
 
@@ -198,7 +199,13 @@ namespace SpecByExample.T4
                     var duplicates = controls.Where(
                         x => (control.IdentifiedBy == ControlIdentificationType.Id && x.HtmlId == control.HtmlId) ||
                              (control.IdentifiedBy == ControlIdentificationType.Name && x.HtmlName == control.HtmlName) ||
-                             (control.IdentifiedBy == ControlIdentificationType.Cssclass && x.HtmlCssClass == control.HtmlCssClass));
+                             (control.IdentifiedBy == ControlIdentificationType.Cssclass && x.HtmlCssClass == control.HtmlCssClass) ||
+                             (control.IdentifiedBy == ControlIdentificationType.LinkText && x.Description == control.Description));
+
+                    var duplicateIds = controls.Where(x => (control.IdentifiedBy == ControlIdentificationType.Id && x.HtmlId == control.HtmlId));
+                    var duplicateNames = controls.Where(x => (control.IdentifiedBy == ControlIdentificationType.Name && x.HtmlName == control.HtmlName));
+                    var duplicateLinkText = controls.Where(x => (control.IdentifiedBy == ControlIdentificationType.LinkText && x.Description == control.Description));
+                    var duplicateCss = controls.Where(x => (control.IdentifiedBy == ControlIdentificationType.Cssclass && x.HtmlCssClass == control.HtmlCssClass));
 
                     // The current item will be found as well :)
                     if (duplicates.Count() > 1)
@@ -233,14 +240,18 @@ namespace SpecByExample.T4
                     // Read basic info from the node
                     var ctrl = new HtmlControlInfo();
                     ctrl.HtmlId = node.Id;
+                    ctrl.HtmlTitle = node.GetAttributeValue("title", "");
                     ctrl.HtmlName = node.GetAttributeValue("name", "");
                     ctrl.HtmlCssClass = node.GetAttributeValue("class", "");
-                    ctrl.Description = NormalizeAsControlName(node.InnerText);
+                    ctrl.Description = node.InnerText.Trim();
 
                     // Set a default for the name of the control which might be customized lateron
-                    ctrl.UserDefinedName = String.IsNullOrEmpty(ctrl.HtmlId) ? ctrl.HtmlName : ctrl.HtmlId;
-                    if (String.IsNullOrEmpty(ctrl.UserDefinedName) && String.IsNullOrEmpty(ctrl.Description) == false)
-                        ctrl.UserDefinedName = ctrl.Description;
+                    if (String.IsNullOrEmpty(ctrl.Description)==false)
+                        ctrl.UserDefinedName = HtmlLoader.NormalizeAsControlName(ctrl.Description);
+                    else if (String.IsNullOrEmpty(ctrl.HtmlTitle) == false)
+                        ctrl.UserDefinedName = HtmlLoader.NormalizeAsControlName(ctrl.HtmlTitle);
+                    else
+                        ctrl.UserDefinedName = String.IsNullOrEmpty(ctrl.HtmlId) ? ctrl.HtmlName : ctrl.HtmlId;
 
                     foreach (var ident in options.PreferredIdentifications)
                     {
@@ -248,7 +259,20 @@ namespace SpecByExample.T4
                         {
                             case ControlIdentificationType.Id: if (String.IsNullOrEmpty(ctrl.HtmlId) == false) ctrl.IdentifiedBy = ControlIdentificationType.Id; break;
                             case ControlIdentificationType.Name: if (String.IsNullOrEmpty(ctrl.HtmlName) == false) ctrl.IdentifiedBy = ControlIdentificationType.Name; break;
-                            case ControlIdentificationType.Cssclass: if (String.IsNullOrEmpty(ctrl.HtmlCssClass) == false) ctrl.IdentifiedBy = ControlIdentificationType.Cssclass; break;
+                            case ControlIdentificationType.LinkText:
+                                {
+                                    // Identify control by the content of the anchor tag
+                                    if (ctrl.HtmlControlType == HtmlControlTypeEnum.Link && String.IsNullOrEmpty(ctrl.Description) == false)
+                                        ctrl.IdentifiedBy = ControlIdentificationType.LinkText;
+                                    break;
+                                }
+                            case ControlIdentificationType.Cssclass: if (String.IsNullOrEmpty(ctrl.HtmlCssClass) == false)
+                                {
+                                    // Selenium cannot identify controls by CSS selectors they have a compound CSS expression (= multiple elements applied to it)
+                                    // So a control with class="blue fat" cannot be identified by its CSS expression since "blue fat" has more than one element.
+                                    if (ctrl.HtmlCssClass.Contains(" ")==false)
+                                        ctrl.IdentifiedBy = ControlIdentificationType.Cssclass;
+                                } break;
                         }
                         if (ctrl.IdentifiedBy != ControlIdentificationType.None)
                             break;
@@ -277,7 +301,7 @@ namespace SpecByExample.T4
                 return "";
 
             string newID = text.Replace("\n", " ").Replace("\r", "").Replace("\t", "");
-            newID = newID.Replace("-", "_").Replace("$", "_").Replace("~", "");
+            newID = newID.Replace("-", "_").Replace("'","").Replace("+","Plus").Replace("$", "Dollar").Replace("#","").Replace("~", "");
             newID = newID.Trim();
             newID = newID.Replace("&nbsp;", "");    // Remove HTML spaces
 
@@ -288,7 +312,33 @@ namespace SpecByExample.T4
             {
                 newID = "_" + newID;
             }
+
+            // Make it pretty and properly normalized to Unicode format C
+            newID = ConvertToCamelCase(newID).Normalize();
+
+            // Ensure we do not create identifiers which are too long.
+            if (newID.Length > 511) newID = newID.Substring(100);
+
             return newID;
+        }
+
+        private static string ConvertToCamelCase(string phrase)
+        {
+            string[] splittedPhrase = phrase.Split(' ', '-', '.');
+            var sb = new StringBuilder();
+            //sb.Append(splittedPhrase[0].ToLower());
+            //splittedPhrase[0] = string.Empty;
+
+            foreach (String s in splittedPhrase)
+            {
+                char[] splittedPhraseChars = s.ToCharArray();
+                if (splittedPhraseChars.Length > 0)
+                {
+                    splittedPhraseChars[0] = ((new String(splittedPhraseChars[0], 1)).ToUpper().ToCharArray())[0];
+                }
+                sb.Append(new String(splittedPhraseChars));
+            }
+            return sb.ToString();
         }
 
 

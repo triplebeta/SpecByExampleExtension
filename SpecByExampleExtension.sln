@@ -11,8 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Applications", "{FCBA3BB3-45D6-405D-9798-C0837F591BC4}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_WebDrivers", "_WebDrivers", "{E8F31DD9-D108-4CDD-91BC-DBA67F8F761F}"
 	ProjectSection(SolutionItems) = preProject
 		DevTools\chromedriver.exe = DevTools\chromedriver.exe
@@ -30,8 +28,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{A7E4F8F3-C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumTester", "SeleniumTester\SeleniumTester.csproj", "{1E2831B7-7587-4AE5-B864-674B01DEE8E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.Pages", "Google.Pages\Google.Pages.csproj", "{A9B32D60-E119-4027-8407-BBA453271F0D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecByExample.Common", "SpecByExample.Common\SpecByExample.Common.csproj", "{BBA9A2E5-355D-4427-B5B7-8022B1C9EE13}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecByExample.T4", "SpecByExample.T4\SpecByExample.T4.csproj", "{D7385152-80CF-4F6E-BDD4-5FCFE7636C4F}"
@@ -43,6 +39,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecByExample.Installer", "SpecByExample.Installer\SpecByExample.Installer.csproj", "{708F17E5-6273-4008-945E-137CEBA409FD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecByExample.Tests", "SpecByExample.Tests\SpecByExample.Tests.csproj", "{BB1CC0E4-83A7-4386-B447-3D86B224915E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Publish", "_Publish", "{6CA14869-A512-4A79-804E-6D340CEE3DAF}"
+	ProjectSection(SolutionItems) = preProject
+		PublishToNuget.cmd = PublishToNuget.cmd
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -88,36 +89,6 @@ Global
 		{1E2831B7-7587-4AE5-B864-674B01DEE8E4}.Release|Mixed Platforms.Build.0 = Release|x86
 		{1E2831B7-7587-4AE5-B864-674B01DEE8E4}.Release|x86.ActiveCfg = Release|x86
 		{1E2831B7-7587-4AE5-B864-674B01DEE8E4}.Release|x86.Build.0 = Release|x86
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.AutomatedDebug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.AutomatedDebug|Any CPU.Build.0 = Debug|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.AutomatedDebug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.AutomatedDebug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.AutomatedDebug|x86.ActiveCfg = Debug|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.AutomatedDebug|x86.Build.0 = Debug|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.Debug (.Net 4.0)|Any CPU.ActiveCfg = Debug|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.Debug (.Net 4.0)|Any CPU.Build.0 = Debug|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.Debug (.Net 4.0)|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.Debug (.Net 4.0)|Mixed Platforms.Build.0 = Debug|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.Debug (.Net 4.0)|x86.ActiveCfg = Debug|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.Debug (.Net 4.0)|x86.Build.0 = Debug|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.Debug|x86.Build.0 = Debug|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.Release (.Net 4.0)|Any CPU.ActiveCfg = Release|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.Release (.Net 4.0)|Any CPU.Build.0 = Release|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.Release (.Net 4.0)|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.Release (.Net 4.0)|Mixed Platforms.Build.0 = Release|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.Release (.Net 4.0)|x86.ActiveCfg = Release|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.Release (.Net 4.0)|x86.Build.0 = Release|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.Release|x86.ActiveCfg = Release|Any CPU
-		{A9B32D60-E119-4027-8407-BBA453271F0D}.Release|x86.Build.0 = Release|Any CPU
 		{BBA9A2E5-355D-4427-B5B7-8022B1C9EE13}.AutomatedDebug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BBA9A2E5-355D-4427-B5B7-8022B1C9EE13}.AutomatedDebug|Any CPU.Build.0 = Debug|Any CPU
 		{BBA9A2E5-355D-4427-B5B7-8022B1C9EE13}.AutomatedDebug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -305,8 +276,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{E8F31DD9-D108-4CDD-91BC-DBA67F8F761F} = {121173EA-1063-405C-84DF-406629D30992}
 		{1E2831B7-7587-4AE5-B864-674B01DEE8E4} = {A7E4F8F3-CC23-4369-A80E-6E096FC1F746}
-		{A9B32D60-E119-4027-8407-BBA453271F0D} = {FCBA3BB3-45D6-405D-9798-C0837F591BC4}
-		{BBA9A2E5-355D-4427-B5B7-8022B1C9EE13} = {FCBA3BB3-45D6-405D-9798-C0837F591BC4}
+		{BBA9A2E5-355D-4427-B5B7-8022B1C9EE13} = {121173EA-1063-405C-84DF-406629D30992}
 		{D7385152-80CF-4F6E-BDD4-5FCFE7636C4F} = {121173EA-1063-405C-84DF-406629D30992}
 		{FE45AD2A-5B68-4F08-A8EC-A50272011CB7} = {121173EA-1063-405C-84DF-406629D30992}
 		{4FBEEDE7-7A33-4904-8B2E-0CE830161918} = {121173EA-1063-405C-84DF-406629D30992}

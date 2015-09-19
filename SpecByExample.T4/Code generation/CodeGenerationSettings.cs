@@ -19,6 +19,7 @@ namespace SpecByExample.T4
             Options.PreferredIdentifications = new ControlIdentificationType[] {
                 ControlIdentificationType.Id, 
                 ControlIdentificationType.Name,
+                ControlIdentificationType.LinkText,
                 ControlIdentificationType.Cssclass };
 
             AllHtmlElements = new List<HtmlControlInfo>();

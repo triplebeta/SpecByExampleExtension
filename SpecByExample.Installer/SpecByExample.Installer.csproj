@@ -58,7 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="NuGet\SpecByExample.PageCreator.nuspec">
+    <None Include="NuGet\SpecByExample.Common.nuspec">
       <SubType>Designer</SubType>
     </None>
     <None Include="NuGet\CreateNuGetPackage.cmd" />
@@ -93,7 +93,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="packages\SpecByExample.PageCreator.1.0.0.nupkg">
+    <Content Include="packages\SpecByExample.Common.1.0.0.nupkg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
@@ -153,9 +153,8 @@
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\VSSDK\Microsoft.VsSDK.targets" Condition="false" />
   <PropertyGroup>
-    <PreBuildEvent>DEL /q "$(ProjectDir)packages\SpecByExample.PageCreator.nupkg"
-"$(ProjectDir)..\packages\NuGet.CommandLine.2.1.2\tools\NuGet.exe" pack "$(ProjectDir)NuGet\SpecByExample.PageCreator.nuspec"
-@ECHO Make sure our NuGet package gets included in the VSIX
+    <PreBuildEvent>DEL /q "$(ProjectDir)packages\SpecByExample.Common.nupkg"
+"$(ProjectDir)..\packages\NuGet.CommandLine.2.1.2\tools\NuGet.exe" pack "$(ProjectDir)NuGet\SpecByExample.Common.nuspec"
 XCOPY /R /Y "$(TargetDir)*.nupkg" "$(ProjectDir)packages"</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>

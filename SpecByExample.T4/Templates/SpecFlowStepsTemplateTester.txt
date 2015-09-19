@@ -1,1 +1,970 @@
-﻿ErrorGeneratingOutput
+﻿using System;
+using System.Linq;
+using System.Text;
+using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TechTalk.SpecFlow;
+using SpecByExample.Common;
+using $basename$.Pages;
+
+namespace $basename$.Specs
+{
+    [Binding]
+    public class $specflowstepsclass$ : BaseSeleniumSteps
+    {
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="state">State is passed in using Constructor Injection</param>
+        public $specflowstepsclass$(SeleniumBrowserInfo state) : base(state) { }
+
+
+        #region Arrange - Given
+
+        [Given("I go to the MyTestPage on url '(.*)'")]
+        public void Given_I_Go_To_Url(string url)
+        {
+            CurrentWebDriver.Url = url;
+            CurrentWebDriver.Navigate();
+        }
+
+        #endregion
+
+
+        #region Act - When
+
+
+        [When(@"I click the GebruikersVanSchermlezersKunnenHierKlikkenOmGoogleInstantUitTeSchakelenLink link")]
+        public void When_I_Click_The_GebruikersVanSchermlezersKunnenHierKlikkenOmGoogleInstantUitTeSchakelenLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.GebruikersVanSchermlezersKunnenHierKlikkenOmGoogleInstantUitTeSchakelenLink.Click();
+        }
+
+        [When(@"I click the AfbeeldingenLink link")]
+        public void When_I_Click_The_AfbeeldingenLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.AfbeeldingenLink.Click();
+        }
+
+        [When(@"I click the InloggenLink link")]
+        public void When_I_Click_The_InloggenLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.InloggenLink.Click();
+        }
+
+        [When(@"I click the GaNaarDeGoogle_homepageLink link")]
+        public void When_I_Click_The_GaNaarDeGoogle_homepageLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.GaNaarDeGoogle_homepageLink.Click();
+        }
+
+        [When(@"I click the DownloadGoogleChromeLink link")]
+        public void When_I_Click_The_DownloadGoogleChromeLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.DownloadGoogleChromeLink.Click();
+        }
+
+        [When(@"I click the MaakVanGoogleMijnStartpaginaLink link")]
+        public void When_I_Click_The_MaakVanGoogleMijnStartpaginaLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.MaakVanGoogleMijnStartpaginaLink.Click();
+        }
+
+        [When(@"I click the PrivacyLink link")]
+        public void When_I_Click_The_PrivacyLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.PrivacyLink.Click();
+        }
+
+        [When(@"I click the VoorwaardenLink link")]
+        public void When_I_Click_The_VoorwaardenLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.VoorwaardenLink.Click();
+        }
+
+        [When(@"I click the InstellingenLink link")]
+        public void When_I_Click_The_InstellingenLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.InstellingenLink.Click();
+        }
+
+        [When(@"I click the ZoekinstellingenLink link")]
+        public void When_I_Click_The_ZoekinstellingenLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.ZoekinstellingenLink.Click();
+        }
+
+        [When(@"I click the GeavanceerdZoekenLink link")]
+        public void When_I_Click_The_GeavanceerdZoekenLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.GeavanceerdZoekenLink.Click();
+        }
+
+        [When(@"I click the GeschiedenisLink link")]
+        public void When_I_Click_The_GeschiedenisLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.GeschiedenisLink.Click();
+        }
+
+        [When(@"I click the HulpBijZoekenLink link")]
+        public void When_I_Click_The_HulpBijZoekenLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.HulpBijZoekenLink.Click();
+        }
+
+        [When(@"I click the FeedbackVerzendenLink link")]
+        public void When_I_Click_The_FeedbackVerzendenLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.FeedbackVerzendenLink.Click();
+        }
+
+        [When(@"I click the AdverterenLink link")]
+        public void When_I_Click_The_AdverterenLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.AdverterenLink.Click();
+        }
+
+        [When(@"I click the BedrijfLink link")]
+        public void When_I_Click_The_BedrijfLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.BedrijfLink.Click();
+        }
+
+        [When(@"I click the OverLink link")]
+        public void When_I_Click_The_OverLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.OverLink.Click();
+        }
+
+        [When(@"I click the MijnAccountLink link")]
+        public void When_I_Click_The_MijnAccountLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.MijnAccountLink.Click();
+        }
+
+        [When(@"I click the ZoekenLink link")]
+        public void When_I_Click_The_ZoekenLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.ZoekenLink.Click();
+        }
+
+        [When(@"I click the MapsLink link")]
+        public void When_I_Click_The_MapsLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.MapsLink.Click();
+        }
+
+        [When(@"I click the YouTubeLink link")]
+        public void When_I_Click_The_YouTubeLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.YouTubeLink.Click();
+        }
+
+        [When(@"I click the PlayLink link")]
+        public void When_I_Click_The_PlayLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.PlayLink.Click();
+        }
+
+        [When(@"I click the NieuwsLink link")]
+        public void When_I_Click_The_NieuwsLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.NieuwsLink.Click();
+        }
+
+        [When(@"I click the DriveLink link")]
+        public void When_I_Click_The_DriveLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.DriveLink.Click();
+        }
+
+        [When(@"I click the AgendaLink link")]
+        public void When_I_Click_The_AgendaLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.AgendaLink.Click();
+        }
+
+        [When(@"I click the GooglePlusLink link")]
+        public void When_I_Click_The_GooglePlusLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.GooglePlusLink.Click();
+        }
+
+        [When(@"I click the VertalenLink link")]
+        public void When_I_Click_The_VertalenLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.VertalenLink.Click();
+        }
+
+        [When(@"I click the FotosLink link")]
+        public void When_I_Click_The_FotosLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.FotosLink.Click();
+        }
+
+        [When(@"I click the MeerLink link")]
+        public void When_I_Click_The_MeerLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.MeerLink.Click();
+        }
+
+        [When(@"I click the ShoppingLink link")]
+        public void When_I_Click_The_ShoppingLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.ShoppingLink.Click();
+        }
+
+        [When(@"I click the DocumentenLink link")]
+        public void When_I_Click_The_DocumentenLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.DocumentenLink.Click();
+        }
+
+        [When(@"I click the BoekenLink link")]
+        public void When_I_Click_The_BoekenLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.BoekenLink.Click();
+        }
+
+        [When(@"I click the BloggerLink link")]
+        public void When_I_Click_The_BloggerLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.BloggerLink.Click();
+        }
+
+        [When(@"I click the ContactpersonenLink link")]
+        public void When_I_Click_The_ContactpersonenLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.ContactpersonenLink.Click();
+        }
+
+        [When(@"I click the NogMeerVanGoogleLink link")]
+        public void When_I_Click_The_NogMeerVanGoogleLink_Link()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.NogMeerVanGoogleLink.Click();
+        }
+
+        [When(@"I click the BtnGButton button")]
+        public void When_I_Click_The_BtnGButton_Button()
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.BtnGButton.Click();
+        }
+
+        [When(@"I type ""(.*)"" in text ZoekenTextbox")]
+        public void When_I_Type_In_Text_ZoekenTextbox(string text)
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.ZoekenTextbox.Text = text;
+        }
+
+        [When(@"I type ""(.*)"" in textarea CsiTextarea")]
+        public void When_I_Type_In_Textarea_CsiTextarea(string text)
+        {
+            var screen = GetScreen<$pageclass$>();
+            screen.CsiTextarea.Text = text;
+        }
+
+        #endregion
+
+
+        #region Assert - Then
+
+        [Then(@"link GebruikersVanSchermlezersKunnenHierKlikkenOmGoogleInstantUitTeSchakelenLink is ([not]?) visible")]
+        public void Then_Link_GebruikersVanSchermlezersKunnenHierKlikkenOmGoogleInstantUitTeSchakelenLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.GebruikersVanSchermlezersKunnenHierKlikkenOmGoogleInstantUitTeSchakelenLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link GebruikersVanSchermlezersKunnenHierKlikkenOmGoogleInstantUitTeSchakelenLink is ([not]?) enabled")]
+        public void Then_Link_GebruikersVanSchermlezersKunnenHierKlikkenOmGoogleInstantUitTeSchakelenLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.GebruikersVanSchermlezersKunnenHierKlikkenOmGoogleInstantUitTeSchakelenLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link AfbeeldingenLink is ([not]?) visible")]
+        public void Then_Link_AfbeeldingenLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.AfbeeldingenLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link AfbeeldingenLink is ([not]?) enabled")]
+        public void Then_Link_AfbeeldingenLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.AfbeeldingenLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link InloggenLink is ([not]?) visible")]
+        public void Then_Link_InloggenLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.InloggenLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link InloggenLink is ([not]?) enabled")]
+        public void Then_Link_InloggenLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.InloggenLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link GaNaarDeGoogle_homepageLink is ([not]?) visible")]
+        public void Then_Link_GaNaarDeGoogle_homepageLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.GaNaarDeGoogle_homepageLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link GaNaarDeGoogle_homepageLink is ([not]?) enabled")]
+        public void Then_Link_GaNaarDeGoogle_homepageLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.GaNaarDeGoogle_homepageLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link DownloadGoogleChromeLink is ([not]?) visible")]
+        public void Then_Link_DownloadGoogleChromeLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.DownloadGoogleChromeLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link DownloadGoogleChromeLink is ([not]?) enabled")]
+        public void Then_Link_DownloadGoogleChromeLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.DownloadGoogleChromeLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link MaakVanGoogleMijnStartpaginaLink is ([not]?) visible")]
+        public void Then_Link_MaakVanGoogleMijnStartpaginaLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.MaakVanGoogleMijnStartpaginaLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link MaakVanGoogleMijnStartpaginaLink is ([not]?) enabled")]
+        public void Then_Link_MaakVanGoogleMijnStartpaginaLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.MaakVanGoogleMijnStartpaginaLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link PrivacyLink is ([not]?) visible")]
+        public void Then_Link_PrivacyLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.PrivacyLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link PrivacyLink is ([not]?) enabled")]
+        public void Then_Link_PrivacyLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.PrivacyLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link VoorwaardenLink is ([not]?) visible")]
+        public void Then_Link_VoorwaardenLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.VoorwaardenLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link VoorwaardenLink is ([not]?) enabled")]
+        public void Then_Link_VoorwaardenLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.VoorwaardenLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link InstellingenLink is ([not]?) visible")]
+        public void Then_Link_InstellingenLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.InstellingenLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link InstellingenLink is ([not]?) enabled")]
+        public void Then_Link_InstellingenLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.InstellingenLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link ZoekinstellingenLink is ([not]?) visible")]
+        public void Then_Link_ZoekinstellingenLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.ZoekinstellingenLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link ZoekinstellingenLink is ([not]?) enabled")]
+        public void Then_Link_ZoekinstellingenLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.ZoekinstellingenLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link GeavanceerdZoekenLink is ([not]?) visible")]
+        public void Then_Link_GeavanceerdZoekenLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.GeavanceerdZoekenLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link GeavanceerdZoekenLink is ([not]?) enabled")]
+        public void Then_Link_GeavanceerdZoekenLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.GeavanceerdZoekenLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link GeschiedenisLink is ([not]?) visible")]
+        public void Then_Link_GeschiedenisLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.GeschiedenisLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link GeschiedenisLink is ([not]?) enabled")]
+        public void Then_Link_GeschiedenisLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.GeschiedenisLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link HulpBijZoekenLink is ([not]?) visible")]
+        public void Then_Link_HulpBijZoekenLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.HulpBijZoekenLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link HulpBijZoekenLink is ([not]?) enabled")]
+        public void Then_Link_HulpBijZoekenLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.HulpBijZoekenLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link FeedbackVerzendenLink is ([not]?) visible")]
+        public void Then_Link_FeedbackVerzendenLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.FeedbackVerzendenLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link FeedbackVerzendenLink is ([not]?) enabled")]
+        public void Then_Link_FeedbackVerzendenLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.FeedbackVerzendenLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link AdverterenLink is ([not]?) visible")]
+        public void Then_Link_AdverterenLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.AdverterenLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link AdverterenLink is ([not]?) enabled")]
+        public void Then_Link_AdverterenLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.AdverterenLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link BedrijfLink is ([not]?) visible")]
+        public void Then_Link_BedrijfLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.BedrijfLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link BedrijfLink is ([not]?) enabled")]
+        public void Then_Link_BedrijfLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.BedrijfLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link OverLink is ([not]?) visible")]
+        public void Then_Link_OverLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.OverLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link OverLink is ([not]?) enabled")]
+        public void Then_Link_OverLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.OverLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link MijnAccountLink is ([not]?) visible")]
+        public void Then_Link_MijnAccountLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.MijnAccountLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link MijnAccountLink is ([not]?) enabled")]
+        public void Then_Link_MijnAccountLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.MijnAccountLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link ZoekenLink is ([not]?) visible")]
+        public void Then_Link_ZoekenLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.ZoekenLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link ZoekenLink is ([not]?) enabled")]
+        public void Then_Link_ZoekenLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.ZoekenLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link MapsLink is ([not]?) visible")]
+        public void Then_Link_MapsLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.MapsLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link MapsLink is ([not]?) enabled")]
+        public void Then_Link_MapsLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.MapsLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link YouTubeLink is ([not]?) visible")]
+        public void Then_Link_YouTubeLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.YouTubeLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link YouTubeLink is ([not]?) enabled")]
+        public void Then_Link_YouTubeLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.YouTubeLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link PlayLink is ([not]?) visible")]
+        public void Then_Link_PlayLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.PlayLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link PlayLink is ([not]?) enabled")]
+        public void Then_Link_PlayLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.PlayLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link NieuwsLink is ([not]?) visible")]
+        public void Then_Link_NieuwsLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.NieuwsLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link NieuwsLink is ([not]?) enabled")]
+        public void Then_Link_NieuwsLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.NieuwsLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link DriveLink is ([not]?) visible")]
+        public void Then_Link_DriveLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.DriveLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link DriveLink is ([not]?) enabled")]
+        public void Then_Link_DriveLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.DriveLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link AgendaLink is ([not]?) visible")]
+        public void Then_Link_AgendaLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.AgendaLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link AgendaLink is ([not]?) enabled")]
+        public void Then_Link_AgendaLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.AgendaLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link GooglePlusLink is ([not]?) visible")]
+        public void Then_Link_GooglePlusLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.GooglePlusLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link GooglePlusLink is ([not]?) enabled")]
+        public void Then_Link_GooglePlusLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.GooglePlusLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link VertalenLink is ([not]?) visible")]
+        public void Then_Link_VertalenLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.VertalenLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link VertalenLink is ([not]?) enabled")]
+        public void Then_Link_VertalenLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.VertalenLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link FotosLink is ([not]?) visible")]
+        public void Then_Link_FotosLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.FotosLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link FotosLink is ([not]?) enabled")]
+        public void Then_Link_FotosLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.FotosLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link MeerLink is ([not]?) visible")]
+        public void Then_Link_MeerLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.MeerLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link MeerLink is ([not]?) enabled")]
+        public void Then_Link_MeerLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.MeerLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link ShoppingLink is ([not]?) visible")]
+        public void Then_Link_ShoppingLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.ShoppingLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link ShoppingLink is ([not]?) enabled")]
+        public void Then_Link_ShoppingLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.ShoppingLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link DocumentenLink is ([not]?) visible")]
+        public void Then_Link_DocumentenLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.DocumentenLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link DocumentenLink is ([not]?) enabled")]
+        public void Then_Link_DocumentenLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.DocumentenLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link BoekenLink is ([not]?) visible")]
+        public void Then_Link_BoekenLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.BoekenLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link BoekenLink is ([not]?) enabled")]
+        public void Then_Link_BoekenLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.BoekenLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link BloggerLink is ([not]?) visible")]
+        public void Then_Link_BloggerLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.BloggerLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link BloggerLink is ([not]?) enabled")]
+        public void Then_Link_BloggerLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.BloggerLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link ContactpersonenLink is ([not]?) visible")]
+        public void Then_Link_ContactpersonenLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.ContactpersonenLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link ContactpersonenLink is ([not]?) enabled")]
+        public void Then_Link_ContactpersonenLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.ContactpersonenLink.IsEnabled, enabled);
+        }
+
+        [Then(@"link NogMeerVanGoogleLink is ([not]?) visible")]
+        public void Then_Link_NogMeerVanGoogleLink_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.NogMeerVanGoogleLink.IsDisplayed, visible);
+        }
+
+        [Then(@"link NogMeerVanGoogleLink is ([not]?) enabled")]
+        public void Then_Link_NogMeerVanGoogleLink_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.NogMeerVanGoogleLink.IsEnabled, enabled);
+        }
+
+        [Then(@"button BtnGButton is ([not]?) visible")]
+        public void Then_Button_BtnGButton_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.BtnGButton.IsDisplayed, visible);
+        }
+
+        [Then(@"button BtnGButton is ([not]?) enabled")]
+        public void Then_Button_BtnGButton_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.BtnGButton.IsEnabled, enabled);
+        }
+
+        [Then(@"text ZoekenTextbox is ([not]?) visible")]
+        public void Then_Text_ZoekenTextbox_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.ZoekenTextbox.IsDisplayed, visible);
+        }
+
+        [Then(@"text ZoekenTextbox is ([not]?) enabled")]
+        public void Then_Text_ZoekenTextbox_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.ZoekenTextbox.IsEnabled, enabled);
+        }
+
+        [Then(@"The text in text ZoekenTextbox is ""(.*)""")]
+        public void Then_The_Text_in_Text_ZoekenTextbox_Is(string text)
+        {
+            var screen = GetScreen<$pageclass$>();
+            Assert.AreEqual(screen.ZoekenTextbox.Text, text);
+        }
+
+        [Then(@"textarea CsiTextarea is ([not]?) visible")]
+        public void Then_Textarea_CsiTextarea_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.CsiTextarea.IsDisplayed, visible);
+        }
+
+        [Then(@"textarea CsiTextarea is ([not]?) enabled")]
+        public void Then_Textarea_CsiTextarea_Check_Enabled(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool enabled = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.CsiTextarea.IsEnabled, enabled);
+        }
+
+        [Then(@"The text in textarea CsiTextarea is ""(.*)""")]
+        public void Then_The_Text_in_Textarea_CsiTextarea_Is(string text)
+        {
+            var screen = GetScreen<$pageclass$>();
+            Assert.AreEqual(screen.CsiTextarea.Text, text);
+        }
+
+        [Then(@"table &times;EenBetereManierOmOpInternetTeSurfenDownloadGoogleChromeTable is ([not]?) visible")]
+        public void Then_Table_&times;EenBetereManierOmOpInternetTeSurfenDownloadGoogleChromeTable_Check_Visibility(string not)
+        {
+            var screen = GetScreen<$pageclass$>();
+			bool visible = String.IsNullOrEmpty(not);
+			Assert.AreEqual(screen.&times;EenBetereManierOmOpInternetTeSurfenDownloadGoogleChromeTable.IsDisplayed, visible);
+        }
+
+        [Then(@"The title of table &times;EenBetereManierOmOpInternetTeSurfenDownloadGoogleChromeTable should be ""(.*)""")]
+        public void Then_The_Title_Of_Table_&times;EenBetereManierOmOpInternetTeSurfenDownloadGoogleChromeTable_Should_Be(string title)
+        {
+            var screen = GetScreen<$pageclass$>();
+            Assert.AreEqual(screen.&times;EenBetereManierOmOpInternetTeSurfenDownloadGoogleChromeTable.Title, title);
+        }
+
+
+        [Then(@"Table &times;EenBetereManierOmOpInternetTeSurfenDownloadGoogleChromeTable should contain a header row")]
+        public void Then_Table_&times;EenBetereManierOmOpInternetTeSurfenDownloadGoogleChromeTable_Should_Contain_A_HeaderRow()
+        {
+            var screen = GetScreen<$pageclass$>();
+            Assert.IsTrue(screen.&times;EenBetereManierOmOpInternetTeSurfenDownloadGoogleChromeTable.HasHeaderRow);
+        }
+
+
+        [Then(@"Table &times;EenBetereManierOmOpInternetTeSurfenDownloadGoogleChromeTable should contain (\d+) rows")]
+        public void Then_Table_&times;EenBetereManierOmOpInternetTeSurfenDownloadGoogleChromeTable_Should_Contain_X_Rows(int expectedRowCount)
+        {
+            var screen = GetScreen<$pageclass$>();
+            Assert.AreEqual(expectedRowCount, screen.MedewerkerContainer.Rows.Count);
+        }
+
+        [Then(@"In table &times;EenBetereManierOmOpInternetTeSurfenDownloadGoogleChromeTable the value in cell \((\d+),(\d+)\) should be ""(.*)""")]
+        public void Then_In_Table_&times;EenBetereManierOmOpInternetTeSurfenDownloadGoogleChromeTable_The_Value_In_Cell_Should_Be(int x, int y, string value)
+        {
+            var screen = GetScreen<$pageclass$>();
+            Assert.AreEqual(value, screen.MedewerkerContainer.Rows[y][x] ?? "");
+        }
+        #endregion
+    }
+}
+

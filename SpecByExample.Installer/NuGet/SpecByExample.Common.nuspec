@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
 	<metadata>
-	  <id>SpecByExample.PageCreator</id>
+	  <id>SpecByExample.Common</id>
 	  <version>1.0.0</version>
 	  <authors>Triple Beta</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
 	  <description>
-			The goal of this package is to offer an intuitive way to support Specification by Example and automate webbased application elements and to make it very easy to write maintainable tests.</description>
+      Common components to support the projects for the SpecByExample Visual Studio extension. The extension offers an intuitive way to create a testing-solution for a Specification by Example approach to automated testing of webbased application.</description>
 		<tags>NuGet Specification by Example Selenium PageObject Specflow</tags>
 		<language>en-US</language>
     <dependencies>

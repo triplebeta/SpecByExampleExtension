@@ -58,12 +58,17 @@ namespace SpecByExample.T4
         public string HtmlId { get; set; }
 
         /// <summary>
-        /// Name to use for generating the control
+        /// Name attribute of the HTML element.
         /// </summary>
         public string HtmlName { get; set; }
 
         /// <summary>
-        /// CSS class to use for generating the control
+        /// Title attribute from the HTML.
+        /// </summary>
+        public string HtmlTitle { get; set; }
+
+        /// <summary>
+        /// CSS class found on the control.
         /// </summary>
         public string HtmlCssClass { get; set; }
         

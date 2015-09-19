@@ -5,8 +5,8 @@ using System.Text;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using Castle.MicroKernel.SubSystems.Configuration;
-using Google.Pages;
 using SpecByExample.Common;
+using Google.Pages;
 
 namespace SeleniumTester
 {

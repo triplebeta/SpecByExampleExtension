@@ -89,9 +89,9 @@
     <None Include="Common\Controls\TableAsButton.cs" />
     <None Include="Common\Pages\BaseListPage.cs" />
     <None Include="Common\Pages\BasePage.cs" />
-    <None Include="..\BDO.Selenium.T4\PageAdapterWizardConfig.xml">
-      <Link>Pages\Properties\PageAdapterWizardConfig.xml</Link>
-    </None>
+    <Content Include="..\SpecByExample.T4\PageObjectControlMappingConfig.xml">
+      <Link>Pages\Properties\PageObjectControlMappingConfig.xml</Link>
+    </Content>
     <Content Include="Common\Properties\AssemblyInfo.cs" />
     <None Include="Common\WellKnownUrls.cs" />
     <None Include="packages.config" />
@@ -116,6 +116,7 @@
     <Content Include="Pages\Pages.vstemplate">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Pages\Readme.html" />
     <Content Include="Pages\__TemplateIcon.ico" />
     <None Include="Specs\Specs.csproj">
       <SubType>Designer</SubType>
@@ -151,7 +152,7 @@
   <PropertyGroup>
     <PreBuildEvent>XCOPY /R /Y "$(SolutionDir)DevTools\chromedriver.exe" "$(ProjectDir)Specs\WebDrivers\chromedriver.exe"
 XCOPY /R /Y "$(SolutionDir)DevTools\IEDriverServer.exe" "$(ProjectDir)Specs\WebDrivers\IEDriverServer.exe"
-XCOPY /R /Y "$(SolutionDir)SpecByExample.T4\PageAdapterWizardConfig.xml" "$(ProjectDir)Pages\Properties"</PreBuildEvent>
+XCOPY /R /Y "$(SolutionDir)SpecByExample.T4\PageObjectControlMappingConfig.xml" "$(ProjectDir)Pages\Properties"</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -171,7 +171,7 @@ namespace SeleniumTester
 
         private void btnShowWizard_Click(object sender, EventArgs e)
         {
-            string configFile = Path.Combine(Environment.CurrentDirectory, "PageAdapterWizardConfig.xml");
+            string configFile = Path.Combine(Environment.CurrentDirectory, "PageObjectControlMappingConfig.xml");
             var config = WizardConfigLoader.LoadWizardConfiguration(configFile);
             if (config == null) return;
 
@@ -190,7 +190,7 @@ namespace SeleniumTester
         private void btnLoadWizardConfig_Click(object sender, EventArgs e)
         {
             // Load the configuration of the wizard
-            string file = Path.Combine(Environment.CurrentDirectory,"PageAdapterWizardConfig.xml");
+            string file = Path.Combine(Environment.CurrentDirectory, "PageObjectControlMappingConfig.xml");
             var config = LoadWizardConfig(file);
         }
 

@@ -30,7 +30,7 @@
     <CustomExtension Type="Selenium.Support.2.47.0.nupkg">packages\Selenium.Support.2.47.0.nupkg</CustomExtension>
     <CustomExtension Type="HtmlAgilityPack.1.4.9.nupkg">packages\HtmlAgilityPack.1.4.9.nupkg</CustomExtension>
     <CustomExtension Type="SpecFlow.1.9.0.nupkg">packages\SpecFlow.1.9.0.nupkg</CustomExtension>
-    <CustomExtension Type="SpecByExample.PageCreator.1.0.0.nupkg">packages\SpecByExample.PageCreator.1.0.0.nupkg</CustomExtension>
+    <CustomExtension Type="SpecByExample.Common.1.0.0.nupkg">packages\SpecByExample.Common.1.0.0.nupkg</CustomExtension>
     <Assembly AssemblyName="|SpecByExample.T4;AssemblyName|">|SpecByExample.T4|</Assembly>
     <ProjectTemplate>ProjectTemplates</ProjectTemplate>
     <ItemTemplate>ItemTemplates</ItemTemplate>

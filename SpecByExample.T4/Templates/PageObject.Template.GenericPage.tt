@@ -32,6 +32,8 @@ foreach(var node in Settings.SelectedHtmlElements) {
         [FindsBy(How=How.Id, Using="<#= node.HtmlId #>")]
 <# } else if (node.IdentifiedBy==ControlIdentificationType.Name) { #>
         [FindsBy(How=How.Name, Using="<#= node.HtmlName #>")]
+<# } else if (node.IdentifiedBy==ControlIdentificationType.LinkText) { #>
+        [FindsBy(How=How.LinkText, Using="<#= node.Description #>")]
 <# } else if (node.IdentifiedBy==ControlIdentificationType.Cssclass) { #>
         [FindsBy(How=How.ClassName, Using="<#= node.HtmlCssClass #>")]
 <# } #>

@@ -23,7 +23,7 @@
     }
 
 	// NOTE: This works only because the Template tag in the Main file contains the attribute hostspecific="true"
-	string configFile = Host.ResolvePath(@"..\PageAdapterWizardConfig.xml");
+	string configFile = Host.ResolvePath(@"..\PageObjectControlMappingConfig.xml");
 	var config = WizardConfigLoader.LoadWizardConfiguration(configFile);
 	if (config==null)
 		throw new InvalidOperationException("Configuration file not found or it is invalid. ");

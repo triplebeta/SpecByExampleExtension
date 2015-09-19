@@ -22,14 +22,15 @@ namespace SpecByExample.Tests
         }
 
 
-        [TestMethod]
+        [TestMethod, DeploymentItem(@"..\..\Testdata\PaginaMetDubbeleIDs.htm")]
         public void TestLoadControls()
         {
-            var doc = HtmlLoader.LoadDocumentFromUrl("http://www.google.nl");
+            string url = @"PaginaMetDubbeleIDs.htm";
+            var doc = HtmlLoader.LoadDocumentFromUrl(url);
             var registeredControls = CreateRegisteredControls();
             var controlInfo = HtmlLoader.GetHtmlControls(doc, registeredControls, false, options);
 
-            Assert.AreEqual(1, controlInfo.Count<HtmlControlInfo>(x => x.HtmlId == "ctl00_PlaceHolderSiteName_onetidProjectPropertyTitle"));
+            Assert.AreEqual(1, controlInfo.Count<HtmlControlInfo>(x => x.HtmlId == "RadiobuttonWithID"));
             Assert.IsTrue(controlInfo.All<HtmlControlInfo>(x=>x.HtmlId!=null));
             Assert.IsTrue(controlInfo.All<HtmlControlInfo>(x => x.HtmlName != null));
             Assert.IsTrue(controlInfo.All<HtmlControlInfo>(x => x.CodeControlName != null));
@@ -40,14 +41,14 @@ namespace SpecByExample.Tests
         /// <summary>
         ///A test for LoadDocument
         ///</summary>
-        [TestMethod()]
+        [TestMethod, DeploymentItem(@"..\..\Testdata\PaginaMetDubbeleIDs.htm")]
         public void LoadDocumentWithDuplicateIDsTest()
         {
             var registeredControls = CreateRegisteredControls();
 
-            string url = @"E:\POCs\POC_Selenium\SpecByExample.Tests\Testdata\PaginaMetDubbeleIDs.htm";
+            string url = @"PaginaMetDubbeleIDs.htm";
             var doc = HtmlLoader.LoadDocumentFromUrl(url);
-            var controlInfo = HtmlLoader.GetHtmlControls(doc, registeredControls, false, options);
+            var controlInfo = HtmlLoader.GetHtmlControls(doc, registeredControls, true, options);
 
             var duplicateIdentifiers = controlInfo.Where(x => x.GenerateCodeForThisItem == false && x.ReasonForExclusion == ExclusionReasonType.DuplicateIdentifier).ToList();
             Assert.AreEqual(2, duplicateIdentifiers.Count);
@@ -60,6 +61,23 @@ namespace SpecByExample.Tests
             Assert.IsTrue(controlInfo.All<HtmlControlInfo>(x => x.CodeControlName != null));
             Assert.IsTrue(controlInfo.All<HtmlControlInfo>(x => x.CodeControlType != null));
             Assert.IsTrue(controlInfo.All<HtmlControlInfo>(x => x.Description != null));
+        }
+
+
+
+
+        [TestMethod, DeploymentItem(@"..\..\Testdata\GoogleHome.htm")]
+        public void LoadGooglePage()
+        {
+            // Load a snapshot of the standard Google homepage
+            string url = @"GoogleHome.htm";
+            var doc = HtmlLoader.LoadDocumentFromUrl(url);
+
+            // Define which control to generate for each html element
+            var registeredControls = CreateRegisteredControls();
+            var controlInfo = HtmlLoader.GetHtmlControls(doc, registeredControls, true, options);
+
+            Assert.AreEqual(1, controlInfo.Count<HtmlControlInfo>(x => x.Description=="Afbeeldingen"));
         }
 
 

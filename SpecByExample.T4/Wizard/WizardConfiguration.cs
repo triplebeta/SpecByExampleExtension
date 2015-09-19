@@ -50,7 +50,13 @@ namespace SpecByExample.T4
 
     /// <summary>
     /// Entity with the details of one registered control.
+    /// This defines a mapping for an HTML tag to the class that implements an adapter for it.
     /// </summary>
+    /// <example>
+    /// The &lt;table&gt;&lt;/table&gt; tag can be mapped to the class SpecByExample.Common.Controls.WebTable
+    /// As a result, if you then create a PageObject for a page that contains a table, the PageObject will get a property of the type WebTable
+    /// providing access to that underlying html table. 
+    /// </example>
     [Serializable]
     public class ControlTypeRegistration
     {

@@ -97,6 +97,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Google.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -127,10 +128,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Google.Pages\Google.Pages.csproj">
-      <Project>{a9b32d60-e119-4027-8407-bba453271f0d}</Project>
-      <Name>Google.Pages</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SpecByExample.Common\SpecByExample.Common.csproj">
       <Project>{bba9a2e5-355d-4427-b5b7-8022b1c9ee13}</Project>
       <Name>SpecByExample.Common</Name>
@@ -144,7 +141,7 @@
   <PropertyGroup>
     <PostBuildEvent>COPY "$(SolutionDir)DevTools\ChromeDriver.exe" "$(TargetDir)ChromeDriver.exe"
 COPY "$(SolutionDir)DevTools\IEDriverServer.exe" "$(TargetDir)IEDriverServer.exe"
-COPY "$(SolutionDir)SpecByExample.T4\PageAdapterWizardConfig.xml" "$(TargetDir)PageAdapterWizardConfig.xml"</PostBuildEvent>
+COPY "$(SolutionDir)SpecByExample.T4\PageObjectControlMappingConfig.xml" "$(TargetDir)PageObjectControlMappingConfig.xml"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -13,6 +13,7 @@ namespace SpecByExample.T4
         None,           // Default option
         Id,             // Find the item by its ID
         Name,           // Find the item by its name
-        Cssclass        // Find the item by its CSS class
+        Cssclass,       // Find the item by its CSS class
+        LinkText        // Find the item by the text included in the <a>...</a> tag
     }
 }

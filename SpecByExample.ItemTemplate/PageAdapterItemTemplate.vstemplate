@@ -12,7 +12,7 @@
     <ProvideDefaultName>false</ProvideDefaultName>
   </TemplateData>
   <TemplateContent>
-    <ProjectItem ItemType="None">PageAdapterWizardConfig.xml</ProjectItem>
+    <ProjectItem ItemType="None">PageObjectControlMappingConfig.xml</ProjectItem>
 
     <ProjectItem ItemType="Code">T4\PageObject.Init.tt</ProjectItem>
     <ProjectItem ItemType="Code">T4\PageObject.Main.tt</ProjectItem>
@@ -53,7 +53,7 @@
       <package id="Selenium.Support" version="2.47.0" />
       <package id="SpecFlow" version="1.9.0" />
       <package id="HtmlAgilityPack" version="1.4.9" />
-      <package id="SpecByExample.PageCreator" version="1.0.0" />
+      <package id="SpecByExample.Common" version="1.0.0" />
     </packages>
   </WizardData>
   </VSTemplate>

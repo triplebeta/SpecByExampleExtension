@@ -51,7 +51,7 @@
       <package id="Castle.Windsor" version="3.3.0" />
       <package id="Selenium.WebDriver" version="2.47.0" />
       <package id="SpecFlow" version="1.9.0" />
-      <package id="SpecByExample.PageCreator" version="1.0.0" />
+      <package id="SpecByExample.Common" version="1.0.0" />
     </packages>
   </WizardData>
 </VSTemplate>
