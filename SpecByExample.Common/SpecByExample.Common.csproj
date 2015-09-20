@@ -76,6 +76,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\Div.cs" />
     <Compile Include="Controls\Listbox.cs" />
     <Compile Include="Controls\Image.cs" />
     <Compile Include="Controls\Textarea.cs" />

@@ -12,28 +12,59 @@ namespace SpecByExample.T4
     [Serializable]
     public sealed class HtmlControlInfo
     {
+        private bool _generateCodeForThisItem = false;
+
         public HtmlControlInfo()
         {
             IdentifiedBy = ControlIdentificationType.None;
-            GenerateCodeForThisItem = true;
-            ReasonForExclusion = ExclusionReasonType.None;
+            SupportsCodeGeneration = false;   // Assume worst case
+            ReasonNoCodeGeneration = ExclusionCodeGenerationReasons.None;
         }
 
         /// <summary>
-        /// Flag to define if we need to generate code for this item
+        /// Defines if we can actually generate code for this item.
+        /// Will be false if e.g. the control cannot be identified uniquely.
+        /// If not, the ReasonNoCodeGeneration field describes why.
         /// </summary>
-        public bool GenerateCodeForThisItem { get; set; }
+        public bool SupportsCodeGeneration { get; private set; }
+
+        /// <summary>
+        /// Flag to define if we need to generate code for this item.
+        /// Can only be set to True if SupportsCodeGeneration is true.
+        /// </summary>
+        public bool GenerateCodeForThisItem
+        {
+            get { return _generateCodeForThisItem; }
+            set
+            {
+                // Do not allow setting to true if SupportsCodeGeneration is false
+                if (!value || SupportsCodeGeneration)
+                    _generateCodeForThisItem = value;
+            }
+        }
 
         /// <summary>
         /// Reason why it's excluded. Only used when GenerateCodeForThisItem is false. None otherwise.
         /// </summary>
-        public ExclusionReasonType ReasonForExclusion { get; set; }
+        public ExclusionCodeGenerationReasons ReasonNoCodeGeneration { get; private set; }
 
 
         /// <summary>
         /// The name assigned to this control (so it's NOT the html name attribute, that would be the HtmlName)
         /// </summary>
-        public string UserDefinedName { get; set; }
+        public string UserDefinedName
+        {
+            get
+            {
+                // Find a default for the name of the control which might be customized lateron
+                if (String.IsNullOrEmpty(Description) == false)
+                    return HtmlLoader.NormalizeAsControlName(Description);
+                else if (String.IsNullOrEmpty(HtmlTitle) == false)
+                    return HtmlLoader.NormalizeAsControlName(HtmlTitle);
+                else
+                    return String.IsNullOrEmpty(HtmlId) ? HtmlName : HtmlId;
+            }
+        }
 
         /// <summary>
         /// Name to show to the user in the wizard.
@@ -80,7 +111,62 @@ namespace SpecByExample.T4
         /// <summary>
         /// Defines how we will find this control in the HTML page
         /// </summary>
-        public ControlIdentificationType IdentifiedBy;
+        public ControlIdentificationType IdentifiedBy
+        {
+            get; private set;
+        }
+
+
+        /// <summary>
+        /// Find the best way to identify this control in the page.
+        /// </summary>
+        /// <param name="allControls">List of existing controls.</param>
+        /// <param name="preferredIdentificationMethods">Preferences for identifying controls.</param>
+        internal void AssignIdentificationMethod(IQueryable<HtmlControlInfo> allControls, ControlIdentificationType[] preferredIdentificationMethods)
+        {
+            foreach (var ident in preferredIdentificationMethods)
+            {
+                // Use the ID if no other control has that identifier
+                if (ident==ControlIdentificationType.Id && String.IsNullOrEmpty(HtmlId) == false)
+                {
+                    if (allControls.Count(x => x.IdentifiedBy == ControlIdentificationType.Id && x.HtmlId == HtmlId)==0)
+                        IdentifiedBy = ControlIdentificationType.Id;
+                }
+
+                if (ident == ControlIdentificationType.Name && String.IsNullOrEmpty(HtmlName) == false)
+                {
+                    if (allControls.Count(x => x.IdentifiedBy == ControlIdentificationType.Name && x.HtmlName == HtmlName) == 0)
+                        IdentifiedBy = ControlIdentificationType.Name;
+                }
+
+                if (ident == ControlIdentificationType.LinkText && HtmlControlType == HtmlControlTypeEnum.Link && String.IsNullOrEmpty(Description) == false)
+                {
+                    if (allControls.Count(x => x.IdentifiedBy == ControlIdentificationType.Name && x.Description == Description) == 0)
+                        IdentifiedBy = ControlIdentificationType.LinkText;
+                }
+
+                if (ident == ControlIdentificationType.Cssclass && String.IsNullOrEmpty(HtmlCssClass) == false)
+                {
+                    // Selenium cannot identify controls by CSS selectors they have a compound CSS expression (= multiple elements applied to it)
+                    // So a control with class="blue fat" cannot be identified by its CSS expression since "blue fat" has more than one element.
+                    if (HtmlCssClass.Contains(" "))
+                        continue; // In that case, CSS is not usable as the identifier
+
+                    if (allControls.Count(x => x.IdentifiedBy == ControlIdentificationType.Cssclass && x.HtmlCssClass == HtmlCssClass) == 0)
+                        IdentifiedBy = ControlIdentificationType.Cssclass;
+                }
+
+                if (IdentifiedBy != ControlIdentificationType.None)
+                {
+                    SupportsCodeGeneration = true;
+                    return;
+                }
+            }
+
+            // If none of the clauses resulted in unique identification, it must be a duplicate identifier
+            SupportsCodeGeneration = false;
+            ReasonNoCodeGeneration = ExclusionCodeGenerationReasons.NoValidIdentifier;
+        }
 
         /// <summary>
         /// XPath expression to address this item directly (will be unique for each control)

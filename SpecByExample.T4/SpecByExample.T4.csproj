@@ -106,7 +106,7 @@
     <Compile Include="Code generation\PageTemplatesEnum.cs" />
     <Compile Include="Code generation\ParsingOptions.cs" />
     <Compile Include="Code generation\ControlIdentificationType.cs" />
-    <Compile Include="Code generation\ExclusionReasonType.cs" />
+    <Compile Include="Code generation\ExclusionCodeGenerationReasons.cs" />
     <Compile Include="Code generation\HtmlControlInfo.cs" />
     <Compile Include="Code generation\HtmlLoader.cs" />
     <Compile Include="Code generation\SeleniumTableInfo.cs" />

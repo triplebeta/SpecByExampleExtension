@@ -36,7 +36,6 @@ namespace SpecByExample.T4
 
         public string PageUrl { get; set; }
         public string PageName { get; set; }
-//        public string PageTitle { get; set; }
 
         private string applicationModule;
         public string ApplicationModule

@@ -287,7 +287,7 @@ namespace SpecByExample.T4.Wizard
                     {
                         // Get the HTML and parse its objects
                         HtmlDocumentCache = HtmlLoader.LoadDocumentFromUrl(url);
-                        ControlInfoCache = HtmlLoader.GetHtmlControls(HtmlDocumentCache, WizardConfig.Controls, false, HtmlLoader.DefaultOptions);
+                        ControlInfoCache = HtmlLoader.GetHtmlControls(HtmlDocumentCache, WizardConfig.RegisteredControlTypes, HtmlLoader.DefaultOptions);
                         PageUrl = url;
                     }
 

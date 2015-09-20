@@ -30,7 +30,6 @@ namespace SpecByExample.T4.Wizard
 
             // Add an item for the rootNode
             documentNode = new HtmlControlInfo();
-            documentNode.UserDefinedName = "All HTML";
             documentNode.HtmlXPath = @"/";
         }
 

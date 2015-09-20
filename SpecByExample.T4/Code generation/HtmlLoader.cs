@@ -99,21 +99,6 @@ namespace SpecByExample.T4
         }
 
 
-
-        /// <summary>
-        ///  Get the containers within this page. Use this to limit the scope when searching for controls.
-        /// </summary>
-        /// <param name="doc">Document to search in</param>
-        /// <param name="options">Defines how to identify the nodes</param>
-        /// <returns>A list of container elements</returns>
-        public static List<HtmlControlInfo> GetHtmlContainers(HtmlDocument doc, ParsingOptions options = null)
-        {
-            var controls = new List<HtmlControlInfo>();
-            controls.AddRange(FindControls(doc.DocumentNode, "//div", "Div", HtmlControlTypeEnum.Div, options));
-            return controls;
-        }
-
-
         /// <summary>
         /// Extract info from the document.
         /// </summary>
@@ -123,7 +108,7 @@ namespace SpecByExample.T4
         /// <param name="options">Defines how to parse</param>
         /// <param name="rootXPath">XPath expression to define the element that's the scope for finding the HTML controls. Only search of items within that container.</param>
         /// <returns>A list of entities with info about the controls.</returns>
-        public static List<HtmlControlInfo> GetHtmlControls(HtmlDocument doc, List<ControlTypeRegistration> registeredControls, bool returnExcludedItems=false, ParsingOptions options = null, string rootXPath = null)
+        public static List<HtmlControlInfo> GetHtmlControls(HtmlDocument doc, IEnumerable<ControlTypeRegistration> registeredControls, ParsingOptions options, string rootXPath = null)
         {
             HtmlNode rootNode = doc.DocumentNode;
 
@@ -133,14 +118,6 @@ namespace SpecByExample.T4
             foreach (var ctrl in registeredControls)
             {
                 controls.AddRange(FindControls(rootNode, ctrl.XPath, ctrl.FieldSuffix, ctrl.HtmlControlType, options));
-            }
-
-            ExcludeItems(controls, options);
-
-            // Remove all items with an exclusion reason (set by the call to ExcludeItems() )
-            if (returnExcludedItems == false)
-            {
-                controls.RemoveAll(x => x.ReasonForExclusion != ExclusionReasonType.None);
             }
 
             // Filter the list by the XPath expression
@@ -172,56 +149,6 @@ namespace SpecByExample.T4
         #region Private helpers
 
         /// <summary>
-        /// Apply the rules for excluding items from code generation.
-        /// </summary>
-        /// <param name="controls">List of all controls for which we might generate code.</param>
-        /// <param name="options">Defines the rules to apply.</param>
-        private static void ExcludeItems(List<HtmlControlInfo> controls, ParsingOptions options)
-        {
-            // Exclude items we cannot identify
-            controls.ForEach(x =>
-            {
-                if (x.IdentifiedBy == ControlIdentificationType.None)
-                {
-                    x.GenerateCodeForThisItem = false;
-                    x.ReasonForExclusion = ExclusionReasonType.NoValidIdentifier;
-                }
-            });
-
-            if (options.ExcludeNonUniqueControls)
-            {
-                foreach (var control in controls)
-                {
-                    if (control.GenerateCodeForThisItem == false)
-                        continue;
-
-                    // Find duplicates, based on the way items are identified.
-                    var duplicates = controls.Where(
-                        x => (control.IdentifiedBy == ControlIdentificationType.Id && x.HtmlId == control.HtmlId) ||
-                             (control.IdentifiedBy == ControlIdentificationType.Name && x.HtmlName == control.HtmlName) ||
-                             (control.IdentifiedBy == ControlIdentificationType.Cssclass && x.HtmlCssClass == control.HtmlCssClass) ||
-                             (control.IdentifiedBy == ControlIdentificationType.LinkText && x.Description == control.Description));
-
-                    var duplicateIds = controls.Where(x => (control.IdentifiedBy == ControlIdentificationType.Id && x.HtmlId == control.HtmlId));
-                    var duplicateNames = controls.Where(x => (control.IdentifiedBy == ControlIdentificationType.Name && x.HtmlName == control.HtmlName));
-                    var duplicateLinkText = controls.Where(x => (control.IdentifiedBy == ControlIdentificationType.LinkText && x.Description == control.Description));
-                    var duplicateCss = controls.Where(x => (control.IdentifiedBy == ControlIdentificationType.Cssclass && x.HtmlCssClass == control.HtmlCssClass));
-
-                    // The current item will be found as well :)
-                    if (duplicates.Count() > 1)
-                    {
-                        foreach (var item in duplicates)
-                        {
-                            item.GenerateCodeForThisItem = false;
-                            item.ReasonForExclusion = ExclusionReasonType.DuplicateIdentifier;
-                        }
-                    }
-                }
-            }
-        }
-
-
-        /// <summary>
         /// Use an XPath expression to add controls of a specific type to the list
         /// </summary>
         /// <param name="rootNode">Rootnode for this search</param>
@@ -245,44 +172,12 @@ namespace SpecByExample.T4
                     ctrl.HtmlCssClass = node.GetAttributeValue("class", "");
                     ctrl.Description = node.InnerText.Trim();
 
-                    // Set a default for the name of the control which might be customized lateron
-                    if (String.IsNullOrEmpty(ctrl.Description)==false)
-                        ctrl.UserDefinedName = HtmlLoader.NormalizeAsControlName(ctrl.Description);
-                    else if (String.IsNullOrEmpty(ctrl.HtmlTitle) == false)
-                        ctrl.UserDefinedName = HtmlLoader.NormalizeAsControlName(ctrl.HtmlTitle);
-                    else
-                        ctrl.UserDefinedName = String.IsNullOrEmpty(ctrl.HtmlId) ? ctrl.HtmlName : ctrl.HtmlId;
-
-                    foreach (var ident in options.PreferredIdentifications)
-                    {
-                        switch (ident)
-                        {
-                            case ControlIdentificationType.Id: if (String.IsNullOrEmpty(ctrl.HtmlId) == false) ctrl.IdentifiedBy = ControlIdentificationType.Id; break;
-                            case ControlIdentificationType.Name: if (String.IsNullOrEmpty(ctrl.HtmlName) == false) ctrl.IdentifiedBy = ControlIdentificationType.Name; break;
-                            case ControlIdentificationType.LinkText:
-                                {
-                                    // Identify control by the content of the anchor tag
-                                    if (ctrl.HtmlControlType == HtmlControlTypeEnum.Link && String.IsNullOrEmpty(ctrl.Description) == false)
-                                        ctrl.IdentifiedBy = ControlIdentificationType.LinkText;
-                                    break;
-                                }
-                            case ControlIdentificationType.Cssclass: if (String.IsNullOrEmpty(ctrl.HtmlCssClass) == false)
-                                {
-                                    // Selenium cannot identify controls by CSS selectors they have a compound CSS expression (= multiple elements applied to it)
-                                    // So a control with class="blue fat" cannot be identified by its CSS expression since "blue fat" has more than one element.
-                                    if (ctrl.HtmlCssClass.Contains(" ")==false)
-                                        ctrl.IdentifiedBy = ControlIdentificationType.Cssclass;
-                                } break;
-                        }
-                        if (ctrl.IdentifiedBy != ControlIdentificationType.None)
-                            break;
-                    }
-
                     // Then set the properties we will use for code
                     ctrl.CodeControlType = controlType;
                     ctrl.HtmlXPath = node.XPath;
                     ctrl.HtmlControlType = htmlControlType;
 
+                    ctrl.AssignIdentificationMethod(controls.AsQueryable(), options.PreferredIdentifications);
                     controls.Add(ctrl);
                 }
             }

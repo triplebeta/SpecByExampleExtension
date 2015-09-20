@@ -13,7 +13,7 @@ namespace SpecByExample.T4
     public class WizardConfiguration
     {
         [XmlArray("controlTypes"), XmlArrayItem("register")]
-        public List<ControlTypeRegistration> Controls { get; set; }
+        public List<ControlTypeRegistration> RegisteredControlTypes { get; set; }
 
         /// <summary>
         /// Check the configuration.
@@ -23,7 +23,7 @@ namespace SpecByExample.T4
         public bool ValidateConfiguration(out List<string> errors)
         {
             errors = new List<string>();
-            foreach (var ctrl in Controls)
+            foreach (var ctrl in RegisteredControlTypes)
             {
                 // Check required fields
                 if (String.IsNullOrWhiteSpace(ctrl.TypeName))
