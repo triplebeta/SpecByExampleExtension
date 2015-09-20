@@ -8,6 +8,8 @@
     <ProjectType>CSharp</ProjectType>
     <CreateInPlace>true</CreateInPlace>
     <CreateNewFolder>false</CreateNewFolder>
+    <DefaultName>TestProject</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
   </TemplateData>
   <TemplateContent>
     <ProjectCollection>

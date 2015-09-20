@@ -9,7 +9,7 @@
     <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
     <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
     <DefaultName>MyPage.cs</DefaultName>
-    <ProvideDefaultName>false</ProvideDefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
   </TemplateData>
   <TemplateContent>
     <ProjectItem ItemType="None">PageObjectControlMappingConfig.xml</ProjectItem>
