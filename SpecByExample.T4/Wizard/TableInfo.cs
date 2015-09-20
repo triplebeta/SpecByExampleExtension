@@ -18,6 +18,12 @@ namespace SpecByExample.T4.Wizard
             InitializeComponent();
         }
 
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            this.Dock = DockStyle.Fill;
+        }
+
         /// <summary>
         /// Document to work on.
         /// </summary>
@@ -276,7 +282,7 @@ namespace SpecByExample.T4.Wizard
             Cursor = cursor;
         }
 
-        private void LoadTableInfo(string url)
+        private void LoadTableInfoWithTask(string url)
         {
             var loadPageInfoTask = new Task(() =>
             {
@@ -301,6 +307,32 @@ namespace SpecByExample.T4.Wizard
             loadPageInfoTask.Start();
         }
 
+
+        /// <summary>
+        /// Plain variant without a task.
+        /// </summary>
+        /// <param name="url"></param>
+        private void LoadTableInfo(string url)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                if (PageUrl != url || HtmlDocumentCache == null || ControlInfoCache == null)
+                {
+                    // Get the HTML and parse its objects
+                    HtmlDocumentCache = HtmlLoader.LoadDocumentFromUrl(url);
+                    ControlInfoCache = HtmlLoader.GetHtmlControls(HtmlDocumentCache, WizardConfig.RegisteredControlTypes, HtmlLoader.DefaultOptions);
+                    PageUrl = url;
+                }
+
+                InitializeListOfElements(ControlInfoCache);
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
         /// <summary>
         /// Enable/Disable fields for the table info
         /// </summary>
@@ -311,7 +343,10 @@ namespace SpecByExample.T4.Wizard
 
             // Load cache with info of this page
             if (enable)
+            {
                 LoadTableInfo(PageUrl);
+//                LoadTableInfoWithTask(PageUrl);
+            }
             else
             {
                 // Reset the fields

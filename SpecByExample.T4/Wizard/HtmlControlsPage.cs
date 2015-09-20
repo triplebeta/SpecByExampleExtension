@@ -33,6 +33,12 @@ namespace SpecByExample.T4.Wizard
             documentNode.HtmlXPath = @"/";
         }
 
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            this.Dock = DockStyle.Fill;
+        }
+
         private string HtmlRootNodeXPath
         {
             get { return (cmbContainers.SelectedItem as HtmlControlInfo).HtmlXPath; }
@@ -148,7 +154,7 @@ namespace SpecByExample.T4.Wizard
 
             // Get the selected controls for which we might generate code.
             allSelectableControls = new List<HtmlControlInfo>();
-            allSelectableControls.AddRange(container.AllHtmlElements);
+            allSelectableControls.AddRange(container.AllHtmlElements.Where(x=>x.HtmlControlType!=HtmlControlTypeEnum.Div));
             currentlySelectedControls = new List<HtmlControlInfo>();
             currentlySelectedControls.AddRange(container.SelectedHtmlElements);
 

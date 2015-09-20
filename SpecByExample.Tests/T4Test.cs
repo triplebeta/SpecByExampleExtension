@@ -88,14 +88,7 @@ namespace SpecByExample.Tests
         [TestMethod, DeploymentItem(@"..\..\Testdata\GoogleHome.htm")]
         public void LoadGooglePage()
         {
-            // Load a snapshot of the standard Google homepage
-            string url = @"GoogleHome.htm";
-            var doc = HtmlLoader.LoadDocumentFromUrl(url);
-
-            // Define which control to generate for each html element
-            var registeredControls = CreateRegisteredControls();
-            var allControlInfo = HtmlLoader.GetHtmlControls(doc, registeredControls, options);
-
+            var allControlInfo = LoadGoogleHomePageInfo();
             Assert.AreEqual(1, allControlInfo.Count<HtmlControlInfo>(x => x.Description=="Afbeeldingen"));
         }
 
@@ -105,13 +98,7 @@ namespace SpecByExample.Tests
         [TestMethod, DeploymentItem(@"..\..\Testdata\GoogleHome.htm")]
         public void IdentificationByLinkTextAllFoundTest()
         {
-            // Load a snapshot of the standard Google homepage
-            string url = @"GoogleHome.htm";
-            var doc = HtmlLoader.LoadDocumentFromUrl(url);
-
-            // Define which control to generate for each html element
-            var registeredControls = CreateRegisteredControls();
-            var allControlInfo = HtmlLoader.GetHtmlControls(doc, registeredControls, options);
+            var allControlInfo = LoadGoogleHomePageInfo();
             Assert.AreEqual(16, allControlInfo.Count(x=>x.IdentifiedBy==ControlIdentificationType.LinkText));
 
             // Validate that these are all of type Link
@@ -122,14 +109,7 @@ namespace SpecByExample.Tests
         [TestMethod, DeploymentItem(@"..\..\Testdata\GoogleHome.htm")]
         public void CodeControlNameUnsupportedTokensTest()
         {
-            // Load a snapshot of the standard Google homepage
-            string url = @"GoogleHome.htm";
-            var doc = HtmlLoader.LoadDocumentFromUrl(url);
-
-            // Define which control to generate for each html element
-            var registeredControls = CreateRegisteredControls();
-            var allControlInfo = HtmlLoader.GetHtmlControls(doc, registeredControls, options);
-
+            var allControlInfo = LoadGoogleHomePageInfo();
             //foreach (var x in allControlInfo)
             //{
             //    Trace.WriteLine(x.CodeControlName);
@@ -144,19 +124,38 @@ namespace SpecByExample.Tests
         }
 
 
+        [TestMethod, DeploymentItem(@"..\..\Testdata\SpecialCharacters.htm")]
+        public void GenerateValidPropertyName()
+        {
+            // Load a snapshot of the standard Google homepage
+            Assert.AreEqual("LinkWith", HtmlLoader.NormalizeAsControlName("Link with &raquo;"));
+            Assert.AreEqual("SpaceTest", HtmlLoader.NormalizeAsControlName(" space   test  "));
+            Assert.AreEqual("_123StartWithNumberAndEndOnASemicolon", HtmlLoader.NormalizeAsControlName("12 3 Start With Number and End on a semicolon;"));
+            Assert.AreEqual("EenBetereManierOmOpInternetTeSurfenDownloadGoogleChrome", HtmlLoader.NormalizeAsControlName("&times; Een Betere Manier Om Op Internet Te Surfen: Download Google Chrome."));
+
+            string input = "a text that is longer than the maximum length for identifiers 1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890 1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890";
+            string expected = "ATextThatIsLongerThanTheMaximumLengthForIdentifiers12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890";
+            Assert.AreEqual(expected,HtmlLoader.NormalizeAsControlName(input));
+        }
+
+
         [TestMethod, DeploymentItem(@"..\..\Testdata\GoogleHome.htm")]
         public void GenerateValidCodeNameTest()
         {
-            // Load a snapshot of the standard Google homepage
-            string url = @"GoogleHome.htm";
-            var doc = HtmlLoader.LoadDocumentFromUrl(url);
-
-            // Define which control to generate for each html element
-            var registeredControls = CreateRegisteredControls();
-            var allControlInfo = HtmlLoader.GetHtmlControls(doc, registeredControls, options);
-
+            var allControlInfo = LoadGoogleHomePageInfo();
             Assert.AreEqual("AfbeeldingenLink", allControlInfo.Single(x => x.Description == "Afbeeldingen").CodeControlName);
             Assert.AreEqual("VoorwaardenLink", allControlInfo.Single(x => x.Description == "Voorwaarden").CodeControlName);
+        }
+
+
+        [TestMethod, DeploymentItem(@"..\..\Testdata\GoogleHome.htm")]
+        public void GetIDForAfbeeldingenTest()
+        {
+            var allControlInfo = LoadGoogleHomePageInfo();
+            var ctrl = allControlInfo.Single(x => x.Description == "Afbeeldingen");
+            Assert.AreEqual("gb_119", ctrl.CodeControlName);
+            Assert.AreEqual(ControlIdentificationType.Id, ctrl.IdentifiedBy);
+            Assert.AreEqual(HtmlControlTypeEnum.Link, ctrl.HtmlControlType);
         }
 
 
@@ -176,6 +175,18 @@ namespace SpecByExample.Tests
             controls.Add(new ControlTypeRegistration("Textarea", "Textarea", "//textarea"));
             controls.Add(new ControlTypeRegistration("WebTable", "Table", "//table"));
             return controls;
+        }
+
+        private List<HtmlControlInfo> LoadGoogleHomePageInfo()
+        {
+            // Load a snapshot of the standard Google homepage
+            string url = @"GoogleHome.htm";
+            var doc = HtmlLoader.LoadDocumentFromUrl(url);
+
+            // Define which control to generate for each html element
+            var registeredControls = CreateRegisteredControls();
+            var allControlInfo = HtmlLoader.GetHtmlControls(doc, registeredControls, options);
+            return allControlInfo;
         }
 
         #endregion

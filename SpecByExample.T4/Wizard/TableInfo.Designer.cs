@@ -55,10 +55,11 @@
             // 
             this.cmbTables.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTables.FormattingEnabled = true;
-            this.cmbTables.Location = new System.Drawing.Point(11, 26);
+            this.cmbTables.Location = new System.Drawing.Point(15, 32);
+            this.cmbTables.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTables.MaxDropDownItems = 12;
             this.cmbTables.Name = "cmbTables";
-            this.cmbTables.Size = new System.Drawing.Size(410, 21);
+            this.cmbTables.Size = new System.Drawing.Size(545, 24);
             this.cmbTables.TabIndex = 0;
             this.cmbTables.SelectedIndexChanged += new System.EventHandler(this.cmbTables_SelectedIndexChanged);
             this.cmbTables.Validating += new System.ComponentModel.CancelEventHandler(this.cmbTables_Validating);
@@ -66,9 +67,10 @@
             // lblTables
             // 
             this.lblTables.AutoSize = true;
-            this.lblTables.Location = new System.Drawing.Point(11, 7);
+            this.lblTables.Location = new System.Drawing.Point(15, 9);
+            this.lblTables.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTables.Name = "lblTables";
-            this.lblTables.Size = new System.Drawing.Size(211, 13);
+            this.lblTables.Size = new System.Drawing.Size(282, 17);
             this.lblTables.TabIndex = 10;
             this.lblTables.Text = "Select the main table element of your page:";
             // 
@@ -76,18 +78,20 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(21, 20);
+            this.label4.Location = new System.Drawing.Point(28, 25);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(172, 13);
+            this.label4.Size = new System.Drawing.Size(215, 17);
             this.label4.TabIndex = 15;
-            this.label4.Text = "Configure a  typed data table";
+            this.label4.Text = "Configure a typed data table";
             // 
             // lblGrid
             // 
             this.lblGrid.AutoSize = true;
-            this.lblGrid.Location = new System.Drawing.Point(11, 110);
+            this.lblGrid.Location = new System.Drawing.Point(15, 135);
+            this.lblGrid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGrid.Name = "lblGrid";
-            this.lblGrid.Size = new System.Drawing.Size(257, 13);
+            this.lblGrid.Size = new System.Drawing.Size(342, 17);
             this.lblGrid.TabIndex = 16;
             this.lblGrid.Text = "Specify a name and datatype for each of its columns:";
             // 
@@ -105,9 +109,10 @@
             this.CodeFieldname,
             this.Datatype});
             this.grid.DataSource = this.webTableColumnsDatasetBindingSource;
-            this.grid.Location = new System.Drawing.Point(11, 126);
+            this.grid.Location = new System.Drawing.Point(15, 155);
+            this.grid.Margin = new System.Windows.Forms.Padding(4);
             this.grid.Name = "grid";
-            this.grid.Size = new System.Drawing.Size(522, 126);
+            this.grid.Size = new System.Drawing.Size(696, 155);
             this.grid.TabIndex = 2;
             // 
             // IncludeField
@@ -125,7 +130,7 @@
             this.ColumnIndex.Name = "ColumnIndex";
             this.ColumnIndex.ReadOnly = true;
             this.ColumnIndex.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ColumnIndex.Width = 50;
+            this.ColumnIndex.Width = 60;
             // 
             // ColumnTitle
             // 
@@ -158,17 +163,19 @@
             // lblEntityName
             // 
             this.lblEntityName.AutoSize = true;
-            this.lblEntityName.Location = new System.Drawing.Point(11, 58);
+            this.lblEntityName.Location = new System.Drawing.Point(15, 71);
+            this.lblEntityName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEntityName.Name = "lblEntityName";
-            this.lblEntityName.Size = new System.Drawing.Size(263, 13);
+            this.lblEntityName.Size = new System.Drawing.Size(354, 17);
             this.lblEntityName.TabIndex = 18;
             this.lblEntityName.Text = "What does a row in this table represent:   (entity name)";
             // 
             // txtEntityName
             // 
-            this.txtEntityName.Location = new System.Drawing.Point(11, 74);
+            this.txtEntityName.Location = new System.Drawing.Point(15, 91);
+            this.txtEntityName.Margin = new System.Windows.Forms.Padding(4);
             this.txtEntityName.Name = "txtEntityName";
-            this.txtEntityName.Size = new System.Drawing.Size(410, 20);
+            this.txtEntityName.Size = new System.Drawing.Size(545, 22);
             this.txtEntityName.TabIndex = 1;
             this.txtEntityName.Validating += new System.ComponentModel.CancelEventHandler(this.txtEntityName_Validating);
             // 
@@ -189,17 +196,19 @@
             this.pnlTableInfo.Controls.Add(this.lblTables);
             this.pnlTableInfo.Controls.Add(this.cmbTables);
             this.pnlTableInfo.Enabled = false;
-            this.pnlTableInfo.Location = new System.Drawing.Point(24, 77);
+            this.pnlTableInfo.Location = new System.Drawing.Point(32, 95);
+            this.pnlTableInfo.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTableInfo.Name = "pnlTableInfo";
-            this.pnlTableInfo.Size = new System.Drawing.Size(538, 257);
+            this.pnlTableInfo.Size = new System.Drawing.Size(717, 316);
             this.pnlTableInfo.TabIndex = 1;
             // 
             // chkCreateTableWrapper
             // 
             this.chkCreateTableWrapper.AutoSize = true;
-            this.chkCreateTableWrapper.Location = new System.Drawing.Point(24, 54);
+            this.chkCreateTableWrapper.Location = new System.Drawing.Point(32, 66);
+            this.chkCreateTableWrapper.Margin = new System.Windows.Forms.Padding(4);
             this.chkCreateTableWrapper.Name = "chkCreateTableWrapper";
-            this.chkCreateTableWrapper.Size = new System.Drawing.Size(278, 17);
+            this.chkCreateTableWrapper.Size = new System.Drawing.Size(371, 21);
             this.chkCreateTableWrapper.TabIndex = 0;
             this.chkCreateTableWrapper.Text = "Create a strongly typed wrapper for the data in a table";
             this.chkCreateTableWrapper.UseVisualStyleBackColor = true;
@@ -207,13 +216,13 @@
             // 
             // TableInfo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.Controls.Add(this.chkCreateTableWrapper);
             this.Controls.Add(this.pnlTableInfo);
             this.Controls.Add(this.label4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TableInfo";
-            this.Size = new System.Drawing.Size(573, 345);
+            this.Size = new System.Drawing.Size(764, 425);
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.webTableColumnsDatasetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -235,12 +244,12 @@
         private System.Windows.Forms.TextBox txtEntityName;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.BindingSource webTableColumnsDatasetBindingSource;
+        private System.Windows.Forms.CheckBox chkCreateTableWrapper;
+        private System.Windows.Forms.Panel pnlTableInfo;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IncludeField;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnIndex;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTitle;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodeFieldname;
         private System.Windows.Forms.DataGridViewComboBoxColumn Datatype;
-        private System.Windows.Forms.CheckBox chkCreateTableWrapper;
-        private System.Windows.Forms.Panel pnlTableInfo;
     }
 }

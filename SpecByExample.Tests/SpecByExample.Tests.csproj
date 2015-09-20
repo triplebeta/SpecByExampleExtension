@@ -98,6 +98,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Testdata\GoogleHome.htm" />
+    <Content Include="Testdata\SpecialCharacters.htm" />
     <Content Include="Testdata\PaginaMetDubbeleIDs.htm" />
     <Content Include="Testdata\TestMetAlert.htm" />
     <Content Include="Testdata\TestMetExterneLink.htm" />

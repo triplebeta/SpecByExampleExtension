@@ -77,12 +77,12 @@ namespace SpecByExample.T4.Wizard_pages
 
                     // Get all registered controls except DIVs
                     // Assume we want to generate a property for each item that supports this.
-                    var allExceptDiv = from x in WizardConfig.RegisteredControlTypes where x.TypeName == "Div" select x;
+                    var allExceptDiv = from x in WizardConfig.RegisteredControlTypes where x.TypeName != "Div" select x;
                     allHtmlElements = HtmlLoader.GetHtmlControls(doc, allExceptDiv, Options);
                     allHtmlElements.ForEach(x => x.GenerateCodeForThisItem = x.SupportsCodeGeneration);
 
                     // Get all DIVs by filtering the list of registered controls
-                    var divOnly = from x in WizardConfig.RegisteredControlTypes where x.TypeName != "Div" select x;
+                    var divOnly = from x in WizardConfig.RegisteredControlTypes where x.TypeName == "Div" select x;
                     allHtmlContainers = HtmlLoader.GetHtmlControls(doc, divOnly, Options);
 
                     pageInfo = HtmlLoader.GetPageInfo(doc);

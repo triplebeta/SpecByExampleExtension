@@ -17,6 +17,11 @@ namespace SpecByExample.T4.Wizard_pages
             InitializeComponent();
         }
 
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            this.Dock = DockStyle.Fill;
+        }
 
         #region Properties for the elements on this wizardpage
 

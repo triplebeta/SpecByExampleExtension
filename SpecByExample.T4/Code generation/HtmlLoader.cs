@@ -190,14 +190,16 @@ namespace SpecByExample.T4
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        internal static string NormalizeAsControlName(string text)
+        public static string NormalizeAsControlName(string text)
         {
             if (text == null)
                 return "";
 
-            string newID = text.Replace("\n", " ").Replace("\r", "").Replace("\t", "");
-            newID = newID.Replace("-", "_").Replace("'","").Replace("+","Plus").Replace("$", "Dollar").Replace("#","").Replace("~", "");
-            newID = newID.Trim();
+            // Remove any remaining encoded characters
+            string newID = Regex.Replace(text, "&[a-zA-Z]+;", "");
+
+            newID = Regex.Replace(newID, @"['\.,\$\#\~;:()\[\]=""\\\/@\!\`\*\{\}<>]", "");
+            newID = newID.Replace("-", "_").Replace("+", "Plus").Replace("%", "Pct");
             newID = newID.Replace("&nbsp;", "");    // Remove HTML spaces
 
             // Check for names that start with a digit and add an underscore at the beginning.
@@ -208,8 +210,14 @@ namespace SpecByExample.T4
                 newID = "_" + newID;
             }
 
+            // If starting with a number then prefix with an underscore
+            if (Regex.IsMatch(newID, "^[0-9]"))
+                newID = "_" + newID;
+
             // Make it pretty and properly normalized to Unicode format C
             newID = ConvertToCamelCase(newID).Normalize();
+            newID = newID.Replace("\n", " ").Replace("\r", "").Replace("\t", "");
+            newID = newID.Trim();
 
             // Ensure we do not create identifiers which are too long.
             if (newID.Length > 511) newID = newID.Substring(100);

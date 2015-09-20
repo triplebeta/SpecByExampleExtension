@@ -16,6 +16,12 @@ namespace SpecByExample.T4.Wizard
             InitializeComponent();
         }
 
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            this.Dock = DockStyle.Fill;
+        }
+
         #region Validation event handlers
 
         private void txtWellKnownUrlName_Validating(object sender, CancelEventArgs e)
