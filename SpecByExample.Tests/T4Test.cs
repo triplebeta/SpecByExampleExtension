@@ -130,13 +130,13 @@ namespace SpecByExample.Tests
             var registeredControls = CreateRegisteredControls();
             var allControlInfo = HtmlLoader.GetHtmlControls(doc, registeredControls, options);
 
-            foreach (var x in allControlInfo)
+            //foreach (var x in allControlInfo)
             //{
             //    Trace.WriteLine(x.CodeControlName);
             //}
 
             // Check for invalid characters
-            Assert.IsTrue(allControlInfo.All(x=>x.CodeControlName.Contains("(")==false));
+            Assert.IsTrue(allControlInfo.All(x => x.CodeControlName.Contains("(")==false));
             Assert.IsTrue(allControlInfo.All(x => x.CodeControlName.Contains("&") == false));
             Assert.IsTrue(allControlInfo.All(x => x.CodeControlName.Contains(" ") == false));
             Assert.IsTrue(allControlInfo.All(x => x.CodeControlName.Contains("$") == false));
