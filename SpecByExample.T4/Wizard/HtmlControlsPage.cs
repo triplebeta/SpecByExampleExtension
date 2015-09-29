@@ -214,7 +214,16 @@ namespace SpecByExample.T4.Wizard
             }
 
             // Check for duplicate controlnames
-            var duplicates = currentlySelectedControls
+            //var duplicates = currentlySelectedControls
+            //    .GroupBy(i => i.CodeControlName)
+            //    .Where(g => g.Count() > 1)
+            //    .Select(g => g.Key);
+
+            var onlySelectedItems = from c in currentlySelectedControls
+                                    where c.GenerateCodeForThisItem
+                                    select c;
+
+            var duplicates = onlySelectedItems
                 .GroupBy(i => i.CodeControlName)
                 .Where(g => g.Count() > 1)
                 .Select(g => g.Key);

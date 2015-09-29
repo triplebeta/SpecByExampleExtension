@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label4 = new System.Windows.Forms.Label();
             this.chkIncludeAllControls = new System.Windows.Forms.CheckBox();
             this.pnlHtmlElements = new System.Windows.Forms.Panel();
@@ -43,6 +43,12 @@
             this.chkRadiobutton = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.gridControls = new System.Windows.Forms.DataGridView();
+            this.generateCodeForThisItemDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.userDefinedNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.htmlControlTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HtmlId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HtmlName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.htmlXPathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.htmlControlInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.chkCheckbox = new System.Windows.Forms.CheckBox();
             this.chkHyperlink = new System.Windows.Forms.CheckBox();
@@ -57,12 +63,6 @@
             this.containerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.generateCodeForThisItemDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.userDefinedNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.htmlControlTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HtmlId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HtmlName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.htmlXPathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlHtmlElements.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControls)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.htmlControlInfoBindingSource)).BeginInit();
@@ -89,7 +89,7 @@
             this.chkIncludeAllControls.Location = new System.Drawing.Point(32, 66);
             this.chkIncludeAllControls.Margin = new System.Windows.Forms.Padding(4);
             this.chkIncludeAllControls.Name = "chkIncludeAllControls";
-            this.chkIncludeAllControls.Size = new System.Drawing.Size(196, 21);
+            this.chkIncludeAllControls.Size = new System.Drawing.Size(176, 19);
             this.chkIncludeAllControls.TabIndex = 21;
             this.chkIncludeAllControls.Text = "Include all HTML elements";
             this.chkIncludeAllControls.UseVisualStyleBackColor = true;
@@ -133,7 +133,7 @@
             this.label5.Location = new System.Drawing.Point(476, 174);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 17);
+            this.label5.Size = new System.Drawing.Size(112, 15);
             this.label5.TabIndex = 17;
             this.label5.Text = "Selected elements:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -158,7 +158,7 @@
             this.chkTextArea.Location = new System.Drawing.Point(52, 110);
             this.chkTextArea.Margin = new System.Windows.Forms.Padding(4);
             this.chkTextArea.Name = "chkTextArea";
-            this.chkTextArea.Size = new System.Drawing.Size(86, 21);
+            this.chkTextArea.Size = new System.Drawing.Size(77, 19);
             this.chkTextArea.TabIndex = 15;
             this.chkTextArea.Tag = "Textarea";
             this.chkTextArea.Text = "Textarea";
@@ -173,7 +173,7 @@
             this.chkImage.Location = new System.Drawing.Point(183, 137);
             this.chkImage.Margin = new System.Windows.Forms.Padding(4);
             this.chkImage.Name = "chkImage";
-            this.chkImage.Size = new System.Drawing.Size(68, 21);
+            this.chkImage.Size = new System.Drawing.Size(64, 19);
             this.chkImage.TabIndex = 14;
             this.chkImage.Tag = "Image";
             this.chkImage.Text = "Image";
@@ -188,7 +188,7 @@
             this.chkRadiobutton.Location = new System.Drawing.Point(333, 137);
             this.chkRadiobutton.Margin = new System.Windows.Forms.Padding(4);
             this.chkRadiobutton.Name = "chkRadiobutton";
-            this.chkRadiobutton.Size = new System.Drawing.Size(107, 21);
+            this.chkRadiobutton.Size = new System.Drawing.Size(96, 19);
             this.chkRadiobutton.TabIndex = 13;
             this.chkRadiobutton.Tag = "Radiobutton";
             this.chkRadiobutton.Text = "Radiobutton";
@@ -201,7 +201,7 @@
             this.label3.Location = new System.Drawing.Point(17, 174);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(309, 17);
+            this.label3.Size = new System.Drawing.Size(266, 15);
             this.label3.TabIndex = 12;
             this.label3.Text = "Add the following elements to the page adapter:";
             // 
@@ -235,172 +235,6 @@
             this.gridControls.CurrentCellDirtyStateChanged += new System.EventHandler(this.gridControls_CurrentCellDirtyStateChanged);
             this.gridControls.Validating += new System.ComponentModel.CancelEventHandler(this.gridControls_Validating);
             // 
-            // htmlControlInfoBindingSource
-            // 
-            this.htmlControlInfoBindingSource.DataSource = typeof(SpecByExample.T4.HtmlControlInfo);
-            // 
-            // chkCheckbox
-            // 
-            this.chkCheckbox.AutoSize = true;
-            this.chkCheckbox.Checked = true;
-            this.chkCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkCheckbox.Location = new System.Drawing.Point(183, 110);
-            this.chkCheckbox.Margin = new System.Windows.Forms.Padding(4);
-            this.chkCheckbox.Name = "chkCheckbox";
-            this.chkCheckbox.Size = new System.Drawing.Size(91, 21);
-            this.chkCheckbox.TabIndex = 10;
-            this.chkCheckbox.Tag = "Checkbox";
-            this.chkCheckbox.Text = "Checkbox";
-            this.chkCheckbox.UseVisualStyleBackColor = true;
-            this.chkCheckbox.CheckedChanged += new System.EventHandler(this.chkSelectHtmlElementChanged);
-            // 
-            // chkHyperlink
-            // 
-            this.chkHyperlink.AutoSize = true;
-            this.chkHyperlink.Checked = true;
-            this.chkHyperlink.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkHyperlink.Location = new System.Drawing.Point(183, 81);
-            this.chkHyperlink.Margin = new System.Windows.Forms.Padding(4);
-            this.chkHyperlink.Name = "chkHyperlink";
-            this.chkHyperlink.Size = new System.Drawing.Size(56, 21);
-            this.chkHyperlink.TabIndex = 9;
-            this.chkHyperlink.Tag = "Anchor";
-            this.chkHyperlink.Text = "Link";
-            this.chkHyperlink.UseVisualStyleBackColor = true;
-            this.chkHyperlink.CheckedChanged += new System.EventHandler(this.chkSelectHtmlElementChanged);
-            // 
-            // chkButton
-            // 
-            this.chkButton.AutoSize = true;
-            this.chkButton.Checked = true;
-            this.chkButton.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkButton.Location = new System.Drawing.Point(52, 137);
-            this.chkButton.Margin = new System.Windows.Forms.Padding(4);
-            this.chkButton.Name = "chkButton";
-            this.chkButton.Size = new System.Drawing.Size(71, 21);
-            this.chkButton.TabIndex = 8;
-            this.chkButton.Tag = "Button";
-            this.chkButton.Text = "Button";
-            this.chkButton.UseVisualStyleBackColor = true;
-            this.chkButton.CheckedChanged += new System.EventHandler(this.chkSelectHtmlElementChanged);
-            // 
-            // chkDiv
-            // 
-            this.chkDiv.AutoSize = true;
-            this.chkDiv.Location = new System.Drawing.Point(484, 81);
-            this.chkDiv.Margin = new System.Windows.Forms.Padding(4);
-            this.chkDiv.Name = "chkDiv";
-            this.chkDiv.Size = new System.Drawing.Size(50, 21);
-            this.chkDiv.TabIndex = 7;
-            this.chkDiv.Tag = "Div";
-            this.chkDiv.Text = "Div";
-            this.chkDiv.UseVisualStyleBackColor = true;
-            this.chkDiv.CheckedChanged += new System.EventHandler(this.chkSelectHtmlElementChanged);
-            // 
-            // chkTable
-            // 
-            this.chkTable.AutoSize = true;
-            this.chkTable.Checked = true;
-            this.chkTable.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkTable.Location = new System.Drawing.Point(484, 110);
-            this.chkTable.Margin = new System.Windows.Forms.Padding(4);
-            this.chkTable.Name = "chkTable";
-            this.chkTable.Size = new System.Drawing.Size(66, 21);
-            this.chkTable.TabIndex = 6;
-            this.chkTable.Tag = "Table";
-            this.chkTable.Text = "Table";
-            this.chkTable.UseVisualStyleBackColor = true;
-            this.chkTable.CheckedChanged += new System.EventHandler(this.chkSelectHtmlElementChanged);
-            // 
-            // chkListbox
-            // 
-            this.chkListbox.AutoSize = true;
-            this.chkListbox.Checked = true;
-            this.chkListbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkListbox.Location = new System.Drawing.Point(333, 81);
-            this.chkListbox.Margin = new System.Windows.Forms.Padding(4);
-            this.chkListbox.Name = "chkListbox";
-            this.chkListbox.Size = new System.Drawing.Size(74, 21);
-            this.chkListbox.TabIndex = 5;
-            this.chkListbox.Tag = "Listbox";
-            this.chkListbox.Text = "Listbox";
-            this.chkListbox.UseVisualStyleBackColor = true;
-            this.chkListbox.CheckedChanged += new System.EventHandler(this.chkSelectHtmlElementChanged);
-            // 
-            // chkCombobox
-            // 
-            this.chkCombobox.AutoSize = true;
-            this.chkCombobox.Checked = true;
-            this.chkCombobox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkCombobox.Location = new System.Drawing.Point(333, 110);
-            this.chkCombobox.Margin = new System.Windows.Forms.Padding(4);
-            this.chkCombobox.Name = "chkCombobox";
-            this.chkCombobox.Size = new System.Drawing.Size(96, 21);
-            this.chkCombobox.TabIndex = 4;
-            this.chkCombobox.Tag = "Select";
-            this.chkCombobox.Text = "Combobox";
-            this.chkCombobox.UseVisualStyleBackColor = true;
-            this.chkCombobox.CheckedChanged += new System.EventHandler(this.chkSelectHtmlElementChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 59);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(223, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Include elements with these types:";
-            // 
-            // chkTextbox
-            // 
-            this.chkTextbox.AutoSize = true;
-            this.chkTextbox.Checked = true;
-            this.chkTextbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkTextbox.Location = new System.Drawing.Point(52, 81);
-            this.chkTextbox.Margin = new System.Windows.Forms.Padding(4);
-            this.chkTextbox.Name = "chkTextbox";
-            this.chkTextbox.Size = new System.Drawing.Size(79, 21);
-            this.chkTextbox.TabIndex = 2;
-            this.chkTextbox.Tag = "Text";
-            this.chkTextbox.Text = "Textbox";
-            this.chkTextbox.UseVisualStyleBackColor = true;
-            this.chkTextbox.CheckedChanged += new System.EventHandler(this.chkSelectHtmlElementChanged);
-            // 
-            // cmbContainers
-            // 
-            this.cmbContainers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbContainers.DataSource = this.containerBindingSource;
-            this.cmbContainers.DisplayMember = "DisplayName";
-            this.cmbContainers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbContainers.FormattingEnabled = true;
-            this.cmbContainers.Location = new System.Drawing.Point(183, 15);
-            this.cmbContainers.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbContainers.Name = "cmbContainers";
-            this.cmbContainers.Size = new System.Drawing.Size(476, 24);
-            this.cmbContainers.TabIndex = 1;
-            this.cmbContainers.ValueMember = "HtmlXPath";
-            this.cmbContainers.SelectedIndexChanged += new System.EventHandler(this.cmbContainers_SelectedIndexChanged);
-            // 
-            // containerBindingSource
-            // 
-            this.containerBindingSource.DataSource = typeof(SpecByExample.T4.HtmlControlInfo);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 18);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Element must be within:";
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // generateCodeForThisItemDataGridViewCheckBoxColumn
             // 
             this.generateCodeForThisItemDataGridViewCheckBoxColumn.DataPropertyName = "GenerateCodeForThisItem";
@@ -419,8 +253,8 @@
             // htmlControlTypeDataGridViewTextBoxColumn
             // 
             this.htmlControlTypeDataGridViewTextBoxColumn.DataPropertyName = "HtmlControlType";
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.htmlControlTypeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.htmlControlTypeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.htmlControlTypeDataGridViewTextBoxColumn.HeaderText = "Maps to";
             this.htmlControlTypeDataGridViewTextBoxColumn.Name = "htmlControlTypeDataGridViewTextBoxColumn";
             this.htmlControlTypeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -429,8 +263,8 @@
             // HtmlId
             // 
             this.HtmlId.DataPropertyName = "HtmlId";
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.HtmlId.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.HtmlId.DefaultCellStyle = dataGridViewCellStyle2;
             this.HtmlId.HeaderText = "ID";
             this.HtmlId.Name = "HtmlId";
             this.HtmlId.ReadOnly = true;
@@ -439,8 +273,8 @@
             // HtmlName
             // 
             this.HtmlName.DataPropertyName = "HtmlName";
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.HtmlName.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.HtmlName.DefaultCellStyle = dataGridViewCellStyle3;
             this.HtmlName.HeaderText = "Name";
             this.HtmlName.Name = "HtmlName";
             this.HtmlName.ReadOnly = true;
@@ -448,12 +282,178 @@
             // htmlXPathDataGridViewTextBoxColumn
             // 
             this.htmlXPathDataGridViewTextBoxColumn.DataPropertyName = "HtmlXPath";
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.htmlXPathDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.htmlXPathDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.htmlXPathDataGridViewTextBoxColumn.HeaderText = "XPath";
             this.htmlXPathDataGridViewTextBoxColumn.Name = "htmlXPathDataGridViewTextBoxColumn";
             this.htmlXPathDataGridViewTextBoxColumn.ReadOnly = true;
             this.htmlXPathDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // htmlControlInfoBindingSource
+            // 
+            this.htmlControlInfoBindingSource.DataSource = typeof(SpecByExample.T4.HtmlControlInfo);
+            // 
+            // chkCheckbox
+            // 
+            this.chkCheckbox.AutoSize = true;
+            this.chkCheckbox.Checked = true;
+            this.chkCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkCheckbox.Location = new System.Drawing.Point(183, 110);
+            this.chkCheckbox.Margin = new System.Windows.Forms.Padding(4);
+            this.chkCheckbox.Name = "chkCheckbox";
+            this.chkCheckbox.Size = new System.Drawing.Size(83, 19);
+            this.chkCheckbox.TabIndex = 10;
+            this.chkCheckbox.Tag = "Checkbox";
+            this.chkCheckbox.Text = "Checkbox";
+            this.chkCheckbox.UseVisualStyleBackColor = true;
+            this.chkCheckbox.CheckedChanged += new System.EventHandler(this.chkSelectHtmlElementChanged);
+            // 
+            // chkHyperlink
+            // 
+            this.chkHyperlink.AutoSize = true;
+            this.chkHyperlink.Checked = true;
+            this.chkHyperlink.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkHyperlink.Location = new System.Drawing.Point(183, 81);
+            this.chkHyperlink.Margin = new System.Windows.Forms.Padding(4);
+            this.chkHyperlink.Name = "chkHyperlink";
+            this.chkHyperlink.Size = new System.Drawing.Size(52, 19);
+            this.chkHyperlink.TabIndex = 9;
+            this.chkHyperlink.Tag = "Anchor";
+            this.chkHyperlink.Text = "Link";
+            this.chkHyperlink.UseVisualStyleBackColor = true;
+            this.chkHyperlink.CheckedChanged += new System.EventHandler(this.chkSelectHtmlElementChanged);
+            // 
+            // chkButton
+            // 
+            this.chkButton.AutoSize = true;
+            this.chkButton.Checked = true;
+            this.chkButton.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkButton.Location = new System.Drawing.Point(52, 137);
+            this.chkButton.Margin = new System.Windows.Forms.Padding(4);
+            this.chkButton.Name = "chkButton";
+            this.chkButton.Size = new System.Drawing.Size(64, 19);
+            this.chkButton.TabIndex = 8;
+            this.chkButton.Tag = "Button";
+            this.chkButton.Text = "Button";
+            this.chkButton.UseVisualStyleBackColor = true;
+            this.chkButton.CheckedChanged += new System.EventHandler(this.chkSelectHtmlElementChanged);
+            // 
+            // chkDiv
+            // 
+            this.chkDiv.AutoSize = true;
+            this.chkDiv.Location = new System.Drawing.Point(484, 81);
+            this.chkDiv.Margin = new System.Windows.Forms.Padding(4);
+            this.chkDiv.Name = "chkDiv";
+            this.chkDiv.Size = new System.Drawing.Size(46, 19);
+            this.chkDiv.TabIndex = 7;
+            this.chkDiv.Tag = "Div";
+            this.chkDiv.Text = "Div";
+            this.chkDiv.UseVisualStyleBackColor = true;
+            this.chkDiv.CheckedChanged += new System.EventHandler(this.chkSelectHtmlElementChanged);
+            // 
+            // chkTable
+            // 
+            this.chkTable.AutoSize = true;
+            this.chkTable.Checked = true;
+            this.chkTable.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkTable.Location = new System.Drawing.Point(484, 110);
+            this.chkTable.Margin = new System.Windows.Forms.Padding(4);
+            this.chkTable.Name = "chkTable";
+            this.chkTable.Size = new System.Drawing.Size(60, 19);
+            this.chkTable.TabIndex = 6;
+            this.chkTable.Tag = "Table";
+            this.chkTable.Text = "Table";
+            this.chkTable.UseVisualStyleBackColor = true;
+            this.chkTable.CheckedChanged += new System.EventHandler(this.chkSelectHtmlElementChanged);
+            // 
+            // chkListbox
+            // 
+            this.chkListbox.AutoSize = true;
+            this.chkListbox.Checked = true;
+            this.chkListbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkListbox.Location = new System.Drawing.Point(333, 81);
+            this.chkListbox.Margin = new System.Windows.Forms.Padding(4);
+            this.chkListbox.Name = "chkListbox";
+            this.chkListbox.Size = new System.Drawing.Size(68, 19);
+            this.chkListbox.TabIndex = 5;
+            this.chkListbox.Tag = "Listbox";
+            this.chkListbox.Text = "Listbox";
+            this.chkListbox.UseVisualStyleBackColor = true;
+            this.chkListbox.CheckedChanged += new System.EventHandler(this.chkSelectHtmlElementChanged);
+            // 
+            // chkCombobox
+            // 
+            this.chkCombobox.AutoSize = true;
+            this.chkCombobox.Checked = true;
+            this.chkCombobox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkCombobox.Location = new System.Drawing.Point(333, 110);
+            this.chkCombobox.Margin = new System.Windows.Forms.Padding(4);
+            this.chkCombobox.Name = "chkCombobox";
+            this.chkCombobox.Size = new System.Drawing.Size(89, 19);
+            this.chkCombobox.TabIndex = 4;
+            this.chkCombobox.Tag = "Select";
+            this.chkCombobox.Text = "Combobox";
+            this.chkCombobox.UseVisualStyleBackColor = true;
+            this.chkCombobox.CheckedChanged += new System.EventHandler(this.chkSelectHtmlElementChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 59);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(193, 15);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Include elements with these types:";
+            // 
+            // chkTextbox
+            // 
+            this.chkTextbox.AutoSize = true;
+            this.chkTextbox.Checked = true;
+            this.chkTextbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkTextbox.Location = new System.Drawing.Point(52, 81);
+            this.chkTextbox.Margin = new System.Windows.Forms.Padding(4);
+            this.chkTextbox.Name = "chkTextbox";
+            this.chkTextbox.Size = new System.Drawing.Size(72, 19);
+            this.chkTextbox.TabIndex = 2;
+            this.chkTextbox.Tag = "Text";
+            this.chkTextbox.Text = "Textbox";
+            this.chkTextbox.UseVisualStyleBackColor = true;
+            this.chkTextbox.CheckedChanged += new System.EventHandler(this.chkSelectHtmlElementChanged);
+            // 
+            // cmbContainers
+            // 
+            this.cmbContainers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbContainers.DataSource = this.containerBindingSource;
+            this.cmbContainers.DisplayMember = "DisplayName";
+            this.cmbContainers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbContainers.FormattingEnabled = true;
+            this.cmbContainers.Location = new System.Drawing.Point(183, 15);
+            this.cmbContainers.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbContainers.Name = "cmbContainers";
+            this.cmbContainers.Size = new System.Drawing.Size(476, 21);
+            this.cmbContainers.TabIndex = 1;
+            this.cmbContainers.ValueMember = "HtmlXPath";
+            this.cmbContainers.SelectedIndexChanged += new System.EventHandler(this.cmbContainers_SelectedIndexChanged);
+            // 
+            // containerBindingSource
+            // 
+            this.containerBindingSource.DataSource = typeof(SpecByExample.T4.HtmlControlInfo);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(138, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Element must be within:";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // HtmlControlsPage
             // 

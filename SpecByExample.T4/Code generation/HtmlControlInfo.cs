@@ -61,8 +61,12 @@ namespace SpecByExample.T4
                     return HtmlLoader.NormalizeAsControlName(Description);
                 else if (String.IsNullOrEmpty(HtmlTitle) == false)
                     return HtmlLoader.NormalizeAsControlName(HtmlTitle);
+                else if (String.IsNullOrEmpty(HtmlId) == false)
+                    return HtmlId;
+                else if (String.IsNullOrEmpty(HtmlName) == false)
+                    return HtmlName;
                 else
-                    return String.IsNullOrEmpty(HtmlId) ? HtmlName : HtmlId;
+                    return CodeControlType;
             }
         }
 
@@ -192,6 +196,8 @@ namespace SpecByExample.T4
                     codeControlName = CreateCodeControlName();
                 return codeControlName;
             }
+            // Allow to override the controlname. Used when same default name appears more than once. In that case we can add a number to make it unique.
+            set { codeControlName = value; }
         }
 
         /// <summary>

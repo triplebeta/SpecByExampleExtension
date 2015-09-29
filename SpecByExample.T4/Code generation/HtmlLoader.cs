@@ -47,6 +47,8 @@ namespace SpecByExample.T4
         /// <returns></returns>
         public static HtmlDocument LoadDocumentFromUrl(string url)
         {
+            //HtmlAgilityPack.HtmlDocument
+
             var document = new HtmlAgilityPack.HtmlDocument();
 
             // Load a file from disk or from an url
@@ -180,6 +182,25 @@ namespace SpecByExample.T4
                     ctrl.AssignIdentificationMethod(controls.AsQueryable(), options.PreferredIdentifications);
                     controls.Add(ctrl);
                 }
+
+                // Make sure all names are unique.
+                var duplicates = controls
+                    .GroupBy(i => i.CodeControlName)
+                    .Where(g => g.Count() > 1)
+                    .SelectMany(g => g);
+                //                    .Select(g => g.Key);
+
+                var ctrlNames = duplicates.Select(x=>x.CodeControlName).Distinct();
+                foreach (string ctrlName in ctrlNames)
+                {
+                    // Detect duplicates
+                    int counter = 1;
+                    foreach (var c in controls)
+                    {
+                        if (c.CodeControlName==ctrlName)
+                            c.CodeControlName += counter++;
+                    }
+                }
             }
             return controls;
         }
@@ -198,7 +219,7 @@ namespace SpecByExample.T4
             // Remove any remaining encoded characters
             string newID = Regex.Replace(text, "&[a-zA-Z]+;", "");
 
-            newID = Regex.Replace(newID, @"['\.,\$\#\~;:()\[\]=""\\\/@\!\`\*\{\}<>]", "");
+            newID = Regex.Replace(newID, @"['\.,\$\#\~;®–’‘:()\[\]=""\\\/@\!\`\*\{\}<>]", "");
             newID = newID.Replace("-", "_").Replace("+", "Plus").Replace("%", "Pct");
             newID = newID.Replace("&nbsp;", "");    // Remove HTML spaces
 
