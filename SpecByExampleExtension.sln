@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5EA01E67-40A4-4220-8DAA-427A3F635372}"
 	ProjectSection(SolutionItems) = preProject
@@ -15,6 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_WebDrivers", "_WebDrivers"
 	ProjectSection(SolutionItems) = preProject
 		DevTools\chromedriver.exe = DevTools\chromedriver.exe
 		DevTools\IEDriverServer.exe = DevTools\IEDriverServer.exe
+		DevTools\MicrosoftWebDriver.exe = DevTools\MicrosoftWebDriver.exe
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extension", "Extension", "{121173EA-1063-405C-84DF-406629D30992}"

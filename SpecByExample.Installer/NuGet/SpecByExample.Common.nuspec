@@ -10,12 +10,12 @@
 		<tags>NuGet Specification by Example Selenium PageObject Specflow</tags>
 		<language>en-US</language>
     <dependencies>
-      <dependency id="Castle.Core" version="[3.3,)" />
+      <dependency id="Castle.Core" version="[3.3.3,)" />
       <dependency id="Castle.Windsor" version="[3.3,)" />
-      <dependency id="HtmlAgilityPack" version="[1.4.9,)" />
+      <dependency id="HtmlAgilityPack" version="[1.4.9.5,)" />
       <dependency id="Specflow" version="[1.9.0,)" />
-      <dependency id="Selenium.WebDriver" version="[2.47,)" />
-      <dependency id="Selenium.Support" version="[2.47,)" />
+      <dependency id="Selenium.WebDriver" version="[3.0.1,)" />
+      <dependency id="Selenium.Support" version="[3.0.1,)" />
     </dependencies>
 	</metadata>
   <files>
