@@ -48,9 +48,9 @@
     <packages repository="extension" repositoryId="SpecByExample.baa6f5bb-f971-45f3-a7fa-9b3be5ffb8fe">
       <package id="Castle.Core" version="3.3.3" />
       <package id="Castle.Windsor" version="3.3.0" />
-      <package id="Selenium.WebDriver" version="2.47.0" />
-      <package id="Selenium.Support" version="2.47.0" />
-      <package id="SpecFlow" version="1.9.0" />
+      <package id="Selenium.WebDriver" version="3.0.1" />
+      <package id="Selenium.Support" version="3.0.1" />
+      <package id="SpecFlow" version="2.1.0" />
       <package id="SpecByExample.Common" version="1.0.0" />
     </packages>
   </WizardData>
