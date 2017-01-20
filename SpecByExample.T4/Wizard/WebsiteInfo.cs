@@ -1,27 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using SpecByExample.T4.Wizard;
 using System.IO;
-using System.Diagnostics;
 
 namespace SpecByExample.T4.Wizard_pages
 {
     public partial class WebsiteInfo : UserControl, IWizardPage
     {
-        private List<HtmlControlInfo> allHtmlElements, allHtmlContainers;
         private PageInfo pageInfo;
 
         public WebsiteInfo()
         {
             InitializeComponent();
         }
-
 
         #region Implement IWizardPage
 
@@ -46,19 +41,14 @@ namespace SpecByExample.T4.Wizard_pages
             {
                 container.PageUrl = PageUrl;
                 container.PageInfo = pageInfo;
-                container.AllHtmlElements.Clear();
-                container.AllHtmlElements.AddRange(allHtmlElements);
 
-                container.AllHtmlContainers.Clear();
-                container.AllHtmlContainers.AddRange(allHtmlContainers);
-
+                // By default select all elements
                 container.SelectedHtmlElements.Clear();
-                container.SelectedHtmlElements.AddRange(container.AllHtmlElements);
+                container.SelectedHtmlElements.AddRange(pageInfo.HtmlElements);
 
                 container.Options.ExcludeNonUniqueControls = ExcludeNonUniqueControls;
             }
         }
-
 
         public bool ValidateInput()
         {
@@ -72,20 +62,8 @@ namespace SpecByExample.T4.Wizard_pages
                     lblWaiting.Visible = true;
                     lblWaiting.Update();
 
-                    // Load the HTML
-                    var doc = HtmlLoader.LoadDocumentFromUrl(PageUrl);
-
-                    // Get all registered controls except DIVs
-                    // Assume we want to generate a property for each item that supports this.
-                    var allExceptDiv = from x in WizardConfig.RegisteredControlTypes where x.TypeName != "Div" select x;
-                    allHtmlElements = HtmlLoader.GetHtmlControls(doc, allExceptDiv, Options);
-                    allHtmlElements.ForEach(x => x.GenerateCodeForThisItem = x.SupportsCodeGeneration);
-
-                    // Get all DIVs by filtering the list of registered controls
-                    var divOnly = from x in WizardConfig.RegisteredControlTypes where x.TypeName == "Div" select x;
-                    allHtmlContainers = HtmlLoader.GetHtmlControls(doc, divOnly, Options);
-
-                    pageInfo = HtmlLoader.GetPageInfo(doc);
+                    var loader = new HtmlLoader(WizardConfig.RegisteredControlTypes);
+                    pageInfo = loader.GetPageInfo(PageUrl, WizardConfig, Options);
                 }
                 catch
                 {
@@ -103,7 +81,6 @@ namespace SpecByExample.T4.Wizard_pages
 
         #endregion
 
-
         #region Private properties
 
         /// <summary>
@@ -114,12 +91,12 @@ namespace SpecByExample.T4.Wizard_pages
             get
             {
                 string url = txtUrl.Text ?? "";
-                if (!url.StartsWith("file://", StringComparison.InvariantCultureIgnoreCase) &&
-                    !File.Exists(url) &&
-                    !url.StartsWith("http://", StringComparison.InvariantCultureIgnoreCase))
-                    return "http://" + url;
-                else
+                if ((url.StartsWith("file://", StringComparison.InvariantCultureIgnoreCase) && File.Exists(url)) ||
+                    url.StartsWith("http://", StringComparison.InvariantCultureIgnoreCase) ||
+                    url.StartsWith("https://", StringComparison.InvariantCultureIgnoreCase))
                     return url;
+                else
+                    return "http://" + url;
             }
             set { txtUrl.Text = value; }
         }
@@ -149,7 +126,6 @@ namespace SpecByExample.T4.Wizard_pages
         }
 
         #endregion
-
 
         #region Validation event handlers
 

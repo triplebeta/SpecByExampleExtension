@@ -23,14 +23,14 @@ namespace SpecByExample.Tests
             ControlIdentificationType.Cssclass };
         }
 
-
         [TestMethod, DeploymentItem(@"..\..\Testdata\PaginaMetDubbeleIDs.htm")]
         public void TestLoadControls()
         {
             string url = @"PaginaMetDubbeleIDs.htm";
-            var doc = HtmlLoader.LoadDocumentFromUrl(url);
             var registeredControls = CreateRegisteredControls();
-            var controlInfo = HtmlLoader.GetHtmlControls(doc, registeredControls, options);
+            var loader = new HtmlLoader(registeredControls);
+            var doc = loader.LoadDocumentFromUrl(url);
+            var controlInfo = loader.GetHtmlControls(doc, options);
 
             Assert.AreEqual(1, controlInfo.Count<HtmlControlInfo>(x => x.HtmlId == "RadiobuttonWithID"));
             Assert.IsTrue(controlInfo.All<HtmlControlInfo>(x=>x.HtmlId!=null));
@@ -49,8 +49,9 @@ namespace SpecByExample.Tests
             var registeredControls = CreateRegisteredControls();
 
             string url = @"PaginaMetDubbeleIDs.htm";
-            var doc = HtmlLoader.LoadDocumentFromUrl(url);
-            var allControlInfo = HtmlLoader.GetHtmlControls(doc, registeredControls, options);
+            var loader = new HtmlLoader(registeredControls);
+            var doc = loader.LoadDocumentFromUrl(url);
+            var allControlInfo = loader.GetHtmlControls(doc, registeredControls, options);
 
             var noIdentifiers = allControlInfo.Where(x=>x.ReasonNoCodeGeneration == ExclusionCodeGenerationReasons.NoValidIdentifier).ToList();
             Assert.AreEqual(3, noIdentifiers.Count);
@@ -72,10 +73,11 @@ namespace SpecByExample.Tests
         public void SetCodeGenerationToFalseWhenControlNotUniquelyIdentifyable()
         {
             var registeredControls = CreateRegisteredControls();
+            var loader = new HtmlLoader(registeredControls);
 
             string url = @"PaginaMetDubbeleIDs.htm";
-            var doc = HtmlLoader.LoadDocumentFromUrl(url);
-            var allControlInfo = HtmlLoader.GetHtmlControls(doc, registeredControls, options);
+            var doc = loader.LoadDocumentFromUrl(url);
+            var allControlInfo = loader.GetHtmlControls(doc, registeredControls, options);
 
             // Validate CodeGeneration is disabled for each of these and only for these (not for others!)
             var noIdentifiers = allControlInfo.Where(x => x.ReasonNoCodeGeneration == ExclusionCodeGenerationReasons.NoValidIdentifier).ToList();
@@ -153,7 +155,7 @@ namespace SpecByExample.Tests
         {
             var allControlInfo = LoadGoogleHomePageInfo();
             var ctrl = allControlInfo.Single(x => x.Description == "Afbeeldingen");
-            Assert.AreEqual("gb_119", ctrl.CodeControlName);
+            Assert.AreEqual("AfbeeldingenLink", ctrl.CodeControlName);
             Assert.AreEqual(ControlIdentificationType.Id, ctrl.IdentifiedBy);
             Assert.AreEqual(HtmlControlTypeEnum.Link, ctrl.HtmlControlType);
         }
@@ -181,11 +183,12 @@ namespace SpecByExample.Tests
         {
             // Load a snapshot of the standard Google homepage
             string url = @"GoogleHome.htm";
-            var doc = HtmlLoader.LoadDocumentFromUrl(url);
+            var registeredControls = CreateRegisteredControls();
+            var loader = new HtmlLoader(registeredControls);
+            var doc = loader.LoadDocumentFromUrl(url);
 
             // Define which control to generate for each html element
-            var registeredControls = CreateRegisteredControls();
-            var allControlInfo = HtmlLoader.GetHtmlControls(doc, registeredControls, options);
+            var allControlInfo = loader.GetHtmlControls(doc, registeredControls, options);
             return allControlInfo;
         }
 

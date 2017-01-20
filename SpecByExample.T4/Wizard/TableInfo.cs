@@ -292,8 +292,9 @@ namespace SpecByExample.T4.Wizard
                     if (PageUrl != url || HtmlDocumentCache == null || ControlInfoCache == null)
                     {
                         // Get the HTML and parse its objects
-                        HtmlDocumentCache = HtmlLoader.LoadDocumentFromUrl(url);
-                        ControlInfoCache = HtmlLoader.GetHtmlControls(HtmlDocumentCache, WizardConfig.RegisteredControlTypes, HtmlLoader.DefaultOptions);
+                        var loader = new HtmlLoader(WizardConfig.RegisteredControlTypes);
+                        HtmlDocumentCache = loader.LoadDocumentFromUrl(url);
+                        ControlInfoCache = loader.GetHtmlControls(HtmlDocumentCache, HtmlLoader.DefaultOptions);
                         PageUrl = url;
                     }
 
@@ -320,8 +321,9 @@ namespace SpecByExample.T4.Wizard
                 if (PageUrl != url || HtmlDocumentCache == null || ControlInfoCache == null)
                 {
                     // Get the HTML and parse its objects
-                    HtmlDocumentCache = HtmlLoader.LoadDocumentFromUrl(url);
-                    ControlInfoCache = HtmlLoader.GetHtmlControls(HtmlDocumentCache, WizardConfig.RegisteredControlTypes, HtmlLoader.DefaultOptions);
+                    var loader = new HtmlLoader(WizardConfig.RegisteredControlTypes);
+                    HtmlDocumentCache = loader.LoadDocumentFromUrl(url);
+                    ControlInfoCache = loader.GetHtmlControls(HtmlDocumentCache, HtmlLoader.DefaultOptions);
                     PageUrl = url;
                 }
 

@@ -21,11 +21,8 @@ namespace SpecByExample.T4
                 ControlIdentificationType.Name,
                 ControlIdentificationType.LinkText,
                 ControlIdentificationType.Cssclass };
-
-            AllHtmlElements = new List<HtmlControlInfo>();
-            AllHtmlContainers = new List<HtmlControlInfo>();
+            
             SelectedHtmlElements = new List<HtmlControlInfo>();
-            PageInfo = new T4.PageInfo();
 
             // Configure the default options
             CreateSpecFlowStepsFile = false;
@@ -34,7 +31,17 @@ namespace SpecByExample.T4
             IsCancelled = false;
         }
 
-        public string PageUrl { get; set; }
+        public string PageUrl
+        {
+            get
+            {
+                if (PageInfo == null)
+                    PageInfo = new PageInfo("");
+                return PageInfo.Url;
+            }
+            set { PageInfo = new T4.PageInfo(value); }
+        }
+
         public string PageName { get; set; }
 
         private string applicationModule;
@@ -60,26 +67,6 @@ namespace SpecByExample.T4
         /// All HTML elements of the current page.
         /// </summary>
         public List<HtmlControlInfo> SelectedHtmlElements
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// The set of all HTML input elements on the page, the SelectedHtmlElements is a subset of this collection.
-        /// This set will contain the elements you might want to use in testing.
-        /// DIV's will not be included since we assume they will be used for scope only.
-        /// </summary>
-        internal List<HtmlControlInfo> AllHtmlElements
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// The set of all containers, like DIVs
-        /// </summary>
-        internal List<HtmlControlInfo> AllHtmlContainers
         {
             get;
             set;

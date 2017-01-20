@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using HtmlAgilityPack;
+using System.Collections.Generic;
 
 namespace SpecByExample.Tests
 {
@@ -30,7 +31,6 @@ namespace SpecByExample.Tests
             }
         }
 
-
         /// <summary>
         ///A test for LoadDocument
         ///</summary>
@@ -39,7 +39,10 @@ namespace SpecByExample.Tests
         {
             string url = @"TestMetTabel.htm";
             HtmlDocument actual;
-            actual = HtmlLoader.LoadDocumentFromUrl(url);
+
+            var controls = new List<ControlTypeRegistration>();
+            var loader = new HtmlLoader(controls);
+            actual = loader.LoadDocumentFromUrl(url);
             Assert.IsNotNull( actual);
         }
     }

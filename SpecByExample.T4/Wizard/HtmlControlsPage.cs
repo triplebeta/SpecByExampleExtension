@@ -147,14 +147,14 @@ namespace SpecByExample.T4.Wizard
             options = container.Options;
 
             // Fill the list of containers
-            allHtmlContainers = container.AllHtmlContainers;
+            allHtmlContainers = container.PageInfo.HtmlContainers;
             allHtmlContainers.Insert(0, documentNode);  // Add it at the beginning of the list
             containerBindingSource.DataSource = allHtmlContainers;
             cmbContainers.SelectedIndex = 0;
 
             // Get the selected controls for which we might generate code.
             allSelectableControls = new List<HtmlControlInfo>();
-            allSelectableControls.AddRange(container.AllHtmlElements.Where(x=>x.HtmlControlType!=HtmlControlTypeEnum.Div));
+            allSelectableControls.AddRange(container.PageInfo.HtmlElements.Where(x=>x.HtmlControlType!=HtmlControlTypeEnum.Div));
             currentlySelectedControls = new List<HtmlControlInfo>();
             currentlySelectedControls.AddRange(container.SelectedHtmlElements);
 

@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Net;
-using System.Threading;
 using HtmlAgilityPack;
 using System.Text.RegularExpressions;
 using System.IO;
 
 namespace SpecByExample.T4
 {
-    public static class HtmlLoader
+    public class HtmlLoader
     {
-        static HtmlLoader()
+        public HtmlLoader(List<ControlTypeRegistration> registeredControlTypes)
         {
             DefaultOptions = new SpecByExample.T4.ParsingOptions();
+            RegisteredControlTypes = new List<ControlTypeRegistration>(registeredControlTypes);
             DefaultOptions.PreferredIdentifications = new ControlIdentificationType[] {
                     ControlIdentificationType.Id, 
                     ControlIdentificationType.Name,
@@ -22,12 +22,18 @@ namespace SpecByExample.T4
                     ControlIdentificationType.Cssclass };
         }
 
+        internal IEnumerable<ControlTypeRegistration> RegisteredControlTypes
+        {
+            private get;
+            set;
+        }
+
         /// <summary>
         /// Load a document from a string of HTML
         /// </summary>
         /// <param name="html">Full HTML of a document</param>
         /// <returns>An HtmlDocument wrapping the given HTML.</returns>
-        public static HtmlDocument LoadDocumentFromHtml(string html)
+        public HtmlDocument LoadDocumentFromHtml(string html)
         {
             var document = new HtmlAgilityPack.HtmlDocument();
 
@@ -45,7 +51,7 @@ namespace SpecByExample.T4
         /// </summary>
         /// <param name="url"></param>
         /// <returns></returns>
-        public static HtmlDocument LoadDocumentFromUrl(string url)
+        public HtmlDocument LoadDocumentFromUrl(string url)
         {
             //HtmlAgilityPack.HtmlDocument
 
@@ -84,7 +90,7 @@ namespace SpecByExample.T4
 
                 // At this point, the HTML is loaded completely
                 string html = webbrowser.DocumentText;
-                document = HtmlLoader.LoadDocumentFromHtml(html);
+                document = LoadDocumentFromHtml(html);
             }
 
             return document;
@@ -105,12 +111,11 @@ namespace SpecByExample.T4
         /// Extract info from the document.
         /// </summary>
         /// <param name="doc">Html document to parse</param>
-        /// <param name="registeredControls">List of all registered controls</param>
-        /// <param name="returnExcludedItems">When true, the result will also include the items that were EXCLUDED by the call to ExcludeItems. Default=false, do not return any excluded items</param>
+        /// <param name="registeredControls">List of registered controls</param>
         /// <param name="options">Defines how to parse</param>
         /// <param name="rootXPath">XPath expression to define the element that's the scope for finding the HTML controls. Only search of items within that container.</param>
         /// <returns>A list of entities with info about the controls.</returns>
-        public static List<HtmlControlInfo> GetHtmlControls(HtmlDocument doc, IEnumerable<ControlTypeRegistration> registeredControls, ParsingOptions options, string rootXPath = null)
+        public List<HtmlControlInfo> GetHtmlControls(HtmlDocument doc, IEnumerable<ControlTypeRegistration> registeredControls, ParsingOptions options, string rootXPath = null)
         {
             HtmlNode rootNode = doc.DocumentNode;
 
@@ -133,18 +138,44 @@ namespace SpecByExample.T4
         }
 
         /// <summary>
+        /// Use the default list of registered controls.
+        /// </summary>
+        /// <param name="doc">Html document to parse</param>
+        /// <param name="options">Defines how to parse</param>
+        /// <param name="rootXPath">XPath expression to define the element that's the scope for finding the HTML controls. Only search of items within that container.</param>
+        /// <returns>A list of entities with info about the controls.</returns>
+        public List<HtmlControlInfo> GetHtmlControls(HtmlDocument doc, ParsingOptions options, string rootXPath = null)
+        {
+            return GetHtmlControls(doc, RegisteredControlTypes, options, rootXPath);
+        }
+
+        /// <summary>
         /// Get details about the page itself.
         /// </summary>
         /// <param name="doc">HTML document</param>
         /// <returns>Info from the page.</returns>
-        public static PageInfo GetPageInfo(HtmlDocument doc)
+        internal PageInfo GetPageInfo(string url, WizardConfiguration config, ParsingOptions options)
         {
-            PageInfo info = new PageInfo();
+            PageInfo info = new PageInfo(url);
+
+            // Load the HTML
+            var doc = LoadDocumentFromUrl(url);
+
+            // Get all registered controls except DIVs
+            // Assume we want to generate a property for each item that supports this.
+            var allExceptDiv = from x in config.RegisteredControlTypes where x.TypeName != "Div" select x;
+            info.HtmlElements = GetHtmlControls(doc, allExceptDiv, options);
+            info.HtmlElements.ForEach(x => x.GenerateCodeForThisItem = x.SupportsCodeGeneration);
+
+            // Get all DIVs by filtering the list of registered controls
+            var divOnly = from x in config.RegisteredControlTypes where x.TypeName == "Div" select x;
+            info.HtmlContainers = GetHtmlControls(doc, divOnly, options);
+
 
             var titleNode = doc.DocumentNode.SelectSingleNode("//head/title");
             if (titleNode != null) info.PageTitle = titleNode.InnerText.Trim();
-
             info.PageEncoding = doc.Encoding;
+
             return info;
         }
 
