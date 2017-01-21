@@ -156,7 +156,7 @@ namespace SpecByExample.Tests
             var allControlInfo = LoadGoogleHomePageInfo();
             var ctrl = allControlInfo.Single(x => x.Description == "Afbeeldingen");
             Assert.AreEqual("AfbeeldingenLink", ctrl.CodeControlName);
-            Assert.AreEqual(ControlIdentificationType.Id, ctrl.IdentifiedBy);
+            Assert.AreEqual(ControlIdentificationType.LinkText, ctrl.IdentifiedBy);
             Assert.AreEqual(HtmlControlTypeEnum.Link, ctrl.HtmlControlType);
         }
 

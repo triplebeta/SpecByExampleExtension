@@ -49,33 +49,19 @@ namespace SpecByExample.T4
         /// <summary>
         /// Load a document from an url or a file
         /// </summary>
-        /// <param name="url"></param>
-        /// <returns></returns>
+        /// <param name="url">Address of the website to load</param>
+        /// <returns>An instance of the document residing on the specified<paramref name="url">url</paramref>.</returns>
         public HtmlDocument LoadDocumentFromUrl(string url)
         {
-            //HtmlAgilityPack.HtmlDocument
-
             var document = new HtmlAgilityPack.HtmlDocument();
 
             // Load a file from disk or from an url
-            if (System.IO.File.Exists(url))
+            if (File.Exists(url))
                 document.Load(url);
             else
             {
-                // Attempt to load it from the web
-                bool canBeLoaded; // = false;
-                try
-                {
-                    using (var response = CreateRequest(url).GetResponse())
-                    {
-                        canBeLoaded = true;
-                    }
-                }
-                catch (Exception)
-                {
-                    // Return an error
-                    return null;
-                }
+                // Attempt to load it from the web. This is just to test that we can access the webpage.
+                var response = CreateRequest(url).GetResponse();
 
 	            // Use the WebBrowser control to load the page and render it, this ensures all JavaScript will be executed as well.
                 // Then feed the HTML to the HtmlAgilityPack document.

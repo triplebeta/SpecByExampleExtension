@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -128,6 +129,8 @@ namespace SpecByExample.T4
         /// <param name="preferredIdentificationMethods">Preferences for identifying controls.</param>
         internal void AssignIdentificationMethod(IQueryable<HtmlControlInfo> allControls, ControlIdentificationType[] preferredIdentificationMethods)
         {
+            // Use only the preferred identification methods.
+            // Since preferred order of use of the identification methods can be different per scenario, we need the loop to go over them.
             foreach (var ident in preferredIdentificationMethods)
             {
                 // Use the ID if no other control has that identifier
@@ -145,7 +148,7 @@ namespace SpecByExample.T4
 
                 if (ident == ControlIdentificationType.LinkText && HtmlControlType == HtmlControlTypeEnum.Link && String.IsNullOrEmpty(Description) == false)
                 {
-                    if (allControls.Count(x => x.IdentifiedBy == ControlIdentificationType.Name && x.Description == Description) == 0)
+                    if (allControls.Count(x => x.IdentifiedBy == ControlIdentificationType.LinkText && x.Description == Description) == 0)
                         IdentifiedBy = ControlIdentificationType.LinkText;
                 }
 
@@ -162,6 +165,7 @@ namespace SpecByExample.T4
 
                 if (IdentifiedBy != ControlIdentificationType.None)
                 {
+                    Debug.WriteLine($"control {this.CodeControlName} will be identified by {this.IdentifiedBy}");
                     SupportsCodeGeneration = true;
                     return;
                 }
