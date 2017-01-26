@@ -41,7 +41,10 @@ namespace SpecByExample.T4
         {
             get
             {
-                return PageName + "Page";
+                if (PageName.ToUpper().EndsWith("PAGE"))
+                    return PageName;
+                else
+                    return PageName + "Page";
             }
         }
 

@@ -1,17 +1,20 @@
 ﻿using Microsoft.VisualStudio;
+using Microsoft.VisualStudio.Shell;
+using SpecByExample.PageAdapterGenerator;
 using System.Reflection;
+using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SpecByExample.Installer")]
-[assembly: AssemblyDescription("Installer for this Visual Studio Extension (vsix)")]
+[assembly: AssemblyTitle("SpecByExample.PageAdapterGenerator")]
+[assembly: AssemblyDescription("Generator for page objects to use with SpecFlow.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Triple Beta")]
-[assembly: AssemblyProduct("Specification by Example Extension (vsix)")]
-[assembly: AssemblyCopyright("Copyright © Triple Beta 2015")]
+[assembly: AssemblyProduct("SpecByExample.PageAdapterGenerator")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,3 +35,8 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: NeutralResourcesLanguage("en-US")]
+
+
+//[assembly: ProvideAssemblyObject(typeof(PageAdapterGenerator))]
+//[assembly: ProvideGenerator(typeof(PageAdapterGenerator), VSConstants.UICONTEXT.CSharpProject_string, Description = "Description of the generator", GeneratesDesignTimeSource = true)]
