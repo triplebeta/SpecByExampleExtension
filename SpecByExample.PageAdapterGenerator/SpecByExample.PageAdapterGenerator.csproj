@@ -66,6 +66,53 @@
     <Reference Include="System" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\SpecByExample.T4\Templates\PageObject.Init.tt">
+      <Link>T4\PageObject.Init.tt</Link>
+    </None>
+    <None Include="..\SpecByExample.T4\Templates\PageObject.Main.tt">
+      <Link>T4\PageObject.Main.tt</Link>
+    </None>
+    <None Include="..\SpecByExample.T4\Templates\PageObject.Template.GenericPage.tt">
+      <Link>T4\PageObject.Template.GenericPage.tt</Link>
+    </None>
+    <None Include="..\SpecByExample.T4\Templates\PageObject.Template.TableHelpers.tt">
+      <Link>T4\PageObject.Template.TableHelpers.tt</Link>
+    </None>
+    <None Include="..\SpecByExample.T4\Templates\PageObject.Template.TablePage.tt">
+      <Link>T4\PageObject.Template.TablePage.tt</Link>
+    </None>
+    <None Include="..\SpecByExample.T4\Templates\PageObject.Template.tt">
+      <Link>T4\PageObject.Template.tt</Link>
+    </None>
+    <None Include="..\SpecByExample.T4\Templates\PageObjectTemplateTester.tt">
+      <Link>T4\PageObjectTemplateTester.tt</Link>
+    </None>
+    <None Include="..\SpecByExample.T4\Templates\SpecFlowFeature.Init.tt">
+      <Link>T4\SpecFlowFeature.Init.tt</Link>
+    </None>
+    <None Include="..\SpecByExample.T4\Templates\SpecFlowFeature.Main.tt">
+      <Link>T4\SpecFlowFeature.Main.tt</Link>
+    </None>
+    <None Include="..\SpecByExample.T4\Templates\SpecFlowFeatureTemplateTester.tt">
+      <Link>T4\SpecFlowFeatureTemplateTester.tt</Link>
+    </None>
+    <None Include="..\SpecByExample.T4\Templates\SpecFlowSteps.Init.tt">
+      <Link>T4\SpecFlowSteps.Init.tt</Link>
+    </None>
+    <None Include="..\SpecByExample.T4\Templates\SpecFlowSteps.Main.tt">
+      <Link>T4\SpecFlowSteps.Main.tt</Link>
+    </None>
+    <None Include="..\SpecByExample.T4\Templates\SpecFlowSteps.Template.tt">
+      <Link>T4\SpecFlowSteps.Template.tt</Link>
+    </None>
+    <None Include="..\SpecByExample.T4\Templates\SpecFlowStepsTemplateTester.tt">
+      <Link>T4\SpecFlowStepsTemplateTester.tt</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <PropertyGroup>
     <!--
     To specify a different registry root to register your package, uncomment the TargetRegistryRoot
@@ -77,6 +124,11 @@
   </PropertyGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
+  <PropertyGroup>
+    <PreBuildEvent>XCOPY /Y "$(SolutionDir)SpecByExample.T4\Templates\*.tt" "$(ProjectDir)T4"
+
+</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

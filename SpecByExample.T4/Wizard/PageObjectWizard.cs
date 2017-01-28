@@ -16,7 +16,7 @@ namespace SpecByExample.T4
     {
         // Used instead of the DialogResult since it does not work well (??)
         public bool IsOke = false;
-        private readonly WizardController controller;
+        public readonly WizardController WizardController;
 
 
         public PageObjectWizardForm()
@@ -33,14 +33,14 @@ namespace SpecByExample.T4
             pictureBox2.Image = Properties.Resources.seleniumlogo;
 
             // Create a controller to handle the actions
-            controller = new WizardController(wizardControl, btnPrevious, btnNext, config);
-            controller.OnCommit += new WizardController.CommitHandler(controller_OnCommit);
+            WizardController = new WizardController(wizardControl, btnPrevious, btnNext, config);
+            WizardController.OnCommit += new WizardController.CommitHandler(controller_OnCommit);
             if (pageName != null)
             {
                 // Use the name entered by the user as the pagename and make sure it ends with Page
-                controller.WizardState.PageName = pageName;
+                WizardController.WizardState.PageName = pageName;
                 if (pageName.EndsWith("Page", StringComparison.InvariantCultureIgnoreCase)==false)
-                    controller.WizardState.PageName = pageName + "Page";
+                    WizardController.WizardState.PageName = pageName + "Page";
             }
         }
 
@@ -67,10 +67,10 @@ namespace SpecByExample.T4
 
             // For each control, generate a private field and decorate it with an attribute to access the item by its ID
             // Then, generate a public property to wrap it in a control instance.
-            var settings = dialog.controller.WizardState;
+            var settings = dialog.WizardController.WizardState;
 
             // Stop the transformation if not OK
-            dialog.controller.WizardState.IsCancelled = (dialog.IsOke == false);
+            dialog.WizardController.WizardState.IsCancelled = (dialog.IsOke == false);
             return settings;
         }
 

@@ -1,1 +1,0 @@
-﻿Hierin komen de T4 templates die in een ander project zitten.

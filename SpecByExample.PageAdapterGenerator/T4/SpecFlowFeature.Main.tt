@@ -1,0 +1,77 @@
+<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Windows.Forms" #>
+<#@ import namespace="SpecByExample.T4" #>
+<#@ import namespace="System.Windows.Forms" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Runtime.Remoting.Messaging" #>
+<#@ parameter type="SpecByExample.T4.CodeGenerationSettings" name="WizardSettings" #>
+<#
+	// We must have settings for how to generate the code
+	// These settings can be passed in as a parameter but if not available, the template will ask for them.
+
+	// We support two ways to get data to this template:
+	// - using a parameter		Used when this template gets invoked by the wizard
+	// - using a session		When the template gets invoked from another template
+	var mySettings = WizardSettings;
+	if (mySettings==null && Session.ContainsKey("WizardSettings"))
+		mySettings = (SpecByExample.T4.CodeGenerationSettings) Session["WizardSettings"];
+	
+	// Remove any whitespace from the pagename to create a classname and make each word start with a capital.
+	var className = mySettings.PageName.Replace(" ","");
+
+	// Just get the first link on the page
+	// Default value in case the page contains no links
+	string firstLinkControlName = "HERE_GOES_THE_NAME_OF_YOUR_LINKCONTROL";
+
+	foreach(var node in mySettings.SelectedHtmlElements)
+	{
+		// Only  create code for nodes we want to have
+		if (node.GenerateCodeForThisItem==false || node.HtmlControlType != HtmlControlTypeEnum.Link)
+			continue;
+		else
+        {
+			firstLinkControlName = node.CodeControlName;
+			break;
+        }
+	}
+
+	InitializeHtmlSettings(mySettings);
+    try 
+    { #>
+Feature: $pageclass$
+	In order to test page $pageclass$
+	As a tester
+	I want to run some tests on this page
+
+Scenario: My first test
+	Given I go to the <#= className #> on url '<#= Settings.PageUrl #>'
+	When I remember the current url
+		And I click the <#= firstLinkControlName #> link
+	Then I am no longer on the original url
+
+<#
+    }
+    catch (Exception ex)
+    {
+		WriteLine("/* Fail: " + ex.Message + " */");
+    }
+#>
+<#+
+	void InitializeHtmlSettings(CodeGenerationSettings settings)
+    {
+		// Load the HTML page source
+		if (settings==null)
+		{
+			WriteLine("/* Settings are null */");
+			return;
+        }
+		// Pass parameters to the appropriate T4 template
+		CallContext.SetData("PageObject.Settings", settings);
+    }
+
+    CodeGenerationSettings Settings
+    {
+        get { return (CodeGenerationSettings)CallContext.GetData("PageObject.Settings"); }
+    }
+#>

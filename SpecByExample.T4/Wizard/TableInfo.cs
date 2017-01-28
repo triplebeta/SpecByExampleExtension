@@ -11,6 +11,10 @@ using HtmlAgilityPack;
 
 namespace SpecByExample.T4.Wizard
 {
+    /// <summary>
+    /// Wizard Tab that lets you specify how to generate code for a table.
+    /// The table you select will be wrapped in an adapter and it will try to create an entity for the rows in it so you can easily use them in tests.
+    /// </summary>
     public partial class TableInfo : UserControl, IWizardPage
     {
         public TableInfo()

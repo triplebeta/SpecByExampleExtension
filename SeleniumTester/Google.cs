@@ -59,7 +59,7 @@ namespace Google.Pages
         IWebElement GoogleNewsLinkControl;
 
         /// <summary>
-        /// Google Jij link
+        /// Google You link
         /// </summary>
         [FindsBy(How = How.ClassName, Using = "gb_P")]
         IWebElement GoogleImagesLinkControl;
@@ -76,7 +76,7 @@ namespace Google.Pages
         /// <summary>
         /// Google Jij link
         /// </summary>
-        [FindsBy(How = How.Id, Using = "gb_1")]
+        [FindsBy(How = How.PartialLinkText, Using = "Afbeelding")]
         IWebElement GoogleYou;
 
         public void NavigateGoogleImagesLink()

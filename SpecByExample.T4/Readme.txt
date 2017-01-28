@@ -1,6 +1,7 @@
 ﻿README
 ======
-Hierin staan de classes die gelden als template voor het maken van code.
-De Build action is daarvan op None gezet zodat we wel Intellisense hebben bij het editen maar ze niet gecompileerd worden.
+Contains all classes serving as a template for code generation.
+Build action is set to None to ensure they will not be compiled but we still have IntelliSense.
 
-PageObjectControlMappingConfig.xml bevat de configuratie van de Item Template wizard.
+ControlAdapterMapping.config contains the configuration used by the PageAdapter Item Template to see which control to create
+for a specific HTML tag.

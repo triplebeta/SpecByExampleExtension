@@ -23,7 +23,7 @@ namespace SpecByExample.Common
         private readonly Process process = new Process();
         private bool started;
 
-        public WindowsIntegratedAuthenticationHelper(bool asAdmin)
+        public WindowsIntegratedAuthenticationHelper(string username, string password)
         {
             process.StartInfo.FileName = "java";
             process.StartInfo.Arguments = "-jar lib/selenium-server.jar";
@@ -32,8 +32,7 @@ namespace SpecByExample.Common
             process.StartInfo.UseShellExecute = false;
 
             // TODO Remove these hardcoded credentials
-            string[] domainAndUser = new string[] {"MYDOMAIN", @"Testlogin" };
-            string password = "1234567";
+            string[] domainAndUser = new string[] {"MYDOMAIN", username };
             process.StartInfo.UserName = domainAndUser[1];
 
             SecureString pw = new SecureString();
@@ -51,7 +50,7 @@ namespace SpecByExample.Common
 #if USE_FIREFOX
             Trace.WriteLine("Configuring FireFox to use Integrated Authentication");
 
-            // TODO Check for the profile to exist
+            // TODO Check the profile to exists
             // Profile required for Firefox
             if (Config.Exists(ConfigProps.SeleniumFirefoxProfile))
             {
@@ -72,7 +71,7 @@ namespace SpecByExample.Common
                 started = true;
             }
 
-            //give it half a second to start up
+            // Give it half a second to start up
             Thread.Sleep(500);
         } // Start
 
@@ -94,7 +93,7 @@ namespace SpecByExample.Common
                     //Ignore
                 }
 
-                // Gve Selenium 5sec to close before we kill it
+                // Give Selenium 5sec to close before we kill it
                 if (!process.WaitForExit(5000))
                     process.Kill();
                 started = false;

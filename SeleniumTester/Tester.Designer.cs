@@ -1,6 +1,6 @@
 ﻿namespace SeleniumTester
 {
-    partial class Form1
+    partial class Tester
     {
         /// <summary>
         /// Required designer variable.
@@ -33,15 +33,17 @@
             this.cmbBrowser = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.StartDriverService = new System.Windows.Forms.Button();
-            this.btnShowWizard = new System.Windows.Forms.Button();
-            this.btnLoadWizardConfig = new System.Windows.Forms.Button();
-            this.btnSaveWizardConfig = new System.Windows.Forms.Button();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnStartBrowser
             // 
-            this.btnStartBrowser.Location = new System.Drawing.Point(108, 82);
+            this.btnStartBrowser.Location = new System.Drawing.Point(31, 184);
             this.btnStartBrowser.Name = "btnStartBrowser";
             this.btnStartBrowser.Size = new System.Drawing.Size(140, 23);
             this.btnStartBrowser.TabIndex = 0;
@@ -51,11 +53,11 @@
             // 
             // btnGaNaarGoogle
             // 
-            this.btnGaNaarGoogle.Location = new System.Drawing.Point(108, 111);
+            this.btnGaNaarGoogle.Location = new System.Drawing.Point(177, 184);
             this.btnGaNaarGoogle.Name = "btnGaNaarGoogle";
             this.btnGaNaarGoogle.Size = new System.Drawing.Size(140, 23);
             this.btnGaNaarGoogle.TabIndex = 1;
-            this.btnGaNaarGoogle.Text = "Ga naar Google";
+            this.btnGaNaarGoogle.Text = "Go to Google.com";
             this.btnGaNaarGoogle.UseVisualStyleBackColor = true;
             this.btnGaNaarGoogle.Click += new System.EventHandler(this.btnGaNaarGoogle_Click);
             // 
@@ -66,7 +68,7 @@
             "Internet Explorer",
             "Firefox",
             "Chrome"});
-            this.cmbBrowser.Location = new System.Drawing.Point(48, 33);
+            this.cmbBrowser.Location = new System.Drawing.Point(31, 45);
             this.cmbBrowser.Name = "cmbBrowser";
             this.cmbBrowser.Size = new System.Drawing.Size(237, 21);
             this.cmbBrowser.TabIndex = 4;
@@ -75,7 +77,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 17);
+            this.label1.Location = new System.Drawing.Point(33, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 5;
@@ -83,7 +85,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(291, 31);
+            this.btnClose.Location = new System.Drawing.Point(274, 43);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(99, 23);
             this.btnClose.TabIndex = 6;
@@ -91,64 +93,69 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // StartDriverService
+            // txtUsername
             // 
-            this.StartDriverService.Location = new System.Drawing.Point(273, 82);
-            this.StartDriverService.Name = "StartDriverService";
-            this.StartDriverService.Size = new System.Drawing.Size(117, 23);
-            this.StartDriverService.TabIndex = 7;
-            this.StartDriverService.Text = "Start driver service";
-            this.StartDriverService.UseVisualStyleBackColor = true;
-            this.StartDriverService.Click += new System.EventHandler(this.StartDriverService_Click);
+            this.txtUsername.Location = new System.Drawing.Point(26, 55);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(100, 20);
+            this.txtUsername.TabIndex = 11;
             // 
-            // btnShowWizard
+            // txtPassword
             // 
-            this.btnShowWizard.Location = new System.Drawing.Point(273, 111);
-            this.btnShowWizard.Name = "btnShowWizard";
-            this.btnShowWizard.Size = new System.Drawing.Size(117, 23);
-            this.btnShowWizard.TabIndex = 8;
-            this.btnShowWizard.Text = "Show wizard";
-            this.btnShowWizard.UseVisualStyleBackColor = true;
-            this.btnShowWizard.Click += new System.EventHandler(this.btnShowWizard_Click);
+            this.txtPassword.Location = new System.Drawing.Point(133, 55);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(100, 20);
+            this.txtPassword.TabIndex = 12;
             // 
-            // btnLoadWizardConfig
+            // label2
             // 
-            this.btnLoadWizardConfig.Location = new System.Drawing.Point(108, 152);
-            this.btnLoadWizardConfig.Name = "btnLoadWizardConfig";
-            this.btnLoadWizardConfig.Size = new System.Drawing.Size(140, 23);
-            this.btnLoadWizardConfig.TabIndex = 9;
-            this.btnLoadWizardConfig.Text = "Load Wizard Config";
-            this.btnLoadWizardConfig.UseVisualStyleBackColor = true;
-            this.btnLoadWizardConfig.Click += new System.EventHandler(this.btnLoadWizardConfig_Click);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(26, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Username";
             // 
-            // btnSaveWizardConfig
+            // label3
             // 
-            this.btnSaveWizardConfig.Location = new System.Drawing.Point(108, 182);
-            this.btnSaveWizardConfig.Name = "btnSaveWizardConfig";
-            this.btnSaveWizardConfig.Size = new System.Drawing.Size(140, 23);
-            this.btnSaveWizardConfig.TabIndex = 10;
-            this.btnSaveWizardConfig.Text = "Save Wizard Config";
-            this.btnSaveWizardConfig.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(133, 32);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 13);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Password";
             // 
-            // Form1
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtPassword);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txtUsername);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Location = new System.Drawing.Point(31, 84);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(342, 94);
+            this.groupBox1.TabIndex = 15;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Alternative credentials";
+            // 
+            // Tester
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(402, 237);
-            this.Controls.Add(this.btnSaveWizardConfig);
-            this.Controls.Add(this.btnLoadWizardConfig);
-            this.Controls.Add(this.btnShowWizard);
-            this.Controls.Add(this.StartDriverService);
+            this.ClientSize = new System.Drawing.Size(401, 232);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbBrowser);
             this.Controls.Add(this.btnGaNaarGoogle);
             this.Controls.Add(this.btnStartBrowser);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "Form1";
+            this.Name = "Tester";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Selenium Tester";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,10 +168,11 @@
         private System.Windows.Forms.ComboBox cmbBrowser;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button StartDriverService;
-        private System.Windows.Forms.Button btnShowWizard;
-        private System.Windows.Forms.Button btnLoadWizardConfig;
-        private System.Windows.Forms.Button btnSaveWizardConfig;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 

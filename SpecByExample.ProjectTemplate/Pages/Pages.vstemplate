@@ -20,7 +20,7 @@
       <ProjectItem ReplaceParameters="true" TargetFileName="Readme.html" OpenInWebBrowser="true">Readme.html</ProjectItem>
       <Folder Name="Properties" TargetFolderName="Properties">
         <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="PageObjectControlMappingConfig.xml">PageObjectControlMappingConfig.xml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="ControlAdapterMapping.config">ControlAdapterMapping.config</ProjectItem>
       </Folder>
       <Folder Name="ModuleA" TargetFolderName="ModuleA" />
     </Project>

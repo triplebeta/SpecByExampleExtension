@@ -84,50 +84,63 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\SpecByExample.T4\PageObjectControlMappingConfig.xml">
-      <Link>PageObjectControlMappingConfig.xml</Link>
-    </Content>
-    <Content Include="PageClassPlaceholder.txt" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="T4\Readme.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\SpecByExample.Selenium.T4\Templates\PageObject.Init.tt">
-      <Link>T4\PageObject.Init.tt</Link>
+    <None Include="PageAdapterItemTemplate.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="..\SpecByExample.Selenium.T4\Templates\PageObject.Main.tt">
+    <None Include="ControlAdapterConfigFile.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <VSTemplate Include="ControlAdapterConfigFileItemTemplate.vstemplate" />
+    <VSTemplate Include="T4TemplatesItemTemplate.vstemplate">
+      <SubType>Designer</SubType>
+    </VSTemplate>
+    <None Include="T4TemplatesItemTemplate.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\SpecByExample.T4\Templates\PageObject.Init.tt">
+      <Link>T4\PageObject.Init.tt</Link>
+      <LastGenOutput>PageObject.Init.cs</LastGenOutput>
+    </None>
+    <None Include="..\SpecByExample.T4\Templates\PageObject.Main.tt">
       <Link>T4\PageObject.Main.tt</Link>
     </None>
-    <None Include="..\SpecByExample.Selenium.T4\Templates\PageObject.Template.GenericPage.tt">
+    <None Include="..\SpecByExample.T4\Templates\PageObject.Template.GenericPage.tt">
       <Link>T4\PageObject.Template.GenericPage.tt</Link>
     </None>
-    <None Include="..\SpecByExample.Selenium.T4\Templates\PageObject.Template.TableHelpers.tt">
+    <None Include="..\SpecByExample.T4\Templates\PageObject.Template.TableHelpers.tt">
       <Link>T4\PageObject.Template.TableHelpers.tt</Link>
     </None>
-    <None Include="..\SpecByExample.Selenium.T4\Templates\PageObject.Template.TablePage.tt">
+    <None Include="..\SpecByExample.T4\Templates\PageObject.Template.TablePage.tt">
       <Link>T4\PageObject.Template.TablePage.tt</Link>
     </None>
-    <None Include="..\SpecByExample.Selenium.T4\Templates\PageObject.Template.tt">
+    <None Include="..\SpecByExample.T4\Templates\PageObject.Template.tt">
       <Link>T4\PageObject.Template.tt</Link>
     </None>
-    <None Include="..\SpecByExample.Selenium.T4\Templates\SpecFlowFeature.Init.tt">
+    <None Include="..\SpecByExample.T4\Templates\SpecFlowFeature.Init.tt">
       <Link>T4\SpecFlowFeature.Init.tt</Link>
     </None>
-    <None Include="..\SpecByExample.Selenium.T4\Templates\SpecFlowFeature.Main.tt">
+    <None Include="..\SpecByExample.T4\Templates\SpecFlowFeature.Main.tt">
       <Link>T4\SpecFlowFeature.Main.tt</Link>
     </None>
-    <None Include="..\SpecByExample.Selenium.T4\Templates\SpecFlowSteps.Init.tt">
+    <None Include="..\SpecByExample.T4\Templates\SpecFlowSteps.Init.tt">
       <Link>T4\SpecFlowSteps.Init.tt</Link>
     </None>
-    <None Include="..\SpecByExample.Selenium.T4\Templates\SpecFlowSteps.Main.tt">
+    <None Include="..\SpecByExample.T4\Templates\SpecFlowSteps.Main.tt">
       <Link>T4\SpecFlowSteps.Main.tt</Link>
     </None>
-    <None Include="..\SpecByExample.Selenium.T4\Templates\SpecFlowSteps.Template.tt">
+    <None Include="..\SpecByExample.T4\Templates\SpecFlowSteps.Template.tt">
       <Link>T4\SpecFlowSteps.Template.tt</Link>
     </None>
+    <Content Include="PageClassPlaceholder.txt" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\SpecByExample.T4\ControlAdapterMapping.config">
+      <Link>ControlAdapterMapping.config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="PageAdapterItemTemplate.ico" />
   </ItemGroup>
   <ItemGroup>
     <VSTemplate Include="PageAdapterItemTemplate.vstemplate">
@@ -145,8 +158,10 @@
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\VSSDK\Microsoft.VsSDK.targets" Condition="false" />
   <PropertyGroup>
-    <PreBuildEvent>XCOPY /Y "$(SolutionDir)SpecByExample.T4\Templates\*.tt" "$(SolutionDir)SpecByExample.ItemTemplate\T4"
-XCOPY /Y "$(SolutionDir)SpecByExample.T4\PageObjectControlMappingConfig.xml" "$(SolutionDir)SpecByExample.ItemTemplate"
+    <PreBuildEvent>XCOPY /Y "$(SolutionDir)SpecByExample.T4\Templates\*.tt" "$(ProjectDir)T4"
+
+XCOPY /Y "$(SolutionDir)SpecByExample.T4\ControlAdapterMapping.config" "$(ProjectDir)"
+
 </PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

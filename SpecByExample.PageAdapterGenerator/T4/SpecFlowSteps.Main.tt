@@ -1,0 +1,53 @@
+<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Windows.Forms" #>
+<#@ import namespace="System.Windows.Forms" #>
+<#@ import namespace="System.Runtime.Remoting.Messaging" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="SpecByExample.T4" #>
+<#@ parameter type="SpecByExample.T4.CodeGenerationSettings" name="WizardSettings"  #>
+<#
+	// We must have settings for how to generate the code
+	// These settings can be passed in as a parameter but if not available, the template will ask for them.
+
+	// We support two ways to get data to this template:
+	// - using a parameter		Used when this template gets invoked by the wizard
+	// - using a session		When the template gets invoked from another template
+	var mySettings = WizardSettings;
+	if (mySettings==null && Session.ContainsKey("WizardSettings"))
+		mySettings = (SpecByExample.T4.CodeGenerationSettings) Session["WizardSettings"];
+
+	// Remove any whitespace from the pagename to create a classname and make each word start with a capital.
+	var className = mySettings.PageName.Replace(" ","");
+
+	InitializeHtmlSettings(mySettings);
+    try 
+    { #>
+<#@ include file="SpecFlowSteps.Template.tt" #>
+<#
+    }
+    catch (Exception ex)
+    {
+		WriteLine("/* Fail: " + ex.Message + " */");
+//		MessageBox.Show("Failed to generate a class file due to an error: " + ex.Message + "\r\n" + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+    }
+#>
+<#+
+	void InitializeHtmlSettings(CodeGenerationSettings settings)
+    {
+		// Load the HTML page source
+		if (settings==null)
+		{
+			WriteLine("/* Settings are null */");
+			return;
+        }
+
+		// Pass parameters to the appropriate T4 template
+		CallContext.SetData("PageObject.Settings", settings);
+    }
+
+    CodeGenerationSettings Settings
+    {
+        get { return (CodeGenerationSettings)CallContext.GetData("PageObject.Settings"); }
+    }
+#>

@@ -8,8 +8,8 @@ using EnvDTE;
 namespace SpecByExample.T4
 {
     /// <summary>
-    /// Wizard to add some custom-defined variables to the context of the Project Template so we
-    /// can use those to compose filenames.
+    /// This wizard has no UI and is used as a helper to create the Project Templates.
+    /// It adds some custom-defined variables to the context of the Project Template so we can use those to compose filenames.
     /// </summary>
     public class ComposeProjectTemplateVariableWizard : IWizard
     {

@@ -108,7 +108,7 @@
     <Compile Include="Code generation\WizardConfigLoader.cs" />
     <Compile Include="Visual Studio Template Wizards\ComposeProjectTemplateVariableWizard.cs" />
     <Compile Include="Visual Studio Template Wizards\CreatePageAdapterWizard.cs" />
-    <Compile Include="Visual Studio Template Wizards\ReplacementDictionaryHelper.cs" />
+    <Compile Include="Code generation\ReplacementDictionaryHelper.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -160,24 +160,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Readme.txt" />
-    <Content Include="Templates\SpecFlowFeatureTemplateTester.txt">
-      <DependentUpon>SpecFlowFeatureTemplateTester.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Content>
-    <Content Include="Templates\SpecFlowStepsTemplateTester.txt">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SpecFlowStepsTemplateTester.tt</DependentUpon>
-    </Content>
     <None Include="app.config" />
-    <None Include="PageObjectControlMappingConfig.xml" />
+    <None Include="ControlAdapterMapping.config" />
     <EmbeddedResource Include="selenium-logo.png" />
     <None Include="Properties\DataSources\HtmlControlInfo.datasource" />
-    <None Include="Templates\SpecFlowFeatureTemplateTester.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SpecFlowFeatureTemplateTester.txt</LastGenOutput>
-    </None>
     <None Include="Templates\SpecFlowFeature.Main.tt" />
     <None Include="Templates\SpecFlowFeature.Init.tt" />
     <None Include="Templates\SpecFlowSteps.Init.tt" />
@@ -186,31 +172,15 @@
       <LastGenOutput>PageObject.Init.cs</LastGenOutput>
     </None>
     <None Include="Templates\PageObject.Template.TablePage.tt" />
-    <None Include="Templates\PageObjectTemplateTester.txt">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PageObjectTemplateTester.tt</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="SpecByExample.Selenium.PageCreator.Keyfile.snk" />
     <None Include="Templates\PageObject.Template.GenericPage.tt" />
     <None Include="Templates\SpecFlowSteps.Template.tt" />
     <None Include="Templates\SpecFlowSteps.Main.tt" />
-    <None Include="Templates\SpecFlowStepsTemplateTester.tt">
-      <FormatOutput>False</FormatOutput>
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SpecFlowStepsTemplateTester.txt</LastGenOutput>
-    </None>
     <None Include="packages.config" />
     <None Include="Templates\PageObject.Main.tt" />
     <None Include="Templates\PageObject.Template.tt" />
-    <None Include="Templates\PageObjectTemplateTester.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>PageObjectTemplateTester.txt</LastGenOutput>
-      <Parameters>&lt;%3fxml version="1.0" encoding="utf-16"%3f&gt;
-&lt;ArrayOfParameterStorage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Parameters>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

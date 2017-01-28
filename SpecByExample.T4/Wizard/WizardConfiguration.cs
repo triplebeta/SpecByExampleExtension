@@ -12,6 +12,10 @@ namespace SpecByExample.T4
     [Serializable, XmlRoot("wizardConfig")]
     public class WizardConfiguration
     {
+        /// <summary>
+        /// All adapter controls that can be used  to wrap HTML elements.
+        /// When creating the PageObject it will utilize the registration to see which adapter to use for wrapping each HTML tag.
+        /// </summary>
         [XmlArray("controlTypes"), XmlArrayItem("register")]
         public List<ControlTypeRegistration> RegisteredControlTypes { get; set; }
 

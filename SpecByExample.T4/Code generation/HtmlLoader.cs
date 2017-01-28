@@ -140,7 +140,7 @@ namespace SpecByExample.T4
         /// </summary>
         /// <param name="doc">HTML document</param>
         /// <returns>Info from the page.</returns>
-        internal PageInfo GetPageInfo(string url, WizardConfiguration config, ParsingOptions options)
+        public PageInfo GetPageInfo(string url, WizardConfiguration config, ParsingOptions options)
         {
             PageInfo info = new PageInfo(url);
 

@@ -85,13 +85,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\SpecByExample.T4\ControlAdapterMapping.config">
+      <Link>Pages\Properties\ControlAdapterMapping.config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="app.config" />
     <None Include="Common\Controls\TableAsButton.cs" />
     <None Include="Common\Pages\BaseListPage.cs" />
     <None Include="Common\Pages\BasePage.cs" />
-    <Content Include="..\SpecByExample.T4\PageObjectControlMappingConfig.xml">
-      <Link>Pages\Properties\PageObjectControlMappingConfig.xml</Link>
-    </Content>
     <Content Include="Common\Properties\AssemblyInfo.cs" />
     <None Include="Common\WellKnownUrls.cs" />
     <None Include="packages.config" />
@@ -102,7 +103,9 @@
     <None Include="Specs\SharedTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="WebSpecflowProjectTemplate.vstemplate" />
+    <VSTemplate Include="WebSpecflowProjectTemplate.vstemplate">
+      <SubType>Designer</SubType>
+    </VSTemplate>
   </ItemGroup>
   <ItemGroup>
     <None Include="Common\Common.csproj">
@@ -150,9 +153,11 @@
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\VSSDK\Microsoft.VsSDK.targets" Condition="false" />
   <PropertyGroup>
-    <PreBuildEvent>XCOPY /R /Y "$(SolutionDir)DevTools\chromedriver.exe" "$(ProjectDir)Specs\WebDrivers\chromedriver.exe"
-XCOPY /R /Y "$(SolutionDir)DevTools\IEDriverServer.exe" "$(ProjectDir)Specs\WebDrivers\IEDriverServer.exe"
-XCOPY /R /Y "$(SolutionDir)SpecByExample.T4\PageObjectControlMappingConfig.xml" "$(ProjectDir)Pages\Properties"</PreBuildEvent>
+    <PreBuildEvent>XCOPY /R /Y "$(SolutionDir)DevTools\chromedriver.exe" "$(ProjectDir)Specs\WebDrivers\"
+
+XCOPY /R /Y "$(SolutionDir)DevTools\IEDriverServer.exe" "$(ProjectDir)Specs\WebDrivers\"
+
+XCOPY /R /Y "$(SolutionDir)SpecByExample.T4\ControlAdapterMapping.config" "$(ProjectDir)Pages\Properties\"</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

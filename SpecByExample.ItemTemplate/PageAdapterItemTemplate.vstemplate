@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
   <TemplateData>
-    <Name>SpecByExample PageObject</Name>
+    <Name>SpecByExample Page Adapter</Name>
     <Description>Create an adapter for an HTML page to access the elements on that page using an object model.</Description>
     <Icon>PageAdapterItemTemplate.ico</Icon>
     <TemplateID>71480193-fe09-497d-9003-0058e61acf4f</TemplateID>
@@ -12,7 +12,7 @@
     <ProvideDefaultName>true</ProvideDefaultName>
   </TemplateData>
   <TemplateContent>
-    <ProjectItem ItemType="None">PageObjectControlMappingConfig.xml</ProjectItem>
+    <ProjectItem ItemType="None">ControlAdapterMapping.config</ProjectItem>
 
     <ProjectItem ItemType="Code">T4\PageObject.Init.tt</ProjectItem>
     <ProjectItem ItemType="Code">T4\PageObject.Main.tt</ProjectItem>

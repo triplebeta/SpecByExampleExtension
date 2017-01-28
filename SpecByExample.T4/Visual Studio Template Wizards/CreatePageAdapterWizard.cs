@@ -18,13 +18,14 @@ using System.Diagnostics;
 namespace SpecByExample.T4
 {
     /// <summary>
-    /// VSIX Wizard - invoked when creating a new List page
+    /// Wizard for the Item Template, it shows the Wizard to select the webpage and set the properties for code generation.
+    /// Will be invoked when creating a new PageAdapter
     /// </summary>
     public class CreatePageAdapterWizard : IWizard
     {
         // Add items only if the wizard is completed successfully
         private CodeGenerationSettings settings = null;
-        const string WIZARD_CONFIG_FILENAME = "PageObjectControlMappingConfig.xml";
+        const string WIZARD_CONFIG_FILENAME = "ControlAdapterMapping.config";
 
         // Declare a set of variables to remember some values when enterin ProjectItemFinishedGenerating
         private _DTE Dte { get; set; }
@@ -38,16 +39,115 @@ namespace SpecByExample.T4
         #region IWizard implementation
 
         // This method is called before opening any item that has the OpenInEditor attribute.
-        public void BeforeOpeningFile(ProjectItem projectItem)
+        public void BeforeOpeningFile(ProjectItem projectItem)  { }
+        public void ProjectFinishedGenerating(Project project) { }
+
+
+        /// <summary>
+        /// Main routine of this wizard.
+        /// </summary>
+        /// <param name="automationObject"></param>
+        /// <param name="replacementsDictionary"></param>
+        /// <param name="runKind"></param>
+        /// <param name="customParams"></param>
+        public void RunStarted(object automationObject, Dictionary<string, string> replacementsDictionary, WizardRunKind runKind, object[] customParams)
         {
+            // Some tasks cannot be done from this routine since we do not yet have all the information.
+            // Therefore we need to set some global variables to complete the job in the method ProjectItemFinishedGenerating
+            try
+            {
+                Dte = (_DTE)automationObject;
+                var helper = new ReplacementDictionaryHelper(Dte, replacementsDictionary);
+                string vstemplateFile = (string)customParams[0];
+                string rootTemplatePath = Path.GetDirectoryName(vstemplateFile);
+
+                // Try to find the Wizard configuration in this project
+                string projectFile = helper.GetCurrentProject().FullName;
+                string projectDir = Path.GetDirectoryName(projectFile);
+
+                // First check if it's in the Properties directory of the Pages project
+                string configFile = Path.Combine(projectDir, "Properties", WIZARD_CONFIG_FILENAME);
+                if (!File.Exists(configFile))
+                {
+                    // If not there: look in the root of the project
+                    configFile = Path.Combine(projectDir, WIZARD_CONFIG_FILENAME);
+                }
+
+                WizardConfiguration config = null;
+                bool localConfigUsed = false;
+                if (File.Exists(configFile))
+                {
+                    config = WizardConfigLoader.LoadWizardConfiguration(configFile);
+                    if (config == null)
+                    {
+                        localConfigUsed = true;
+                        string error = String.Format("The wizard could not load the control mapping file in your project:\n{0}\n\nFix it or remove it.", configFile);
+                        MessageBox.Show(error, "Error loading wizard configuration", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                // Try loading the default config.
+                if (!localConfigUsed)
+                {
+                    // Try loading it from the default config file
+                    configFile = Path.Combine(rootTemplatePath, WIZARD_CONFIG_FILENAME);
+                    config = WizardConfigLoader.LoadWizardConfiguration(configFile);
+                    if (config == null)
+                    {
+                        var error = String.Format("The wizard could not load its default the control mapping file either.\nFix it or reinstall the VSIX package.", configFile);
+                        MessageBox.Show(error, "Error loading wizard configuration", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return; // Stop if configuration is not loaded properly
+                    }
+                }
+
+                // If a configuration was loaded: validate it
+                List<string> configErrors;
+                if (config.ValidateConfiguration(out configErrors) == false)
+                {
+                    MessageBox.Show(String.Format("The Wizard configuration is invalid in file\n{0}\n\nErrors:\n{1}", configFile, String.Join("\n", configErrors)), "Wizard configuration validation error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw new WizardCancelledException("Invalid wizard configuration error.");
+                }
+
+                // When configuration was properly loaded: Show the wizard
+                settings = PageObjectWizardForm.ShowAndGetData(helper.PageName, config);
+                if (settings == null || settings.IsCancelled)
+                    throw new WizardCancelledException("Wizard cancelled by the user.");
+
+                // Create the code
+                AddReplacementVariablesForTemplates(settings, replacementsDictionary, Dte);
+
+                // Create the code and replace the parameters and use that code.
+                // Put all generated code back into one replacement parameter to inject it.
+                string pageObjectCode = TransformToCode(Dte, rootTemplatePath, "PageObject.Init.tt", settings);
+                replacementsDictionary.Add("$generatedpagecode$", ReplaceParametersInCode(pageObjectCode, replacementsDictionary));
+
+                SpecsProjectName = helper.BaseName + ".Specs";
+                PagesProjectName = helper.BaseName + ".Pages";
+                BasePageName = helper.PageName; ;
+                if (settings.CreateSpecFlowStepsFile)
+                {
+                    string partialStepsCode = TransformToCode(Dte, rootTemplatePath, "SpecFlowSteps.Init.tt", settings);
+                    StepsCode = ReplaceParametersInCode(partialStepsCode, replacementsDictionary);
+                }
+                if (settings.CreateSpecFlowFeatureFile)
+                {
+                    string partialFeatureCode = TransformToCode(Dte, rootTemplatePath, "SpecFlowFeature.Init.tt", settings);
+                    FeatureCode = ReplaceParametersInCode(partialFeatureCode, replacementsDictionary);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Trace.WriteLine("Wizard failed with an unexpected error: " + ex.ToString());
+                throw new WizardCancelledException("Wizard cancelled due to an exception: " + ex.Message, ex);
+            }
         }
 
-        public void ProjectFinishedGenerating(Project project)
-        {
-        }
 
-        // This method is only called for item templates,
-        // not for project templates.
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>Invoked for Item Templates, not for Project Templates.</remarks>
+        /// <param name="projectItem"></param>
         public void ProjectItemFinishedGenerating(ProjectItem projectItem)
         {
             EnvDTE.Project pagesProject = FindProjectByName(Dte.Solution.Projects, PagesProjectName);
@@ -89,85 +189,6 @@ namespace SpecByExample.T4
 
         }
 
-
-        /// <summary>
-        /// Main routine of this wizard.
-        /// </summary>
-        /// <param name="automationObject"></param>
-        /// <param name="replacementsDictionary"></param>
-        /// <param name="runKind"></param>
-        /// <param name="customParams"></param>
-        public void RunStarted(object automationObject,
-            Dictionary<string, string> replacementsDictionary,
-            WizardRunKind runKind, object[] customParams)
-        {
-            // Some tasks cannot be done from this routine since we do not yet have all the information.
-            // Therefore we need to set some global variables to complete the job in the method ProjectItemFinishedGenerating
-            try
-            {
-                Dte = (_DTE)automationObject;
-                var helper = new ReplacementDictionaryHelper(Dte, replacementsDictionary);
-                string vstemplateFile = (string)customParams[0];
-                string rootTemplatePath = Path.GetDirectoryName(vstemplateFile);
-
-                // TODO Try to find the Wizard configuration in this project
-                string projectFile = helper.GetCurrentProject().FullName;
-                string projectDir = Path.GetDirectoryName(projectFile);
-                string configFile = Path.Combine(projectDir, "Properties", WIZARD_CONFIG_FILENAME);
-                var config = WizardConfigLoader.LoadWizardConfiguration(configFile);
-                if (config == null)
-                {
-                    // Try loading it from the default config file
-                    configFile = Path.Combine(rootTemplatePath, WIZARD_CONFIG_FILENAME);
-                    config = WizardConfigLoader.LoadWizardConfiguration(configFile);
-                    if (config == null)
-                    {
-                        string error = String.Format("The wizard could not load its configuration from file: \n{0}\n\nFix it or remove it.", configFile);
-                        MessageBox.Show(error, "Error loading wizard configuration", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return; // Stop if configuration is not loaded properly
-                    }
-                }
-
-                // If a configuration was loaded: validate it
-                List<string> configErrors;
-                if (config.ValidateConfiguration(out configErrors) == false)
-                {
-                    MessageBox.Show(String.Format("The Wizard configuration is invalid in file\n{0}\n\nErrors:\n{1}", configFile, String.Join("\n", configErrors)), "Wizard configuration validation error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    throw new WizardCancelledException("Invalid wizard configuration error.");
-                }
-
-                // When configuration was properly loaded: Show the wizard
-                settings = PageObjectWizardForm.ShowAndGetData(helper.PageName, config);
-                if (settings == null || settings.IsCancelled)
-                    throw new WizardCancelledException("Wizard cancelled by the user.");
-
-                // Create the code
-                AddReplacementVariablesForTemplates(settings, replacementsDictionary, Dte);
-
-                // Create the code and replace the parameters and use that code.
-                string pageObjectCode = TransformToCode(Dte, rootTemplatePath, "PageObject.Init.tt", settings);
-                replacementsDictionary["$generatedpagecode$"] = ReplaceParametersInCode(pageObjectCode, replacementsDictionary);
-
-                SpecsProjectName = helper.BaseName + ".Specs";
-                PagesProjectName = helper.BaseName + ".Pages";
-                BasePageName = helper.PageName; ;
-                if (settings.CreateSpecFlowStepsFile)
-                {
-                    string partialStepsCode = TransformToCode(Dte, rootTemplatePath, "SpecFlowSteps.Init.tt", settings);
-                    StepsCode = ReplaceParametersInCode(partialStepsCode, replacementsDictionary);
-                }
-                if (settings.CreateSpecFlowFeatureFile)
-                {
-                    string partialFeatureCode = TransformToCode(Dte, rootTemplatePath, "SpecFlowFeature.Init.tt", settings);
-                    FeatureCode = ReplaceParametersInCode(partialFeatureCode, replacementsDictionary);
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Trace.WriteLine("Wizard failed with an unexpected error: " + ex.ToString());
-                throw new WizardCancelledException("Wizard cancelled due to an exception: " + ex.Message, ex);
-            }
-        }
 
         /// <summary>
         /// This method is called after the project is created.
@@ -427,6 +448,7 @@ namespace SpecByExample.T4
                 replacementsDictionary["$tablecontrolname$"] = settings.TableInfo.TableControlName + "Control";
             }
 
+#if UNUSED
             if (this.settings.CreateSpecFlowStepsFile)
             {
 //                replacementsDictionary["$entityname$"] = settings.TableInfo.EntityName;
@@ -436,9 +458,11 @@ namespace SpecByExample.T4
             {
 //                replacementsDictionary["$entityname$"] = settings.TableInfo.EntityName;
             }
+#endif
         }
 
 
+#if UNUSED
         public string CreateSpecFlowStepsCode(CodeGenerationSettings data, Dictionary<string, string> replacementsDictionary, _DTE dte)
         {
             string code = null;
@@ -451,7 +475,8 @@ namespace SpecByExample.T4
             string code = null;
             return code;
         }
+#endif
 
-        #endregion
+#endregion
     }
 }

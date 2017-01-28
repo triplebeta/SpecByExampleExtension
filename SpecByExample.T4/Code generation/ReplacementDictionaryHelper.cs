@@ -50,29 +50,25 @@ namespace SpecByExample.T4
 
 
         /// <summary>
-        /// 
+        /// Name of the codefile implementing the Steps.
         /// </summary>
         public string SpecFlowStepsClassname
         {
-            get
-            {
-                return PageName + "Steps";
-            }
+            get { return PageName + "Steps"; }
         }
 
 
         /// <summary>
-        /// 
+        /// Name of the codefile implementing the Features
         /// </summary>
         public string SpecFlowFeatureClassname
         {
-            get
-            {
-                return PageName + "Feature";
-            }
+            get { return PageName + "Feature"; }
         }
 
-
+        /// <summary>
+        /// Name of the codefile implementing page.
+        /// </summary>
         internal string PageName
         {
             get

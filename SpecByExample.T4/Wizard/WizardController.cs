@@ -9,9 +9,9 @@ using System.ComponentModel;
 namespace SpecByExample.T4
 {
     /// <summary>
-    /// Helps to implement the logic of the wizard
+    /// Helps to implement the logic of the wizard such as navigation between the pages.
     /// </summary>
-    internal class WizardController
+    public class WizardController
     {
         private readonly Button previous, next;
         private readonly WizardTabControl wizard;
@@ -19,10 +19,14 @@ namespace SpecByExample.T4
         public delegate void CommitHandler();
 
         /// <summary>
-        /// Statebag for Wizard properties
+        /// Statebag for Wizard properties. Use it to store the values the user entered on the pages.
         /// </summary>
-        internal CodeGenerationSettings WizardState;
+        public CodeGenerationSettings WizardState;
 
+
+        /// <summary>
+        /// Initial configuration of the wizard.
+        /// </summary>
         internal WizardConfiguration WizardConfig
         {
             get;

@@ -1,5 +1,5 @@
 ﻿<#@ output extension=".txt" #>
-<#@ assembly name="$(SolutionDir)\packages\HtmlAgilityPack.1.4.9\lib\Net40\HtmlAgilityPack.dll" #>
+<#@ assembly name="$(SolutionDir)\packages\HtmlAgilityPack.1.4.9.5\lib\Net40\HtmlAgilityPack.dll" #>
 <#@ assembly name="$(SolutionDir)\SpecByExample.T4\bin\Debug\SpecByExample.T4.dll" #>
 <#
 	/* This file is just to start another template for testing */
@@ -23,16 +23,17 @@
     }
 
 	// NOTE: This works only because the Template tag in the Main file contains the attribute hostspecific="true"
-	string configFile = Host.ResolvePath(@"..\PageObjectControlMappingConfig.xml");
+	string configFile = Host.ResolvePath(@"..\ControlAdapterMapping.config");
 	var config = WizardConfigLoader.LoadWizardConfiguration(configFile);
 	if (config==null)
 		throw new InvalidOperationException("Configuration file not found or it is invalid. ");
 
     // At this point, the HTML is loaded completely
     string html = webbrowser.DocumentText;
-    var doc = HtmlLoader.LoadDocumentFromHtml(html);
-	testSettings.SelectedHtmlElements = HtmlLoader.GetHtmlControls(doc, config.Controls, false, testSettings.Options);
-	testSettings.PageInfo = HtmlLoader.GetPageInfo(doc);
+	var htmlLoader = new HtmlLoader();
+    var doc = htmlLoader.LoadDocumentFromHtml(html);
+	testSettings.SelectedHtmlElements = htmlLoader.GetHtmlControls(doc, config.Controls, false, testSettings.Options);
+	testSettings.PageInfo = htmlLoader.GetPageInfo(doc);
    
     // Enable this to test with a table page
 	if (true)
