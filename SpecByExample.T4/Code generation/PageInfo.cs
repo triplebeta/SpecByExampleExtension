@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace SpecByExample.T4
 {
@@ -8,36 +9,54 @@ namespace SpecByExample.T4
     /// Details of the page for which we will be creating some code.
     /// </summary>
     [Serializable]
+    [XmlInclude(typeof(Encoding))]
     public class PageInfo
     {
         private string pageTitle, pageNumber, codePageClass;
 
+        // Required for serialization
+        public PageInfo() { }
+
         public PageInfo(string url) { Url = url; }
 
+        /// <summary>
+        /// Url from which the HTML was loaded.
+        /// </summary>
         public string Url
         {
             get;
             set;
         }
 
-        public Encoding PageEncoding
+        /// <summary>
+        /// String representation of the encoding used for this page.
+        /// </summary>
+        [XmlAttribute("Encoding")]
+        public string PageEncoding
         {
             get;
             set;
         }
 
+        [XmlAttribute(AttributeName="Title")]
         public string PageTitle
         {
             get { return pageTitle ?? ""; }
             set { pageTitle = value; }
         }
 
+
+        [XmlAttribute(AttributeName = "PageNumber")]
         public string PageNumber
         {
             get { return pageNumber ?? ""; }
             set { pageNumber = value; }
         }
 
+        /// <summary>
+        /// Name of the class to create for this page.
+        /// </summary>
+        [XmlAttribute(AttributeName = "Classname")]
         public string CodePageClass
         {
             get { return codePageClass ?? ""; }

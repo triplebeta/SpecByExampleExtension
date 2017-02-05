@@ -39,13 +39,13 @@ namespace SpecByExample.T4
         ///  Create extra variables to use in the templates
         /// </summary>
         /// <param name="automationObject"></param>
-        /// <param name="replacementsDictionary"></param>
+        /// <param name="replacementsDictionary">Key/Value pairs to inject contextual values.</param>
         /// <param name="runKind"></param>
         /// <param name="customParams"></param>
         public void RunStarted(object automationObject, Dictionary<string, string> replacementsDictionary, WizardRunKind runKind, object[] customParams)
         {
             // Get the full name
-            var safeProjectName = replacementsDictionary["$safeprojectname$"];
+            var safeProjectName = replacementsDictionary[PlaceholdersName.SafeProjectName];
 
             // Remove the last part of the name
             string rootname = null;
@@ -57,8 +57,8 @@ namespace SpecByExample.T4
             }
 
             var helper = new ReplacementDictionaryHelper((_DTE)automationObject, replacementsDictionary);
-            replacementsDictionary["$rootname$"] = rootname ?? safeProjectName;
-            replacementsDictionary["$basename$"] = helper.BaseName;
+            replacementsDictionary[PlaceholdersName.RootName] = rootname ?? safeProjectName;
+            replacementsDictionary[PlaceholdersName.Basename] = helper.BaseName;
         }
 
 

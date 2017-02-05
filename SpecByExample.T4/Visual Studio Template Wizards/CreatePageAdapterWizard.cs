@@ -1,19 +1,14 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using EnvDTE;
 using Microsoft.VisualStudio.TemplateWizard;
-using Microsoft.VisualStudio.TextTemplating.VSHost;
-using Microsoft.VisualStudio.TextTemplating;
-using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
-using Microsoft.VisualStudio;
-using System.Runtime.InteropServices;
 using VSLangProj;
 using System.Diagnostics;
+using System.Xml.Serialization;
+using System.Xml;
 
 namespace SpecByExample.T4
 {
@@ -113,26 +108,56 @@ namespace SpecByExample.T4
                 if (settings == null || settings.IsCancelled)
                     throw new WizardCancelledException("Wizard cancelled by the user.");
 
-                // Create the code
-                AddReplacementVariablesForTemplates(settings, replacementsDictionary, Dte);
+                // New implementation: Save the full model instead of the generated code
+                XmlSerializer serializer = new XmlSerializer(typeof(CodeGenerationSettings));
+                XmlWriterSettings serializerSettings = new XmlWriterSettings();
+                serializerSettings.Encoding = new UnicodeEncoding(false, false); // no BOM in a .NET string
+                serializerSettings.Indent = true;
+                serializerSettings.OmitXmlDeclaration = false;
 
+                using (var textWriter = new StringWriter())
+                {
+                    using (XmlWriter xmlWriter = XmlWriter.Create(textWriter, serializerSettings))
+                    {
+                        serializer.Serialize(xmlWriter, settings);
+
+                        // Replace placeholders
+                        AddReplacementVariablesForTemplates(settings, replacementsDictionary, Dte);
+                        var webmodelXml = T4Helper.ReplaceParametersInCode(textWriter.ToString(), replacementsDictionary);
+
+                        replacementsDictionary.Add("$generatedmodel$", webmodelXml);
+                    }
+                }
+
+#if DEPRECATED
                 // Create the code and replace the parameters and use that code.
                 // Put all generated code back into one replacement parameter to inject it.
                 string pageObjectCode = TransformToCode(Dte, rootTemplatePath, "PageObject.Init.tt", settings);
                 replacementsDictionary.Add("$generatedpagecode$", ReplaceParametersInCode(pageObjectCode, replacementsDictionary));
+#endif
 
                 SpecsProjectName = helper.BaseName + ".Specs";
                 PagesProjectName = helper.BaseName + ".Pages";
                 BasePageName = helper.PageName; ;
                 if (settings.CreateSpecFlowStepsFile)
                 {
-                    string partialStepsCode = TransformToCode(Dte, rootTemplatePath, "SpecFlowSteps.Init.tt", settings);
-                    StepsCode = ReplaceParametersInCode(partialStepsCode, replacementsDictionary);
+                    string t4Template = "SpecFlowSteps.Init.tt";
+                    string templateFile = Path.Combine(rootTemplatePath, "T4", t4Template);
+                    if (!File.Exists(templateFile))
+                        throw new WizardCancelledException($"T4 Template file '{t4Template}' not found in the installer package.\nCheck that the VSIX package is created correctly.");
+
+                    string partialStepsCode = T4Helper.TransformToCode(Dte, templateFile, settings);
+                    StepsCode = T4Helper.ReplaceParametersInCode(partialStepsCode, replacementsDictionary);
                 }
                 if (settings.CreateSpecFlowFeatureFile)
                 {
-                    string partialFeatureCode = TransformToCode(Dte, rootTemplatePath, "SpecFlowFeature.Init.tt", settings);
-                    FeatureCode = ReplaceParametersInCode(partialFeatureCode, replacementsDictionary);
+                    string t4Template = "SpecFlowFeature.Init.tt";
+                    string templateFile = Path.Combine(rootTemplatePath, "T4", t4Template);
+                    if (!File.Exists(templateFile))
+                        throw new WizardCancelledException($"T4 Template file '{t4Template}' not found in the installer package.\nCheck that the VSIX package is created correctly.");
+
+                    string partialFeatureCode = T4Helper.TransformToCode(Dte, templateFile, settings);
+                    FeatureCode = T4Helper.ReplaceParametersInCode(partialFeatureCode, replacementsDictionary);
                 }
             }
             catch (Exception ex)
@@ -201,106 +226,20 @@ namespace SpecByExample.T4
         /// <summary>
         /// This method is only called for item templates, not for project templates.
         /// </summary>
-        /// <param name="filePath"></param>
-        /// <returns></returns>
+        /// <param name="filePath">A file that can potentially be added to the solution.</param>
+        /// <returns>True to add the file</returns>
         public bool ShouldAddProjectItem(string filePath)
         {
-            // Here we exclude files that are part of the Item Template as supportfiles
+            // Here we exclude files that are part of the Item Template as supportfiles.
             // but not meant to be added to the project. For those files, return false.
             return !(filePath.EndsWith(".tt") || filePath.Equals(WIZARD_CONFIG_FILENAME, StringComparison.InvariantCultureIgnoreCase));
         }
-        
+
         #endregion
 
 
         #region Private helper methods
 
-        /// <summary>
-        /// Replace the parameters in the code and returns the completed code.
-        /// </summary>
-        /// <param name="code">Original code with parameters</param>
-        /// <param name="replacementsDictionary">Values to be replaced</param>
-        /// <returns>Code with parameters replaced by their values.</returns>
-        private string ReplaceParametersInCode(string code, Dictionary<string, string> replacementsDictionary)
-        {
-            string newCode = code;
-            foreach (var p in replacementsDictionary)
-            {
-                newCode = newCode.Replace(p.Key, p.Value);
-            }
-            return newCode;
-        }
-
-
-        /// <summary>
-        /// Transform a T4 template to output, using a set of parameters
-        /// </summary>
-        /// <param name="templateFile"></param>
-        /// <param name="parameters"></param>
-        /// <returns></returns>
-        private string TransformToCode(_DTE dte, string rootTemplatePath, string t4Template, CodeGenerationSettings settings)
-        {
-            string templateFile = Path.Combine(rootTemplatePath, "T4", t4Template);
-            if (!File.Exists(templateFile))
-                throw new WizardCancelledException(String.Format("T4 Template file '{0}' not found in the installer package.\nCheck that the VSIX package is created correctly.", t4Template));
-
-            // TODO Add errorhandling
-            Dictionary<string, object> parameters = ConvertSettingsToT4Parameters(settings);
-
-            //********************************************************
-            // A: define the T4 host, set session parameters
-            //********************************************************
-            // Get a service provider – how you do this depends on the context:
-            // Get a service provider
-            IServiceProvider serviceProvider = new ServiceProvider(dte as Microsoft.VisualStudio.OLE.Interop.IServiceProvider);
-
-            // Get the text template service:
-            ITextTemplating t4 = serviceProvider.GetService(typeof(STextTemplating)) as ITextTemplating;
-            ITextTemplatingSessionHost sessionHost = t4 as ITextTemplatingSessionHost;
-
-            sessionHost.Session = sessionHost.CreateSession();
-            foreach (var p in parameters)
-            {
-                sessionHost.Session[p.Key] = p.Value;
-            }
-
-            ////********************************************************
-            //// B: read in the template file
-            ////********************************************************
-            String input = File.ReadAllText(templateFile);
-
-            //********************************************************
-            // C: use the T4 engine to process the template
-            //********************************************************
-            String output = t4.ProcessTemplate(templateFile, input);
-
-            //********************************************************
-            // D: display generated code on console
-            //********************************************************
-            Console.WriteLine("[T4TestCustom|output] ==>");
-            Console.WriteLine(output);
-            Console.WriteLine("[T4TestCustom|output] <==");
-
-            // Output of the template
-            return output;
-        }
-
-
-        /// <summary>
-        /// Create a dictionary of the parameters to be passed to a T4 Template
-        /// </summary>
-        /// <param name="settings">Settings as entered in the Wizard</param>
-        /// <returns>A dictionary containing all the settings</returns>
-        private Dictionary<string, object> ConvertSettingsToT4Parameters(CodeGenerationSettings settings)
-        {
-            var parameters = new Dictionary<string, object>();
-
-            // Add the settings as one instance
-            // NOTE: The types must be Serializable in order to support this!
-            parameters.Add("WizardSettings", settings);
-
-            return parameters;
-        }
 
         /// <summary>
         /// Adds new file to the current Solution/Project and inserts the contents
@@ -420,10 +359,10 @@ namespace SpecByExample.T4
             return null;
         }
 
-        #endregion
+#endregion
 
         
-        #region Helpers to create the code
+#region Helpers to create the code
 
         /// <summary>
         /// Adds new elements to the replacement dictionary to use in the templates
@@ -436,46 +375,18 @@ namespace SpecByExample.T4
             var helper = new ReplacementDictionaryHelper(dte, replacementsDictionary);
 
             // Inject the generated code into the PageClassPlaceholder.txt file and rename it
-            replacementsDictionary["$specflowstepsclass$"] = helper.SpecFlowStepsClassname;
-            replacementsDictionary["$pageclass$"] = helper.PageClassname;
-            replacementsDictionary["$targetfilename$"] = helper.OutputFile;
-            replacementsDictionary["$rootnamespace$"] = helper.RootNamespace;
-            replacementsDictionary["$basename$"] = helper.BaseName;
-            replacementsDictionary["$basepageclass$"] = helper.GetPageBaseclass(settings.TypeOfPage);
+            replacementsDictionary[PlaceholdersName.SpecFlowStepsClass] = helper.SpecFlowStepsClassname;
+            replacementsDictionary[PlaceholdersName.PageClassname] = helper.PageClassname;
+            replacementsDictionary[PlaceholdersName.TargetFilename] = helper.OutputFile;
+            replacementsDictionary[PlaceholdersName.RootNamespace] = helper.RootNamespace;
+            replacementsDictionary[PlaceholdersName.Basename] = helper.BaseName;
+            replacementsDictionary[PlaceholdersName.BasePageclass] = helper.GetPageBaseclass(settings.TypeOfPage);
             if (this.settings.TypeOfPage == PageTemplatesEnum.TablePage)
             {
-                replacementsDictionary["$entityname$"] = settings.TableInfo.EntityName;
-                replacementsDictionary["$tablecontrolname$"] = settings.TableInfo.TableControlName + "Control";
+                replacementsDictionary[PlaceholdersName.EntityName] = settings.TableInfo.EntityName;
+                replacementsDictionary[PlaceholdersName.TableControlName] = settings.TableInfo.TableControlName + "Control";
             }
-
-#if UNUSED
-            if (this.settings.CreateSpecFlowStepsFile)
-            {
-//                replacementsDictionary["$entityname$"] = settings.TableInfo.EntityName;
-            }
-
-            if (this.settings.CreateSpecFlowFeatureFile)
-            {
-//                replacementsDictionary["$entityname$"] = settings.TableInfo.EntityName;
-            }
-#endif
         }
-
-
-#if UNUSED
-        public string CreateSpecFlowStepsCode(CodeGenerationSettings data, Dictionary<string, string> replacementsDictionary, _DTE dte)
-        {
-            string code = null;
-            return code;
-        }
-
-
-        public string CreateSpecFlowFeatureCode(CodeGenerationSettings data, Dictionary<string, string> replacementsDictionary, _DTE dte)
-        {
-            string code = null;
-            return code;
-        }
-#endif
 
 #endregion
     }

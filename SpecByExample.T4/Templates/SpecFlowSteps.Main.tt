@@ -1,5 +1,6 @@
 <#@ template debug="false" hostspecific="true" language="C#" #>
 <#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Core" #>
 <#@ assembly name="System.Windows.Forms" #>
 <#@ import namespace="System.Windows.Forms" #>
 <#@ import namespace="System.Runtime.Remoting.Messaging" #>

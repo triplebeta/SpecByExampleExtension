@@ -28,7 +28,7 @@ namespace SpecByExample.T4.Wizard_pages
 
         public void LoadState(CodeGenerationSettings container)
         {
-            PageUrl = container.PageUrl;
+            PageUrl = container.Url;
             ActiveControl = txtUrl;
             ExcludeNonUniqueControls = container.Options.ExcludeNonUniqueControls;
         }
@@ -37,9 +37,9 @@ namespace SpecByExample.T4.Wizard_pages
         {
             // Only when the url changes (going back and forth in the wizard) we must update
             // the collection of selected HTML controls.
-            if (String.Equals(container.PageUrl, PageUrl,StringComparison.InvariantCultureIgnoreCase) == false)
+            if (String.Equals(container.Url, PageUrl,StringComparison.InvariantCultureIgnoreCase) == false)
             {
-                container.PageUrl = PageUrl;
+                container.Url = PageUrl;
                 container.PageInfo = pageInfo;
 
                 // By default select all elements

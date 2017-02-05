@@ -12,7 +12,7 @@
     <AppendDefaultFileExtension>false</AppendDefaultFileExtension>
   </TemplateData>
   <TemplateContent>
-    <!-- Use the given name as athe name of the folder -->
+    <!-- Use the given name as the name of the folder -->
     <Folder Name="T4" TargetFolderName="T4">
       <ProjectItem TargetFileName="PageObject.Init.tt" CustomTool="None">PageObject.Init.tt</ProjectItem>
       <ProjectItem TargetFileName="PageObject.Main.tt" CustomTool="None">PageObject.Main.tt</ProjectItem>

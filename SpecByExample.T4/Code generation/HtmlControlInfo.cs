@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace SpecByExample.T4
 {
@@ -18,7 +19,7 @@ namespace SpecByExample.T4
         public HtmlControlInfo()
         {
             IdentifiedBy = ControlIdentificationType.None;
-            SupportsCodeGeneration = false;   // Assume worst case
+            SupportsCodeGeneration = true;
             ReasonNoCodeGeneration = ExclusionCodeGenerationReasons.None;
         }
 
@@ -27,7 +28,8 @@ namespace SpecByExample.T4
         /// Will be false if e.g. the control cannot be identified uniquely.
         /// If not, the ReasonNoCodeGeneration field describes why.
         /// </summary>
-        public bool SupportsCodeGeneration { get; private set; }
+        [XmlIgnore]
+        public bool SupportsCodeGeneration { get; set; }
 
         /// <summary>
         /// Flag to define if we need to generate code for this item.
@@ -35,18 +37,13 @@ namespace SpecByExample.T4
         /// </summary>
         public bool GenerateCodeForThisItem
         {
-            get { return _generateCodeForThisItem; }
-            set
-            {
-                // Do not allow setting to true if SupportsCodeGeneration is false
-                if (!value || SupportsCodeGeneration)
-                    _generateCodeForThisItem = value;
-            }
+            get; set;
         }
 
         /// <summary>
         /// Reason why it's excluded. Only used when GenerateCodeForThisItem is false. None otherwise.
         /// </summary>
+        [XmlIgnore]
         public ExclusionCodeGenerationReasons ReasonNoCodeGeneration { get; private set; }
 
 
@@ -108,6 +105,12 @@ namespace SpecByExample.T4
         /// </summary>
         public string HtmlCssClass { get; set; }
         
+        // Make sure we save the elements only if they have a value
+        public bool ShouldSerializeHtmlId() { return !String.IsNullOrWhiteSpace(HtmlId); }
+        public bool ShouldSerializeHtmlName() { return !String.IsNullOrWhiteSpace(HtmlName); }
+        public bool ShouldSerializeHtmlTitle() { return !String.IsNullOrWhiteSpace(HtmlTitle); }
+        public bool ShouldSerializeHtmlCssClass() { return !String.IsNullOrWhiteSpace(HtmlCssClass); }
+
         #endregion
 
 
@@ -118,7 +121,7 @@ namespace SpecByExample.T4
         /// </summary>
         public ControlIdentificationType IdentifiedBy
         {
-            get; private set;
+            get; set;
         }
 
 
@@ -166,9 +169,10 @@ namespace SpecByExample.T4
                 if (IdentifiedBy != ControlIdentificationType.None)
                 {
                     Debug.WriteLine($"control {this.CodeControlName} will be identified by {this.IdentifiedBy}");
-                    SupportsCodeGeneration = true;
                     return;
                 }
+                else
+                    SupportsCodeGeneration = false;
             }
 
             // If none of the clauses resulted in unique identification, it must be a duplicate identifier
@@ -239,7 +243,7 @@ namespace SpecByExample.T4
             }
 
             string controlNamePart = HtmlLoader.NormalizeAsControlName(UserDefinedName);
-            if (CodeControlType.ToUpper() == "WEBTABLE")
+            if (CodeControlType?.ToUpper() == "WEBTABLE")
                 return controlNamePart + "Table";
             else
                 return controlNamePart + CodeControlType;

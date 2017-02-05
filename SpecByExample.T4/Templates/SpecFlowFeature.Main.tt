@@ -45,7 +45,7 @@ Feature: $pageclass$
 	I want to run some tests on this page
 
 Scenario: My first test
-	Given I go to the <#= className #> on url '<#= Settings.PageUrl #>'
+	Given I go to the <#= className #> on url '<#= Settings.Url #>'
 	When I remember the current url
 		And I click the <#= firstLinkControlName #> link
 	Then I am no longer on the original url

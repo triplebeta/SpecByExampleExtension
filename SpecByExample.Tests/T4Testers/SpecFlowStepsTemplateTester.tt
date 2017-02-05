@@ -1,31 +1,20 @@
 ﻿<#@ output extension=".txt" #>
 <#@ assembly name="$(SolutionDir)\packages\HtmlAgilityPack.1.4.9.5\lib\Net40\HtmlAgilityPack.dll" #>
 <#@ assembly name="$(SolutionDir)\SpecByExample.T4\bin\Debug\SpecByExample.T4.dll" #>
-<#@ import namespace="System.IO" #>
 <#
-	/*
-		This file is just to start another template for testing.
-		It will invoke the PageObject.Main.tt file, which will also be invoked by the Wizard.
-		Then, PageObject.Main will include PageObject.Template.tt which defines the common structure of the PageObject class.
-		For each type of page it will then include the approrpriate subtemplate:
-		- GenericPage:	PageObject.GenericPage.tt
-		- TablePage:	PageObject.TablePage.tt		(which might use PageObject.GenericPage.tt internally)
+	/* This file is just to start another template for testing */
 
-		Use the txt extension to prevent compiling the generated code in this project by Visual Studio
-    */
-try
-{
-	var testSettings = new CodeGenerationSettings();
+	var testSettings = new CodeGenerationSettings(); 
+	testSettings.Url = "http://www.google.nl";
 	testSettings.PageName= "MyTestPage";
 	testSettings.PageInfo.PageNumber = "S123";
-//	testSettings.PageUrl = @"E:\TestMetTabel.Htm";
-    testSettings.PageUrl = "http://www.google.nl";
-
+	testSettings.CreateSpecFlowStepsFile = true;
+	testSettings.CreateSpecFlowFeatureFile = true;
 
 	// Use the WebBrowser control to load the page and render it, this ensures all JavaScript will be executed as well.
     // Then feed the HTML to the HtmlAgilityPack document.
 	var webbrowser = new WebBrowser();
-    webbrowser.Navigate(new Uri(testSettings.PageUrl));
+    webbrowser.Navigate(new Uri(testSettings.Url));
     while (webbrowser.ReadyState != WebBrowserReadyState.Complete)
     {
         // Dirty but the most easy way to wait for it synchroneously
@@ -41,23 +30,18 @@ try
 
     // At this point, the HTML is loaded completely
     string html = webbrowser.DocumentText;
-	var htmlLoader = new HtmlLoader(config.RegisteredControlTypes);
+	var htmlLoader = new HtmlLoader();
     var doc = htmlLoader.LoadDocumentFromHtml(html);
-	testSettings.Options.ExcludeNonUniqueControls = false;
-	testSettings.SelectedHtmlElements = htmlLoader.GetHtmlControls(doc, config.RegisteredControlTypes, testSettings.Options);
-//	testSettings.PageInfo = htmlLoader.GetPageInfo(doc);
-
-    // Rename one control so we know it works
-//	foreach(var ctrl in testSettings.SelectedHtmlElements)
-//		ctrl.UserDefinedName="JaDitIsM";
-
+	testSettings.SelectedHtmlElements = htmlLoader.GetHtmlControls(doc, config.Controls, false, testSettings.Options);
+	testSettings.PageInfo = htmlLoader.GetPageInfo(doc);
+   
     // Enable this to test with a table page
-	if (false)
+	if (true)
     {
 		// Define which HTML table we we use as the main table for the Table PageObject
 		var table = new SeleniumTableInfo();
 		table.EntityName = "Medewerker";				// Singular name of the entity represented by one row in the table
-		table.TableName = "MyEmployeeTable";			// Name assigned to the generated WebTable property wrapping the HTML table element
+		table.TableName = "MyEmployeeTable";		// Name assigned to the generated WebTable property wrapping the HTML table element
 
 		table.Columns.Add(new TableColumnDef(1,"Firstname", "firstname", "string"));
 		table.Columns.Add(new TableColumnDef(1,"Lastname", "lastname", "string"));
@@ -65,11 +49,7 @@ try
 		testSettings.TypeOfPage = PageTemplatesEnum.TablePage;
 		testSettings.TableInfo = table;
     }
+
 	Session.Add("WizardSettings",testSettings);
-}
-catch(Exception ex)
-{
-	MessageBox.Show("Error in the template: " + ex.ToString());
-}
 #>
-<#@ include file="PageObject.Main.tt" #>
+<#@ include file="SpecFlowSteps.Main.tt" #>

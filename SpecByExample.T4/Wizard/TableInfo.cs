@@ -78,7 +78,7 @@ namespace SpecByExample.T4.Wizard
         public void LoadState(CodeGenerationSettings container)
         {
             bool isTablePage = (container.TypeOfPage == PageTemplatesEnum.TablePage);
-            PageUrl = container.PageUrl;
+            PageUrl = container.Url;
             ToggleTableFields(isTablePage);
         }
 

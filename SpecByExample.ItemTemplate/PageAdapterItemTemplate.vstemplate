@@ -12,6 +12,8 @@
     <ProvideDefaultName>true</ProvideDefaultName>
   </TemplateData>
   <TemplateContent>
+    <!-- =========== START OF SECTION FOR THE WIZARD SUPPORT FILES =========== -->
+    <!-- The following files will not be added to the project but are used by the Wizard. They are excluded by ShouldAddProjectItem -->
     <ProjectItem ItemType="None">ControlAdapterMapping.config</ProjectItem>
 
     <ProjectItem ItemType="Code">T4\PageObject.Init.tt</ProjectItem>
@@ -27,8 +29,9 @@
 
     <ProjectItem ItemType="Code">T4\SpecFlowFeature.Init.tt</ProjectItem>
     <ProjectItem ItemType="Code">T4\SpecFlowFeature.Main.tt</ProjectItem>
-    
-    <ProjectItem ItemType="Compile" TargetFileName="$targetfilename$" ReplaceParameters="true">PageClassPlaceholder.txt</ProjectItem>
+    <!-- =========== END OF SECTION FOR THE WIZARD SUPPORT FILES =========== -->
+
+    <ProjectItem ItemType="None" TargetFileName="$safeitemname$.webmodel" CustomTool="PageAdapterGenerator" ReplaceParameters="true">PageModelPlaceholder.txt</ProjectItem>
   </TemplateContent>
 
   <!-- Install a NuGet package when using this wizard -->

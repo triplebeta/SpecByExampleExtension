@@ -74,7 +74,7 @@ namespace SpecByExample.T4
             get
             {
                 // Return the name of the current item
-                string pageName = (dict["$rootname$"] ?? "").Replace(".cs", "");
+                string pageName = (dict[PlaceholdersName.RootName] ?? "").Replace(".cs", "");
                 return pageName;
             }
         }
@@ -87,7 +87,7 @@ namespace SpecByExample.T4
         {
             get
             {
-                string outputFile = dict["$rootname$"];
+                string outputFile = dict[PlaceholdersName.RootName];
                 if (PageName.ToUpper().EndsWith("PAGE") == false)
                     outputFile = String.Format("{0}Page.cs", PageName);
                 return outputFile;
@@ -101,10 +101,10 @@ namespace SpecByExample.T4
         {
             get
             {
-                if (dict.ContainsKey("$safeprojectname$"))
+                if (dict.ContainsKey(PlaceholdersName.SafeProjectName))
                 {
                     // For project templates
-                    string projectname = dict["$safeprojectname$"];
+                    string projectname = dict[PlaceholdersName.SafeProjectName];
                     var posDot = projectname.IndexOf('.');
                     return projectname.Substring(0, posDot);
                 }

@@ -11,6 +11,9 @@ namespace SpecByExample.T4
     [Serializable]
     public class TableColumnDef
     {
+        // Required for serialization.
+        public TableColumnDef() { }
+
         public TableColumnDef(int position, string title, string fieldname, string datatype)
         {
             ColumnPosition = position;

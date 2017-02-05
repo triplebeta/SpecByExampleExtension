@@ -20,7 +20,7 @@
 <#
 foreach(var node in Settings.SelectedHtmlElements) {
 
-	// Only  create code for nodes we want to have ant to
+	// Only  create code for selected nodes
 	if (node.GenerateCodeForThisItem==false)
 		continue;
  #>
@@ -62,7 +62,7 @@ foreach(var node in Settings.SelectedHtmlElements)
 #>
 
         /// <summary>
-        /// <#= node.CodeControlType #>: <#= node.HtmlName #>
+        /// <#= node.CodeControlType #>: <#= node.HtmlName==null?"":node.HtmlName  #>
         /// </summary>
         public <#= node.CodeControlType #> <#= node.CodeControlName #>
         {

@@ -41,7 +41,13 @@ namespace SpecByExample.T4.Wizard
 
         private string HtmlRootNodeXPath
         {
-            get { return (cmbContainers.SelectedItem as HtmlControlInfo).HtmlXPath; }
+            get
+            {
+                if (cmbContainers.SelectedItem == null || Disposing)
+                    return null;
+                else
+                    return (cmbContainers.SelectedItem as HtmlControlInfo).HtmlXPath;
+            }
         }
 
         
@@ -49,7 +55,8 @@ namespace SpecByExample.T4.Wizard
 
         private void cmbContainers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadAndSelectHtmlControls(currentlySelectedControls, HtmlRootNodeXPath);
+            if (!Disposing)
+                LoadAndSelectHtmlControls(currentlySelectedControls, HtmlRootNodeXPath);
         }
 
 
@@ -143,7 +150,7 @@ namespace SpecByExample.T4.Wizard
         public void LoadState(CodeGenerationSettings container)
         {
             // Remember the rootnode for the scope
-            pageUrl = container.PageUrl;
+            pageUrl = container.Url;
             options = container.Options;
 
             // Fill the list of containers

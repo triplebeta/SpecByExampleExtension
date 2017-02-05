@@ -131,6 +131,7 @@
     <None Include="..\SpecByExample.T4\Templates\SpecFlowSteps.Template.tt">
       <Link>T4\SpecFlowSteps.Template.tt</Link>
     </None>
+    <Content Include="PageModelPlaceholder.txt" />
     <Content Include="PageClassPlaceholder.txt" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

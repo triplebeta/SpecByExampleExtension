@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<!-- Example of the content of the model created from the webpage -->
+<PageModel>
+  <ApplicationModule></ApplicationModule>
+  <Url>http://www.google.com</Url> <!-- Use to refresh -->
+    
+  <CreateFeatureFile>true</CreateFeatureFile>
+  <CreateStepsFile>true</CreateStepsFile>
+  <PageInfo Title="My page" CodePageClass="Boo" Encoding="UTF-8" TypeOfPage="bbsafd" />
+  <Options ExcludeNonUniqueControls="true" PreferredIdentifications="true" />
+
+  <!-- Capture each HTML element -->
+  <SelectedHtmlControls>
+
+      <!-- HtmlControlInfo -->
+    <HtmlElement HtmlControlType="a" HtmlXPath="//html/body/a">
+      <Identification IdentifiedBy="Id" Id="gp_d" Name="ImagesLink" Css="PrettyLabel blue" Title="Images" />
+      <Code Generate="true" CodeControlType="SpecByExample.Common.Controls.Link" CodeControlName="Name_for_control_in_code" />
+      <Documentation
+            DisplayName=""
+            UserDefinedName=""
+            SummaryDesciption="Will be shown in property documentation in the summary."/>
+    <!--
+      DisplayName: Name to show to the user in the wizard.
+      UserDefinedName: The name assigned to this control (so it's NOT the html name attribute, that would be the HtmlName)
+    -->
+    </HtmlElement>
+
+  </SelectedHtmlControls>
+</PageModel>

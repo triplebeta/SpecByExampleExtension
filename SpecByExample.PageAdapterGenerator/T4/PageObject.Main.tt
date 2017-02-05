@@ -1,26 +1,13 @@
 <#@ template debug="false" hostspecific="true" language="C#" #>
 <#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Core" #>
 <#@ assembly name="System.Windows.Forms" #>
 <#@ import namespace="System.Windows.Forms" #>
 <#@ import namespace="System.Runtime.Remoting.Messaging" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="SpecByExample.T4" #>
-<#@ parameter type="SpecByExample.T4.CodeGenerationSettings" name="WizardSettings"  #>
+<#@ parameter type="SpecByExample.T4.CodeGenerationSettings" name="WizardSettings" #>
 <#
-	/*
-		TODO:
-		=====
-		- Add option: Identifying controls by css class is not supported if the class has multiple classes applied to it
-		- Add generated file to the solution
-		- Config opslaan in config file: lijst van modules, output directory, namespace
-		- Test with a table
-		- Option to define which template to use: Detailscherm/Lijstscherm /Aspectscherm...
-		- Allow to check/uncheck the elements to be generated
-		- Show a checkbox-list of identified elements next to the browser and highlight the each element in the browser
-		- Steps genereren voor het aanklikken van de buttons en links (of attribuut erbij genereren om dat generiek te doen via 1 SpecFlow step)
-		- Genereer een meteen ook file met de enum + row + attribuut + container voor een tabel o.b.v. een HTML pagina
-	*/
-
 	// We must have settings for how to generate the code
 	// These settings can be passed in as a parameter but if not available, the template will ask for them.
 

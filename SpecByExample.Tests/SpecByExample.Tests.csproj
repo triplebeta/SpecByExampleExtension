@@ -54,14 +54,24 @@
       <HintPath>..\packages\Castle.Core.3.3.3\lib\net40-client\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="envdte, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="EnvDTE80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.4.9.5, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <HintPath>..\packages\HtmlAgilityPack.1.4.9.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.14.0, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.14.0, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -87,14 +97,49 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomTool\CustomToolCodeGenerationTests.cs" />
+    <Compile Include="CustomTool\TextTemplatingEngineHost.cs" />
     <Compile Include="HtmlLoaderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serialization\LoadSaveWebmodel.cs" />
     <Compile Include="T4Test.cs" />
+    <Compile Include="VisualStudioDteHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="ControlAdapterMapping.config" />
     <None Include="packages.config" />
     <None Include="SpecByExample.Tests.snk" />
+    <None Include="CustomTool\GenerateFromUnitCase.tt" />
+    <None Include="T4Testers\PageObjectTemplateTester.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PageObjectTemplateTester.txt</LastGenOutput>
+    </None>
+    <None Include="T4Testers\PageObjectTemplateTester.txt">
+      <DependentUpon>PageObjectTemplateTester.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </None>
+    <None Include="T4Testers\SpecFlowFeatureTemplateTester.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SpecFlowFeatureTemplateTester.txt</LastGenOutput>
+    </None>
+    <Content Include="T4Testers\SpecFlowFeatureTemplateTester.txt">
+      <DependentUpon>SpecFlowFeatureTemplateTester.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <None Include="T4Testers\SpecFlowStepsTemplateTester.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SpecFlowStepsTemplateTester.txt</LastGenOutput>
+    </None>
+    <Content Include="T4Testers\SpecFlowStepsTemplateTester.txt">
+      <DependentUpon>SpecFlowStepsTemplateTester.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <Content Include="Testdata\ExpectedTransformedCode.txt" />
+    <Content Include="Testdata\MyFirst.webmodel" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SpecByExample.T4\SpecByExample.T4.csproj">
@@ -111,7 +156,7 @@
     <Content Include="Testdata\TestMetTabel.htm" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CustomTool\" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
