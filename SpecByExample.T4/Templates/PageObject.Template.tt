@@ -23,7 +23,6 @@ using SpecByExample.Common;
 using SpecByExample.Common.Controls;
 using $basename$.Common.Pages;
 
-
 namespace $rootnamespace$
 {
 <#

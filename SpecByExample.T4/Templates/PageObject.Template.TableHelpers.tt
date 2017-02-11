@@ -1,5 +1,4 @@
-﻿
-	#region Typed dataset and helper classes for the table
+﻿	#region Typed dataset and helper classes for the table
 
 // Since we use attributes to assign values to the fields, the compiler does not find an explicit assignment
 // and will complain with: Field... is never used

@@ -30,7 +30,6 @@ namespace $basename$.Specs
 
         #endregion
 
-
         #region Act - When
 
 <#
@@ -84,7 +83,6 @@ foreach(var node in Settings.SelectedHtmlElements) {
 #>
 
         #endregion
-
 
         #region Assert - Then
 <#
