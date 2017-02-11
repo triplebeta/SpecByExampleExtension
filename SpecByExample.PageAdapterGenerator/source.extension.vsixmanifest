@@ -3,7 +3,7 @@
   <Metadata>
     <Identity Id="SpecByExample.PageAdapterGenerator" Version="1.0" Language="en-US" Publisher="Triple Beta" />
     <DisplayName>SpecByExample.PageAdapterGenerator</DisplayName>
-    <Description>Empty VSIX Project.</Description>
+    <Description>Custom tool to generate a page adapter class file from a .webmodel, for use in a SpecFlow Steps file.</Description>
   </Metadata>
   <Installation>
     <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[14.0]" />

@@ -62,7 +62,7 @@ foreach(var node in Settings.SelectedHtmlElements)
 #>
 
         /// <summary>
-        /// <#= node.CodeControlType #>: <#= node.HtmlName #>
+        /// <#= node.CodeControlType #>: <#= node.HtmlName==null?"":node.HtmlName  #>
         /// </summary>
         public <#= node.CodeControlType #> <#= node.CodeControlName #>
         {

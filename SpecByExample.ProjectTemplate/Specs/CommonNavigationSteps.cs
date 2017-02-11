@@ -63,7 +63,7 @@ namespace $safeprojectname$
         }
 
         [Then(@"I am on screen with code '(.*)'")]
-        public void WhenIGoToWeekstaat(string screencode)
+        public void WhenIGoToScreenWithCode(string screencode)
         {
             var genericScreen = GetScreen<Base$rootname$Page>();
             Assert.AreEqual(screencode,genericScreen.PageCode);

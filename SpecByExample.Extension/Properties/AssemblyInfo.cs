@@ -1,17 +1,16 @@
-﻿using Microsoft.VisualStudio;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SpecByExample.Installer")]
-[assembly: AssemblyDescription("Installer for this Visual Studio Extension (vsix)")]
+[assembly: AssemblyTitle("SpecByExample.Extension")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Triple Beta")]
-[assembly: AssemblyProduct("Specification by Example Extension (vsix)")]
-[assembly: AssemblyCopyright("Copyright © Triple Beta 2015")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("SpecByExample.Extension")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
