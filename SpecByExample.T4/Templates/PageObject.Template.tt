@@ -8,10 +8,6 @@
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="SpecByExample.T4" #>
 <#@ import namespace="HtmlAgilityPack" #>
-<#
-	// Remove any whitespace from the pagename to create a classname and make each word start with a capital.
-	var className = Settings.PageName.Replace(" ","");
-#>
 using System;
 using System.Linq;
 using System.Text;
@@ -26,6 +22,8 @@ using $basename$.Common.Pages;
 namespace $rootnamespace$
 {
 <#
+// Remove any whitespace from the pagename to create a classname and make each word start with a capital.
+var className = Settings.PageName.Replace(" ","");
 string pageNumber = String.IsNullOrEmpty(Settings.PageInfo.PageNumber) ? "null" : String.Format("\"{0}\"", Settings.PageInfo.PageNumber);
 if (Settings.TypeOfPage == PageTemplatesEnum.GenericPage)
 {

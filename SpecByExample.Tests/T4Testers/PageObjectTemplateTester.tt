@@ -42,11 +42,11 @@
 	var htmlLoader = new HtmlLoader(config.RegisteredControlTypes);
     var doc = htmlLoader.LoadDocumentFromHtml(html);
 	testSettings.Options.ExcludeNonUniqueControls = false;
-	testSettings.SelectedHtmlElements = htmlLoader.GetHtmlControls(doc, config.RegisteredControlTypes, testSettings.Options);
+	testSettings.PageInfo.HtmlElements = htmlLoader.GetHtmlControls(doc, config.RegisteredControlTypes, testSettings.Options);
 //	testSettings.PageInfo = htmlLoader.GetPageInfo(doc);
 
     // Rename one control so we know it works
-//	foreach(var ctrl in testSettings.SelectedHtmlElements)
+//	foreach(var ctrl in testSettings.PageInfo.HtmlElements)
 //		ctrl.UserDefinedName="JaDitIsM";
 
     // Enable this to test with a table page

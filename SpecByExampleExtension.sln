@@ -50,6 +50,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WizardTester", "WizardTeste
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecByExample.Extension", "SpecByExample.Extension\SpecByExample.Extension.csproj", "{420E6068-FC20-4A57-9F4B-C5FA260362B5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecByExample.WebmodelEditor", "SpecByExample.WebmodelEditor\SpecByExample.WebmodelEditor.csproj", "{8065EC68-7945-49E2-8774-20F9F01ED49C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		AutomatedDebug|Any CPU = AutomatedDebug|Any CPU
@@ -334,6 +336,36 @@ Global
 		{420E6068-FC20-4A57-9F4B-C5FA260362B5}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{420E6068-FC20-4A57-9F4B-C5FA260362B5}.Release|x86.ActiveCfg = Release|Any CPU
 		{420E6068-FC20-4A57-9F4B-C5FA260362B5}.Release|x86.Build.0 = Release|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.AutomatedDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.AutomatedDebug|Any CPU.Build.0 = Debug|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.AutomatedDebug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.AutomatedDebug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.AutomatedDebug|x86.ActiveCfg = Debug|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.AutomatedDebug|x86.Build.0 = Debug|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.Debug (.Net 4.0)|Any CPU.ActiveCfg = Debug|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.Debug (.Net 4.0)|Any CPU.Build.0 = Debug|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.Debug (.Net 4.0)|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.Debug (.Net 4.0)|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.Debug (.Net 4.0)|x86.ActiveCfg = Debug|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.Debug (.Net 4.0)|x86.Build.0 = Debug|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.Debug|x86.Build.0 = Debug|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.Release (.Net 4.0)|Any CPU.ActiveCfg = Release|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.Release (.Net 4.0)|Any CPU.Build.0 = Release|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.Release (.Net 4.0)|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.Release (.Net 4.0)|Mixed Platforms.Build.0 = Release|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.Release (.Net 4.0)|x86.ActiveCfg = Release|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.Release (.Net 4.0)|x86.Build.0 = Release|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.Release|x86.ActiveCfg = Release|Any CPU
+		{8065EC68-7945-49E2-8774-20F9F01ED49C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -349,6 +381,7 @@ Global
 		{EFCBD374-702D-44CD-B06C-E66E137F5EFD} = {121173EA-1063-405C-84DF-406629D30992}
 		{63B3BC8A-94F8-41F9-8D0B-5D6967140316} = {A7E4F8F3-CC23-4369-A80E-6E096FC1F746}
 		{420E6068-FC20-4A57-9F4B-C5FA260362B5} = {121173EA-1063-405C-84DF-406629D30992}
+		{8065EC68-7945-49E2-8774-20F9F01ED49C} = {121173EA-1063-405C-84DF-406629D30992}
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = LIB_Selenium1.vsmdi

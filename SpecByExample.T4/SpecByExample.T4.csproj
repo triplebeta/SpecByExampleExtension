@@ -107,6 +107,7 @@
     <Compile Include="Code generation\T4Helper.cs" />
     <Compile Include="Code generation\TableColumnDef.cs" />
     <Compile Include="Code generation\TemplateTransformer.cs" />
+    <Compile Include="Code generation\Webmodel.cs" />
     <Compile Include="Code generation\WizardConfigLoader.cs" />
     <Compile Include="Visual Studio Template Wizards\ComposeProjectTemplateVariableWizard.cs" />
     <Compile Include="Visual Studio Template Wizards\CreatePageAdapterWizard.cs" />
@@ -174,6 +175,9 @@
       <LastGenOutput>PageObject.Init.cs</LastGenOutput>
     </None>
     <None Include="Templates\PageObject.Template.TablePage.tt" />
+    <None Include="Webmodel.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="SpecByExample.Selenium.PageCreator.Keyfile.snk" />

@@ -20,5 +20,6 @@
     <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="SpecByExample.ProjectTemplate" d:TargetPath="|SpecByExample.ProjectTemplate;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
     <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="Project" d:ProjectName="SpecByExample.ItemTemplate" d:TargetPath="|SpecByExample.ItemTemplate;TemplateProjectOutputGroup|" Path="ItemTemplates" d:VsixSubPath="ItemTemplates" />
     <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="SpecByExample.T4" Path="|SpecByExample.T4|" AssemblyName="|SpecByExample.T4;AssemblyName|" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="SpecByExample.WebmodelEditor" Path="|SpecByExample.WebmodelEditor;PkgdefProjectOutputGroup|" />
   </Assets>
 </PackageManifest>

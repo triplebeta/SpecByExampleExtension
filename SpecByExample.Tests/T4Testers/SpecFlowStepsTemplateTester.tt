@@ -30,10 +30,10 @@
 
     // At this point, the HTML is loaded completely
     string html = webbrowser.DocumentText;
-	var htmlLoader = new HtmlLoader();
+	var htmlLoader = new HtmlLoader(config.RegisteredControlTypes);
     var doc = htmlLoader.LoadDocumentFromHtml(html);
-	testSettings.SelectedHtmlElements = htmlLoader.GetHtmlControls(doc, config.Controls, false, testSettings.Options);
-	testSettings.PageInfo = htmlLoader.GetPageInfo(doc);
+	testSettings.PageInfo.HtmlElements = htmlLoader.GetHtmlControls(doc, config.RegisteredControlTypes, testSettings.Options);
+	testSettings.PageInfo = htmlLoader.GetPageInfo(testSettings.Url, config, testSettings.Options);
    
     // Enable this to test with a table page
 	if (true)
@@ -52,4 +52,4 @@
 
 	Session.Add("WizardSettings",testSettings);
 #>
-<#@ include file="SpecFlowSteps.Main.tt" #>
+<#@ include file="$(SolutionDir)\SpecByExample.T4\Templates\SpecFlowSteps.Main.tt" #>

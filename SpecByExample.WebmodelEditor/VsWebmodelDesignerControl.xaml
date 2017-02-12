@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="SpecByExample.WebmodelEditor.VsWebmodelDesignerControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SpecByExample.WebmodelEditor"
+             xmlns:t4="clr-namespace:SpecByExample.T4;assembly=SpecByExample.T4"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type t4:HtmlControlInfo}">
+            <StackPanel>
+                <Label Content="{Binding Description}" />
+                <Label>GenerateCodeForThisItem</Label>
+                <CheckBox Checked="{Binding GenerateCodeForThisItem}" />
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <ScrollViewer CanContentScroll="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <StackPanel AllowDrop="False">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFDEDEDE" Offset="0" />
+                    <GradientStop Color="#FFE8E8E8" Offset="1" />
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Grid>
+                <StackPanel>
+                    <Label x:Name="lblPageName" Content="Page name" />
+                    <TextBox Name="txtPageName" Text="{Binding Path=PageName}" />
+                    <Label x:Name="lblUrl" Content="Url" />
+                    <TextBox Name="txtUrl" Text="{Binding Path=Url}" />
+                    <Label x:Name="lblApplicationModule" Content="Application module" />
+                    <TextBox Name="txtApplicationModule" Text="{Binding Path=ApplicationModule}" />
+                    <Label x:Name="lblHtmlRootNodeXPath" Content="XPath expression to find the rootnode in the HTML" />
+                    <TextBox Name="txtHtmlRootNodeXPath" Text="{Binding Path=HtmlRootNodeXPath}" />
+
+                    <CheckBox Name="chkCreateSpecFlowStepsFile" Content="SpecFlow Steps File" Checked="{Binding Path=CreateSpecFlowStepsFile}" />
+                    <CheckBox Name="chkCreateSpecFlowFeatureFile" Content="SpecFlow Feature File" Checked="{Binding Path=CreateSpecFlowFeatureFile}" />
+
+                    <GroupBox>
+                        <StackPanel>
+                            <Label x:Name="lblPageInfoPageTitle" Content="Title" />
+                            <TextBox Name="txtPageInfoPageTitle" Text="{Binding Path=PageInfo.PageTitle}" />
+                    
+                            <Label x:Name="lblPageInfoClass" Content="Class" />
+                            <TextBox Name="txtPageInfoClass" Text="{Binding Path=PageInfo.CodePageClass}" />
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

@@ -32,7 +32,7 @@
     string html = webbrowser.DocumentText;
 	var htmlLoader = new HtmlLoader(config.RegisteredControlTypes);
     var doc = htmlLoader.LoadDocumentFromHtml(html);
-	testSettings.SelectedHtmlElements = htmlLoader.GetHtmlControls(doc, config.RegisteredControlTypes, testSettings.Options);
+	testSettings.PageInfo.HtmlElements = htmlLoader.GetHtmlControls(doc, config.RegisteredControlTypes, testSettings.Options);
 	testSettings.PageInfo = htmlLoader.GetPageInfo(testSettings.Url, config, testSettings.Options);
 
 	Session.Add("WizardSettings",testSettings);

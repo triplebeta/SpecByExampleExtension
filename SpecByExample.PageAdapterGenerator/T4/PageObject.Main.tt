@@ -7,8 +7,7 @@
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="SpecByExample.T4" #>
 <#@ parameter type="SpecByExample.T4.CodeGenerationSettings" name="WizardSettings" #>
-<#
-	// We must have settings for how to generate the code
+<#  // We must have settings for how to generate the code
 	// These settings can be passed in as a parameter but if not available, the template will ask for them.
 
 	// We support two ways to get data to this template:

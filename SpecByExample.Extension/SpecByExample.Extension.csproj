@@ -44,6 +44,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\SpecByExample.T4\Webmodel.xsd">
+      <Link>Webmodel.xsd</Link>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <None Include="NuGet\CreateNuGetPackage.cmd" />
     <None Include="NuGet\SpecByExample.Common.nuspec" />
     <Content Include="packages\Castle.Core.3.3.3.nupkg">
@@ -112,6 +118,12 @@
       <Project>{D7385152-80CF-4F6E-BDD4-5FCFE7636C4F}</Project>
       <Name>SpecByExample.T4</Name>
       <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup%3bBuiltProjectOutputGroupDependencies%3bGetCopyToOutputDirectoryItems%3bSatelliteDllsProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+      <IncludeOutputGroupsInVSIXLocalOnly>DebugSymbolsProjectOutputGroup%3b</IncludeOutputGroupsInVSIXLocalOnly>
+    </ProjectReference>
+    <ProjectReference Include="..\SpecByExample.WebmodelEditor\SpecByExample.WebmodelEditor.csproj">
+      <Project>{8065EC68-7945-49E2-8774-20F9F01ED49C}</Project>
+      <Name>SpecByExample.WebmodelEditor</Name>
+      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup%3bBuiltProjectOutputGroupDependencies%3bGetCopyToOutputDirectoryItems%3bSatelliteDllsProjectOutputGroup%3bPkgdefProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
       <IncludeOutputGroupsInVSIXLocalOnly>DebugSymbolsProjectOutputGroup%3b</IncludeOutputGroupsInVSIXLocalOnly>
     </ProjectReference>
   </ItemGroup>

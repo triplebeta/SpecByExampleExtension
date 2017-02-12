@@ -20,7 +20,6 @@
             return $tablecontrolname$.As<HtmlTable>(CurrentWebDriver);
         }
 
-
         /// <summary>
         /// Data for the $entityname$
         /// </summary>

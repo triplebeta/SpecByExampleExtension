@@ -20,7 +20,6 @@
 
 	// Remove any whitespace from the pagename to create a classname and make each word start with a capital.
 	var className = mySettings.PageName.Replace(" ","");
-
 	InitializeHtmlSettings(mySettings);
     try 
     { #>

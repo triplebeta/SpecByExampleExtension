@@ -31,7 +31,7 @@
     <ProjectItem ItemType="Code">T4\SpecFlowFeature.Main.tt</ProjectItem>
     <!-- =========== END OF SECTION FOR THE WIZARD SUPPORT FILES =========== -->
 
-    <ProjectItem ItemType="None" TargetFileName="$safeitemname$.webmodel" CustomTool="PageAdapterGenerator" ReplaceParameters="true">PageModelPlaceholder.txt</ProjectItem>
+    <ProjectItem ItemType="None" SubType="Xml" TargetFileName="$safeitemname$.webmodel" CustomTool="PageAdapterGenerator" ReplaceParameters="true">PageModelPlaceholder.txt</ProjectItem>
   </TemplateContent>
 
   <!-- Install a NuGet package when using this wizard -->
@@ -59,4 +59,4 @@
       <package id="SpecByExample.Common" version="1.0.0" />
     </packages>
   </WizardData>
-  </VSTemplate>
+</VSTemplate>

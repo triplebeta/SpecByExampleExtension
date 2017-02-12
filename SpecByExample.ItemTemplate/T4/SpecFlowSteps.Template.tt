@@ -30,11 +30,10 @@ namespace $basename$.Specs
 
         #endregion
 
-
         #region Act - When
 
 <#
-foreach(var node in Settings.SelectedHtmlElements) {
+foreach(var node in Settings.PageInfo.HtmlElements) {
 
 	// Only  create code for nodes we want to have ant to
 	if (node.GenerateCodeForThisItem==false)
@@ -85,10 +84,9 @@ foreach(var node in Settings.SelectedHtmlElements) {
 
         #endregion
 
-
         #region Assert - Then
 <#
-foreach(var node in Settings.SelectedHtmlElements) {
+foreach(var node in Settings.PageInfo.HtmlElements) {
 
 	// Only  create code for nodes we want to have ant to
 	if (node.GenerateCodeForThisItem==false)

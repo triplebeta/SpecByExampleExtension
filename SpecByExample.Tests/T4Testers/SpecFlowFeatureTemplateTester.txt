@@ -1,3 +1,15 @@
 ﻿
 
 
+
+Feature: $pageclass$
+	In order to test page $pageclass$
+	As a tester
+	I want to run some tests on this page
+
+Scenario: My first test
+	Given I go to the MyTestPage on url 'https://www.google.nl'
+	When I remember the current url
+		And I click the SignInLink link
+	Then I am no longer on the original url
+

@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("SpecByExample.Extension")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Suite of helpers to simplify testing web applications using Specification by Example with SpecFlow.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("SpecByExample.Extension")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCopyright("Copyright © Triple Beta 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

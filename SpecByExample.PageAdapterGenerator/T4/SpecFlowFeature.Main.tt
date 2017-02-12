@@ -24,7 +24,7 @@
 	// Default value in case the page contains no links
 	string firstLinkControlName = "HERE_GOES_THE_NAME_OF_YOUR_LINKCONTROL";
 
-	foreach(var node in mySettings.SelectedHtmlElements)
+	foreach(var node in mySettings.PageInfo.HtmlElements)
 	{
 		// Only  create code for nodes we want to have
 		if (node.GenerateCodeForThisItem==false || node.HtmlControlType != HtmlControlTypeEnum.Link)
@@ -35,7 +35,6 @@
 			break;
         }
 	}
-
 	InitializeHtmlSettings(mySettings);
     try 
     { #>

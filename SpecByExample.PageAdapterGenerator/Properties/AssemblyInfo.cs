@@ -14,7 +14,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Triple Beta")]
 [assembly: AssemblyProduct("SpecByExample.PageAdapterGenerator")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCopyright("Copyright © Triple Beta 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

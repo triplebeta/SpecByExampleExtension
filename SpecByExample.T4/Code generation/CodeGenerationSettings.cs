@@ -94,6 +94,7 @@ namespace SpecByExample.T4
         /// <summary>
         /// All HTML elements of the current page.
         /// </summary>
+        [XmlIgnore] // This is just a shortcut
         public List<HtmlControlInfo> SelectedHtmlElements
         {
             get;
