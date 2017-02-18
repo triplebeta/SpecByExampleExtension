@@ -958,38 +958,72 @@ namespace Microsoft.VsTemplateDesigner
         public string PageName
         {
             get { return _webModel.PageName; }
-            set { _webModel.PageName = value; }
+            set
+            {
+                if (_webModel.PageName != value)
+                {
+                    _webModel.PageName = value;
+                    DesignerDirty = true;
+                    NotifyPropertyChanged("PageName");
+                }
+            }
         }
 
         public string Url
         {
             get { return _webModel.Url; }
-            set { _webModel.Url = value; }
-        }
-
-        public string ApplicationModule
-        {
-            get { return _webModel.ApplicationModule; }
-            set { _webModel.ApplicationModule = value; }
+            set
+            {
+                if (_webModel.Url != value)
+                {
+                    _webModel.Url = value;
+                    DesignerDirty = true;
+                    NotifyPropertyChanged("Url");
+                }
+            }
         }
 
         public string HtmlRootNodeXPath
         {
             get { return _webModel.HtmlRootNodeXPath; }
-            set { _webModel.HtmlRootNodeXPath = value; }
+            set
+            {
+                if (_webModel.HtmlRootNodeXPath != value)
+                {
+                    _webModel.HtmlRootNodeXPath = value;
+                    DesignerDirty = true;
+                    NotifyPropertyChanged("HtmlRootNodeXPath");
+                }
+            }
         }
 
 
         public bool CreateSpecFlowStepsFile
         {
             get { return _webModel.CreateSpecFlowStepsFile; }
-            set { _webModel.CreateSpecFlowStepsFile = value; }
+            set
+            {
+                if (_webModel.CreateSpecFlowStepsFile != value)
+                {
+                    _webModel.CreateSpecFlowStepsFile = value;
+                    DesignerDirty = true;
+                    NotifyPropertyChanged("CreateSpecFlowStepsFile");
+                }
+            }
         }
 
         public bool CreateSpecFlowFeatureFile
         {
             get { return _webModel.CreateSpecFlowFeatureFile; }
-            set { _webModel.CreateSpecFlowFeatureFile = value; }
+            set
+            {
+                if (_webModel.CreateSpecFlowFeatureFile != value)
+                {
+                    _webModel.CreateSpecFlowFeatureFile = value;
+                    DesignerDirty = true;
+                    NotifyPropertyChanged("CreateSpecFlowFeatureFile");
+                }
+            }
         }
 
         public PageInfo PageInfo

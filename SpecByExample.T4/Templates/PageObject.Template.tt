@@ -22,20 +22,17 @@ using $basename$.Common.Pages;
 namespace $rootnamespace$
 {
 <#
-// Remove any whitespace from the pagename to create a classname and make each word start with a capital.
-var className = Settings.PageName.Replace(" ","");
-string pageNumber = String.IsNullOrEmpty(Settings.PageInfo.PageNumber) ? "null" : String.Format("\"{0}\"", Settings.PageInfo.PageNumber);
 if (Settings.TypeOfPage == PageTemplatesEnum.GenericPage)
 {
 #>
     /// <summary>
-    /// Implements the <seealso cref="https://code.google.com/p/selenium/wiki/PageObjects">PageObject</seealso> for <#= Settings.PageName #> for module <#= Settings.ApplicationModule ?? "" #>.
+    /// Implements the <seealso cref="https://code.google.com/p/selenium/wiki/PageObjects">PageObject</seealso> for <#= Settings.PageName #>.
     /// </summary>
 	/// <remarks>Generated using the T4 tempate.</remarks>
-    public class <#= className #> : $basepageclass$
+    public partial class <#= Settings.PageInfo.Class #> : $basepageclass$
     {
-        public <#= className #>(IWindsorContainer container, IWebDriver driver)
-            : base(container, driver, "<#=Settings.PageInfo.PageTitle.Trim() #>", <#= pageNumber #>)
+        public <#= Settings.PageInfo.Class #>(IWindsorContainer container, IWebDriver driver)
+            : base(container, driver, "<#=Settings.PageInfo.PageTitle.Trim() #>", null)
         {
             // Nothing to do here
         }
@@ -44,7 +41,7 @@ if (Settings.TypeOfPage == PageTemplatesEnum.GenericPage)
 	}
 <# } else { #>
     /// <summary>
-    /// Table Page Adapter for <#= Settings.PageName #> for module <#= Settings.ApplicationModule #> <#= Settings.PageInfo.PageNumber #>
+    /// Table Page Adapter for <#= Settings.PageName #>.
     /// </summary>
 	/// <remarks>Generated using the T4 tempate.</remarks>
     public class <#= className #> : $basepageclass$<$entityname$Columns>

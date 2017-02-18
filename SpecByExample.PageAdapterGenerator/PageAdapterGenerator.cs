@@ -33,7 +33,7 @@ namespace SpecByExample.PageAdapterGenerator
         /// <param name="fileToTransform">Full filename of the file to be transformed.</param>
         /// <param name="t4Filename">Name of the transformation file to search for.</param>
         /// <returns>Path of the T4 templates to use.</returns>
-        private string GetTemplatePath(Solution solution, string  fileToTransform, string t4Filename)
+        private string GetFullTemplatePath(Solution solution, string  fileToTransform, string t4Filename)
         {
             // First check if the project has its own set of templates.
             // If they are not found: use the templates of the custom tool itself.
@@ -94,8 +94,7 @@ namespace SpecByExample.PageAdapterGenerator
 
             try
             {
-                string t4Template = "PageObject.Init.tt";
-                var templateFile = GetTemplatePath(dte.Solution, inputFilePath, t4Template);
+                var templateFile = GetFullTemplatePath(dte.Solution, inputFilePath, "PageObject.Init.tt");
 
                 // Load the model
                 XmlSerializer deserializer = new XmlSerializer(typeof(CodeGenerationSettings));

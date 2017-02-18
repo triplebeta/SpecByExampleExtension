@@ -12,7 +12,7 @@ namespace SpecByExample.T4
     [XmlInclude(typeof(Encoding))]
     public class PageInfo
     {
-        private string pageTitle, pageNumber, codePageClass;
+        private string pageTitle, className;
 
         // Required for serialization
         public PageInfo() { }
@@ -45,22 +45,14 @@ namespace SpecByExample.T4
             set { pageTitle = value; }
         }
 
-
-        [XmlAttribute(AttributeName = "PageNumber")]
-        public string PageNumber
-        {
-            get { return pageNumber ?? ""; }
-            set { pageNumber = value; }
-        }
-
         /// <summary>
         /// Name of the class to create for this page.
         /// </summary>
-        [XmlAttribute(AttributeName = "Classname")]
-        public string CodePageClass
+        [XmlAttribute(AttributeName = "Class")]
+        public string Class
         {
-            get { return codePageClass ?? ""; }
-            set { codePageClass = value; }
+            get { return className ?? ""; }
+            set { className = value; }
         }
 
         /// <summary>

@@ -56,7 +56,8 @@ namespace SpecByExample.T4
                     rootname = safeProjectName.Substring(0, pos);
             }
 
-            var helper = new ReplacementDictionaryHelper((_DTE)automationObject, replacementsDictionary);
+            var dte = (_DTE)automationObject;
+            var helper = new ReplacementDictionaryHelper(dte.GetRootNamespace(replacementsDictionary), replacementsDictionary);
             replacementsDictionary[PlaceholdersName.RootName] = rootname ?? safeProjectName;
             replacementsDictionary[PlaceholdersName.Basename] = helper.BaseName;
         }

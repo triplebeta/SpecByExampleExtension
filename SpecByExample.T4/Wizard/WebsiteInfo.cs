@@ -41,18 +41,27 @@ namespace SpecByExample.T4.Wizard_pages
             {
                 container.Url = PageUrl;
                 container.PageInfo = pageInfo;
-
-                // By default select all elements
-                container.SelectedHtmlElements.Clear();
-                container.SelectedHtmlElements.AddRange(pageInfo.HtmlElements);
-
                 container.Options.ExcludeNonUniqueControls = ExcludeNonUniqueControls;
             }
         }
 
         public bool ValidateInput()
         {
-            bool isValid = ValidateChildren();
+            bool isValid = true;
+
+            if (txtUrl.Text.Trim() == String.Empty)
+            {
+                errorProvider1.SetError(txtUrl, "Webpage address is required");
+                isValid = false;
+            }
+            else if (Uri.IsWellFormedUriString(txtUrl.Text, UriKind.RelativeOrAbsolute) == false && System.IO.File.Exists(txtUrl.Text) == false)
+            {
+                errorProvider1.SetError(txtUrl, "Url is not recognized as a valid url format.");
+                isValid = false;
+            }
+            else
+                errorProvider1.SetError(txtUrl, "");
+
             if (isValid)
             {
                 // Check that the url is valid and load all controls into a list.
@@ -123,26 +132,6 @@ namespace SpecByExample.T4.Wizard_pages
                 options.PreferredIdentifications = HtmlLoader.DefaultOptions.PreferredIdentifications;
                 return options;
             }
-        }
-
-        #endregion
-
-        #region Validation event handlers
-
-        private void txtUrl_Validating(object sender, CancelEventArgs e)
-        {
-            if (txtUrl.Text.Trim() == String.Empty)
-            {
-                errorProvider1.SetError(txtUrl, "Url is required");
-                e.Cancel = true;
-            }
-            else if (Uri.IsWellFormedUriString(txtUrl.Text, UriKind.RelativeOrAbsolute) == false && System.IO.File.Exists(txtUrl.Text) == false)
-            {
-                errorProvider1.SetError(txtUrl, "Url is not recognized as a valid url format.");
-                e.Cancel = true;
-            }
-            else
-                errorProvider1.SetError(txtUrl, "");
         }
 
         #endregion

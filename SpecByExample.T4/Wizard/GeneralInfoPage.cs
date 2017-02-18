@@ -74,12 +74,16 @@ namespace SpecByExample.T4.Wizard_pages
         {
             HtmlPageName = container.PageName;
             PageTitle = container.PageInfo.PageTitle;
+            chkAddSpecFlowStepsFile.Checked = container.CreateSpecFlowStepsFile;
+            chkAddSpecFlowFeatureFile.Checked = container.CreateSpecFlowFeatureFile;
         }
 
         public void SaveState(CodeGenerationSettings container)
         {
             container.PageName = HtmlPageName;
             container.PageInfo.PageTitle = PageTitle;
+            container.CreateSpecFlowStepsFile = chkAddSpecFlowStepsFile.Checked;
+            container.CreateSpecFlowFeatureFile = chkAddSpecFlowFeatureFile.Checked;
         }
 
         public bool ValidateInput()

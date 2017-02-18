@@ -1,12 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?> 
 <!-- Example of the content of the model created from the webpage -->
 <PageModel>
-  <ApplicationModule></ApplicationModule>
   <Url>http://www.google.com</Url> <!-- Use to refresh -->
     
   <CreateFeatureFile>true</CreateFeatureFile>
   <CreateStepsFile>true</CreateStepsFile>
-  <PageInfo Title="My page" CodePageClass="Boo" Encoding="UTF-8" TypeOfPage="bbsafd" />
+  <PageInfo Title="My page" Class="Boo" Encoding="UTF-8" TypeOfPage="bbsafd" />
   <Options ExcludeNonUniqueControls="true" PreferredIdentifications="true" />
 
   <!-- Capture each HTML element -->

@@ -15,12 +15,12 @@ namespace SpecByExample.T4.Wizard
     public partial class HtmlControlsPage : UserControl, IWizardPage
     {
         private string pageUrl;
-//        private string htmlRootNodeXPath;
         private ParsingOptions options;
         private List<HtmlControlInfo> allHtmlContainers;
         private HtmlControlInfo documentNode;
         private List<HtmlControlInfo> allSelectableControls;
         private List<HtmlControlInfo> currentlySelectedControls;
+        private bool IsSaved = false; // flag to note when not to respond to events
 
 
         public HtmlControlsPage()
@@ -53,35 +53,39 @@ namespace SpecByExample.T4.Wizard
         
         #region Handle events
 
+        /// <summary>
+        /// When selecting a specific container in the page, show only the elements in that container
+        /// </summary>
         private void cmbContainers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!Disposing)
+            if (!Disposing && !IsSaved)
                 LoadAndSelectHtmlControls(currentlySelectedControls, HtmlRootNodeXPath);
         }
 
 
+        /// <summary>
+        /// Toggle the panel with the elements to select.
+        /// </summary>
         private void chkIncludeAllControls_CheckedChanged(object sender, EventArgs e)
         {
-            // Toggle the panel with the elements to select
             pnlHtmlElements.Enabled = !chkIncludeAllControls.Checked;
-
             if (chkIncludeAllControls.Checked)
             {
                 // Restore the selection to all items
                 LoadAndSelectHtmlControls(currentlySelectedControls, null);
                 cmbContainers.SelectedItem = cmbContainers.Items[0];
-
-                //foreach (var ctrl in selectedControls)
-                //    ctrl.GenerateCodeForThisItem = true;
-                //InitializeCheckboxes();
             }
         }
 
-        private void InitializeCheckboxes()
+        /// <summary>
+        /// Initializes the checkboxes that allow you to include/exclude controls from code generation.
+        /// Gray out all checkboxes for control types that are not present in the list.
+        /// </summary>
+        private void InitializeFilterCheckboxes()
         {
             // Check all checkboxes
             var checkboxes = new CheckBox[] {
-                chkButton, chkCheckbox, chkCombobox, chkDiv,
+                chkButton, chkCheckbox, chkCombobox,
                 chkHyperlink, chkImage, chkListbox, chkRadiobutton,
                 chkTable, chkTextArea, chkTextbox
             };
@@ -107,10 +111,8 @@ namespace SpecByExample.T4.Wizard
         }
 
         /// <summary>
-        /// Select one of the HTML Control checkboxes
+        /// When clicking one of the HTML Control type checkboxes, toggle the GenerateCodeForThisControl value for all elements of that type.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void chkSelectHtmlElementChanged(object sender, EventArgs e)
         {
             // Find the type of control
@@ -126,13 +128,16 @@ namespace SpecByExample.T4.Wizard
                         ctrl.GenerateCodeForThisItem = enabled;
                 gridControls.Refresh();
             }
+            else
+                throw new NotSupportedException($"This checkbox is linked to an unsupported type of control: {htmlControlType}.\nFix the wizard :)");
             UpdateSelectedControlCounter();
         }
 
-
+        /// <summary>
+        /// Update counter when updating a control.
+        /// </summary>
         private void gridControls_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
-            // Update the counter for the number of selected controls
             UpdateSelectedControlCounter();
         }
 
@@ -149,6 +154,8 @@ namespace SpecByExample.T4.Wizard
 
         public void LoadState(CodeGenerationSettings container)
         {
+            IsSaved = false;
+
             // Remember the rootnode for the scope
             pageUrl = container.Url;
             options = container.Options;
@@ -163,7 +170,7 @@ namespace SpecByExample.T4.Wizard
             allSelectableControls = new List<HtmlControlInfo>();
             allSelectableControls.AddRange(container.PageInfo.HtmlElements.Where(x=>x.HtmlControlType!=HtmlControlTypeEnum.Div));
             currentlySelectedControls = new List<HtmlControlInfo>();
-            currentlySelectedControls.AddRange(container.SelectedHtmlElements);
+            currentlySelectedControls.AddRange(allSelectableControls.Where(x => x.GenerateCodeForThisItem));
 
             LoadAndSelectHtmlControls(currentlySelectedControls,container.HtmlRootNodeXPath);
         }
@@ -171,10 +178,8 @@ namespace SpecByExample.T4.Wizard
 
         public void SaveState(CodeGenerationSettings container)
         {
-            // Remember the scope
             container.HtmlRootNodeXPath = HtmlRootNodeXPath;
-            container.SelectedHtmlElements.Clear();
-            container.SelectedHtmlElements.AddRange(currentlySelectedControls.Where(x=>x.GenerateCodeForThisItem));
+            IsSaved = true;
         }
 
         public bool ValidateInput()
@@ -184,8 +189,7 @@ namespace SpecByExample.T4.Wizard
 
         #endregion
 
-
-        #region Handle validation
+        #region Validation
 
         private void gridControls_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
@@ -220,12 +224,6 @@ namespace SpecByExample.T4.Wizard
                 e.Cancel = true;
             }
 
-            // Check for duplicate controlnames
-            //var duplicates = currentlySelectedControls
-            //    .GroupBy(i => i.CodeControlName)
-            //    .Where(g => g.Count() > 1)
-            //    .Select(g => g.Key);
-
             var onlySelectedItems = from c in currentlySelectedControls
                                     where c.GenerateCodeForThisItem
                                     select c;
@@ -244,18 +242,21 @@ namespace SpecByExample.T4.Wizard
 
         #endregion
 
-
         #region Private Helper code
 
         private void LoadAndSelectHtmlControls(List<HtmlControlInfo> controlsToLoad, string htmlRootNodeXPath)
         {
             // Now reload the list of SelectedHtmlControls
             currentlySelectedControls = allSelectableControls.OrderByDescending(x => x.GenerateCodeForThisItem).ToList();
+
+            // Ensure only the visible controls are selected
+            allSelectableControls.ForEach(x => x.GenerateCodeForThisItem = false);
+            currentlySelectedControls.ForEach(x => x.GenerateCodeForThisItem = x.SupportsCodeGeneration);
+
+            // Then show the new selection and update the applicable filter checkboxes.
             htmlControlInfoBindingSource.DataSource = currentlySelectedControls;
             UpdateSelectedControlCounter();
-
-            InitializeCheckboxes();
-            // TODO Implement how to update the list of elements while PRESERVING custom names already assigned by the user
+            InitializeFilterCheckboxes();
         }
 
         private void UpdateSelectedControlCounter()

@@ -23,7 +23,6 @@ namespace SpecByExample.WebmodelEditor
     {
         string PageName { get; set; }
         string Url { get; set; }
-        string ApplicationModule { get; set; }
         string HtmlRootNodeXPath { get; set; }
 
         bool CreateSpecFlowStepsFile { get; set; }

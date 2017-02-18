@@ -25,7 +25,7 @@ namespace SpecByExample.T4
         }
 
 
-        public PageObjectWizardForm(string pageName, WizardConfiguration config)
+        public PageObjectWizardForm(string pageName, string safeItemName, WizardConfiguration config)
         {
             InitializeComponent();
 
@@ -34,7 +34,9 @@ namespace SpecByExample.T4
 
             // Create a controller to handle the actions
             WizardController = new WizardController(wizardControl, btnPrevious, btnNext, config);
+            WizardController.WizardState.PageInfo.Class = safeItemName;
             WizardController.OnCommit += new WizardController.CommitHandler(controller_OnCommit);
+
             if (pageName != null)
             {
                 // Use the name entered by the user as the pagename and make sure it ends with Page
@@ -59,10 +61,10 @@ namespace SpecByExample.T4
         /// Show the dialog and get its settings.
         /// </summary>
         /// <returns>An entity with the settings, or null if cancelled.</returns>
-        public static CodeGenerationSettings ShowAndGetData(string pageName, WizardConfiguration config)
+        public static CodeGenerationSettings ShowAndGetData(string pageName, string safeItemName, WizardConfiguration config)
         {
             // Create and show the dialog
-            var dialog = new PageObjectWizardForm(pageName, config);
+            var dialog = new PageObjectWizardForm(pageName, safeItemName, config);
             dialog.ShowDialog();
 
             // For each control, generate a private field and decorate it with an attribute to access the item by its ID

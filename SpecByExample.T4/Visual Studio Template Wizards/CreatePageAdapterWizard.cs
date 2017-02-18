@@ -23,7 +23,7 @@ namespace SpecByExample.T4
         const string WIZARD_CONFIG_FILENAME = "ControlAdapterMapping.config";
 
         // Declare a set of variables to remember some values when enterin ProjectItemFinishedGenerating
-        private _DTE Dte { get; set; }
+        private _DTE dte { get; set; }
         private string StepsCode { get; set; }
         private string FeatureCode { get; set; }
         private string PagesProjectName { get; set; }
@@ -51,13 +51,13 @@ namespace SpecByExample.T4
             // Therefore we need to set some global variables to complete the job in the method ProjectItemFinishedGenerating
             try
             {
-                Dte = (_DTE)automationObject;
-                var helper = new ReplacementDictionaryHelper(Dte, replacementsDictionary);
+                dte = (_DTE)automationObject;
+                var helper = new ReplacementDictionaryHelper(dte.GetRootNamespace(replacementsDictionary), replacementsDictionary);
                 string vstemplateFile = (string)customParams[0];
                 string rootTemplatePath = Path.GetDirectoryName(vstemplateFile);
 
                 // Try to find the Wizard configuration in this project
-                string projectFile = helper.GetCurrentProject().FullName;
+                string projectFile = dte.GetCurrentProject().FullName;
                 string projectDir = Path.GetDirectoryName(projectFile);
 
                 // First check if it's in the Properties directory of the Pages project
@@ -104,7 +104,8 @@ namespace SpecByExample.T4
                 }
 
                 // When configuration was properly loaded: Show the wizard
-                settings = PageObjectWizardForm.ShowAndGetData(helper.PageName, config);
+                string safeItemName = replacementsDictionary["$safeitemname$"];
+                settings = PageObjectWizardForm.ShowAndGetData(helper.PageName, safeItemName, config);
                 if (settings == null || settings.IsCancelled)
                     throw new WizardCancelledException("Wizard cancelled by the user.");
 
@@ -122,23 +123,16 @@ namespace SpecByExample.T4
                         serializer.Serialize(xmlWriter, settings);
 
                         // Replace placeholders
-                        AddReplacementVariablesForTemplates(settings, replacementsDictionary, Dte);
+                        AddReplacementVariablesForTemplates(settings, replacementsDictionary, dte);
                         var webmodelXml = T4Helper.ReplaceParametersInCode(textWriter.ToString(), replacementsDictionary);
 
                         replacementsDictionary.Add("$generatedmodel$", webmodelXml);
                     }
                 }
 
-#if DEPRECATED
-                // Create the code and replace the parameters and use that code.
-                // Put all generated code back into one replacement parameter to inject it.
-                string pageObjectCode = TransformToCode(Dte, rootTemplatePath, "PageObject.Init.tt", settings);
-                replacementsDictionary.Add("$generatedpagecode$", ReplaceParametersInCode(pageObjectCode, replacementsDictionary));
-#endif
-
                 SpecsProjectName = helper.BaseName + ".Specs";
                 PagesProjectName = helper.BaseName + ".Pages";
-                BasePageName = helper.PageName; ;
+                BasePageName = helper.PageName;
                 if (settings.CreateSpecFlowStepsFile)
                 {
                     string t4Template = "SpecFlowSteps.Init.tt";
@@ -146,7 +140,7 @@ namespace SpecByExample.T4
                     if (!File.Exists(templateFile))
                         throw new WizardCancelledException($"T4 Template file '{t4Template}' not found in the installer package.\nCheck that the VSIX package is created correctly.");
 
-                    string partialStepsCode = T4Helper.TransformToCode(Dte, templateFile, settings);
+                    string partialStepsCode = T4Helper.TransformToCode(dte, templateFile, settings);
                     StepsCode = T4Helper.ReplaceParametersInCode(partialStepsCode, replacementsDictionary);
                 }
                 if (settings.CreateSpecFlowFeatureFile)
@@ -156,7 +150,7 @@ namespace SpecByExample.T4
                     if (!File.Exists(templateFile))
                         throw new WizardCancelledException($"T4 Template file '{t4Template}' not found in the installer package.\nCheck that the VSIX package is created correctly.");
 
-                    string partialFeatureCode = T4Helper.TransformToCode(Dte, templateFile, settings);
+                    string partialFeatureCode = T4Helper.TransformToCode(dte, templateFile, settings);
                     FeatureCode = T4Helper.ReplaceParametersInCode(partialFeatureCode, replacementsDictionary);
                 }
             }
@@ -175,7 +169,7 @@ namespace SpecByExample.T4
         /// <param name="projectItem"></param>
         public void ProjectItemFinishedGenerating(ProjectItem projectItem)
         {
-            EnvDTE.Project pagesProject = FindProjectByName(Dte.Solution.Projects, PagesProjectName);
+            EnvDTE.Project pagesProject = FindProjectByName(dte.Solution.Projects, PagesProjectName);
             if (pagesProject == null)
                 throw new ArgumentOutOfRangeException(String.Format("Project {0} was not found in the solution.", PagesProjectName));
 
@@ -187,12 +181,12 @@ namespace SpecByExample.T4
             if (settings.CreateSpecFlowStepsFile)
             {
                 string specsStepsFilename = BasePageName + "Steps.cs";
-                CreateNewFileInProject(Dte, SpecsProjectName, subdirectory, specsStepsFilename, StepsCode);
+                CreateNewFileInProject(dte, SpecsProjectName, subdirectory, specsStepsFilename, StepsCode);
             }
             if (settings.CreateSpecFlowFeatureFile)
             {
                 string featureFilename = BasePageName + "Feature.feature";
-                var featureFile = CreateNewFileInProject(Dte, SpecsProjectName, subdirectory, featureFilename, FeatureCode);
+                var featureFile = CreateNewFileInProject(dte, SpecsProjectName, subdirectory, featureFilename, FeatureCode);
 
                 // Set properties for code generation
                 featureFile.Properties.Item("BuildAction").let_Value(0);    // Build Action = None  instead of Compile
@@ -372,7 +366,7 @@ namespace SpecByExample.T4
         /// <param name="dte">Reference to the IDE</param>
         public void AddReplacementVariablesForTemplates(CodeGenerationSettings settings, Dictionary<string, string> replacementsDictionary, _DTE dte)
         {
-            var helper = new ReplacementDictionaryHelper(dte, replacementsDictionary);
+            var helper = new ReplacementDictionaryHelper(dte.GetRootNamespace(replacementsDictionary), replacementsDictionary);
 
             // Inject the generated code into the PageClassPlaceholder.txt file and rename it
             replacementsDictionary[PlaceholdersName.SpecFlowStepsClass] = helper.SpecFlowStepsClassname;

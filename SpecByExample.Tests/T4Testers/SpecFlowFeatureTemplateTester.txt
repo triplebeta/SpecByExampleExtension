@@ -10,6 +10,6 @@ Feature: $pageclass$
 Scenario: My first test
 	Given I go to the MyTestPage on url 'https://www.google.nl'
 	When I remember the current url
-		And I click the SignInLink link
+		And I click the Screen_readerUsersClickHereToTurnOffGoogleInstantLink link
 	Then I am no longer on the original url
 

@@ -101,6 +101,7 @@
     <Compile Include="CustomTool\TextTemplatingEngineHost.cs" />
     <Compile Include="HtmlLoaderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serialization\ReplacementDictionaryHelperTests.cs" />
     <Compile Include="Serialization\LoadSaveWebmodel.cs" />
     <Compile Include="T4Test.cs" />
     <Compile Include="VisualStudioDteHelper.cs" />

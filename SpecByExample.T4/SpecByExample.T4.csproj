@@ -95,6 +95,7 @@
   <ItemGroup>
     <Compile Include="Code generation\CodeGenerationSettings.cs" />
     <Compile Include="Code generation\CodePlaceholders.cs" />
+    <Compile Include="Code generation\DteHelperExtensions.cs" />
     <Compile Include="Code generation\HtmlControlTypeEnum.cs" />
     <Compile Include="Code generation\PageInfo.cs" />
     <Compile Include="Code generation\PageTemplatesEnum.cs" />

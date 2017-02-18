@@ -1,0 +1,846 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<CodeGenerationSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" PageName="StartPage" CreateSpecFlowStepsFile="true" CreateSpecFlowFeatureFile="true">
+  <Url>http://localhost:64861/</Url>
+  <CodePlaceholders>
+    <Basename>WebTestSample</Basename>
+    <RootNamespace>WebTestSample.Pages</RootNamespace>
+    <BasePageclass>BaseWebTestSamplePage</BasePageclass>
+    <TableControlName>$tablecontrolname$</TableControlName>
+    <EntityName>$entityname$</EntityName>
+  </CodePlaceholders>
+  <ApplicationModule />
+  <HtmlRootNodeXPath>/</HtmlRootNodeXPath>
+  <PageInfo Encoding="System.Text.SBCSCodePageEncoding" Title="Home Page - SpecByExample.SampleWebsite" PageNumber="" Classname="">
+    <Url>http://localhost:64861/</Url>
+    <HtmlElements>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>navbar-brand</HtmlCssClass>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/div[1]/a[1]</HtmlXPath>
+        <Description>SpecByExample.SampleWebsite</Description>
+        <CodeControlName>SpecByExampleSampleWebsiteLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/a[1]</HtmlXPath>
+        <Description>Home</Description>
+        <CodeControlName>HomeLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]</HtmlXPath>
+        <Description>About</Description>
+        <CodeControlName>AboutLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]</HtmlXPath>
+        <Description>Contact</Description>
+        <CodeControlName>ContactLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/div[2]/ul[2]/li[1]/a[1]</HtmlXPath>
+        <Description>Register</Description>
+        <CodeControlName>RegisterLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/div[2]/ul[2]/li[2]/a[1]</HtmlXPath>
+        <Description>Log in</Description>
+        <CodeControlName>LogInLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>btn btn-default</HtmlCssClass>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[1]/p[1]/a[1]</HtmlXPath>
+        <Description>Learn More</Description>
+        <CodeControlName>LearnMoreLink1</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>btn btn-default</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]/div[2]/div[1]/p[1]/a[1]</HtmlXPath>
+        <Description>Learn More</Description>
+        <CodeControlName>LearnMoreLink21</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>btn btn-default</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]/div[3]/div[1]/p[1]/a[1]</HtmlXPath>
+        <Description>Learn More</Description>
+        <CodeControlName>LearnMoreLink31</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>btn btn-default</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]/div[4]/div[1]/p[1]/a[1]</HtmlXPath>
+        <Description>Learn More</Description>
+        <CodeControlName>LearnMoreLink41</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>left carousel-control</HtmlCssClass>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/a[1]</HtmlXPath>
+        <Description>Previous</Description>
+        <CodeControlName>PreviousLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>right carousel-control</HtmlCssClass>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/a[2]</HtmlXPath>
+        <Description>Next</Description>
+        <CodeControlName>NextLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[1]/ul[1]/li[2]/a[1]</HtmlXPath>
+        <Description>Bower</Description>
+        <CodeControlName>BowerLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[1]/ul[1]/li[3]/a[1]</HtmlXPath>
+        <Description>Bootstrap</Description>
+        <CodeControlName>BootstrapLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[2]/ul[1]/li[1]/a[1]</HtmlXPath>
+        <Description>Add a Controller and View</Description>
+        <CodeControlName>AddAControllerAndViewLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[2]/ul[1]/li[2]/a[1]</HtmlXPath>
+        <Description>Add an appsetting in config and access it in app.</Description>
+        <CodeControlName>AddAnAppsettingInConfigAndAccessItInAppLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[2]/ul[1]/li[3]/a[1]</HtmlXPath>
+        <Description>Manage User Secrets using Secret Manager.</Description>
+        <CodeControlName>ManageUserSecretsUsingSecretManagerLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[2]/ul[1]/li[4]/a[1]</HtmlXPath>
+        <Description>Use logging to log a message.</Description>
+        <CodeControlName>UseLoggingToLogAMessageLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[2]/ul[1]/li[5]/a[1]</HtmlXPath>
+        <Description>Add packages using NuGet.</Description>
+        <CodeControlName>AddPackagesUsingNuGetLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[2]/ul[1]/li[6]/a[1]</HtmlXPath>
+        <Description>Add client packages using Bower.</Description>
+        <CodeControlName>AddClientPackagesUsingBowerLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[2]/ul[1]/li[7]/a[1]</HtmlXPath>
+        <Description>Target development, staging or production environment.</Description>
+        <CodeControlName>TargetDevelopmentStagingOrProductionEnvironmentLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[3]/ul[1]/li[1]/a[1]</HtmlXPath>
+        <Description>Conceptual overview of what is ASP.NET Core</Description>
+        <CodeControlName>ConceptualOverviewOfWhatIsASPNETCoreLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[3]/ul[1]/li[2]/a[1]</HtmlXPath>
+        <Description>Fundamentals of ASP.NET Core such as Startup and middleware.</Description>
+        <CodeControlName>FundamentalsOfASPNETCoreSuchAsStartupAndMiddlewareLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[3]/ul[1]/li[3]/a[1]</HtmlXPath>
+        <Description>Working with Data</Description>
+        <CodeControlName>WorkingWithDataLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[3]/ul[1]/li[4]/a[1]</HtmlXPath>
+        <Description>Security</Description>
+        <CodeControlName>SecurityLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[3]/ul[1]/li[5]/a[1]</HtmlXPath>
+        <Description>Client side development</Description>
+        <CodeControlName>ClientSideDevelopmentLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[3]/ul[1]/li[6]/a[1]</HtmlXPath>
+        <Description>Develop on different platforms</Description>
+        <CodeControlName>DevelopOnDifferentPlatformsLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[3]/ul[1]/li[7]/a[1]</HtmlXPath>
+        <Description>Read more on the documentation site</Description>
+        <CodeControlName>ReadMoreOnTheDocumentationSiteLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[4]/ul[1]/li[1]/a[1]</HtmlXPath>
+        <Description>Run your app</Description>
+        <CodeControlName>RunYourAppLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[4]/ul[1]/li[2]/a[1]</HtmlXPath>
+        <Description>Run tools such as EF migrations and more</Description>
+        <CodeControlName>RunToolsSuchAsEFMigrationsAndMoreLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[4]/ul[1]/li[3]/a[1]</HtmlXPath>
+        <Description>Publish to Microsoft Azure Web Apps</Description>
+        <CodeControlName>PublishToMicrosoftAzureWebAppsLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>navbar-toggle</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/div[1]/button[1]</HtmlXPath>
+        <Description>Toggle navigation</Description>
+        <CodeControlName>ToggleNavigationButton</CodeControlName>
+        <CodeControlType>Button</CodeControlType>
+        <HtmlControlType>Button</HtmlControlType>
+      </HtmlControlInfo>
+    </HtmlElements>
+    <HtmlContainers>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/</HtmlXPath>
+        <CodeControlName />
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/</HtmlXPath>
+        <CodeControlName />
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/</HtmlXPath>
+        <CodeControlName />
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>navbar navbar-inverse navbar-fixed-top</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]</HtmlXPath>
+        <Description>Toggle navigation
+                    
+                    
+                    
+                
+                SpecByExample.SampleWebsite
+            
+            
+                
+                    Home
+                    About
+                    Contact
+                
+                
+    
+        Register
+        Log in</Description>
+        <CodeControlName>ToggleNavigationSpecByExampleSampleWebsiteHomeAboutContactRegisterLogInDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>container</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]</HtmlXPath>
+        <Description>Toggle navigation
+                    
+                    
+                    
+                
+                SpecByExample.SampleWebsite
+            
+            
+                
+                    Home
+                    About
+                    Contact
+                
+                
+    
+        Register
+        Log in</Description>
+        <CodeControlName>ToggleNavigationSpecByExampleSampleWebsiteHomeAboutContactRegisterLogInDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>navbar-header</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/div[1]</HtmlXPath>
+        <Description>Toggle navigation
+                    
+                    
+                    
+                
+                SpecByExample.SampleWebsite</Description>
+        <CodeControlName>ToggleNavigationSpecByExampleSampleWebsiteDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>navbar-collapse collapse</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/div[2]</HtmlXPath>
+        <Description>Home
+                    About
+                    Contact
+                
+                
+    
+        Register
+        Log in</Description>
+        <CodeControlName>HomeAboutContactRegisterLogInDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>container body-content</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]</HtmlXPath>
+        <Description>Learn how to build ASP.NET apps that can run anywhere.
+                    
+                        Learn More
+                    
+                
+            
+        
+        
+            
+            
+                
+                    There are powerful new features in Visual Studio for building modern web apps.
+                    
+                        Learn More
+                    
+                
+            
+        
+        
+            
+            
+                
+                    Bring in libraries from NuGet, Bower, and npm, and automate tasks using Grunt or Gulp.
+                    
+                        Learn More
+                    
+                
+            
+        
+        
+            
+            
+                
+                    Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
+                    
+                        Learn More
+                    
+                
+            
+        
+    
+    
+        
+        Previous
+    
+    
+        
+        Next
+    
+
+
+
+    
+        Application uses
+        
+            Sample pages using ASP.NET Core MVC
+            Bower for managing client-side libraries
+            Theming using Bootstrap
+        
+    
+    
+        How to
+        
+            Add a Controller and View
+            Add an appsetting in config and access it in app.
+            Manage User Secrets using Secret Manager.
+            Use logging to log a message.
+            Add packages using NuGet.
+            Add client packages using Bower.
+            Target development, staging or production environment.
+        
+    
+    
+        Overview
+        
+            Conceptual overview of what is ASP.NET Core
+            Fundamentals of ASP.NET Core such as Startup and middleware.
+            Working with Data
+            Security
+            Client side development
+            Develop on different platforms
+            Read more on the documentation site
+        
+    
+    
+        Run &amp; Deploy
+        
+            Run your app
+            Run tools such as EF migrations and more
+            Publish to Microsoft Azure Web Apps
+        
+    
+
+
+        
+        
+            &amp;copy; 2017 - SpecByExample.SampleWebsite</Description>
+        <CodeControlName>rGulpLearnMoreLearnHowMicrosoftsAzureCloudPlatformAllowsYouToBuildDeployAndScaleWebAppsLearnMorePreviousNextApplicationUsesSamplePagesUsingASPNETCoreMVCBowerForManagingClient_sideLibrariesThemingUsingBootstrapHowToAddAControllerAndViewAddAnAppsettingInConfigAndAccessItInAppManageUserSecretsUsingSecretManagerUseLoggingToLogAMessageAddPackagesUsingNuGetAddClientPackagesUsingBowerTargetDevelopmentStagingOrProductionEnvironmentOverviewConceptualOverviewOfWhatIsASPNETCoreFundamentalsOfASPNETCoreSuchAsStartupAndMiddlewareWorkingWithDataSecurityClientSideDevelopmentDevelopOnDifferentPlatformsReadMoreOnTheDocumentationSiteRun&amp;DeployRunYourAppRunToolsSuchAsEFMigrationsAndMorePublishToMicrosoftAzureWebApps2017_SpecByExampleSampleWebsiteDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlId>myCarousel</HtmlId>
+        <HtmlCssClass>carousel slide</HtmlCssClass>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]</HtmlXPath>
+        <Description>Learn how to build ASP.NET apps that can run anywhere.
+                    
+                        Learn More
+                    
+                
+            
+        
+        
+            
+            
+                
+                    There are powerful new features in Visual Studio for building modern web apps.
+                    
+                        Learn More
+                    
+                
+            
+        
+        
+            
+            
+                
+                    Bring in libraries from NuGet, Bower, and npm, and automate tasks using Grunt or Gulp.
+                    
+                        Learn More
+                    
+                
+            
+        
+        
+            
+            
+                
+                    Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
+                    
+                        Learn More
+                    
+                
+            
+        
+    
+    
+        
+        Previous
+    
+    
+        
+        Next</Description>
+        <CodeControlName>LearnHowToBuildASPNETAppsThatCanRunAnywhereLearnMoreThereArePowerfulNewFeaturesInVisualStudioForBuildingModernWebAppsLearnMoreBringInLibrariesFromNuGetBowerAndNpmAndAutomateTasksUsingGruntOrGulpLearnMoreLearnHowMicrosoftsAzureCloudPlatformAllowsYouToBuildDeployAndScaleWebAppsLearnMorePreviousNextDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>carousel-inner</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]</HtmlXPath>
+        <Description>Learn how to build ASP.NET apps that can run anywhere.
+                    
+                        Learn More
+                    
+                
+            
+        
+        
+            
+            
+                
+                    There are powerful new features in Visual Studio for building modern web apps.
+                    
+                        Learn More
+                    
+                
+            
+        
+        
+            
+            
+                
+                    Bring in libraries from NuGet, Bower, and npm, and automate tasks using Grunt or Gulp.
+                    
+                        Learn More
+                    
+                
+            
+        
+        
+            
+            
+                
+                    Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
+                    
+                        Learn More</Description>
+        <CodeControlName>LearnHowToBuildASPNETAppsThatCanRunAnywhereLearnMoreThereArePowerfulNewFeaturesInVisualStudioForBuildingModernWebAppsLearnMoreBringInLibrariesFromNuGetBowerAndNpmAndAutomateTasksUsingGruntOrGulpLearnMoreLearnHowMicrosoftsAzureCloudPlatformAllowsYouToBuildDeployAndScaleWebAppsLearnMoreDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>item active</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]</HtmlXPath>
+        <Description>Learn how to build ASP.NET apps that can run anywhere.
+                    
+                        Learn More</Description>
+        <CodeControlName>LearnHowToBuildASPNETAppsThatCanRunAnywhereLearnMoreDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>carousel-caption</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[1]</HtmlXPath>
+        <Description>Learn how to build ASP.NET apps that can run anywhere.
+                    
+                        Learn More</Description>
+        <CodeControlName>LearnHowToBuildASPNETAppsThatCanRunAnywhereLearnMoreDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>item</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]/div[2]</HtmlXPath>
+        <Description>There are powerful new features in Visual Studio for building modern web apps.
+                    
+                        Learn More</Description>
+        <CodeControlName>ThereArePowerfulNewFeaturesInVisualStudioForBuildingModernWebAppsLearnMoreDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>carousel-caption</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]/div[2]/div[1]</HtmlXPath>
+        <Description>There are powerful new features in Visual Studio for building modern web apps.
+                    
+                        Learn More</Description>
+        <CodeControlName>ThereArePowerfulNewFeaturesInVisualStudioForBuildingModernWebAppsLearnMoreDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>item</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]/div[3]</HtmlXPath>
+        <Description>Bring in libraries from NuGet, Bower, and npm, and automate tasks using Grunt or Gulp.
+                    
+                        Learn More</Description>
+        <CodeControlName>BringInLibrariesFromNuGetBowerAndNpmAndAutomateTasksUsingGruntOrGulpLearnMoreDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>carousel-caption</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]/div[3]/div[1]</HtmlXPath>
+        <Description>Bring in libraries from NuGet, Bower, and npm, and automate tasks using Grunt or Gulp.
+                    
+                        Learn More</Description>
+        <CodeControlName>BringInLibrariesFromNuGetBowerAndNpmAndAutomateTasksUsingGruntOrGulpLearnMoreDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>item</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]/div[4]</HtmlXPath>
+        <Description>Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
+                    
+                        Learn More</Description>
+        <CodeControlName>LearnHowMicrosoftsAzureCloudPlatformAllowsYouToBuildDeployAndScaleWebAppsLearnMoreDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>carousel-caption</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]/div[4]/div[1]</HtmlXPath>
+        <Description>Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
+                    
+                        Learn More</Description>
+        <CodeControlName>LearnHowMicrosoftsAzureCloudPlatformAllowsYouToBuildDeployAndScaleWebAppsLearnMoreDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>row</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]</HtmlXPath>
+        <Description>Application uses
+        
+            Sample pages using ASP.NET Core MVC
+            Bower for managing client-side libraries
+            Theming using Bootstrap
+        
+    
+    
+        How to
+        
+            Add a Controller and View
+            Add an appsetting in config and access it in app.
+            Manage User Secrets using Secret Manager.
+            Use logging to log a message.
+            Add packages using NuGet.
+            Add client packages using Bower.
+            Target development, staging or production environment.
+        
+    
+    
+        Overview
+        
+            Conceptual overview of what is ASP.NET Core
+            Fundamentals of ASP.NET Core such as Startup and middleware.
+            Working with Data
+            Security
+            Client side development
+            Develop on different platforms
+            Read more on the documentation site
+        
+    
+    
+        Run &amp; Deploy
+        
+            Run your app
+            Run tools such as EF migrations and more
+            Publish to Microsoft Azure Web Apps</Description>
+        <CodeControlName>StrapHowToAddAControllerAndViewAddAnAppsettingInConfigAndAccessItInAppManageUserSecretsUsingSecretManagerUseLoggingToLogAMessageAddPackagesUsingNuGetAddClientPackagesUsingBowerTargetDevelopmentStagingOrProductionEnvironmentOverviewConceptualOverviewOfWhatIsASPNETCoreFundamentalsOfASPNETCoreSuchAsStartupAndMiddlewareWorkingWithDataSecurityClientSideDevelopmentDevelopOnDifferentPlatformsReadMoreOnTheDocumentationSiteRun&amp;DeployRunYourAppRunToolsSuchAsEFMigrationsAndMorePublishToMicrosoftAzureWebAppsDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>col-md-3</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[1]</HtmlXPath>
+        <Description>Application uses
+        
+            Sample pages using ASP.NET Core MVC
+            Bower for managing client-side libraries
+            Theming using Bootstrap</Description>
+        <CodeControlName>ApplicationUsesSamplePagesUsingASPNETCoreMVCBowerForManagingClient_sideLibrariesThemingUsingBootstrapDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>col-md-3</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[2]</HtmlXPath>
+        <Description>How to
+        
+            Add a Controller and View
+            Add an appsetting in config and access it in app.
+            Manage User Secrets using Secret Manager.
+            Use logging to log a message.
+            Add packages using NuGet.
+            Add client packages using Bower.
+            Target development, staging or production environment.</Description>
+        <CodeControlName>HowToAddAControllerAndViewAddAnAppsettingInConfigAndAccessItInAppManageUserSecretsUsingSecretManagerUseLoggingToLogAMessageAddPackagesUsingNuGetAddClientPackagesUsingBowerTargetDevelopmentStagingOrProductionEnvironmentDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>col-md-3</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[3]</HtmlXPath>
+        <Description>Overview
+        
+            Conceptual overview of what is ASP.NET Core
+            Fundamentals of ASP.NET Core such as Startup and middleware.
+            Working with Data
+            Security
+            Client side development
+            Develop on different platforms
+            Read more on the documentation site</Description>
+        <CodeControlName>OverviewConceptualOverviewOfWhatIsASPNETCoreFundamentalsOfASPNETCoreSuchAsStartupAndMiddlewareWorkingWithDataSecurityClientSideDevelopmentDevelopOnDifferentPlatformsReadMoreOnTheDocumentationSiteDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>col-md-3</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[4]</HtmlXPath>
+        <Description>Run &amp; Deploy
+        
+            Run your app
+            Run tools such as EF migrations and more
+            Publish to Microsoft Azure Web Apps</Description>
+        <CodeControlName>Run&amp;DeployRunYourAppRunToolsSuchAsEFMigrationsAndMorePublishToMicrosoftAzureWebAppsDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+    </HtmlContainers>
+  </PageInfo>
+  <Options>
+    <PreferredIdentifications>
+      <ControlIdentificationType>Id</ControlIdentificationType>
+      <ControlIdentificationType>Name</ControlIdentificationType>
+      <ControlIdentificationType>LinkText</ControlIdentificationType>
+      <ControlIdentificationType>Cssclass</ControlIdentificationType>
+    </PreferredIdentifications>
+    <ExcludeNonUniqueControls>true</ExcludeNonUniqueControls>
+  </Options>
+  <TypeOfPage>GenericPage</TypeOfPage>
+</CodeGenerationSettings>

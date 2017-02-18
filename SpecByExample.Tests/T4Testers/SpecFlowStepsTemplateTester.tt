@@ -7,7 +7,6 @@
 	var testSettings = new CodeGenerationSettings(); 
 	testSettings.Url = "http://www.google.nl";
 	testSettings.PageName= "MyTestPage";
-	testSettings.PageInfo.PageNumber = "S123";
 	testSettings.CreateSpecFlowStepsFile = true;
 	testSettings.CreateSpecFlowFeatureFile = true;
 

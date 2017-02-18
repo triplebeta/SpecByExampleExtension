@@ -23,11 +23,9 @@ namespace SpecByExample.T4
                 ControlIdentificationType.Name,
                 ControlIdentificationType.LinkText,
                 ControlIdentificationType.Cssclass };
-            
-            SelectedHtmlElements = new List<HtmlControlInfo>();
 
             // Configure the default options
-            CreateSpecFlowStepsFile = false;
+            CreateSpecFlowStepsFile = true;
             CreateSpecFlowFeatureFile = false;
             
             IsCancelled = false;
@@ -41,12 +39,6 @@ namespace SpecByExample.T4
         /// </summary>
         [XmlAttribute]
         public bool CreateSpecFlowStepsFile { get; set; }
-
-        /// <summary>
-        /// True to create a new SpecFlow Feature file.
-        /// </summary>
-        [XmlAttribute]
-        public bool CreateSpecFlowFeatureFile { get; set; }
 
 
         [XmlElement]
@@ -67,19 +59,6 @@ namespace SpecByExample.T4
         [XmlElement]
         public CodePlaceholders CodePlaceholders { get; set; } = new CodePlaceholders();
 
-
-        // Used in the template for some reason.
-        private string applicationModule;
-        [XmlElement]
-        public string ApplicationModule
-        {
-            get { return applicationModule ?? ""; }
-            set { applicationModule = value; }
-        }
-
-        [XmlIgnore]
-        public bool IsCancelled { get; set; }
-
         /// <summary>
         /// Defines the scope for finding controls within the webpage.
         /// By default, it will search the complete document but you can change this
@@ -90,16 +69,6 @@ namespace SpecByExample.T4
         /// </summary>
         [XmlElement]
         public string HtmlRootNodeXPath { get; set; }
-
-        /// <summary>
-        /// All HTML elements of the current page.
-        /// </summary>
-        [XmlIgnore] // This is just a shortcut
-        public List<HtmlControlInfo> SelectedHtmlElements
-        {
-            get;
-            set;
-        }
 
         [XmlElement]
         public PageInfo PageInfo { get; set; }
@@ -122,14 +91,20 @@ namespace SpecByExample.T4
         [XmlElement]
         public SeleniumTableInfo TableInfo { get; set; }
 
-        /*
-         * For future usage
-         * 
-                /// <summary>
-                /// When true: create a new line in the WellKnownUrls file for the new url, using the given name.
-                /// </summary>
-                public bool CreateWellKnownUrl { get; set; }
-                public string WellKnownUrlName { get; set; }
-        */
+        
+        /// <summary>
+        /// True to create a new SpecFlow Feature file.
+        /// </summary>
+        /// <remarks>
+        /// Used only for the wizard since the custom tool will not update the Feature file.
+        /// </remarks>
+        [XmlIgnore]
+        public bool CreateSpecFlowFeatureFile { get; set; }
+
+        /// <summary>
+        /// For internal use by the Wizard to indicate that it was closed without the use of the Finish button.
+        /// </summary>
+        [XmlIgnore]
+        public bool IsCancelled { get; set; }
     }
 }

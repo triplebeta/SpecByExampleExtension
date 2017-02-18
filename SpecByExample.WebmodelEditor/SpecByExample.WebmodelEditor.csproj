@@ -75,6 +75,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Link.png" />
     <Content Include="Resources\Package.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>

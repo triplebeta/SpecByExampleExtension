@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Introduction</title>
+    <style>
+        body { font-family: verdana; font-size: 11px; }
+    </style>
+</head>
+<body>
+    <h2>Congratulations!</h2>
+    <p>
+        You successfully created a solution consisting of 3 projects to help you testing web applications with <a href="http://docs.seleniumhq.org">Selenium</a>
+        and <a href="http://specificationbyexample.com/">Specification by Example</a> techniques using <a href="http://www.specflow.org">SpecFlow</a>.
+    </p>
+    <p>
+        <b>Complete the following steps to get started:</b>
+        <ol>
+            <li>Right-click on the solution</li>
+            <li>Chose to Restore NuGet Packages</li>
+            <li>Build the solution to see that it's all working</li>
+        </ol>
+    </p>
+    <p>
+        Then you are ready to start the real work: adding code to test your first web page.<br />
+        As an example we will test the <a href="http://www.google.com">Google homepage</a>.
+        <ol>
+            <li>Expand the Pages project and right-click on the ModuleA folder</li>
+            <li>Chose Add &gt; New item &gt; SpecByExample PageObject</li>
+            <li>As a name you just enter Google and press Enter</li>
+            <li>In the next wizard you enter the url: www.google.com  and click Next</li>
+            <li>For the next 3 steps you just accept the defaults by clicking Next</li>
+            <li>On the last Wizard page you select both checkboxes to create a SpecFlow Steps and Features file.</li>
+            <li>Click Finish to close the Wizard</li>
+        </ol>
+    </p>
+    <p>
+        A set of new files is now created in your project:
+        <ul>
+            <li>The Pages project contains a new file called GooglePage.cs containing the <a href="https://code.google.com/p/selenium/wiki/PageObjects">PageObject</a> implementation for automating the Google homepage.</li>
+            <li>In the Specs project a similar folder ModuleA is created</li>
+            <li>Within that folder a specs file is created with GoogleFeature.feature with an example of a scenario (executable as a unit test)</li>
+            <li>And a file GoogleSteps.cs implementating the Given/When/Then steps to arrange, act and assert.</li>
+        </ul>
+    </p>
+    <p>
+        The proof of the pudding is to build the project, reopen the Test Explorer and run MyFirstTest.<br/>
+        This should open a web browser, go to Google, then click a random link and check the navigation actually occurred.
+    </p>
+    <p>This extension can be found under Tools > Extensions and Updates and is named "Specification By Example Extension".</p>
+</body>
+</html>

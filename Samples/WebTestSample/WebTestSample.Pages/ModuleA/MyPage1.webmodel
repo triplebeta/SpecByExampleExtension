@@ -1,0 +1,3052 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<CodeGenerationSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" PageName="MyPage1Page" CreateSpecFlowStepsFile="true">
+  <Url>http://www.geertruidenberg.nl</Url>
+  <CodePlaceholders>
+    <Basename>WebTestSample</Basename>
+    <RootNamespace>WebTestSample.Pages</RootNamespace>
+    <BasePageclass>BaseWebTestSamplePage</BasePageclass>
+    <TableControlName>$tablecontrolname$</TableControlName>
+    <EntityName>$entityname$</EntityName>
+  </CodePlaceholders>
+  <HtmlRootNodeXPath>/</HtmlRootNodeXPath>
+  <ApplicationModule />
+  <PageInfo Encoding="System.Text.UTF8Encoding" Title="Home - Gemeente Geertruidenberg" PageNumber="" Class="MyPage1">
+    <Url>http://www.geertruidenberg.nl</Url>
+    <HtmlElements>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/ul[1]/li[1]/a[1]</HtmlXPath>
+        <Description>Ga direct naar zoeken</Description>
+        <CodeControlName>GaDirectNaarZoekenLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/ul[1]/li[2]/a[1]</HtmlXPath>
+        <Description>Ga direct naar het tekstgedeelte</Description>
+        <CodeControlName>GaDirectNaarHetTekstgedeelteLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/ul[1]/li[3]/a[1]</HtmlXPath>
+        <Description>Ga direct naar de navigatie</Description>
+        <CodeControlName>GaDirectNaarDeNavigatieLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlTitle>Terug naar beginpagina</HtmlTitle>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]</HtmlXPath>
+        <Description />
+        <CodeControlName>TerugNaarBeginpaginaLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/a[1]</HtmlXPath>
+        <Description>Inwoners</Description>
+        <CodeControlName>InwonersLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/ul[1]/li[1]/a[1]</HtmlXPath>
+        <Description>Paspoort, ID-kaart, rijbewijs en uittreksel</Description>
+        <CodeControlName>PaspoortID_kaartRijbewijsEnUittrekselLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/ul[1]/li[2]/a[1]</HtmlXPath>
+        <Description>Afval</Description>
+        <CodeControlName>AfvalLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/ul[1]/li[3]/a[1]</HtmlXPath>
+        <Description>Meldingen</Description>
+        <CodeControlName>MeldingenLink1</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/ul[1]/li[4]/a[1]</HtmlXPath>
+        <Description>Werk en inkomen</Description>
+        <CodeControlName>WerkEnInkomenLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/ul[1]/li[5]/a[1]</HtmlXPath>
+        <Description>Zorg</Description>
+        <CodeControlName>ZorgLink1</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/ul[1]/li[6]/a[1]</HtmlXPath>
+        <Description>Wonen en (ver)bouwen</Description>
+        <CodeControlName>WonenEnVerbouwenLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/ul[1]/li[7]/a[1]</HtmlXPath>
+        <Description>Geboorte, trouwen en overlijden</Description>
+        <CodeControlName>GeboorteTrouwenEnOverlijdenLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/ul[1]/li[8]/a[1]</HtmlXPath>
+        <Description>Jeugd en onderwijs</Description>
+        <CodeControlName>JeugdEnOnderwijsLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/ul[1]/li[9]/a[1]</HtmlXPath>
+        <Description>Verkeer</Description>
+        <CodeControlName>VerkeerLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/ul[1]/li[10]/a[1]</HtmlXPath>
+        <Description>Cultuur en vrije tijd</Description>
+        <CodeControlName>CultuurEnVrijeTijdLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/ul[1]/li[11]/a[1]</HtmlXPath>
+        <Description>Praat en doe mee</Description>
+        <CodeControlName>PraatEnDoeMeeLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/ul[1]/li[12]/a[1]</HtmlXPath>
+        <Description>Belastingen en WOZ</Description>
+        <CodeControlName>BelastingenEnWOZLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/ul[1]/li[13]/a[1]</HtmlXPath>
+        <Description>Actueel</Description>
+        <CodeControlName>ActueelLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]</HtmlXPath>
+        <Description>Ondernemers</Description>
+        <CodeControlName>OndernemersLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[1]/ul[1]/li[1]/a[1]</HtmlXPath>
+        <Description>Starten</Description>
+        <CodeControlName>StartenLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[1]/ul[1]/li[2]/a[1]</HtmlXPath>
+        <Description>Vestigen</Description>
+        <CodeControlName>VestigenLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[1]/ul[1]/li[3]/a[1]</HtmlXPath>
+        <Description>Uitbreiden of verbouwen</Description>
+        <CodeControlName>UitbreidenOfVerbouwenLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[1]/ul[1]/li[4]/a[1]</HtmlXPath>
+        <Description>Horeca</Description>
+        <CodeControlName>HorecaLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[1]/ul[1]/li[5]/a[1]</HtmlXPath>
+        <Description>Belastingen</Description>
+        <CodeControlName>BelastingenLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[1]/ul[1]/li[6]/a[1]</HtmlXPath>
+        <Description>Ondersteuning voor ondernemers</Description>
+        <CodeControlName>OndersteuningVoorOndernemersLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[1]/ul[1]/li[7]/a[1]</HtmlXPath>
+        <Description>Nieuws en projecten</Description>
+        <CodeControlName>NieuwsEnProjectenLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[1]/ul[1]/li[8]/a[1]</HtmlXPath>
+        <Description>Inkoop en aanbesteding</Description>
+        <CodeControlName>InkoopEnAanbestedingLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]</HtmlXPath>
+        <Description>Bestuur</Description>
+        <CodeControlName>BestuurLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/ul[1]/li[1]/a[1]</HtmlXPath>
+        <Description>Gemeenteraad</Description>
+        <CodeControlName>GemeenteraadLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/ul[1]/li[2]/a[1]</HtmlXPath>
+        <Description>College van B&amp;amp;W</Description>
+        <CodeControlName>CollegeVanBWLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/ul[1]/li[3]/a[1]</HtmlXPath>
+        <Description>Vergaderkalender</Description>
+        <CodeControlName>VergaderkalenderLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/ul[1]/li[4]/a[1]</HtmlXPath>
+        <Description>Bekijk de raadsvergadering</Description>
+        <CodeControlName>BekijkDeRaadsvergaderingLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/ul[1]/li[5]/a[1]</HtmlXPath>
+        <Description>Beleid</Description>
+        <CodeControlName>BeleidLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/ul[1]/li[6]/a[1]</HtmlXPath>
+        <Description>Werken bij de gemeente</Description>
+        <CodeControlName>WerkenBijDeGemeenteLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/ul[1]/li[7]/a[1]</HtmlXPath>
+        <Description>Financiën</Description>
+        <CodeControlName>FinanciënLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/a[1]</HtmlXPath>
+        <Description>Ga naar boven</Description>
+        <CodeControlName>GaNaarBovenLink1</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/a[1]</HtmlXPath>
+        <Description>Openingstijden / contact</Description>
+        <CodeControlName>OpeningstijdenContactLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlTitle>Afvalkalender</HtmlTitle>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/a[1]</HtmlXPath>
+        <Description>Afvalkalender</Description>
+        <CodeControlName>AfvalkalenderLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlTitle>Paspoort, ID-kaart, Rijbewijs</HtmlTitle>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/a[1]</HtmlXPath>
+        <Description>Paspoort, ID-kaart, Rijbewijs</Description>
+        <CodeControlName>PaspoortID_kaartRijbewijsLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlTitle>Werk &amp;amp; Inkomen</HtmlTitle>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/a[1]</HtmlXPath>
+        <Description>Werk &amp;amp; Inkomen</Description>
+        <CodeControlName>WerkInkomenLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlTitle>Verhuizen</HtmlTitle>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/a[1]</HtmlXPath>
+        <Description>Verhuizen</Description>
+        <CodeControlName>VerhuizenLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlTitle>Meldingen</HtmlTitle>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/a[1]</HtmlXPath>
+        <Description>Meldingen</Description>
+        <CodeControlName>MeldingenLink21</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlTitle>Zorg</HtmlTitle>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/a[1]</HtmlXPath>
+        <Description>Zorg</Description>
+        <CodeControlName>ZorgLink21</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlTitle>Hondenbelasting</HtmlTitle>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/a[1]</HtmlXPath>
+        <Description>Hondenbelasting</Description>
+        <CodeControlName>HondenbelastingLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[3]/a[1]</HtmlXPath>
+        <Description>Ga naar beneden</Description>
+        <CodeControlName>GaNaarBenedenLink1</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlTitle>Lettergrootte aanpassen</HtmlTitle>
+        <HtmlCssClass>piwikTrackContent</HtmlCssClass>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[4]/div[1]/a[1]</HtmlXPath>
+        <Description>GroterAA</Description>
+        <CodeControlName>GroterAALink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlTitle>Lees deze pagina voor</HtmlTitle>
+        <HtmlCssClass>readspeaker rs_skip enterprise_readspeaker piwikTrackContent</HtmlCssClass>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[4]/div[2]/div[1]/a[1]</HtmlXPath>
+        <Description>Lees voor</Description>
+        <CodeControlName>LeesVoorLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>piwikTrackContent</HtmlCssClass>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[4]/div[4]/div[1]/a[1]</HtmlXPath>
+        <Description>Contrast</Description>
+        <CodeControlName>ContrastLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>item_title</HtmlCssClass>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]</HtmlXPath>
+        <Description>Oorkonde voor reddingsactie op Bergse Maas voor&amp;hellip;</Description>
+        <CodeControlName>OorkondeVoorReddingsactieOpBergseMaasVoorLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>item_title</HtmlCssClass>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]</HtmlXPath>
+        <Description>Afrondende werkzaamheden Markt en Brandestraat &amp;hellip;</Description>
+        <CodeControlName>AfrondendeWerkzaamhedenMarktEnBrandestraatLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlTitle>Werkzaamheden Markt en Brandestraat in Geertruidenberg tijdelijk stilgelegd</HtmlTitle>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/p[1]/a[1]</HtmlXPath>
+        <Description>maakte de gemeente bekend</Description>
+        <CodeControlName>MaakteDeGemeenteBekendLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>item_title</HtmlCssClass>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]</HtmlXPath>
+        <Description>Ondertekening participatieverklaring</Description>
+        <CodeControlName>OndertekeningParticipatieverklaringLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlTitle>Lees meer over: Verkiezingen</HtmlTitle>
+        <HtmlCssClass>has_img</HtmlCssClass>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/a[1]</HtmlXPath>
+        <Description>VerkiezingenOp 15 maart 2017 mogen Nederlanders die 18 jaar en ouder zijn, kiezen wie hen vertegenwoordigen in de Tweede Kamer.</Description>
+        <CodeControlName>VerkiezingenOp15Maart2017MogenNederlandersDie18JaarEnOuderZijnKiezenWieHenVertegenwoordigenInDeTweedeKamerLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlTitle>Lees meer over: Geertruidenberg zoekt historische schepen </HtmlTitle>
+        <HtmlCssClass>has_img</HtmlCssClass>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/a[1]</HtmlXPath>
+        <Description>Geertruidenberg zoekt historische schepen De gemeente Geertruidenberg is op zoek naar enkele historische woonschepen die willen aanmeren aan de Timmerstee&amp;hellip;</Description>
+        <CodeControlName>GeertruidenbergZoektHistorischeSchepenDeGemeenteGeertruidenbergIsOpZoekNaarEnkeleHistorischeWoonschepenDieWillenAanmerenAanDeTimmersteeLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlTitle>Lees meer over: Project Donge-oevers</HtmlTitle>
+        <HtmlCssClass>has_img</HtmlCssClass>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/a[1]</HtmlXPath>
+        <Description>Project Donge-oeversOm de recreatieve aantrekkingskracht van Geertruidenberg te vergroten ontwikkelen wij&amp;nbsp;de komende jaren verschill&amp;hellip;</Description>
+        <CodeControlName>ProjectDonge_oeversOmDeRecreatieveAantrekkingskrachtVanGeertruidenbergTeVergrotenOntwikkelenWijdeKomendeJarenVerschillLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/div[1]/a[1]</HtmlXPath>
+        <Description>Ga naar beneden</Description>
+        <CodeControlName>GaNaarBenedenLink21</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>knop</HtmlCssClass>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[1]/div[1]/div[1]/div[3]/a[1]</HtmlXPath>
+        <Description>Afspraak maken</Description>
+        <CodeControlName>AfspraakMakenLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[2]/div[1]/a[1]</HtmlXPath>
+        <Description>Ga naar boven</Description>
+        <CodeControlName>GaNaarBovenLink21</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlTitle>e-mailadres gemeente Geertruidenberg</HtmlTitle>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[2]/div[2]/div[1]/p[1]/a[1]</HtmlXPath>
+        <Description>info@geertruidenberg.nl</Description>
+        <CodeControlName>InfogeertruidenbergnlLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>fa-twitter fa</HtmlCssClass>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[2]/div[2]/div[2]/p[1]/a[1]</HtmlXPath>
+        <Description>Twitter</Description>
+        <CodeControlName>TwitterLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>fa-facebook fa</HtmlCssClass>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[2]/div[2]/div[2]/p[2]/a[1]</HtmlXPath>
+        <Description>Facebook</Description>
+        <CodeControlName>FacebookLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[2]/div[2]/div[3]/ul[1]/li[2]/a[1]</HtmlXPath>
+        <Description>RSS</Description>
+        <CodeControlName>RSSLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[2]/div[2]/div[3]/ul[1]/li[3]/a[1]</HtmlXPath>
+        <Description>Proclaimer</Description>
+        <CodeControlName>ProclaimerLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[2]/div[2]/div[3]/ul[1]/li[4]/a[1]</HtmlXPath>
+        <Description>Sitemap</Description>
+        <CodeControlName>SitemapLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[2]/div[2]/div[4]/p[1]/span[1]/a[1]</HtmlXPath>
+        <Description>Laat het ons weten</Description>
+        <CodeControlName>LaatHetOnsWetenLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>search_trefwoord</HtmlId>
+        <HtmlName>trefwoord</HtmlName>
+        <HtmlCssClass>searchbox_trefwoord searchbox</HtmlCssClass>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/fieldset[1]/input[1]</HtmlXPath>
+        <Description />
+        <CodeControlName>Search_trefwoordTextbox</CodeControlName>
+        <CodeControlType>Textbox</CodeControlType>
+        <HtmlControlType>Text</HtmlControlType>
+      </HtmlControlInfo>
+    </HtmlElements>
+    <HtmlContainers>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/</HtmlXPath>
+        <CodeControlName />
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>no_solr</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]</HtmlXPath>
+        <Description>Inwoners    
+        
+            Paspoort, ID-kaart, rijbewijs en uittreksel
+        
+        
+            Afval
+        
+        
+            Meldingen
+        
+        
+            Werk en inkomen
+        
+        
+            Zorg
+        
+        
+            Wonen en (ver)bouwen
+        
+        
+            Geboorte, trouwen en overlijden
+        
+        
+            Jeugd en onderwijs
+        
+        
+            Verkeer
+        
+        
+            Cultuur en vrije tijd
+        
+        
+            Praat en doe mee
+        
+        
+            Belastingen en WOZ
+        
+        
+            Actueel
+        
+    
+
+                        Ondernemers    
+        
+            Starten
+        
+        
+            Vestigen
+        
+        
+            Uitbreiden of verbouwen
+        
+        
+            Horeca
+        
+        
+            Belastingen
+        
+        
+            Ondersteuning voor ondernemers
+        
+        
+            Nieuws en projecten
+        
+        
+            Inkoop en aanbesteding
+        
+    
+
+                        Bestuur    
+        
+            Gemeenteraad
+        
+        
+            College van B&amp;amp;W
+        
+        
+            Vergaderkalender
+        
+        
+            Bekijk de raadsvergadering
+        
+        
+            Beleid
+        
+        
+            Werken bij de gemeente
+        
+        
+            Financiën
+        
+    
+                      
+                    Ga naar boven
+                                  
+    
+        
+    
+    
+        Zoeken
+        Zoeken
+        
+        
+                
+    
+&lt;/form&gt;
+                         Openingstijden / contactAfvalkalenderPaspoort, ID-kaart, RijbewijsWerk &amp;amp; InkomenVerhuizenMeldingenZorgHondenbelasting
+                    
+                        Ga naar beneden
+                                Pagina optiesGroterAA
+    Lees voor
+
+
+Contrast
+           
+        
+                
+    
+        
+            Oorkonde voor reddingsactie op Bergse Maas voor&amp;hellip;
+            Op donderdag 16 februari heeft burgemeester Willemijn van Hees de oorkonde van de Maatschappij tot Redding van D&amp;hellip;
+        
+        
+            Afrondende werkzaamheden Markt en Brandestraat &amp;hellip;
+            Woensdag 15 februari maakte de gemeente bekend dat de werkzaamheden aan de Markt en Brandestraat in Geertruidenb&amp;hellip;
+        
+        
+            Ondertekening participatieverklaring
+            Op maandagmiddag 13 februari ondertekenden 13 gehuisveste vergunninghouders een participatieverklaring.
+
+        
+    
+
+
+        VerkiezingenOp 15 maart 2017 mogen Nederlanders die 18 jaar en ouder zijn, kiezen wie hen vertegenwoordigen in de Tweede Kamer.
+Geertruidenberg zoekt historische schepen De gemeente Geertruidenberg is op zoek naar enkele historische woonschepen die willen aanmeren aan de Timmerstee&amp;hellip;Project Donge-oeversOm de recreatieve aantrekkingskracht van Geertruidenberg te vergroten ontwikkelen wij&amp;nbsp;de komende jaren verschill&amp;hellip;
+                
+                        Ga naar beneden
+                            
+        
+            
+                             Gemeentewinkel - BurgerzakenVandaaggeslotenMorgengeslotenReceptie en telefoon: 14 0162VandaaggeslotenMorgengeslotenAfspraak maken        Loketten Wmo - Sociale Zaken - BouwzakenVandaaggeslotenMorgengesloten        MilieustraatVandaagOpen van 09:00 tot 15:00Morgengesloten    
+                Ga naar boven
+                      Contact
+
+Vrijheidstraat 2
+4941 DX&amp;nbsp;Raamsdonksveer
+Telefoonnummer:&amp;nbsp;14 0162
+info@geertruidenberg.nl
+KvK-nummer: 50771752Sociale media
+
+Twitter
+
+Facebook    
+        
+Meer informatie        
+        
+            RSS
+        
+        
+            Proclaimer
+        
+        
+            Sitemap
+        
+    
+Wat vindt ú&amp;nbsp;van de site?
+
+Een nieuwe site! Heeft u verbetersuggesties? Opmerkingen? Of ziet u onjuiste informatie? Laat het ons weten. U krijgt van ons te horen wat we met uw reactie doen.                           
+        
+    
+
+
+/*&lt;![CDATA[*/
+(function() {
+var sz = document.createElement('script'); sz.type = 'text/javascript'; sz.async = true;
+sz.src = '//siteimproveanalytics.com/js/siteanalyze_6006153.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sz, s);
+})();
+/*]]&gt;*/
+
+ 
+        &lt;!-- SIManalytics --&gt;
+        
+            var _paq = _paq || [];
+            _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+            _paq.push(["setCookieDomain", "*.geertruidenberg.nl"]);
+            _paq.push(["setDomains", ['*.geertruidenberg.nl']]);
+            _paq.push(["trackPageView"]);
+            _paq.push(["enableLinkTracking"]);
+
+            (function() {
+                var u="https://logging.simanalytics.nl/";
+                _paq.push(["setTrackerUrl", u+"piwik.php"]);
+                _paq.push(["setSiteId", "65"]);
+                var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+                g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+            })();
+        
+        &lt;!-- End SIManalytics Code --&gt;
+        &lt;!-- SIManalytics NoScript Image Tracker --&gt;
+        
+        &lt;!-- End SIManalytics --&gt;</Description>
+        <CodeControlName>nEnWOZActueelOndernemersStartenVestigenUitbreidenOfVerbouwenHorecaBelastingenOndersteuningVoorOndernemersNieuwsEnProjectenInkoopEnAanbestedingBestuurGemeenteraadCollegeVanBWVergaderkalenderBekijkDeRaadsvergaderingBeleidWerkenBijDeGemeenteFinanciënGaNaarBovenZoekenZoekenFormOpeningstijdenContactAfvalkalenderPaspoortID_kaartRijbewijsWerkInkomenVerhuizenMeldingenZorgHondenbelastingGaNaarBenedenPaginaOptiesGroterAALeesVoorContrastOorkondeVoorReddingsactieOpBergseMaasVoorOpDonderdag16FebruariHeeftBurgemeesterWillemijnVanHeesDeOorkondeVanDeMaatschappijTotReddingVanDAfrondendeWerkzaamhedenMarktEnBrandestraatWoensdag15FebruariMaakteDeGemeenteBekendDatDeWerkzaamhedenAanDeMarktEnBrandestraatInGeertruidenbOndertekeningParticipatieverklaringOpMaandagmiddag13FebruariOndertekenden13GehuisvesteVergunninghoudersEenParticipatieverklaringVerkiezingenOp15Maart2017MogenNederlandersDie18JaarEnOuderZijnKiezenWieHenVertegenwoordigenInDeTweedeKamerGeertruidenbergZoektHistorischeSchepenDeGemeenteGeertruidenbergIsOpZoekNaarEnkeleHistorischeWoonschepenDieWillenAanmerenAanDeTimmersteeProjectDonge_oeversOmDeRecreatieveAantrekkingskrachtVanGeertruidenbergTeVergrotenOntwikkelenWijdeKomendeJarenVerschillGaNaarBenedenGemeentewinkel_BurgerzakenVandaaggeslotenMorgengeslotenReceptieEnTelefoon140162VandaaggeslotenMorgengeslotenAfspraakMakenLokettenWmo_SocialeZaken_BouwzakenVandaaggeslotenMorgengeslotenMilieustraatVandaagOpenVan0900Tot1500MorgengeslotenGaNaarBovenContactVrijheidstraat24941DXRaamsdonksveerTelefoonnummer140162InfogeertruidenbergnlKvK_nummer50771752SocialeMediaTwitterFacebookMeerInformatieRSSProclaimerSitemapWatVindtÚvanDeSite?EenNieuweSiteHeeftUVerbetersuggesties?Opmerkingen?OfZietUOnjuisteInformatie?LaatHetOnsWetenUKrijgtVanOnsTeHorenWatWeMetUwReactieDoenCDATAFunctionVarSzDocumentcreateElementscriptSztypeTextjavascriptSzasyncTrueSzsrcSiteimproveanalyticscomjssiteanalyze_6006153jsVarSDocumentgetElementsByTagNamescript0SparentNodeinsertBeforeszS__SIManalytics__Var_paq_paq||_paqpushsetDocumentTitleDocumentdomainPlusPlusDocumenttitle_paqpushsetCookieDomainGeertruidenbergnl_paqpushsetDomainsGeertruidenbergnl_paqpushtrackPageView_paqpushenableLinkTrackingFunctionVarUhttpsloggingsimanalyticsnl_paqpushsetTrackerUrlUPluspiwikphp_paqpushsetSiteId65VarDdocumentGdcreateElementscriptSdgetElementsByTagNamescript0GtypetextjavascriptGdefertrueGasynctrueGsrcuPluspiwikjsSparentNodeinsertBeforegs__EndSIManalyticsCode____SIManalyticsNoScriptImageTracker____EndSIManalytics__Div1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>fullpage</HtmlId>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]</HtmlXPath>
+        <Description>Inwoners    
+        
+            Paspoort, ID-kaart, rijbewijs en uittreksel
+        
+        
+            Afval
+        
+        
+            Meldingen
+        
+        
+            Werk en inkomen
+        
+        
+            Zorg
+        
+        
+            Wonen en (ver)bouwen
+        
+        
+            Geboorte, trouwen en overlijden
+        
+        
+            Jeugd en onderwijs
+        
+        
+            Verkeer
+        
+        
+            Cultuur en vrije tijd
+        
+        
+            Praat en doe mee
+        
+        
+            Belastingen en WOZ
+        
+        
+            Actueel
+        
+    
+
+                        Ondernemers    
+        
+            Starten
+        
+        
+            Vestigen
+        
+        
+            Uitbreiden of verbouwen
+        
+        
+            Horeca
+        
+        
+            Belastingen
+        
+        
+            Ondersteuning voor ondernemers
+        
+        
+            Nieuws en projecten
+        
+        
+            Inkoop en aanbesteding
+        
+    
+
+                        Bestuur    
+        
+            Gemeenteraad
+        
+        
+            College van B&amp;amp;W
+        
+        
+            Vergaderkalender
+        
+        
+            Bekijk de raadsvergadering
+        
+        
+            Beleid
+        
+        
+            Werken bij de gemeente
+        
+        
+            Financiën
+        
+    
+                      
+                    Ga naar boven
+                                  
+    
+        
+    
+    
+        Zoeken
+        Zoeken
+        
+        
+                
+    
+&lt;/form&gt;
+                         Openingstijden / contactAfvalkalenderPaspoort, ID-kaart, RijbewijsWerk &amp;amp; InkomenVerhuizenMeldingenZorgHondenbelasting
+                    
+                        Ga naar beneden
+                                Pagina optiesGroterAA
+    Lees voor
+
+
+Contrast
+           
+        
+                
+    
+        
+            Oorkonde voor reddingsactie op Bergse Maas voor&amp;hellip;
+            Op donderdag 16 februari heeft burgemeester Willemijn van Hees de oorkonde van de Maatschappij tot Redding van D&amp;hellip;
+        
+        
+            Afrondende werkzaamheden Markt en Brandestraat &amp;hellip;
+            Woensdag 15 februari maakte de gemeente bekend dat de werkzaamheden aan de Markt en Brandestraat in Geertruidenb&amp;hellip;
+        
+        
+            Ondertekening participatieverklaring
+            Op maandagmiddag 13 februari ondertekenden 13 gehuisveste vergunninghouders een participatieverklaring.
+
+        
+    
+
+
+        VerkiezingenOp 15 maart 2017 mogen Nederlanders die 18 jaar en ouder zijn, kiezen wie hen vertegenwoordigen in de Tweede Kamer.
+Geertruidenberg zoekt historische schepen De gemeente Geertruidenberg is op zoek naar enkele historische woonschepen die willen aanmeren aan de Timmerstee&amp;hellip;Project Donge-oeversOm de recreatieve aantrekkingskracht van Geertruidenberg te vergroten ontwikkelen wij&amp;nbsp;de komende jaren verschill&amp;hellip;
+                
+                        Ga naar beneden
+                            
+        
+            
+                             Gemeentewinkel - BurgerzakenVandaaggeslotenMorgengeslotenReceptie en telefoon: 14 0162VandaaggeslotenMorgengeslotenAfspraak maken        Loketten Wmo - Sociale Zaken - BouwzakenVandaaggeslotenMorgengesloten        MilieustraatVandaagOpen van 09:00 tot 15:00Morgengesloten    
+                Ga naar boven
+                      Contact
+
+Vrijheidstraat 2
+4941 DX&amp;nbsp;Raamsdonksveer
+Telefoonnummer:&amp;nbsp;14 0162
+info@geertruidenberg.nl
+KvK-nummer: 50771752Sociale media
+
+Twitter
+
+Facebook    
+        
+Meer informatie        
+        
+            RSS
+        
+        
+            Proclaimer
+        
+        
+            Sitemap
+        
+    
+Wat vindt ú&amp;nbsp;van de site?
+
+Een nieuwe site! Heeft u verbetersuggesties? Opmerkingen? Of ziet u onjuiste informatie? Laat het ons weten. U krijgt van ons te horen wat we met uw reactie doen.                           
+        
+    
+
+
+/*&lt;![CDATA[*/
+(function() {
+var sz = document.createElement('script'); sz.type = 'text/javascript'; sz.async = true;
+sz.src = '//siteimproveanalytics.com/js/siteanalyze_6006153.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sz, s);
+})();
+/*]]&gt;*/
+
+ 
+        &lt;!-- SIManalytics --&gt;
+        
+            var _paq = _paq || [];
+            _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+            _paq.push(["setCookieDomain", "*.geertruidenberg.nl"]);
+            _paq.push(["setDomains", ['*.geertruidenberg.nl']]);
+            _paq.push(["trackPageView"]);
+            _paq.push(["enableLinkTracking"]);
+
+            (function() {
+                var u="https://logging.simanalytics.nl/";
+                _paq.push(["setTrackerUrl", u+"piwik.php"]);
+                _paq.push(["setSiteId", "65"]);
+                var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+                g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+            })();
+        
+        &lt;!-- End SIManalytics Code --&gt;
+        &lt;!-- SIManalytics NoScript Image Tracker --&gt;
+        
+        &lt;!-- End SIManalytics --&gt;</Description>
+        <CodeControlName>nEnWOZActueelOndernemersStartenVestigenUitbreidenOfVerbouwenHorecaBelastingenOndersteuningVoorOndernemersNieuwsEnProjectenInkoopEnAanbestedingBestuurGemeenteraadCollegeVanBWVergaderkalenderBekijkDeRaadsvergaderingBeleidWerkenBijDeGemeenteFinanciënGaNaarBovenZoekenZoekenFormOpeningstijdenContactAfvalkalenderPaspoortID_kaartRijbewijsWerkInkomenVerhuizenMeldingenZorgHondenbelastingGaNaarBenedenPaginaOptiesGroterAALeesVoorContrastOorkondeVoorReddingsactieOpBergseMaasVoorOpDonderdag16FebruariHeeftBurgemeesterWillemijnVanHeesDeOorkondeVanDeMaatschappijTotReddingVanDAfrondendeWerkzaamhedenMarktEnBrandestraatWoensdag15FebruariMaakteDeGemeenteBekendDatDeWerkzaamhedenAanDeMarktEnBrandestraatInGeertruidenbOndertekeningParticipatieverklaringOpMaandagmiddag13FebruariOndertekenden13GehuisvesteVergunninghoudersEenParticipatieverklaringVerkiezingenOp15Maart2017MogenNederlandersDie18JaarEnOuderZijnKiezenWieHenVertegenwoordigenInDeTweedeKamerGeertruidenbergZoektHistorischeSchepenDeGemeenteGeertruidenbergIsOpZoekNaarEnkeleHistorischeWoonschepenDieWillenAanmerenAanDeTimmersteeProjectDonge_oeversOmDeRecreatieveAantrekkingskrachtVanGeertruidenbergTeVergrotenOntwikkelenWijdeKomendeJarenVerschillGaNaarBenedenGemeentewinkel_BurgerzakenVandaaggeslotenMorgengeslotenReceptieEnTelefoon140162VandaaggeslotenMorgengeslotenAfspraakMakenLokettenWmo_SocialeZaken_BouwzakenVandaaggeslotenMorgengeslotenMilieustraatVandaagOpenVan0900Tot1500MorgengeslotenGaNaarBovenContactVrijheidstraat24941DXRaamsdonksveerTelefoonnummer140162InfogeertruidenbergnlKvK_nummer50771752SocialeMediaTwitterFacebookMeerInformatieRSSProclaimerSitemapWatVindtÚvanDeSite?EenNieuweSiteHeeftUVerbetersuggesties?Opmerkingen?OfZietUOnjuisteInformatie?LaatHetOnsWetenUKrijgtVanOnsTeHorenWatWeMetUwReactieDoenCDATAFunctionVarSzDocumentcreateElementscriptSztypeTextjavascriptSzasyncTrueSzsrcSiteimproveanalyticscomjssiteanalyze_6006153jsVarSDocumentgetElementsByTagNamescript0SparentNodeinsertBeforeszS__SIManalytics__Var_paq_paq||_paqpushsetDocumentTitleDocumentdomainPlusPlusDocumenttitle_paqpushsetCookieDomainGeertruidenbergnl_paqpushsetDomainsGeertruidenbergnl_paqpushtrackPageView_paqpushenableLinkTrackingFunctionVarUhttpsloggingsimanalyticsnl_paqpushsetTrackerUrlUPluspiwikphp_paqpushsetSiteId65VarDdocumentGdcreateElementscriptSdgetElementsByTagNamescript0GtypetextjavascriptGdefertrueGasynctrueGsrcuPluspiwikjsSparentNodeinsertBeforegs__EndSIManalyticsCode____SIManalyticsNoScriptImageTracker____EndSIManalytics__Div21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>header</HtmlId>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]</HtmlXPath>
+        <Description>Inwoners    
+        
+            Paspoort, ID-kaart, rijbewijs en uittreksel
+        
+        
+            Afval
+        
+        
+            Meldingen
+        
+        
+            Werk en inkomen
+        
+        
+            Zorg
+        
+        
+            Wonen en (ver)bouwen
+        
+        
+            Geboorte, trouwen en overlijden
+        
+        
+            Jeugd en onderwijs
+        
+        
+            Verkeer
+        
+        
+            Cultuur en vrije tijd
+        
+        
+            Praat en doe mee
+        
+        
+            Belastingen en WOZ
+        
+        
+            Actueel
+        
+    
+
+                        Ondernemers    
+        
+            Starten
+        
+        
+            Vestigen
+        
+        
+            Uitbreiden of verbouwen
+        
+        
+            Horeca
+        
+        
+            Belastingen
+        
+        
+            Ondersteuning voor ondernemers
+        
+        
+            Nieuws en projecten
+        
+        
+            Inkoop en aanbesteding
+        
+    
+
+                        Bestuur    
+        
+            Gemeenteraad
+        
+        
+            College van B&amp;amp;W
+        
+        
+            Vergaderkalender
+        
+        
+            Bekijk de raadsvergadering
+        
+        
+            Beleid
+        
+        
+            Werken bij de gemeente
+        
+        
+            Financiën
+        
+    
+                      
+                    Ga naar boven
+                                  
+    
+        
+    
+    
+        Zoeken
+        Zoeken
+        
+        
+                
+    
+&lt;/form&gt;</Description>
+        <CodeControlName>VerbouwenGeboorteTrouwenEnOverlijdenJeugdEnOnderwijsVerkeerCultuurEnVrijeTijdPraatEnDoeMeeBelastingenEnWOZActueelOndernemersStartenVestigenUitbreidenOfVerbouwenHorecaBelastingenOndersteuningVoorOndernemersNieuwsEnProjectenInkoopEnAanbestedingBestuurGemeenteraadCollegeVanBWVergaderkalenderBekijkDeRaadsvergaderingBeleidWerkenBijDeGemeenteFinanciënGaNaarBovenZoekenZoekenFormDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>topbar</HtmlId>
+        <HtmlCssClass>has_nav</HtmlCssClass>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]</HtmlXPath>
+        <Description>Inwoners    
+        
+            Paspoort, ID-kaart, rijbewijs en uittreksel
+        
+        
+            Afval
+        
+        
+            Meldingen
+        
+        
+            Werk en inkomen
+        
+        
+            Zorg
+        
+        
+            Wonen en (ver)bouwen
+        
+        
+            Geboorte, trouwen en overlijden
+        
+        
+            Jeugd en onderwijs
+        
+        
+            Verkeer
+        
+        
+            Cultuur en vrije tijd
+        
+        
+            Praat en doe mee
+        
+        
+            Belastingen en WOZ
+        
+        
+            Actueel
+        
+    
+
+                        Ondernemers    
+        
+            Starten
+        
+        
+            Vestigen
+        
+        
+            Uitbreiden of verbouwen
+        
+        
+            Horeca
+        
+        
+            Belastingen
+        
+        
+            Ondersteuning voor ondernemers
+        
+        
+            Nieuws en projecten
+        
+        
+            Inkoop en aanbesteding
+        
+    
+
+                        Bestuur    
+        
+            Gemeenteraad
+        
+        
+            College van B&amp;amp;W
+        
+        
+            Vergaderkalender
+        
+        
+            Bekijk de raadsvergadering
+        
+        
+            Beleid
+        
+        
+            Werken bij de gemeente
+        
+        
+            Financiën
+        
+    
+                      
+                    Ga naar boven</Description>
+        <CodeControlName>VerbouwenGeboorteTrouwenEnOverlijdenJeugdEnOnderwijsVerkeerCultuurEnVrijeTijdPraatEnDoeMeeBelastingenEnWOZActueelOndernemersStartenVestigenUitbreidenOfVerbouwenHorecaBelastingenOndersteuningVoorOndernemersNieuwsEnProjectenInkoopEnAanbestedingBestuurGemeenteraadCollegeVanBWVergaderkalenderBekijkDeRaadsvergaderingBeleidWerkenBijDeGemeenteFinanciënGaNaarBovenDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>header-navigation</HtmlId>
+        <HtmlCssClass>nav_mediamenu</HtmlCssClass>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]</HtmlXPath>
+        <Description>Inwoners    
+        
+            Paspoort, ID-kaart, rijbewijs en uittreksel
+        
+        
+            Afval
+        
+        
+            Meldingen
+        
+        
+            Werk en inkomen
+        
+        
+            Zorg
+        
+        
+            Wonen en (ver)bouwen
+        
+        
+            Geboorte, trouwen en overlijden
+        
+        
+            Jeugd en onderwijs
+        
+        
+            Verkeer
+        
+        
+            Cultuur en vrije tijd
+        
+        
+            Praat en doe mee
+        
+        
+            Belastingen en WOZ
+        
+        
+            Actueel
+        
+    
+
+                        Ondernemers    
+        
+            Starten
+        
+        
+            Vestigen
+        
+        
+            Uitbreiden of verbouwen
+        
+        
+            Horeca
+        
+        
+            Belastingen
+        
+        
+            Ondersteuning voor ondernemers
+        
+        
+            Nieuws en projecten
+        
+        
+            Inkoop en aanbesteding
+        
+    
+
+                        Bestuur    
+        
+            Gemeenteraad
+        
+        
+            College van B&amp;amp;W
+        
+        
+            Vergaderkalender
+        
+        
+            Bekijk de raadsvergadering
+        
+        
+            Beleid
+        
+        
+            Werken bij de gemeente
+        
+        
+            Financiën
+        
+    
+                      
+                    Ga naar boven</Description>
+        <CodeControlName>VerbouwenGeboorteTrouwenEnOverlijdenJeugdEnOnderwijsVerkeerCultuurEnVrijeTijdPraatEnDoeMeeBelastingenEnWOZActueelOndernemersStartenVestigenUitbreidenOfVerbouwenHorecaBelastingenOndersteuningVoorOndernemersNieuwsEnProjectenInkoopEnAanbestedingBestuurGemeenteraadCollegeVanBWVergaderkalenderBekijkDeRaadsvergaderingBeleidWerkenBijDeGemeenteFinanciënGaNaarBovenDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>container</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]</HtmlXPath>
+        <Description>Inwoners    
+        
+            Paspoort, ID-kaart, rijbewijs en uittreksel
+        
+        
+            Afval
+        
+        
+            Meldingen
+        
+        
+            Werk en inkomen
+        
+        
+            Zorg
+        
+        
+            Wonen en (ver)bouwen
+        
+        
+            Geboorte, trouwen en overlijden
+        
+        
+            Jeugd en onderwijs
+        
+        
+            Verkeer
+        
+        
+            Cultuur en vrije tijd
+        
+        
+            Praat en doe mee
+        
+        
+            Belastingen en WOZ
+        
+        
+            Actueel
+        
+    
+
+                        Ondernemers    
+        
+            Starten
+        
+        
+            Vestigen
+        
+        
+            Uitbreiden of verbouwen
+        
+        
+            Horeca
+        
+        
+            Belastingen
+        
+        
+            Ondersteuning voor ondernemers
+        
+        
+            Nieuws en projecten
+        
+        
+            Inkoop en aanbesteding
+        
+    
+
+                        Bestuur    
+        
+            Gemeenteraad
+        
+        
+            College van B&amp;amp;W
+        
+        
+            Vergaderkalender
+        
+        
+            Bekijk de raadsvergadering
+        
+        
+            Beleid
+        
+        
+            Werken bij de gemeente
+        
+        
+            Financiën</Description>
+        <CodeControlName>VerbouwenGeboorteTrouwenEnOverlijdenJeugdEnOnderwijsVerkeerCultuurEnVrijeTijdPraatEnDoeMeeBelastingenEnWOZActueelOndernemersStartenVestigenUitbreidenOfVerbouwenHorecaBelastingenOndersteuningVoorOndernemersNieuwsEnProjectenInkoopEnAanbestedingBestuurGemeenteraadCollegeVanBWVergaderkalenderBekijkDeRaadsvergaderingBeleidWerkenBijDeGemeenteFinanciënDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>mediamenu no_solr</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]</HtmlXPath>
+        <Description>Inwoners    
+        
+            Paspoort, ID-kaart, rijbewijs en uittreksel
+        
+        
+            Afval
+        
+        
+            Meldingen
+        
+        
+            Werk en inkomen
+        
+        
+            Zorg
+        
+        
+            Wonen en (ver)bouwen
+        
+        
+            Geboorte, trouwen en overlijden
+        
+        
+            Jeugd en onderwijs
+        
+        
+            Verkeer
+        
+        
+            Cultuur en vrije tijd
+        
+        
+            Praat en doe mee
+        
+        
+            Belastingen en WOZ
+        
+        
+            Actueel
+        
+    
+
+                        Ondernemers    
+        
+            Starten
+        
+        
+            Vestigen
+        
+        
+            Uitbreiden of verbouwen
+        
+        
+            Horeca
+        
+        
+            Belastingen
+        
+        
+            Ondersteuning voor ondernemers
+        
+        
+            Nieuws en projecten
+        
+        
+            Inkoop en aanbesteding
+        
+    
+
+                        Bestuur    
+        
+            Gemeenteraad
+        
+        
+            College van B&amp;amp;W
+        
+        
+            Vergaderkalender
+        
+        
+            Bekijk de raadsvergadering
+        
+        
+            Beleid
+        
+        
+            Werken bij de gemeente
+        
+        
+            Financiën</Description>
+        <CodeControlName>VerbouwenGeboorteTrouwenEnOverlijdenJeugdEnOnderwijsVerkeerCultuurEnVrijeTijdPraatEnDoeMeeBelastingenEnWOZActueelOndernemersStartenVestigenUitbreidenOfVerbouwenHorecaBelastingenOndersteuningVoorOndernemersNieuwsEnProjectenInkoopEnAanbestedingBestuurGemeenteraadCollegeVanBWVergaderkalenderBekijkDeRaadsvergaderingBeleidWerkenBijDeGemeenteFinanciënDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>logo</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]</HtmlXPath>
+        <Description />
+        <CodeControlName>DivDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>nav</HtmlId>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]</HtmlXPath>
+        <Description>Inwoners    
+        
+            Paspoort, ID-kaart, rijbewijs en uittreksel
+        
+        
+            Afval
+        
+        
+            Meldingen
+        
+        
+            Werk en inkomen
+        
+        
+            Zorg
+        
+        
+            Wonen en (ver)bouwen
+        
+        
+            Geboorte, trouwen en overlijden
+        
+        
+            Jeugd en onderwijs
+        
+        
+            Verkeer
+        
+        
+            Cultuur en vrije tijd
+        
+        
+            Praat en doe mee
+        
+        
+            Belastingen en WOZ
+        
+        
+            Actueel
+        
+    
+
+                        Ondernemers    
+        
+            Starten
+        
+        
+            Vestigen
+        
+        
+            Uitbreiden of verbouwen
+        
+        
+            Horeca
+        
+        
+            Belastingen
+        
+        
+            Ondersteuning voor ondernemers
+        
+        
+            Nieuws en projecten
+        
+        
+            Inkoop en aanbesteding
+        
+    
+
+                        Bestuur    
+        
+            Gemeenteraad
+        
+        
+            College van B&amp;amp;W
+        
+        
+            Vergaderkalender
+        
+        
+            Bekijk de raadsvergadering
+        
+        
+            Beleid
+        
+        
+            Werken bij de gemeente
+        
+        
+            Financiën</Description>
+        <CodeControlName>VerbouwenGeboorteTrouwenEnOverlijdenJeugdEnOnderwijsVerkeerCultuurEnVrijeTijdPraatEnDoeMeeBelastingenEnWOZActueelOndernemersStartenVestigenUitbreidenOfVerbouwenHorecaBelastingenOndersteuningVoorOndernemersNieuwsEnProjectenInkoopEnAanbestedingBestuurGemeenteraadCollegeVanBWVergaderkalenderBekijkDeRaadsvergaderingBeleidWerkenBijDeGemeenteFinanciënDiv31</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>blocknavigation</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]</HtmlXPath>
+        <Description>Paspoort, ID-kaart, rijbewijs en uittreksel
+        
+        
+            Afval
+        
+        
+            Meldingen
+        
+        
+            Werk en inkomen
+        
+        
+            Zorg
+        
+        
+            Wonen en (ver)bouwen
+        
+        
+            Geboorte, trouwen en overlijden
+        
+        
+            Jeugd en onderwijs
+        
+        
+            Verkeer
+        
+        
+            Cultuur en vrije tijd
+        
+        
+            Praat en doe mee
+        
+        
+            Belastingen en WOZ
+        
+        
+            Actueel</Description>
+        <CodeControlName>PaspoortID_kaartRijbewijsEnUittrekselAfvalMeldingenWerkEnInkomenZorgWonenEnVerbouwenGeboorteTrouwenEnOverlijdenJeugdEnOnderwijsVerkeerCultuurEnVrijeTijdPraatEnDoeMeeBelastingenEnWOZActueelDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>blocknavigation</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[1]</HtmlXPath>
+        <Description>Starten
+        
+        
+            Vestigen
+        
+        
+            Uitbreiden of verbouwen
+        
+        
+            Horeca
+        
+        
+            Belastingen
+        
+        
+            Ondersteuning voor ondernemers
+        
+        
+            Nieuws en projecten
+        
+        
+            Inkoop en aanbesteding</Description>
+        <CodeControlName>StartenVestigenUitbreidenOfVerbouwenHorecaBelastingenOndersteuningVoorOndernemersNieuwsEnProjectenInkoopEnAanbestedingDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>blocknavigation</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]</HtmlXPath>
+        <Description>Gemeenteraad
+        
+        
+            College van B&amp;amp;W
+        
+        
+            Vergaderkalender
+        
+        
+            Bekijk de raadsvergadering
+        
+        
+            Beleid
+        
+        
+            Werken bij de gemeente
+        
+        
+            Financiën</Description>
+        <CodeControlName>GemeenteraadCollegeVanBWVergaderkalenderBekijkDeRaadsvergaderingBeleidWerkenBijDeGemeenteFinanciënDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>back-top one no_solr</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]</HtmlXPath>
+        <Description>Ga naar boven</Description>
+        <CodeControlName>GaNaarBovenDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>container no_solr</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[2]</HtmlXPath>
+        <Description />
+        <CodeControlName>DivDiv211</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>logo</HtmlId>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[2]/div[1]</HtmlXPath>
+        <Description />
+        <CodeControlName>LogoDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>header-search</HtmlId>
+        <HtmlCssClass>no_solr</HtmlCssClass>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[3]</HtmlXPath>
+        <Description>Zoeken
+        Zoeken
+        
+        
+                
+    
+&lt;/form&gt;</Description>
+        <CodeControlName>ZoekenZoekenFormDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>container</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[1]</HtmlXPath>
+        <Description>Zoeken
+        Zoeken
+        
+        
+                
+    
+&lt;/form&gt;</Description>
+        <CodeControlName>ZoekenZoekenFormDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>search</HtmlId>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]</HtmlXPath>
+        <Description>Zoeken
+        Zoeken
+        
+        
+                
+    
+&lt;/form&gt;</Description>
+        <CodeControlName>ZoekenZoekenFormDiv31</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>hidden</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/div[1]</HtmlXPath>
+        <Description />
+        <CodeControlName>DivDiv31</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>suggestions</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]/fieldset[1]/div[1]</HtmlXPath>
+        <Description />
+        <CodeControlName>DivDiv41</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>content</HtmlId>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]</HtmlXPath>
+        <Description>Openingstijden / contactAfvalkalenderPaspoort, ID-kaart, RijbewijsWerk &amp;amp; InkomenVerhuizenMeldingenZorgHondenbelasting</Description>
+        <CodeControlName>OpeningstijdenContactAfvalkalenderPaspoortID_kaartRijbewijsWerkInkomenVerhuizenMeldingenZorgHondenbelastingDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>container</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]</HtmlXPath>
+        <Description>Openingstijden / contactAfvalkalenderPaspoort, ID-kaart, RijbewijsWerk &amp;amp; InkomenVerhuizenMeldingenZorgHondenbelasting</Description>
+        <CodeControlName>OpeningstijdenContactAfvalkalenderPaspoortID_kaartRijbewijsWerkInkomenVerhuizenMeldingenZorgHondenbelastingDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>toptaken_banners</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]</HtmlXPath>
+        <Description>Openingstijden / contactAfvalkalenderPaspoort, ID-kaart, RijbewijsWerk &amp;amp; InkomenVerhuizenMeldingenZorgHondenbelasting</Description>
+        <CodeControlName>OpeningstijdenContactAfvalkalenderPaspoortID_kaartRijbewijsWerkInkomenVerhuizenMeldingenZorgHondenbelastingDiv31</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>topbanners</HtmlId>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]</HtmlXPath>
+        <Description>Openingstijden / contactAfvalkalenderPaspoort, ID-kaart, RijbewijsWerk &amp;amp; InkomenVerhuizenMeldingenZorgHondenbelasting</Description>
+        <CodeControlName>OpeningstijdenContactAfvalkalenderPaspoortID_kaartRijbewijsWerkInkomenVerhuizenMeldingenZorgHondenbelastingDiv41</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>item_wrapper</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]</HtmlXPath>
+        <Description>Openingstijden / contact</Description>
+        <CodeControlName>OpeningstijdenContactDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>image_wrapper</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/a[1]/div[1]</HtmlXPath>
+        <Description />
+        <CodeControlName>DivDiv51</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>toptaken_icon</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/a[1]/div[1]/div[1]</HtmlXPath>
+        <Description />
+        <CodeControlName>DivDiv61</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>text_wrapper</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/a[1]/div[2]</HtmlXPath>
+        <Description>Openingstijden / contact</Description>
+        <CodeControlName>OpeningstijdenContactDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>title</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/a[1]/div[2]/div[1]</HtmlXPath>
+        <Description>Openingstijden / contact</Description>
+        <CodeControlName>OpeningstijdenContactDiv31</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>item_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]</HtmlXPath>
+        <Description>Afvalkalender</Description>
+        <CodeControlName>AfvalkalenderDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>image_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/a[1]/div[1]</HtmlXPath>
+        <Description />
+        <CodeControlName>DivDiv71</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>toptaken_icon</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/a[1]/div[1]/div[1]</HtmlXPath>
+        <Description />
+        <CodeControlName>DivDiv81</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>text_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/a[1]/div[2]</HtmlXPath>
+        <Description>Afvalkalender</Description>
+        <CodeControlName>AfvalkalenderDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>title</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/a[1]/div[2]/div[1]</HtmlXPath>
+        <Description>Afvalkalender</Description>
+        <CodeControlName>AfvalkalenderDiv31</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>item_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]</HtmlXPath>
+        <Description>Paspoort, ID-kaart, Rijbewijs</Description>
+        <CodeControlName>PaspoortID_kaartRijbewijsDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>image_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/a[1]/div[1]</HtmlXPath>
+        <Description />
+        <CodeControlName>DivDiv91</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>toptaken_icon</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/a[1]/div[1]/div[1]</HtmlXPath>
+        <Description />
+        <CodeControlName>DivDiv101</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>text_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/a[1]/div[2]</HtmlXPath>
+        <Description>Paspoort, ID-kaart, Rijbewijs</Description>
+        <CodeControlName>PaspoortID_kaartRijbewijsDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>title</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/a[1]/div[2]/div[1]</HtmlXPath>
+        <Description>Paspoort, ID-kaart, Rijbewijs</Description>
+        <CodeControlName>PaspoortID_kaartRijbewijsDiv31</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>item_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]</HtmlXPath>
+        <Description>Werk &amp;amp; Inkomen</Description>
+        <CodeControlName>WerkInkomenDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>image_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/a[1]/div[1]</HtmlXPath>
+        <Description />
+        <CodeControlName>DivDiv111</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>toptaken_icon</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/a[1]/div[1]/div[1]</HtmlXPath>
+        <Description />
+        <CodeControlName>DivDiv121</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>text_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/a[1]/div[2]</HtmlXPath>
+        <Description>Werk &amp;amp; Inkomen</Description>
+        <CodeControlName>WerkInkomenDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>title</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/a[1]/div[2]/div[1]</HtmlXPath>
+        <Description>Werk &amp;amp; Inkomen</Description>
+        <CodeControlName>WerkInkomenDiv31</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>item_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]</HtmlXPath>
+        <Description>Verhuizen</Description>
+        <CodeControlName>VerhuizenDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>image_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/a[1]/div[1]</HtmlXPath>
+        <Description />
+        <CodeControlName>DivDiv131</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>toptaken_icon</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/a[1]/div[1]/div[1]</HtmlXPath>
+        <Description />
+        <CodeControlName>DivDiv141</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>text_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/a[1]/div[2]</HtmlXPath>
+        <Description>Verhuizen</Description>
+        <CodeControlName>VerhuizenDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>title</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/a[1]/div[2]/div[1]</HtmlXPath>
+        <Description>Verhuizen</Description>
+        <CodeControlName>VerhuizenDiv31</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>item_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]</HtmlXPath>
+        <Description>Meldingen</Description>
+        <CodeControlName>MeldingenDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>image_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/a[1]/div[1]</HtmlXPath>
+        <Description />
+        <CodeControlName>DivDiv151</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>toptaken_icon</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/a[1]/div[1]/div[1]</HtmlXPath>
+        <Description />
+        <CodeControlName>DivDiv161</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>text_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/a[1]/div[2]</HtmlXPath>
+        <Description>Meldingen</Description>
+        <CodeControlName>MeldingenDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>title</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/a[1]/div[2]/div[1]</HtmlXPath>
+        <Description>Meldingen</Description>
+        <CodeControlName>MeldingenDiv31</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>item_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]</HtmlXPath>
+        <Description>Zorg</Description>
+        <CodeControlName>ZorgDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>image_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/a[1]/div[1]</HtmlXPath>
+        <Description />
+        <CodeControlName>DivDiv171</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>toptaken_icon</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/a[1]/div[1]/div[1]</HtmlXPath>
+        <Description />
+        <CodeControlName>DivDiv181</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>text_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/a[1]/div[2]</HtmlXPath>
+        <Description>Zorg</Description>
+        <CodeControlName>ZorgDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>title</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/a[1]/div[2]/div[1]</HtmlXPath>
+        <Description>Zorg</Description>
+        <CodeControlName>ZorgDiv31</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>item_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]</HtmlXPath>
+        <Description>Hondenbelasting</Description>
+        <CodeControlName>HondenbelastingDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>image_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/a[1]/div[1]</HtmlXPath>
+        <Description />
+        <CodeControlName>DivDiv191</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>toptaken_icon</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/a[1]/div[1]/div[1]</HtmlXPath>
+        <Description />
+        <CodeControlName>DivDiv201</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>text_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/a[1]/div[2]</HtmlXPath>
+        <Description>Hondenbelasting</Description>
+        <CodeControlName>HondenbelastingDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>title</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/a[1]/div[2]/div[1]</HtmlXPath>
+        <Description>Hondenbelasting</Description>
+        <CodeControlName>HondenbelastingDiv31</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>bgcolor</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[2]/section[1]/div[2]</HtmlXPath>
+        <Description />
+        <CodeControlName>DivDiv212</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>scroll-down one no_solr</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[3]</HtmlXPath>
+        <Description>Ga naar beneden</Description>
+        <CodeControlName>GaNaarBenedenDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>page-options</HtmlId>
+        <HtmlCssClass>small</HtmlCssClass>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[4]</HtmlXPath>
+        <Description>Pagina optiesGroterAA
+    Lees voor
+
+
+Contrast</Description>
+        <CodeControlName>PaginaOptiesGroterAALeesVoorContrastDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>content_fontsize small</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[4]/div[1]</HtmlXPath>
+        <Description>GroterAA</Description>
+        <CodeControlName>GroterAADiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>po_readspeaker</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[4]/div[2]</HtmlXPath>
+        <Description>Lees voor</Description>
+        <CodeControlName>LeesVoorDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>readspeaker</HtmlId>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[4]/div[2]/div[1]</HtmlXPath>
+        <Description>Lees voor</Description>
+        <CodeControlName>LeesVoorDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>xp1</HtmlId>
+        <HtmlCssClass>rs_skip rs_preserve</HtmlCssClass>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[4]/div[3]</HtmlXPath>
+        <Description />
+        <CodeControlName>Xp1Div1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>po_contrast</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[4]/div[4]</HtmlXPath>
+        <Description>Contrast</Description>
+        <CodeControlName>ContrastDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlTitle>Toon pagina in hoog contrast</HtmlTitle>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[4]/div[4]/div[1]</HtmlXPath>
+        <Description>Contrast</Description>
+        <CodeControlName>ContrastDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlId>xp1</HtmlId>
+        <HtmlCssClass>rs_skip rs_preserve</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[1]/div[4]/div[5]</HtmlXPath>
+        <Description />
+        <CodeControlName>Xp1Div21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>container</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[1]/div[1]</HtmlXPath>
+        <Description>Oorkonde voor reddingsactie op Bergse Maas voor&amp;hellip;
+            Op donderdag 16 februari heeft burgemeester Willemijn van Hees de oorkonde van de Maatschappij tot Redding van D&amp;hellip;
+        
+        
+            Afrondende werkzaamheden Markt en Brandestraat &amp;hellip;
+            Woensdag 15 februari maakte de gemeente bekend dat de werkzaamheden aan de Markt en Brandestraat in Geertruidenb&amp;hellip;
+        
+        
+            Ondertekening participatieverklaring
+            Op maandagmiddag 13 februari ondertekenden 13 gehuisveste vergunninghouders een participatieverklaring.</Description>
+        <CodeControlName>OorkondeVoorReddingsactieOpBergseMaasVoorOpDonderdag16FebruariHeeftBurgemeesterWillemijnVanHeesDeOorkondeVanDeMaatschappijTotReddingVanDAfrondendeWerkzaamhedenMarktEnBrandestraatWoensdag15FebruariMaakteDeGemeenteBekendDatDeWerkzaamhedenAanDeMarktEnBrandestraatInGeertruidenbOndertekeningParticipatieverklaringOpMaandagmiddag13FebruariOndertekenden13GehuisvesteVergunninghoudersEenParticipatieverklaringDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>recent-wrapper</HtmlId>
+        <HtmlCssClass>no_js</HtmlCssClass>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[1]/div[1]/div[1]</HtmlXPath>
+        <Description>Oorkonde voor reddingsactie op Bergse Maas voor&amp;hellip;
+            Op donderdag 16 februari heeft burgemeester Willemijn van Hees de oorkonde van de Maatschappij tot Redding van D&amp;hellip;
+        
+        
+            Afrondende werkzaamheden Markt en Brandestraat &amp;hellip;
+            Woensdag 15 februari maakte de gemeente bekend dat de werkzaamheden aan de Markt en Brandestraat in Geertruidenb&amp;hellip;
+        
+        
+            Ondertekening participatieverklaring
+            Op maandagmiddag 13 februari ondertekenden 13 gehuisveste vergunninghouders een participatieverklaring.</Description>
+        <CodeControlName>OorkondeVoorReddingsactieOpBergseMaasVoorOpDonderdag16FebruariHeeftBurgemeesterWillemijnVanHeesDeOorkondeVanDeMaatschappijTotReddingVanDAfrondendeWerkzaamhedenMarktEnBrandestraatWoensdag15FebruariMaakteDeGemeenteBekendDatDeWerkzaamhedenAanDeMarktEnBrandestraatInGeertruidenbOndertekeningParticipatieverklaringOpMaandagmiddag13FebruariOndertekenden13GehuisvesteVergunninghoudersEenParticipatieverklaringDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>recent-items</HtmlId>
+        <HtmlCssClass>no_js</HtmlCssClass>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[1]/div[1]/div[1]/div[1]</HtmlXPath>
+        <Description>Oorkonde voor reddingsactie op Bergse Maas voor&amp;hellip;
+            Op donderdag 16 februari heeft burgemeester Willemijn van Hees de oorkonde van de Maatschappij tot Redding van D&amp;hellip;
+        
+        
+            Afrondende werkzaamheden Markt en Brandestraat &amp;hellip;
+            Woensdag 15 februari maakte de gemeente bekend dat de werkzaamheden aan de Markt en Brandestraat in Geertruidenb&amp;hellip;
+        
+        
+            Ondertekening participatieverklaring
+            Op maandagmiddag 13 februari ondertekenden 13 gehuisveste vergunninghouders een participatieverklaring.</Description>
+        <CodeControlName>OorkondeVoorReddingsactieOpBergseMaasVoorOpDonderdag16FebruariHeeftBurgemeesterWillemijnVanHeesDeOorkondeVanDeMaatschappijTotReddingVanDAfrondendeWerkzaamhedenMarktEnBrandestraatWoensdag15FebruariMaakteDeGemeenteBekendDatDeWerkzaamhedenAanDeMarktEnBrandestraatInGeertruidenbOndertekeningParticipatieverklaringOpMaandagmiddag13FebruariOndertekenden13GehuisvesteVergunninghoudersEenParticipatieverklaringDiv31</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>recent</HtmlId>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[1]/div[1]/div[1]/div[1]/div[1]</HtmlXPath>
+        <Description>Oorkonde voor reddingsactie op Bergse Maas voor&amp;hellip;
+            Op donderdag 16 februari heeft burgemeester Willemijn van Hees de oorkonde van de Maatschappij tot Redding van D&amp;hellip;
+        
+        
+            Afrondende werkzaamheden Markt en Brandestraat &amp;hellip;
+            Woensdag 15 februari maakte de gemeente bekend dat de werkzaamheden aan de Markt en Brandestraat in Geertruidenb&amp;hellip;
+        
+        
+            Ondertekening participatieverklaring
+            Op maandagmiddag 13 februari ondertekenden 13 gehuisveste vergunninghouders een participatieverklaring.</Description>
+        <CodeControlName>OorkondeVoorReddingsactieOpBergseMaasVoorOpDonderdag16FebruariHeeftBurgemeesterWillemijnVanHeesDeOorkondeVanDeMaatschappijTotReddingVanDAfrondendeWerkzaamhedenMarktEnBrandestraatWoensdag15FebruariMaakteDeGemeenteBekendDatDeWerkzaamhedenAanDeMarktEnBrandestraatInGeertruidenbOndertekeningParticipatieverklaringOpMaandagmiddag13FebruariOndertekenden13GehuisvesteVergunninghoudersEenParticipatieverklaringDiv41</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>intro</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]</HtmlXPath>
+        <Description>Op donderdag 16 februari heeft burgemeester Willemijn van Hees de oorkonde van de Maatschappij tot Redding van D&amp;hellip;</Description>
+        <CodeControlName>OpDonderdag16FebruariHeeftBurgemeesterWillemijnVanHeesDeOorkondeVanDeMaatschappijTotReddingVanDDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>intro</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]</HtmlXPath>
+        <Description>Woensdag 15 februari maakte de gemeente bekend dat de werkzaamheden aan de Markt en Brandestraat in Geertruidenb&amp;hellip;</Description>
+        <CodeControlName>Woensdag15FebruariMaakteDeGemeenteBekendDatDeWerkzaamhedenAanDeMarktEnBrandestraatInGeertruidenbDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>intro</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]</HtmlXPath>
+        <Description>Op maandagmiddag 13 februari ondertekenden 13 gehuisveste vergunninghouders een participatieverklaring.</Description>
+        <CodeControlName>OpMaandagmiddag13FebruariOndertekenden13GehuisvesteVergunninghoudersEenParticipatieverklaringDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>container</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[2]/div[1]</HtmlXPath>
+        <Description>VerkiezingenOp 15 maart 2017 mogen Nederlanders die 18 jaar en ouder zijn, kiezen wie hen vertegenwoordigen in de Tweede Kamer.
+Geertruidenberg zoekt historische schepen De gemeente Geertruidenberg is op zoek naar enkele historische woonschepen die willen aanmeren aan de Timmerstee&amp;hellip;Project Donge-oeversOm de recreatieve aantrekkingskracht van Geertruidenberg te vergroten ontwikkelen wij&amp;nbsp;de komende jaren verschill&amp;hellip;</Description>
+        <CodeControlName>VerkiezingenOp15Maart2017MogenNederlandersDie18JaarEnOuderZijnKiezenWieHenVertegenwoordigenInDeTweedeKamerGeertruidenbergZoektHistorischeSchepenDeGemeenteGeertruidenbergIsOpZoekNaarEnkeleHistorischeWoonschepenDieWillenAanmerenAanDeTimmersteeProjectDonge_oeversOmDeRecreatieveAantrekkingskrachtVanGeertruidenbergTeVergrotenOntwikkelenWijdeKomendeJarenVerschillDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>news-wrapper</HtmlId>
+        <HtmlCssClass>no_js</HtmlCssClass>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[2]/div[1]/div[1]</HtmlXPath>
+        <Description>VerkiezingenOp 15 maart 2017 mogen Nederlanders die 18 jaar en ouder zijn, kiezen wie hen vertegenwoordigen in de Tweede Kamer.
+Geertruidenberg zoekt historische schepen De gemeente Geertruidenberg is op zoek naar enkele historische woonschepen die willen aanmeren aan de Timmerstee&amp;hellip;Project Donge-oeversOm de recreatieve aantrekkingskracht van Geertruidenberg te vergroten ontwikkelen wij&amp;nbsp;de komende jaren verschill&amp;hellip;</Description>
+        <CodeControlName>VerkiezingenOp15Maart2017MogenNederlandersDie18JaarEnOuderZijnKiezenWieHenVertegenwoordigenInDeTweedeKamerGeertruidenbergZoektHistorischeSchepenDeGemeenteGeertruidenbergIsOpZoekNaarEnkeleHistorischeWoonschepenDieWillenAanmerenAanDeTimmersteeProjectDonge_oeversOmDeRecreatieveAantrekkingskrachtVanGeertruidenbergTeVergrotenOntwikkelenWijdeKomendeJarenVerschillDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>news-items</HtmlId>
+        <HtmlCssClass>no_js</HtmlCssClass>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[2]/div[1]/div[1]/div[1]</HtmlXPath>
+        <Description>VerkiezingenOp 15 maart 2017 mogen Nederlanders die 18 jaar en ouder zijn, kiezen wie hen vertegenwoordigen in de Tweede Kamer.
+Geertruidenberg zoekt historische schepen De gemeente Geertruidenberg is op zoek naar enkele historische woonschepen die willen aanmeren aan de Timmerstee&amp;hellip;Project Donge-oeversOm de recreatieve aantrekkingskracht van Geertruidenberg te vergroten ontwikkelen wij&amp;nbsp;de komende jaren verschill&amp;hellip;</Description>
+        <CodeControlName>VerkiezingenOp15Maart2017MogenNederlandersDie18JaarEnOuderZijnKiezenWieHenVertegenwoordigenInDeTweedeKamerGeertruidenbergZoektHistorischeSchepenDeGemeenteGeertruidenbergIsOpZoekNaarEnkeleHistorischeWoonschepenDieWillenAanmerenAanDeTimmersteeProjectDonge_oeversOmDeRecreatieveAantrekkingskrachtVanGeertruidenbergTeVergrotenOntwikkelenWijdeKomendeJarenVerschillDiv31</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>item_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]</HtmlXPath>
+        <Description>VerkiezingenOp 15 maart 2017 mogen Nederlanders die 18 jaar en ouder zijn, kiezen wie hen vertegenwoordigen in de Tweede Kamer.</Description>
+        <CodeControlName>VerkiezingenOp15Maart2017MogenNederlandersDie18JaarEnOuderZijnKiezenWieHenVertegenwoordigenInDeTweedeKamerDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]</HtmlXPath>
+        <Description>VerkiezingenOp 15 maart 2017 mogen Nederlanders die 18 jaar en ouder zijn, kiezen wie hen vertegenwoordigen in de Tweede Kamer.</Description>
+        <CodeControlName>VerkiezingenOp15Maart2017MogenNederlandersDie18JaarEnOuderZijnKiezenWieHenVertegenwoordigenInDeTweedeKamerDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>image_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/a[1]/div[1]</HtmlXPath>
+        <Description />
+        <CodeControlName>DivDiv221</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>intro</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/a[1]/div[2]</HtmlXPath>
+        <Description>Op 15 maart 2017 mogen Nederlanders die 18 jaar en ouder zijn, kiezen wie hen vertegenwoordigen in de Tweede Kamer.</Description>
+        <CodeControlName>Op15Maart2017MogenNederlandersDie18JaarEnOuderZijnKiezenWieHenVertegenwoordigenInDeTweedeKamerDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>item_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]</HtmlXPath>
+        <Description>Geertruidenberg zoekt historische schepen De gemeente Geertruidenberg is op zoek naar enkele historische woonschepen die willen aanmeren aan de Timmerstee&amp;hellip;</Description>
+        <CodeControlName>GeertruidenbergZoektHistorischeSchepenDeGemeenteGeertruidenbergIsOpZoekNaarEnkeleHistorischeWoonschepenDieWillenAanmerenAanDeTimmersteeDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]</HtmlXPath>
+        <Description>Geertruidenberg zoekt historische schepen De gemeente Geertruidenberg is op zoek naar enkele historische woonschepen die willen aanmeren aan de Timmerstee&amp;hellip;</Description>
+        <CodeControlName>GeertruidenbergZoektHistorischeSchepenDeGemeenteGeertruidenbergIsOpZoekNaarEnkeleHistorischeWoonschepenDieWillenAanmerenAanDeTimmersteeDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>image_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/a[1]/div[1]</HtmlXPath>
+        <Description />
+        <CodeControlName>DivDiv231</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>intro</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/a[1]/div[2]</HtmlXPath>
+        <Description>De gemeente Geertruidenberg is op zoek naar enkele historische woonschepen die willen aanmeren aan de Timmerstee&amp;hellip;</Description>
+        <CodeControlName>DeGemeenteGeertruidenbergIsOpZoekNaarEnkeleHistorischeWoonschepenDieWillenAanmerenAanDeTimmersteeDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>item_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]</HtmlXPath>
+        <Description>Project Donge-oeversOm de recreatieve aantrekkingskracht van Geertruidenberg te vergroten ontwikkelen wij&amp;nbsp;de komende jaren verschill&amp;hellip;</Description>
+        <CodeControlName>ProjectDonge_oeversOmDeRecreatieveAantrekkingskrachtVanGeertruidenbergTeVergrotenOntwikkelenWijdeKomendeJarenVerschillDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]</HtmlXPath>
+        <Description>Project Donge-oeversOm de recreatieve aantrekkingskracht van Geertruidenberg te vergroten ontwikkelen wij&amp;nbsp;de komende jaren verschill&amp;hellip;</Description>
+        <CodeControlName>ProjectDonge_oeversOmDeRecreatieveAantrekkingskrachtVanGeertruidenbergTeVergrotenOntwikkelenWijdeKomendeJarenVerschillDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>image_wrapper</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/a[1]/div[1]</HtmlXPath>
+        <Description />
+        <CodeControlName>DivDiv241</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>intro</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/section[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[1]/a[1]/div[2]</HtmlXPath>
+        <Description>Om de recreatieve aantrekkingskracht van Geertruidenberg te vergroten ontwikkelen wij&amp;nbsp;de komende jaren verschill&amp;hellip;</Description>
+        <CodeControlName>OmDeRecreatieveAantrekkingskrachtVanGeertruidenbergTeVergrotenOntwikkelenWijdeKomendeJarenVerschillDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>scroll-down two no_solr</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[2]/div[1]</HtmlXPath>
+        <Description>Ga naar beneden</Description>
+        <CodeControlName>GaNaarBenedenDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>footer_wrapper</HtmlId>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]</HtmlXPath>
+        <Description>Gemeentewinkel - BurgerzakenVandaaggeslotenMorgengeslotenReceptie en telefoon: 14 0162VandaaggeslotenMorgengeslotenAfspraak maken        Loketten Wmo - Sociale Zaken - BouwzakenVandaaggeslotenMorgengesloten        MilieustraatVandaagOpen van 09:00 tot 15:00Morgengesloten    
+                Ga naar boven
+                      Contact
+
+Vrijheidstraat 2
+4941 DX&amp;nbsp;Raamsdonksveer
+Telefoonnummer:&amp;nbsp;14 0162
+info@geertruidenberg.nl
+KvK-nummer: 50771752Sociale media
+
+Twitter
+
+Facebook    
+        
+Meer informatie        
+        
+            RSS
+        
+        
+            Proclaimer
+        
+        
+            Sitemap
+        
+    
+Wat vindt ú&amp;nbsp;van de site?
+
+Een nieuwe site! Heeft u verbetersuggesties? Opmerkingen? Of ziet u onjuiste informatie? Laat het ons weten. U krijgt van ons te horen wat we met uw reactie doen.</Description>
+        <CodeControlName>GeslotenAfspraakMakenLokettenWmo_SocialeZaken_BouwzakenVandaaggeslotenMorgengeslotenMilieustraatVandaagOpenVan0900Tot1500MorgengeslotenGaNaarBovenContactVrijheidstraat24941DXRaamsdonksveerTelefoonnummer140162InfogeertruidenbergnlKvK_nummer50771752SocialeMediaTwitterFacebookMeerInformatieRSSProclaimerSitemapWatVindtÚvanDeSite?EenNieuweSiteHeeftUVerbetersuggesties?Opmerkingen?OfZietUOnjuisteInformatie?LaatHetOnsWetenUKrijgtVanOnsTeHorenWatWeMetUwReactieDoenDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>container</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[1]/div[1]</HtmlXPath>
+        <Description>Gemeentewinkel - BurgerzakenVandaaggeslotenMorgengeslotenReceptie en telefoon: 14 0162VandaaggeslotenMorgengeslotenAfspraak maken        Loketten Wmo - Sociale Zaken - BouwzakenVandaaggeslotenMorgengesloten        MilieustraatVandaagOpen van 09:00 tot 15:00Morgengesloten</Description>
+        <CodeControlName>Gemeentewinkel_BurgerzakenVandaaggeslotenMorgengeslotenReceptieEnTelefoon140162VandaaggeslotenMorgengeslotenAfspraakMakenLokettenWmo_SocialeZaken_BouwzakenVandaaggeslotenMorgengeslotenMilieustraatVandaagOpenVan0900Tot1500MorgengeslotenDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>openingstijden_container</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[1]/div[1]/div[1]</HtmlXPath>
+        <Description>Gemeentewinkel - BurgerzakenVandaaggeslotenMorgengeslotenReceptie en telefoon: 14 0162VandaaggeslotenMorgengeslotenAfspraak maken</Description>
+        <CodeControlName>Gemeentewinkel_BurgerzakenVandaaggeslotenMorgengeslotenReceptieEnTelefoon140162VandaaggeslotenMorgengeslotenAfspraakMakenDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>openingstijden_1</HtmlId>
+        <HtmlCssClass>opentime_container closed</HtmlCssClass>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[1]/div[1]/div[1]/div[1]</HtmlXPath>
+        <Description>Gemeentewinkel - BurgerzakenVandaaggeslotenMorgengesloten</Description>
+        <CodeControlName>Gemeentewinkel_BurgerzakenVandaaggeslotenMorgengeslotenDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>inner_element closed</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]</HtmlXPath>
+        <Description>Vandaaggesloten</Description>
+        <CodeControlName>VandaaggeslotenDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>inner_element closed</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]</HtmlXPath>
+        <Description>Morgengesloten</Description>
+        <CodeControlName>MorgengeslotenDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>openingstijden_2</HtmlId>
+        <HtmlCssClass>opentime_container closed</HtmlCssClass>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[1]/div[1]/div[1]/div[2]</HtmlXPath>
+        <Description>Receptie en telefoon: 14 0162VandaaggeslotenMorgengesloten</Description>
+        <CodeControlName>ReceptieEnTelefoon140162VandaaggeslotenMorgengeslotenDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>inner_element closed</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]</HtmlXPath>
+        <Description>Vandaaggesloten</Description>
+        <CodeControlName>VandaaggeslotenDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>inner_element closed</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[2]</HtmlXPath>
+        <Description>Morgengesloten</Description>
+        <CodeControlName>MorgengeslotenDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>openingstijden_link</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[1]/div[1]/div[1]/div[3]</HtmlXPath>
+        <Description>Afspraak maken</Description>
+        <CodeControlName>AfspraakMakenDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>openingstijden_container</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[1]/div[1]/div[2]</HtmlXPath>
+        <Description>Loketten Wmo - Sociale Zaken - BouwzakenVandaaggeslotenMorgengesloten</Description>
+        <CodeControlName>LokettenWmo_SocialeZaken_BouwzakenVandaaggeslotenMorgengeslotenDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>openingstijden_3</HtmlId>
+        <HtmlCssClass>opentime_container closed</HtmlCssClass>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[1]/div[1]/div[2]/div[1]</HtmlXPath>
+        <Description>Loketten Wmo - Sociale Zaken - BouwzakenVandaaggeslotenMorgengesloten</Description>
+        <CodeControlName>LokettenWmo_SocialeZaken_BouwzakenVandaaggeslotenMorgengeslotenDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>inner_element closed</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]</HtmlXPath>
+        <Description>Vandaaggesloten</Description>
+        <CodeControlName>VandaaggeslotenDiv31</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>inner_element closed</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]</HtmlXPath>
+        <Description>Morgengesloten</Description>
+        <CodeControlName>MorgengeslotenDiv31</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>openingstijden_container</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[1]/div[1]/div[3]</HtmlXPath>
+        <Description>MilieustraatVandaagOpen van 09:00 tot 15:00Morgengesloten</Description>
+        <CodeControlName>MilieustraatVandaagOpenVan0900Tot1500MorgengeslotenDiv1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>openingstijden_4</HtmlId>
+        <HtmlCssClass>opentime_container closed</HtmlCssClass>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[1]/div[1]/div[3]/div[1]</HtmlXPath>
+        <Description>MilieustraatVandaagOpen van 09:00 tot 15:00Morgengesloten</Description>
+        <CodeControlName>MilieustraatVandaagOpenVan0900Tot1500MorgengeslotenDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>inner_element closed</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[1]/div[1]/div[3]/div[1]/div[1]</HtmlXPath>
+        <Description>VandaagOpen van 09:00 tot 15:00</Description>
+        <CodeControlName>VandaagOpenVan0900Tot1500Div</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>inner_element closed</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[1]/div[1]/div[3]/div[1]/div[2]</HtmlXPath>
+        <Description>Morgengesloten</Description>
+        <CodeControlName>MorgengeslotenDiv41</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>back-top next no_solr</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[2]/div[1]</HtmlXPath>
+        <Description>Ga naar boven</Description>
+        <CodeControlName>GaNaarBovenDiv21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>container</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[2]/div[2]</HtmlXPath>
+        <Description>Contact
+
+Vrijheidstraat 2
+4941 DX&amp;nbsp;Raamsdonksveer
+Telefoonnummer:&amp;nbsp;14 0162
+info@geertruidenberg.nl
+KvK-nummer: 50771752Sociale media
+
+Twitter
+
+Facebook    
+        
+Meer informatie        
+        
+            RSS
+        
+        
+            Proclaimer
+        
+        
+            Sitemap
+        
+    
+Wat vindt ú&amp;nbsp;van de site?
+
+Een nieuwe site! Heeft u verbetersuggesties? Opmerkingen? Of ziet u onjuiste informatie? Laat het ons weten. U krijgt van ons te horen wat we met uw reactie doen.</Description>
+        <CodeControlName>ContactVrijheidstraat24941DXRaamsdonksveerTelefoonnummer140162InfogeertruidenbergnlKvK_nummer50771752SocialeMediaTwitterFacebookMeerInformatieRSSProclaimerSitemapWatVindtÚvanDeSite?EenNieuweSiteHeeftUVerbetersuggesties?Opmerkingen?OfZietUOnjuisteInformatie?LaatHetOnsWetenUKrijgtVanOnsTeHorenWatWeMetUwReactieDoenDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>wysiwyg box_1</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[2]/div[2]/div[1]</HtmlXPath>
+        <Description>Contact
+
+Vrijheidstraat 2
+4941 DX&amp;nbsp;Raamsdonksveer
+Telefoonnummer:&amp;nbsp;14 0162
+info@geertruidenberg.nl
+KvK-nummer: 50771752</Description>
+        <CodeControlName>ContactVrijheidstraat24941DXRaamsdonksveerTelefoonnummer140162InfogeertruidenbergnlKvK_nummer50771752Div</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>wysiwyg box_2</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[2]/div[2]/div[2]</HtmlXPath>
+        <Description>Sociale media
+
+Twitter
+
+Facebook</Description>
+        <CodeControlName>SocialeMediaTwitterFacebookDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>koppelbox box_3</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[2]/div[2]/div[3]</HtmlXPath>
+        <Description>Meer informatie        
+        
+            RSS
+        
+        
+            Proclaimer
+        
+        
+            Sitemap</Description>
+        <CodeControlName>MeerInformatieRSSProclaimerSitemapDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>wysiwyg box_5</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/section[3]/footer[1]/div[1]/section[2]/div[2]/div[4]</HtmlXPath>
+        <Description>Wat vindt ú&amp;nbsp;van de site?
+
+Een nieuwe site! Heeft u verbetersuggesties? Opmerkingen? Of ziet u onjuiste informatie? Laat het ons weten. U krijgt van ons te horen wat we met uw reactie doen.</Description>
+        <CodeControlName>WatVindtÚvanDeSite?EenNieuweSiteHeeftUVerbetersuggesties?Opmerkingen?OfZietUOnjuisteInformatie?LaatHetOnsWetenUKrijgtVanOnsTeHorenWatWeMetUwReactieDoenDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+    </HtmlContainers>
+  </PageInfo>
+  <Options>
+    <PreferredIdentifications>
+      <ControlIdentificationType>Id</ControlIdentificationType>
+      <ControlIdentificationType>Name</ControlIdentificationType>
+      <ControlIdentificationType>LinkText</ControlIdentificationType>
+      <ControlIdentificationType>Cssclass</ControlIdentificationType>
+    </PreferredIdentifications>
+    <ExcludeNonUniqueControls>true</ExcludeNonUniqueControls>
+  </Options>
+  <TypeOfPage>GenericPage</TypeOfPage>
+</CodeGenerationSettings>

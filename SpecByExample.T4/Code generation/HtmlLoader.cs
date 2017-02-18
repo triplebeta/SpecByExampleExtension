@@ -197,6 +197,7 @@ namespace SpecByExample.T4
                     ctrl.HtmlControlType = htmlControlType;
 
                     ctrl.AssignIdentificationMethod(controls.AsQueryable(), options.PreferredIdentifications);
+                    ctrl.GenerateCodeForThisItem = ctrl.SupportsCodeGeneration; // By default: generate code for every element that support it
                     controls.Add(ctrl);
                 }
 

@@ -10,7 +10,7 @@ using $basename$.Pages;
 namespace $basename$.Specs
 {
     [Binding]
-    public class $specflowstepsclass$ : BaseSeleniumSteps
+    public partial class $specflowstepsclass$ : BaseSeleniumSteps
     {
         /// <summary>
         /// Constructor
@@ -142,7 +142,7 @@ foreach(var node in Settings.PageInfo.HtmlElements) {
     } else if (node.HtmlControlType == HtmlControlTypeEnum.Text || node.HtmlControlType == HtmlControlTypeEnum.Textarea) {
 #>
 
-        [Then(@"The text in <#=node.HtmlControlType.ToString().ToLower() #> <#=node.CodeControlName #> is ""(.*)""")]
+        [Then(@"the text in <#=node.HtmlControlType.ToString().ToLower() #> <#=node.CodeControlName #> is ""(.*)""")]
         public void Then_The_Text_in_<#=node.HtmlControlType #>_<#=node.CodeControlName #>_Is(string text)
         {
             var screen = GetScreen<$pageclass$>();

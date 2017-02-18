@@ -46,7 +46,7 @@
   <!-- Define which NuGet packages to install -->
   <WizardData>
     <!-- BE CAREFUL: These MUST be all lowercases! As well as the directory must be named in all lowercase: packages -->
-    <packages repository="extension" repositoryId="SpecByExample.baa6f5bb-f971-45f3-a7fa-9b3be5ffb8fe">
+    <packages repository="extension" repositoryId="SpecByExample.Extension.TripleBeta.c423163d-7b91-4dac-b451-9e509b0a4482">
       <package id="Castle.Core" version="3.3.3" />
       <package id="Castle.Windsor" version="3.3.0" />
       <package id="Selenium.WebDriver" version="3.0.1" />

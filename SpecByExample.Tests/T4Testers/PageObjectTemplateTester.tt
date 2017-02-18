@@ -17,7 +17,6 @@
 	testSettings.PageName= "MyTestPage";
 //	testSettings.Url = @"E:\TestMetTabel.Htm";
     testSettings.Url = "http://www.google.nl";
-	testSettings.PageInfo.PageNumber = "S123";
 
 
 	// Use the WebBrowser control to load the page and render it, this ensures all JavaScript will be executed as well.

@@ -134,6 +134,7 @@ namespace SpecByExample.T4
         {
             // Use only the preferred identification methods.
             // Since preferred order of use of the identification methods can be different per scenario, we need the loop to go over them.
+            SupportsCodeGeneration = true; // Assume we can identify it
             foreach (var ident in preferredIdentificationMethods)
             {
                 // Use the ID if no other control has that identifier
@@ -171,8 +172,6 @@ namespace SpecByExample.T4
                     Debug.WriteLine($"control {this.CodeControlName} will be identified by {this.IdentifiedBy}");
                     return;
                 }
-                else
-                    SupportsCodeGeneration = false;
             }
 
             // If none of the clauses resulted in unique identification, it must be a duplicate identifier
