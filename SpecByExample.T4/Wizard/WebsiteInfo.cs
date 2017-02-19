@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Linq;
 using System.Windows.Forms;
 using SpecByExample.T4.Wizard;
 using System.IO;
@@ -30,6 +26,7 @@ namespace SpecByExample.T4.Wizard_pages
         {
             PageUrl = container.Url;
             ActiveControl = txtUrl;
+            pageInfo = container.PageInfo;  // Take a reference to this property so we can work with it.
             ExcludeNonUniqueControls = container.Options.ExcludeNonUniqueControls;
         }
 
@@ -40,7 +37,6 @@ namespace SpecByExample.T4.Wizard_pages
             if (String.Equals(container.Url, PageUrl,StringComparison.InvariantCultureIgnoreCase) == false)
             {
                 container.Url = PageUrl;
-                container.PageInfo = pageInfo;
                 container.Options.ExcludeNonUniqueControls = ExcludeNonUniqueControls;
             }
         }
@@ -72,7 +68,7 @@ namespace SpecByExample.T4.Wizard_pages
                     lblWaiting.Update();
 
                     var loader = new HtmlLoader(WizardConfig.RegisteredControlTypes);
-                    pageInfo = loader.GetPageInfo(PageUrl, WizardConfig, Options);
+                    loader.GetPageInfo(pageInfo, PageUrl, WizardConfig, Options);
                 }
                 catch
                 {

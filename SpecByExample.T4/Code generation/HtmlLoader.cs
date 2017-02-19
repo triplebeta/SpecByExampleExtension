@@ -140,10 +140,8 @@ namespace SpecByExample.T4
         /// </summary>
         /// <param name="doc">HTML document</param>
         /// <returns>Info from the page.</returns>
-        public PageInfo GetPageInfo(string url, WizardConfiguration config, ParsingOptions options)
+        public PageInfo GetPageInfo(PageInfo info, string url, WizardConfiguration config, ParsingOptions options)
         {
-            PageInfo info = new PageInfo(url);
-
             // Load the HTML
             var doc = LoadDocumentFromUrl(url);
 

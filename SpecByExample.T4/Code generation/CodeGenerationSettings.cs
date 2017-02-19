@@ -23,6 +23,7 @@ namespace SpecByExample.T4
                 ControlIdentificationType.Name,
                 ControlIdentificationType.LinkText,
                 ControlIdentificationType.Cssclass };
+            PageInfo = new PageInfo();
 
             // Configure the default options
             CreateSpecFlowStepsFile = true;
@@ -40,17 +41,11 @@ namespace SpecByExample.T4
         [XmlAttribute]
         public bool CreateSpecFlowStepsFile { get; set; }
 
-
         [XmlElement]
         public string Url
         {
-            get
-            {
-                if (PageInfo == null)
-                    PageInfo = new PageInfo("");
-                return PageInfo.Url;
-            }
-            set { PageInfo = new T4.PageInfo(value); }
+            get;
+            set;
         }
 
         /// <summary>

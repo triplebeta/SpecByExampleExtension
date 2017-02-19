@@ -169,11 +169,6 @@ namespace SpecByExample.T4
             string fullFilePath = Path.GetDirectoryName(projectItem.Properties.Item("FullPath").Value as string);
             string subdirectory = fullFilePath.Replace(fullPagesProjectPath, "").TrimStart(new char[] { '\\' });
 
-            if (settings.CreateSpecFlowStepsFile)
-            {
-                string specsStepsFilename = BasePageName + "Steps.cs";
-                CreateNewFileInProject(dte, SpecsProjectName, subdirectory, specsStepsFilename, StepsCode);
-            }
             if (settings.CreateSpecFlowFeatureFile)
             {
                 string featureFilename = BasePageName + "Feature.feature";
@@ -361,7 +356,6 @@ namespace SpecByExample.T4
 
             // Inject the generated code into the PageClassPlaceholder.txt file and rename it
             replacementsDictionary[PlaceholdersName.SpecFlowStepsClass] = helper.SpecFlowStepsClassname;
-            replacementsDictionary[PlaceholdersName.PageClassname] = helper.PageClassname;
             replacementsDictionary[PlaceholdersName.TargetFilename] = helper.OutputFile;
             replacementsDictionary[PlaceholdersName.RootNamespace] = helper.RootNamespace;
             replacementsDictionary[PlaceholdersName.Basename] = helper.BaseName;

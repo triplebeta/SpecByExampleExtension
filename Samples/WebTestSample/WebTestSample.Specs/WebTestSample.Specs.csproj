@@ -116,15 +116,16 @@
       <Visible>False</Visible>
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ModuleA\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="CommonNavigationSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SharedTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ModuleA\HomePageFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+    </None>
     <None Include="WebDrivers\ChromeDriver.exe" />
     <None Include="WebDrivers\IEDriverServer.exe" />
   </ItemGroup>

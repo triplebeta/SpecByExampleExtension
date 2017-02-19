@@ -17,8 +17,6 @@ namespace SpecByExample.T4
         // Required for serialization
         public PageInfo() { }
 
-        public PageInfo(string url) { Url = url; }
-
         /// <summary>
         /// Url from which the HTML was loaded.
         /// </summary>

@@ -31,24 +31,7 @@ namespace SpecByExample.T4
             dictionary = dict;
             RootNamespace = rootNamespace;
         }
-
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public string PageClassname
-        {
-            get
-            {
-                if (Regex.IsMatch(PageName,"Page[0-9]*$", RegexOptions.IgnoreCase))
-                    return PageName;
-                else
-                    return PageName + "Page";
-            }
-        }
-
-
+        
         /// <summary>
         /// Name of the codefile implementing the Steps.
         /// </summary>
@@ -56,7 +39,6 @@ namespace SpecByExample.T4
         {
             get { return PageName + "Steps"; }
         }
-
 
         /// <summary>
         /// Name of the codefile implementing the Features
@@ -78,7 +60,6 @@ namespace SpecByExample.T4
                 return pageName;
             }
         }
-
 
         /// <summary>
         /// Name of the class, including the .cs extension
@@ -117,7 +98,6 @@ namespace SpecByExample.T4
                 return baseName;
             }
         }
-
 
         /// <summary>
         /// Classname of the baseclass to use for the given typeof page.

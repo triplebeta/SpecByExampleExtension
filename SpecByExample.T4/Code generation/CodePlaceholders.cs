@@ -19,7 +19,6 @@ namespace SpecByExample.T4
         public const string EntityName = "$entityname$";
 
         public const string TargetFilename = "$targetfilename$";
-        public const string PageClassname = "$pageclass$";
         public const string SpecFlowStepsClass = "$specflowstepsclass$";
         public const string SafeProjectName = "$safeprojectname$";
         public const string RootName = "$rootname$";

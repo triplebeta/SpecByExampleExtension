@@ -66,16 +66,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModuleA\HomePage.PageAdapter.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HomePage.webmodel</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleA\HomePage.Steps.cs">
+      <DependentUpon>HomePage.webmodel</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ModuleA\HomePage.webmodel">
+      <SubType>Xml</SubType>
+      <Generator>PageAdapterGenerator</Generator>
+      <LastGenOutput>HomePage.PageAdapter.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
     <None Include="Readme.html" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ModuleA\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\WebTestSample.Common\WebTestSample.Common.csproj">
       <Project>{A306DA36-0BB6-402C-BB4E-B12C1433CE3A}</Project>

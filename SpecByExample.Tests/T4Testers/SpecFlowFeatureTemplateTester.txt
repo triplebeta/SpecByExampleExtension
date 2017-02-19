@@ -2,8 +2,8 @@
 
 
 
-Feature: $pageclass$
-	In order to test page $pageclass$
+Feature: <#= Settings.PageInfo.Class #>
+	In order to test page <#= Settings.PageInfo.Class #>
 	As a tester
 	I want to run some tests on this page
 
