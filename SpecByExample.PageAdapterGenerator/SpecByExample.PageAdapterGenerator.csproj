@@ -53,6 +53,8 @@
     <Compile Include="PageAdapterGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProvideAssemblyObjectAttribute.cs" />
+    <Compile Include="VsHelper.cs" />
+    <Compile Include="VsMultipleFileGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -135,21 +137,26 @@
       <Link>T4\PageObject.Template.tt</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <None Include="..\SpecByExample.T4\Templates\SpecFlowFeature.Init.tt">
+    <Content Include="..\SpecByExample.T4\Templates\SpecFlowFeature.Init.tt">
       <Link>T4\SpecFlowFeature.Init.tt</Link>
-    </None>
-    <None Include="..\SpecByExample.T4\Templates\SpecFlowFeature.Main.tt">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\SpecByExample.T4\Templates\SpecFlowFeature.Main.tt">
       <Link>T4\SpecFlowFeature.Main.tt</Link>
-    </None>
-    <None Include="..\SpecByExample.T4\Templates\SpecFlowSteps.Init.tt">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\SpecByExample.T4\Templates\SpecFlowSteps.Init.tt">
       <Link>T4\SpecFlowSteps.Init.tt</Link>
-    </None>
-    <None Include="..\SpecByExample.T4\Templates\SpecFlowSteps.Main.tt">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\SpecByExample.T4\Templates\SpecFlowSteps.Main.tt">
       <Link>T4\SpecFlowSteps.Main.tt</Link>
-    </None>
-    <None Include="..\SpecByExample.T4\Templates\SpecFlowSteps.Template.tt">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\SpecByExample.T4\Templates\SpecFlowSteps.Template.tt">
       <Link>T4\SpecFlowSteps.Template.tt</Link>
-    </None>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

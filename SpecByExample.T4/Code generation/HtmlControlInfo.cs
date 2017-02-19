@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 
 namespace SpecByExample.T4
@@ -14,7 +15,7 @@ namespace SpecByExample.T4
     [Serializable]
     public sealed class HtmlControlInfo
     {
-        private bool _generateCodeForThisItem = false;
+        private string _innerText = null;
 
         public HtmlControlInfo()
         {
@@ -55,8 +56,8 @@ namespace SpecByExample.T4
             get
             {
                 // Find a default for the name of the control which might be customized lateron
-                if (String.IsNullOrEmpty(Description) == false)
-                    return HtmlLoader.NormalizeAsControlName(Description);
+                if (String.IsNullOrEmpty(InnerText) == false)
+                    return HtmlLoader.NormalizeAsControlName(InnerText);
                 else if (String.IsNullOrEmpty(HtmlTitle) == false)
                     return HtmlLoader.NormalizeAsControlName(HtmlTitle);
                 else if (String.IsNullOrEmpty(HtmlId) == false)
@@ -150,9 +151,9 @@ namespace SpecByExample.T4
                         IdentifiedBy = ControlIdentificationType.Name;
                 }
 
-                if (ident == ControlIdentificationType.LinkText && HtmlControlType == HtmlControlTypeEnum.Link && String.IsNullOrEmpty(Description) == false)
+                if (ident == ControlIdentificationType.LinkText && HtmlControlType == HtmlControlTypeEnum.Link && String.IsNullOrEmpty(InnerText) == false)
                 {
-                    if (allControls.Count(x => x.IdentifiedBy == ControlIdentificationType.LinkText && x.Description == Description) == 0)
+                    if (allControls.Count(x => x.IdentifiedBy == ControlIdentificationType.LinkText && x.InnerText == InnerText) == 0)
                         IdentifiedBy = ControlIdentificationType.LinkText;
                 }
 
@@ -185,10 +186,14 @@ namespace SpecByExample.T4
         public string HtmlXPath { get; set; }
 
         /// <summary>
-        /// The control.
+        /// Content of the control.
         /// </summary>
-        /// <remarks>Based on the HtmlName, invalid characters will be removed from it.</remarks>
-        public string Description { get; set; }
+        /// <remarks>InnerText property of the HTML element.</remarks>
+        public string InnerText
+        {
+            get { return _innerText ?? ""; }
+            set { _innerText = value; }
+        }
 
         /// <summary>
         /// The the name for the control.
@@ -200,7 +205,15 @@ namespace SpecByExample.T4
             get
             {
                 if (codeControlName == null)
-                    codeControlName = CreateCodeControlName();
+                {
+                    // Create the name for the field for this control in code, use the user-defined name for it
+                    // Then add a suffix for the type of control
+                    codeControlName = HtmlLoader.NormalizeAsControlName(UserDefinedName);
+
+                    // Only append the type of control if it's not already in the name of the control
+                    if (Regex.IsMatch(codeControlName, CodeControlType+"[0-9]*$",RegexOptions.IgnoreCase)==false)
+                        codeControlName += CodeControlType;
+                }
                 return codeControlName;
             }
             // Allow to override the controlname. Used when same default name appears more than once. In that case we can add a number to make it unique.
@@ -217,36 +230,6 @@ namespace SpecByExample.T4
         /// Type of HTML control
         /// </summary>
         public HtmlControlTypeEnum HtmlControlType { get; set; }
-
-        #endregion
-
-
-        #region Private support code
-
-        /// <summary>
-        /// Create a valid identifier to create a field in the class.
-        /// </summary>
-        private string CreateCodeControlName()
-        {
-            // Create the name for the field for this control in code, use the user-defined name for it
-            // Then add a suffix for the type of control
-            string name = UserDefinedName;
-            if (String.IsNullOrEmpty(name) == false)
-            {
-                name = HtmlName;
-                if (String.IsNullOrEmpty(name) == false) name = HtmlId;
-                if (String.IsNullOrEmpty(name))
-                {
-                    // Just return a time
-                }
-            }
-
-            string controlNamePart = HtmlLoader.NormalizeAsControlName(UserDefinedName);
-            if (CodeControlType?.ToUpper() == "WEBTABLE")
-                return controlNamePart + "Table";
-            else
-                return controlNamePart + CodeControlType;
-        }
 
         #endregion
     }

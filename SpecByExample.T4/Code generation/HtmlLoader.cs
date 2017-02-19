@@ -189,12 +189,16 @@ namespace SpecByExample.T4
                     ctrl.HtmlTitle = node.GetAttributeValue("title", "");
                     ctrl.HtmlName = node.GetAttributeValue("name", "");
                     ctrl.HtmlCssClass = node.GetAttributeValue("class", "");
-                    ctrl.Description = node.InnerText.Trim();
 
                     // Then set the properties we will use for code
                     ctrl.CodeControlType = controlType;
                     ctrl.HtmlXPath = node.XPath;
                     ctrl.HtmlControlType = htmlControlType;
+
+                    // TODO Refactor this to be extensible and support the ControlAdapterMapping. It should use the notion of the IsContainer.
+                    var containers = new[] { HtmlControlTypeEnum.Div, HtmlControlTypeEnum.Table, HtmlControlTypeEnum.Span };
+                    if (containers.Contains(htmlControlType)==false)
+                        ctrl.InnerText = node.InnerText.Trim();   // Do not store the content of certain controls
 
                     ctrl.AssignIdentificationMethod(controls.AsQueryable(), options.PreferredIdentifications);
                     ctrl.GenerateCodeForThisItem = ctrl.SupportsCodeGeneration; // By default: generate code for every element that support it

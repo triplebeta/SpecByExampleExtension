@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Xml.Serialization;
+using System.Collections.Generic;
 
 namespace SpecByExample.PageAdapterGenerator
 {
@@ -16,14 +17,44 @@ namespace SpecByExample.PageAdapterGenerator
     [Guid("c07152bb-23eb-4ea5-902c-51090d04dc3d")]
     [CodeGeneratorRegistration(typeof(PageAdapterGenerator), "Generates the page adapter code from a webmodel file.", VSConstants.UICONTEXT.CSharpProject_string, GeneratesDesignTimeSource = true)]
     [ProvideObject(typeof(PageAdapterGenerator))]
-    public class PageAdapterGenerator : IVsSingleFileGenerator
+    public class PageAdapterGenerator : VsMultipleFileGenerator<string>
     {
-        #region IVsSingleFileGenerator Members
-
-        public int DefaultExtension(out string defaultExtension)
+        protected override byte[] GeneratePageAdapterCode()
         {
-            defaultExtension = ".cs";
-            return defaultExtension.Length;
+            if (Model == null) Model = LoadModel(InputFileContents);
+            string generatedCode = GenerateCodeFromFile(Model, "PageObject.Init.tt");
+            byte[] data = Encoding.UTF8.GetBytes(generatedCode);
+            return data;
+        }
+
+        protected override byte[] GenerateStepsCode()
+        {
+            if (Model == null) Model = LoadModel(InputFileContents);
+            string generatedCode = GenerateCodeFromFile(Model, "SpecFlowSteps.Init.tt");
+            byte[] data = Encoding.UTF8.GetBytes(generatedCode);
+            return data;
+        }
+
+        #region Private members
+
+        private CodeGenerationSettings Model
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Load a model from file.
+        /// </summary>
+        /// <returns></returns>
+        private CodeGenerationSettings LoadModel(string modelFile)
+        {
+            // Load the model
+            XmlSerializer deserializer = new XmlSerializer(typeof(CodeGenerationSettings));
+            TextReader textReader = new StringReader(modelFile);
+            var model = (CodeGenerationSettings)deserializer.Deserialize(textReader);
+            textReader.Close();
+            return model;
         }
 
         /// <summary>
@@ -40,31 +71,11 @@ namespace SpecByExample.PageAdapterGenerator
             var templateProjectItem = solution.FindProjectItem(t4Filename);
             string templateFile = string.Empty;
 
-#if DISABLED
-            // TODO Find out how to get the full path of all project files, then re-enable this code
-
-            // 1. Search for T4 directory in the current project
-            string longestPath = string.Empty;
-            string modelPath = Path.GetDirectoryName(fileToTransform);
-            var projects = solution.Projects.GetEnumerator();
-            while (projects.MoveNext())
-            {
-                var project = (Project)projects.Current;
-                var projectPath = project.Properties.Item("FullName").Value;
-//                var projectPath = Path.GetDirectoryName(project.FullName);
-
-                // Find the longest matching path. That's the project the file is in.
-                if (modelPath.StartsWith(projectPath) && projectPath.Length >= longestPath.Length)
-                    longestPath = projectPath;
-            }
-            if (longestPath!=string.Empty)
-            {
-                // Project found, look for a T4 folder in the root of it
-                templateFile = Path.Combine(longestPath, "T4", t4Filename);
-                if (File.Exists(templateFile))
-                    return templateFile;
-            }
-#endif
+            // 1. Search for T4 directory in the root of the current project
+            var projectPath = Path.GetDirectoryName(Project.FullName);
+            templateFile = Path.Combine(projectPath, "T4", t4Filename);
+            if (File.Exists(templateFile))
+                return templateFile;
 
             // 2. Search for a directory named T4 next to the solution file
             string solutionPath = Path.GetDirectoryName(solution.FullName);
@@ -82,29 +93,21 @@ namespace SpecByExample.PageAdapterGenerator
         }
 
         /// <summary>
-        /// Main routine for generating the PageObject for a .webmodel file.
+        /// Generate code from a T4 template.
         /// </summary>
-        /// <returns>C# code</returns>
-        public int Generate(string inputFilePath, string inputFileContents, string defaultNamespace, IntPtr[] outputFileContents, out uint output, IVsGeneratorProgress generateProgress)
+        /// <param name="model">Model as input for the template.</param>
+        /// <param name="templateFile">Name of T4 file without path.</param>
+        /// <returns>Byte array representing the generated code.</returns>
+        private string GenerateCodeFromFile(CodeGenerationSettings model, string templateFile)
         {
-            // Example from https://www.codeproject.com/articles/688939/visual-studio-custom-tools-do-it-smarter
-            EnvDTE.DTE dte = (DTE)Package.GetGlobalService(typeof(DTE));
-            string generatedCode = string.Empty;
-            int returnCode = VSConstants.S_OK;
-
+            string generatedCode = String.Empty;
             try
             {
-                var templateFile = GetFullTemplatePath(dte.Solution, inputFilePath, "PageObject.Init.tt");
-
-                // Load the model
-                XmlSerializer deserializer = new XmlSerializer(typeof(CodeGenerationSettings));
-                TextReader textReader = new StringReader(inputFileContents);
-                var model = (CodeGenerationSettings)deserializer.Deserialize(textReader);
-                textReader.Close();
+                var fullTemplateFile = GetFullTemplatePath(Dte.Solution, InputFilePath, templateFile);
 
                 // Create the code and replace the parameters and use that code.
                 // Put all generated code back into one replacement parameter to inject it.
-                string pageObjectCode = T4Helper.TransformToCode(dte, templateFile, model);
+                string pageObjectCode = T4Helper.TransformToCode(Dte, fullTemplateFile, model);
                 pageObjectCode = pageObjectCode.Trim();
                 generatedCode = T4Helper.ReplaceParametersInCode(pageObjectCode, model.CodePlaceholders.ReplacementDictionary);
             }
@@ -126,18 +129,10 @@ namespace SpecByExample.PageAdapterGenerator
                 sb.AppendLine("*/");
                 generatedCode = sb.ToString();
             }
-            finally
-            {
-                byte[] bytes = Encoding.UTF8.GetBytes(generatedCode);
-                int length = bytes.Length;
-                outputFileContents[0] = Marshal.AllocCoTaskMem(length);
-                Marshal.Copy(bytes, 0, outputFileContents[0], length);
-                output = (uint)length;
-                returnCode = VSConstants.S_FALSE;
-            }
-            return returnCode;
+
+            return generatedCode;
         }
 
-#endregion
+        #endregion
     }
 }

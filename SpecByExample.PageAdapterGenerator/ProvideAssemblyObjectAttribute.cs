@@ -58,7 +58,7 @@ namespace SpecByExample.PageAdapterGenerator
             }
             catch (Exception ex)
             {
-                throw;
+                throw new Exception("Failed to register the PageAdapterGenerator custom tool.",ex);
             }
         }
 

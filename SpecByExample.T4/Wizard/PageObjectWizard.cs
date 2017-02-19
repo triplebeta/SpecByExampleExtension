@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using EnvDTE;
 using System.IO;
 using System.Xml.Serialization;
+using System.Text.RegularExpressions;
 
 namespace SpecByExample.T4
 {
@@ -41,7 +42,7 @@ namespace SpecByExample.T4
             {
                 // Use the name entered by the user as the pagename and make sure it ends with Page
                 WizardController.WizardState.PageName = pageName;
-                if (pageName.EndsWith("Page", StringComparison.InvariantCultureIgnoreCase)==false)
+                if (Regex.IsMatch(pageName, "Page[0-9]*$", RegexOptions.IgnoreCase)==false)
                     WizardController.WizardState.PageName = pageName + "Page";
             }
         }

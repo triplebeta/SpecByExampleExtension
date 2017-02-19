@@ -133,16 +133,7 @@ namespace SpecByExample.T4
                 SpecsProjectName = helper.BaseName + ".Specs";
                 PagesProjectName = helper.BaseName + ".Pages";
                 BasePageName = helper.PageName;
-                if (settings.CreateSpecFlowStepsFile)
-                {
-                    string t4Template = "SpecFlowSteps.Init.tt";
-                    string templateFile = Path.Combine(rootTemplatePath, "T4", t4Template);
-                    if (!File.Exists(templateFile))
-                        throw new WizardCancelledException($"T4 Template file '{t4Template}' not found in the installer package.\nCheck that the VSIX package is created correctly.");
 
-                    string partialStepsCode = T4Helper.TransformToCode(dte, templateFile, settings);
-                    StepsCode = T4Helper.ReplaceParametersInCode(partialStepsCode, replacementsDictionary);
-                }
                 if (settings.CreateSpecFlowFeatureFile)
                 {
                     string t4Template = "SpecFlowFeature.Init.tt";

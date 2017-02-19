@@ -75,6 +75,7 @@ namespace SpecByExample.T4
                 if (!string.IsNullOrEmpty(EntityName)) replacementsDictionary.Add(PlaceholdersName.EntityName, EntityName);
                 if (!string.IsNullOrEmpty(TableControlName)) replacementsDictionary.Add(PlaceholdersName.TableControlName, TableControlName);
                 if (!string.IsNullOrEmpty(RootNamespace)) replacementsDictionary.Add(PlaceholdersName.RootNamespace, RootNamespace);
+                
                 return replacementsDictionary;
             }
         }

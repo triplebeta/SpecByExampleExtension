@@ -17,7 +17,7 @@
 	if (mySettings==null && Session.ContainsKey("WizardSettings"))
 		mySettings = (SpecByExample.T4.CodeGenerationSettings) Session["WizardSettings"];
 	
-	// Remove any whitespace from the pagename to create a classname and make each word start with a capital.
+	// Remove any whitespace from the pagename to create a class name and make each word start with a capital.
 	var className = mySettings.PageName.Replace(" ","");
 
 	// Just get the first link on the page
@@ -44,7 +44,7 @@ Feature: $pageclass$
 	I want to run some tests on this page
 
 Scenario: My first test
-	Given I go to the <#= className #> on url '<#= Settings.Url #>'
+	Given I go to the <#= Settings.PageInfo.Class #> on url '<#= Settings.Url #>'
 	When I remember the current url
 		And I click the <#= firstLinkControlName #> link
 	Then I am no longer on the original url

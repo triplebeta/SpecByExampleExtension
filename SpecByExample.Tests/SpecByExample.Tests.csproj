@@ -141,6 +141,7 @@
     </Content>
     <Content Include="Testdata\ExpectedTransformedCode.txt" />
     <Content Include="Testdata\MyFirst.webmodel" />
+    <None Include="Testdata\MyPage.webmodel" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SpecByExample.T4\SpecByExample.T4.csproj">

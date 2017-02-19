@@ -44,9 +44,9 @@ if (Settings.TypeOfPage == PageTemplatesEnum.GenericPage)
     /// Table Page Adapter for <#= Settings.PageName #>.
     /// </summary>
 	/// <remarks>Generated using the T4 tempate.</remarks>
-    public class <#= className #> : $basepageclass$<$entityname$Columns>
+    public class <#= Settings.PageInfo.Class #> : $basepageclass$<$entityname$Columns>
     {
-		public <#= className #>(IWindsorContainer container, IWebDriver driver)
+		public <#= Settings.PageInfo.Class #>(IWindsorContainer container, IWebDriver driver)
             : base(container, driver)
         {
             // Nothing to do here
@@ -54,10 +54,8 @@ if (Settings.TypeOfPage == PageTemplatesEnum.GenericPage)
 
 <#@ include file="PageObject.Template.GenericPage.tt" #>
 
-
 <#@ include file="PageObject.Template.TablePage.tt" #>
 	}
-
 
 <#@ include file="PageObject.Template.TableHelpers.tt" #>
 <# } #>

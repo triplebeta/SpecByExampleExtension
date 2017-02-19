@@ -18,7 +18,6 @@
 //	testSettings.Url = @"E:\TestMetTabel.Htm";
     testSettings.Url = "http://www.google.nl";
 
-
 	// Use the WebBrowser control to load the page and render it, this ensures all JavaScript will be executed as well.
     // Then feed the HTML to the HtmlAgilityPack document.
 	var webbrowser = new WebBrowser();

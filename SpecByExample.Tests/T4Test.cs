@@ -37,7 +37,7 @@ namespace SpecByExample.Tests
             Assert.IsTrue(controlInfo.All<HtmlControlInfo>(x => x.HtmlName != null));
             Assert.IsTrue(controlInfo.All<HtmlControlInfo>(x => x.CodeControlName != null));
             Assert.IsTrue(controlInfo.All<HtmlControlInfo>(x => x.CodeControlType != null));
-            Assert.IsTrue(controlInfo.All<HtmlControlInfo>(x => x.Description != null));
+            Assert.IsTrue(controlInfo.All<HtmlControlInfo>(x => x.InnerText != null));
         }
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace SpecByExample.Tests
             Assert.IsTrue(identifyableControls.All<HtmlControlInfo>(x => x.HtmlName != null));
             Assert.IsTrue(identifyableControls.All<HtmlControlInfo>(x => x.CodeControlName != null));
             Assert.IsTrue(identifyableControls.All<HtmlControlInfo>(x => x.CodeControlType != null));
-            Assert.IsTrue(identifyableControls.All<HtmlControlInfo>(x => x.Description != null));
+            Assert.IsTrue(identifyableControls.All<HtmlControlInfo>(x => x.InnerText != null));
         }
 
 
@@ -91,7 +91,7 @@ namespace SpecByExample.Tests
         public void LoadGooglePage()
         {
             var allControlInfo = LoadGoogleHomePageInfo();
-            Assert.AreEqual(1, allControlInfo.Count<HtmlControlInfo>(x => x.Description=="Afbeeldingen"));
+            Assert.AreEqual(1, allControlInfo.Count<HtmlControlInfo>(x => x.InnerText=="Afbeeldingen"));
         }
 
         /// <summary>
@@ -145,8 +145,8 @@ namespace SpecByExample.Tests
         public void GenerateValidCodeNameTest()
         {
             var allControlInfo = LoadGoogleHomePageInfo();
-            Assert.AreEqual("AfbeeldingenLink", allControlInfo.Single(x => x.Description == "Afbeeldingen").CodeControlName);
-            Assert.AreEqual("VoorwaardenLink", allControlInfo.Single(x => x.Description == "Voorwaarden").CodeControlName);
+            Assert.AreEqual("AfbeeldingenLink", allControlInfo.Single(x => x.InnerText == "Afbeeldingen").CodeControlName);
+            Assert.AreEqual("VoorwaardenLink", allControlInfo.Single(x => x.InnerText == "Voorwaarden").CodeControlName);
         }
 
 
@@ -154,7 +154,7 @@ namespace SpecByExample.Tests
         public void GetIDForAfbeeldingenTest()
         {
             var allControlInfo = LoadGoogleHomePageInfo();
-            var ctrl = allControlInfo.Single(x => x.Description == "Afbeeldingen");
+            var ctrl = allControlInfo.Single(x => x.InnerText == "Afbeeldingen");
             Assert.AreEqual("AfbeeldingenLink", ctrl.CodeControlName);
             Assert.AreEqual(ControlIdentificationType.LinkText, ctrl.IdentifiedBy);
             Assert.AreEqual(HtmlControlTypeEnum.Link, ctrl.HtmlControlType);

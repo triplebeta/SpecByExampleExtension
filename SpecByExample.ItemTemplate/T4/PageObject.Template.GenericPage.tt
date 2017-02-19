@@ -26,14 +26,14 @@ foreach(var node in Settings.PageInfo.HtmlElements) {
  #>
 
         /// <summary>
-        /// Html <#=node.CodeControlType #> element: <#=node.Description#>
+        /// Html <#=node.CodeControlType #> element: <#=node.InnerText#>
 		/// </summary>
 <# if (node.IdentifiedBy==ControlIdentificationType.Id) { #>
         [FindsBy(How=How.Id, Using="<#= node.HtmlId #>")]
 <# } else if (node.IdentifiedBy==ControlIdentificationType.Name) { #>
         [FindsBy(How=How.Name, Using="<#= node.HtmlName #>")]
 <# } else if (node.IdentifiedBy==ControlIdentificationType.LinkText) { #>
-        [FindsBy(How=How.LinkText, Using="<#= node.Description #>")]
+        [FindsBy(How=How.LinkText, Using="<#= node.InnerText #>")]
 <# } else if (node.IdentifiedBy==ControlIdentificationType.Cssclass) { #>
         [FindsBy(How=How.ClassName, Using="<#= node.HtmlCssClass #>")]
 <# } #>

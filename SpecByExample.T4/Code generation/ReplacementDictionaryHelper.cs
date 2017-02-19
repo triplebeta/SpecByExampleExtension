@@ -27,7 +27,9 @@ namespace SpecByExample.T4
         /// <param name="dict">Set of replacement variables</param>
         public ReplacementDictionaryHelper(string rootNamespace, Dictionary<string, string> dict)
         {
+            if (String.IsNullOrEmpty(rootNamespace)) throw new ArgumentNullException(nameof(rootNamespace));
             dictionary = dict;
+            RootNamespace = rootNamespace;
         }
 
 

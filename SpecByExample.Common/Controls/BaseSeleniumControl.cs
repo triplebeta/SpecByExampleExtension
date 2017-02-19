@@ -55,6 +55,15 @@ namespace SpecByExample.Common.Controls
         }
 
         /// <summary>
+        /// True if this control is a container for other controls.
+        /// Examples are div or span tags. Default is false.
+        /// </summary>
+        public virtual bool IsContainer
+        {
+            get { return false; }
+        }
+
+        /// <summary>
         /// True if the control is displayed
         /// </summary>
         public virtual bool IsDisplayed

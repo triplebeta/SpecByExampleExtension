@@ -32,7 +32,7 @@ namespace WizardTester
             List<string> configErrors;
             if (config.ValidateConfiguration(out configErrors))
             {
-                dialog = new PageObjectWizardForm("Foo", config);
+                dialog = new PageObjectWizardForm("Foo", "Boo", config);
                 dialog.WizardController.OnCommit += WizardController_OnCommit;
 
                 try
