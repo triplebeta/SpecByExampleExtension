@@ -15,9 +15,9 @@ namespace WebTestSample.Pages
     /// Implements the <seealso cref="https://code.google.com/p/selenium/wiki/PageObjects">PageObject</seealso> for HomePage.
     /// </summary>
 	/// <remarks>Generated using the T4 tempate.</remarks>
-    public partial class HomePage : BaseWebTestSamplePage
+    public partial class HomePage22 : BaseWebTestSamplePage
     {
-        public HomePage(IWindsorContainer container, IWebDriver driver)
+        public HomePage22(IWindsorContainer container, IWebDriver driver)
             : base(container, driver, "Home Page - SpecByExample.SampleWebsite", null)
         {
             // Nothing to do here

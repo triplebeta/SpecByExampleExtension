@@ -46,7 +46,7 @@ Feature: <#= Settings.PageInfo.Class #>
 Scenario: My first test
 	Given I go to the <#= Settings.PageInfo.Class #> on url '<#= Settings.Url #>'
 	When I remember the current url
-		And I click the <#= firstLinkControlName #> link
+		And I click the <#= firstLinkControlName #>
 	Then I am no longer on the original url
 
 <#

@@ -9,18 +9,18 @@ using WebTestSample.Pages;
 namespace WebTestSample.Specs
 {
     [Binding]
-    public partial class HomePageSteps : BaseSeleniumSteps
+    public partial class HomePage22Steps : BaseSeleniumSteps
     {
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="state">State is passed in using Constructor Injection</param>
-        public HomePageSteps(SeleniumBrowserInfo state) : base(state) { }
+        public HomePage22Steps(SeleniumBrowserInfo state) : base(state) { }
 
 
         #region Arrange - Given
 
-        [Given("I go to the HomePage on url '(.*)'")]
+        [Given("I go to the HomePage22 on url '(.*)'")]
         public void Given_I_Go_To_Url(string url)
         {
             CurrentWebDriver.Url = url;
@@ -35,91 +35,91 @@ namespace WebTestSample.Specs
         [When(@"I click the HomeLink")]
         public void When_I_Click_The_HomeLink()
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
             screen.HomeLink.Click();
         }
 
         [When(@"I click the AboutLink")]
         public void When_I_Click_The_AboutLink()
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
             screen.AboutLink.Click();
         }
 
         [When(@"I click the ContactLink")]
         public void When_I_Click_The_ContactLink()
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
             screen.ContactLink.Click();
         }
 
         [When(@"I click the RegisterLink")]
         public void When_I_Click_The_RegisterLink()
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
             screen.RegisterLink.Click();
         }
 
         [When(@"I click the LogInLink")]
         public void When_I_Click_The_LogInLink()
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
             screen.LogInLink.Click();
         }
 
         [When(@"I click the LearnMoreLink1")]
         public void When_I_Click_The_LearnMoreLink1()
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
             screen.LearnMoreLink1.Click();
         }
 
         [When(@"I click the PreviousLink")]
         public void When_I_Click_The_PreviousLink()
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
             screen.PreviousLink.Click();
         }
 
         [When(@"I click the NextLink")]
         public void When_I_Click_The_NextLink()
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
             screen.NextLink.Click();
         }
 
         [When(@"I click the BowerLink")]
         public void When_I_Click_The_BowerLink()
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
             screen.BowerLink.Click();
         }
 
         [When(@"I click the BootstrapLink")]
         public void When_I_Click_The_BootstrapLink()
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
             screen.BootstrapLink.Click();
         }
 
         [When(@"I click the AddAControllerAndViewLink")]
         public void When_I_Click_The_AddAControllerAndViewLink()
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
             screen.AddAControllerAndViewLink.Click();
         }
 
         [When(@"I click the AddAnAppsettingInConfigAndAccessItInAppLink")]
         public void When_I_Click_The_AddAnAppsettingInConfigAndAccessItInAppLink()
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
             screen.AddAnAppsettingInConfigAndAccessItInAppLink.Click();
         }
 
         [When(@"I click the ToggleNavigationButton")]
         public void When_I_Click_The_ToggleNavigationButton()
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
             screen.ToggleNavigationButton.Click();
         }
 
@@ -130,7 +130,7 @@ namespace WebTestSample.Specs
         [Then(@"link HomeLink is ([not]?) visible")]
         public void Then_Link_HomeLink_Check_Visibility(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool visible = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.HomeLink.IsDisplayed, visible);
         }
@@ -138,7 +138,7 @@ namespace WebTestSample.Specs
         [Then(@"link HomeLink is ([not]?) enabled")]
         public void Then_Link_HomeLink_Check_Enabled(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool enabled = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.HomeLink.IsEnabled, enabled);
         }
@@ -146,7 +146,7 @@ namespace WebTestSample.Specs
         [Then(@"link AboutLink is ([not]?) visible")]
         public void Then_Link_AboutLink_Check_Visibility(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool visible = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.AboutLink.IsDisplayed, visible);
         }
@@ -154,7 +154,7 @@ namespace WebTestSample.Specs
         [Then(@"link AboutLink is ([not]?) enabled")]
         public void Then_Link_AboutLink_Check_Enabled(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool enabled = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.AboutLink.IsEnabled, enabled);
         }
@@ -162,7 +162,7 @@ namespace WebTestSample.Specs
         [Then(@"link ContactLink is ([not]?) visible")]
         public void Then_Link_ContactLink_Check_Visibility(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool visible = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.ContactLink.IsDisplayed, visible);
         }
@@ -170,7 +170,7 @@ namespace WebTestSample.Specs
         [Then(@"link ContactLink is ([not]?) enabled")]
         public void Then_Link_ContactLink_Check_Enabled(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool enabled = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.ContactLink.IsEnabled, enabled);
         }
@@ -178,7 +178,7 @@ namespace WebTestSample.Specs
         [Then(@"link RegisterLink is ([not]?) visible")]
         public void Then_Link_RegisterLink_Check_Visibility(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool visible = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.RegisterLink.IsDisplayed, visible);
         }
@@ -186,7 +186,7 @@ namespace WebTestSample.Specs
         [Then(@"link RegisterLink is ([not]?) enabled")]
         public void Then_Link_RegisterLink_Check_Enabled(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool enabled = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.RegisterLink.IsEnabled, enabled);
         }
@@ -194,7 +194,7 @@ namespace WebTestSample.Specs
         [Then(@"link LogInLink is ([not]?) visible")]
         public void Then_Link_LogInLink_Check_Visibility(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool visible = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.LogInLink.IsDisplayed, visible);
         }
@@ -202,7 +202,7 @@ namespace WebTestSample.Specs
         [Then(@"link LogInLink is ([not]?) enabled")]
         public void Then_Link_LogInLink_Check_Enabled(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool enabled = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.LogInLink.IsEnabled, enabled);
         }
@@ -210,7 +210,7 @@ namespace WebTestSample.Specs
         [Then(@"link LearnMoreLink1 is ([not]?) visible")]
         public void Then_Link_LearnMoreLink1_Check_Visibility(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool visible = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.LearnMoreLink1.IsDisplayed, visible);
         }
@@ -218,7 +218,7 @@ namespace WebTestSample.Specs
         [Then(@"link LearnMoreLink1 is ([not]?) enabled")]
         public void Then_Link_LearnMoreLink1_Check_Enabled(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool enabled = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.LearnMoreLink1.IsEnabled, enabled);
         }
@@ -226,7 +226,7 @@ namespace WebTestSample.Specs
         [Then(@"link PreviousLink is ([not]?) visible")]
         public void Then_Link_PreviousLink_Check_Visibility(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool visible = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.PreviousLink.IsDisplayed, visible);
         }
@@ -234,7 +234,7 @@ namespace WebTestSample.Specs
         [Then(@"link PreviousLink is ([not]?) enabled")]
         public void Then_Link_PreviousLink_Check_Enabled(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool enabled = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.PreviousLink.IsEnabled, enabled);
         }
@@ -242,7 +242,7 @@ namespace WebTestSample.Specs
         [Then(@"link NextLink is ([not]?) visible")]
         public void Then_Link_NextLink_Check_Visibility(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool visible = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.NextLink.IsDisplayed, visible);
         }
@@ -250,7 +250,7 @@ namespace WebTestSample.Specs
         [Then(@"link NextLink is ([not]?) enabled")]
         public void Then_Link_NextLink_Check_Enabled(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool enabled = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.NextLink.IsEnabled, enabled);
         }
@@ -258,7 +258,7 @@ namespace WebTestSample.Specs
         [Then(@"link BowerLink is ([not]?) visible")]
         public void Then_Link_BowerLink_Check_Visibility(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool visible = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.BowerLink.IsDisplayed, visible);
         }
@@ -266,7 +266,7 @@ namespace WebTestSample.Specs
         [Then(@"link BowerLink is ([not]?) enabled")]
         public void Then_Link_BowerLink_Check_Enabled(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool enabled = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.BowerLink.IsEnabled, enabled);
         }
@@ -274,7 +274,7 @@ namespace WebTestSample.Specs
         [Then(@"link BootstrapLink is ([not]?) visible")]
         public void Then_Link_BootstrapLink_Check_Visibility(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool visible = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.BootstrapLink.IsDisplayed, visible);
         }
@@ -282,7 +282,7 @@ namespace WebTestSample.Specs
         [Then(@"link BootstrapLink is ([not]?) enabled")]
         public void Then_Link_BootstrapLink_Check_Enabled(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool enabled = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.BootstrapLink.IsEnabled, enabled);
         }
@@ -290,7 +290,7 @@ namespace WebTestSample.Specs
         [Then(@"link AddAControllerAndViewLink is ([not]?) visible")]
         public void Then_Link_AddAControllerAndViewLink_Check_Visibility(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool visible = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.AddAControllerAndViewLink.IsDisplayed, visible);
         }
@@ -298,7 +298,7 @@ namespace WebTestSample.Specs
         [Then(@"link AddAControllerAndViewLink is ([not]?) enabled")]
         public void Then_Link_AddAControllerAndViewLink_Check_Enabled(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool enabled = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.AddAControllerAndViewLink.IsEnabled, enabled);
         }
@@ -306,7 +306,7 @@ namespace WebTestSample.Specs
         [Then(@"link AddAnAppsettingInConfigAndAccessItInAppLink is ([not]?) visible")]
         public void Then_Link_AddAnAppsettingInConfigAndAccessItInAppLink_Check_Visibility(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool visible = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.AddAnAppsettingInConfigAndAccessItInAppLink.IsDisplayed, visible);
         }
@@ -314,7 +314,7 @@ namespace WebTestSample.Specs
         [Then(@"link AddAnAppsettingInConfigAndAccessItInAppLink is ([not]?) enabled")]
         public void Then_Link_AddAnAppsettingInConfigAndAccessItInAppLink_Check_Enabled(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool enabled = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.AddAnAppsettingInConfigAndAccessItInAppLink.IsEnabled, enabled);
         }
@@ -322,7 +322,7 @@ namespace WebTestSample.Specs
         [Then(@"button ToggleNavigationButton is ([not]?) visible")]
         public void Then_Button_ToggleNavigationButton_Check_Visibility(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool visible = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.ToggleNavigationButton.IsDisplayed, visible);
         }
@@ -330,7 +330,7 @@ namespace WebTestSample.Specs
         [Then(@"button ToggleNavigationButton is ([not]?) enabled")]
         public void Then_Button_ToggleNavigationButton_Check_Enabled(string not)
         {
-            var screen = GetScreen<HomePage>();
+            var screen = GetScreen<HomePage22>();
 			bool enabled = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.ToggleNavigationButton.IsEnabled, enabled);
         }

@@ -4,7 +4,7 @@ Feature: HomePage
 	I want to run some tests on this page
 
 Scenario: My first test
-	Given I go to the HomePage on url 'http://localhost:64861/'
+	Given I go to the HomePage22 on url 'http://localhost:64861/'
 	When I remember the current url
 		And I click the HomeLink link
 	Then I am no longer on the original url

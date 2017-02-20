@@ -74,6 +74,14 @@
     <Compile Include="ModuleA\HomePage.Steps.cs">
       <DependentUpon>HomePage.webmodel</DependentUpon>
     </Compile>
+    <Compile Include="ModuleA\RegisterAccount.PageAdapter.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegisterAccount.webmodel</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleA\RegisterAccount.Steps.cs">
+      <DependentUpon>RegisterAccount.webmodel</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -82,6 +90,11 @@
       <SubType>Xml</SubType>
       <Generator>PageAdapterGenerator</Generator>
       <LastGenOutput>HomePage.PageAdapter.cs</LastGenOutput>
+    </None>
+    <None Include="ModuleA\RegisterAccount.webmodel">
+      <SubType>Xml</SubType>
+      <Generator>PageAdapterGenerator</Generator>
+      <LastGenOutput>RegisterAccount.PageAdapter.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Readme.html" />

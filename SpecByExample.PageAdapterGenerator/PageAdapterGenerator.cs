@@ -21,7 +21,7 @@ namespace SpecByExample.PageAdapterGenerator
     {
         protected override byte[] GeneratePageAdapterCode()
         {
-            if (Model == null) Model = LoadModel(InputFileContents);
+            Model = LoadModel(InputFileContents);
             string generatedCode = GenerateCodeFromFile(Model, "PageObject.Init.tt");
             byte[] data = Encoding.UTF8.GetBytes(generatedCode);
             return data;

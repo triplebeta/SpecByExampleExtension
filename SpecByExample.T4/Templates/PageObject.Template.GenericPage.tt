@@ -44,7 +44,6 @@ foreach(var node in Settings.PageInfo.HtmlElements) {
 
         #endregion
 
-
 		#region Controls to wrap the HTML items
 <#
 /* For a TablePage: do not create the WebTable control since it will be created lateron */
