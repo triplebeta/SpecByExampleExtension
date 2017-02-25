@@ -108,7 +108,6 @@
     <Compile Include="Code generation\T4Helper.cs" />
     <Compile Include="Code generation\TableColumnDef.cs" />
     <Compile Include="Code generation\TemplateTransformer.cs" />
-    <Compile Include="Code generation\Webmodel.cs" />
     <Compile Include="Code generation\WizardConfigLoader.cs" />
     <Compile Include="Visual Studio Template Wizards\ComposeProjectTemplateVariableWizard.cs" />
     <Compile Include="Visual Studio Template Wizards\CreatePageAdapterWizard.cs" />
@@ -118,6 +117,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Visual Studio Template Wizards\HtmlControlViewModel.cs" />
+    <Compile Include="Visual Studio Template Wizards\ICodeGenerationSettings.cs" />
     <Compile Include="Wizard\CodeGenerationOptionsPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -164,6 +165,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Readme.txt" />
+    <Resource Include="Resources\Link.png" />
     <None Include="app.config" />
     <None Include="ControlAdapterMapping.config" />
     <EmbeddedResource Include="selenium-logo.png" />

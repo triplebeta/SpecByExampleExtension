@@ -13,6 +13,7 @@
   </Installation>
   <Dependencies>
     <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+    <Dependency d:Source="Installed" Id="TechTalk.SpecFlow.Vs2015Integration" DisplayName="SpecFlow for Visual Studio 2015" Version="[2017.1.6,2018.0)" d:InstallSource="Download" Location="https://marketplace.visualstudio.com/items?itemName=TechTalkSpecFlowTeam.SpecFlowforVisualStudio2015" />
   </Dependencies>
   <Assets>
     <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="NuGet.VisualStudio.Interop.dll" AssemblyName="NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />

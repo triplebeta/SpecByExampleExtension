@@ -31,11 +31,11 @@ namespace SpecByExample.WebmodelEditor
     {
         public const string Extension = ".webmodel";
 
-        private VsTemplateDesignerPackage editorPackage;
+        private VsWebmodelDesignerPackage editorPackage;
         private ServiceProvider vsServiceProvider;
 
 
-        public EditorFactory(VsTemplateDesignerPackage package)
+        public EditorFactory(VsWebmodelDesignerPackage package)
         {
             editorPackage = package;
         }

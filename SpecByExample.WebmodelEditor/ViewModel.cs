@@ -35,17 +35,21 @@ using System.Text.RegularExpressions;
 using System.Text;
 using SpecByExample.WebmodelEditor;
 using SpecByExample.T4;
+using System.Runtime.CompilerServices;
 
-namespace Microsoft.VsTemplateDesigner
+namespace SpecByExample.WebmodelEditor
 {
+    /// <summary>
+    /// Localized messages for the resources.
+    /// </summary>
     public class ResourceInfo
     {
-        public static string ErrorMessageBoxTitle = "VsTemplateDesigner";
-        public static string FieldNameDescription = "Description";
-        public static string FieldNameId = "ID";
+        public static string ErrorMessageBoxTitle = "WebmodelDesigner";
         public static string InvalidWebmodel = "The webmodel file you are attempting to load is missing the PageInfo";
         public static string SynchronizeBuffer = "Synchronize XML file with view";
         public static string ReformatBuffer = "Reformat";
+        public static string FieldNameDescription = "Description";
+        public static string FieldNameId = "ID";
         public static string ValidationFieldMaxLength = "{0} must be {1} characters or less.";
         public static string ValidationRequiredField = "{0} is a required value.";
     }
@@ -56,7 +60,7 @@ namespace Microsoft.VsTemplateDesigner
     /// The View binds the various designer controls to the methods derived from IViewModel that get and set values in the XmlModel.
     /// The ViewModel and an underlying XmlModel manage how an IVsTextBuffer is shared between the designer and the XML editor (if opened).
     /// </summary>
-    public class ViewModel : IViewModel, IDataErrorInfo, INotifyPropertyChanged
+    public class ViewModel : IEditorViewModel, IDataErrorInfo, INotifyPropertyChanged
     {
         const int MaxIdLength = 100;
         const int MaxProductNameLength = 60;
@@ -107,6 +111,7 @@ namespace Microsoft.VsTemplateDesigner
             _bufferReloadedHandler += new EventHandler(BufferReloaded);
             _xmlModel.BufferReloaded += _bufferReloadedHandler;
 
+            HtmlControls = new List<HtmlControlViewModel>();
             LoadModelFromXmlModel();
         }
 
@@ -137,18 +142,6 @@ namespace Microsoft.VsTemplateDesigner
         }
 
         /// <summary>
-        /// Property indicating if there is a pending change in the ViewModel that needs to 
-        /// be committed to the underlying text buffer.
-        /// 
-        /// Used by DoIdle to determine if we need to sync.
-        /// </summary>
-        public bool DesignerDirty
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
         /// We must not try and update the XDocument while the XML Editor is parsing as this may cause
         /// a deadlock in the XML Editor!
         /// </summary>
@@ -159,39 +152,6 @@ namespace Microsoft.VsTemplateDesigner
             {
                 LanguageService langsvc = GetXmlLanguageService();
                 return langsvc != null ? langsvc.IsParsing : false;
-            }
-        }
-
-        /// <summary>
-        /// Called on idle time. This is when we check if the designer is out of sync with the underlying text buffer.
-        /// </summary>
-        public void DoIdle()
-        {
-            if (BufferDirty || DesignerDirty)
-            {
-                int delay = 100;
-
-                if ((Environment.TickCount - _dirtyTime) > delay)
-                {
-                    // Must not try and sync while XML editor is parsing otherwise we just confuse matters.
-                    if (IsXmlEditorParsing)
-                    {
-                        _dirtyTime = Environment.TickCount;
-                        return;
-                    }
-
-                    //If there is contention, give the preference to the designer.
-                    if (DesignerDirty)
-                    {
-                        SaveModelToXmlModel(ResourceInfo.SynchronizeBuffer);
-                        //We don't do any merging, so just overwrite whatever was in the buffer.
-                        BufferDirty = false;
-                    }
-                    else if (BufferDirty)
-                    {
-                        LoadModelFromXmlModel();
-                    }
-                }
             }
         }
 
@@ -219,6 +179,8 @@ namespace Microsoft.VsTemplateDesigner
                     OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST));
             }
 
+            // Wrap the Html controls
+            HtmlControls = HtmlControlViewModel.Load(_webModel.PageInfo.HtmlElements);
             BufferDirty = false;
 
             if (ViewModelChanged != null)
@@ -227,7 +189,6 @@ namespace Microsoft.VsTemplateDesigner
                 ViewModelChanged(this, new EventArgs());
             }
         }
-
 
         /// <summary>
         /// Get an up to date XML parse tree from the XML Editor.
@@ -324,10 +285,7 @@ namespace Microsoft.VsTemplateDesigner
                     BufferDirty = true;
                     throw new Exception();
                 }
-
-                //PopulateModelFromReferencesBindingList();
-                //PopulateModelFromContentBindingList();
-
+                
                 XmlSerializer serializer = new XmlSerializer(typeof(CodeGenerationSettings));
                 XDocument documentFromDesignerState = new XDocument();
                 using (XmlWriter w = documentFromDesignerState.CreateWriter())
@@ -370,11 +328,6 @@ namespace Microsoft.VsTemplateDesigner
                 _synchronizing = false;
             }
         }
-
-        /// <summary>
-        /// Fired when all controls should be re-bound.
-        /// </summary>
-        public event EventHandler ViewModelChanged;
 
         private void BufferReloaded(object sender, EventArgs e)
         {
@@ -480,480 +433,94 @@ namespace Microsoft.VsTemplateDesigner
         }
 
         #endregion
-#if DEPRECATED
-        #region IViewModel methods
 
-        public VSTemplateTemplateData TemplateData
+
+        #region IEditorViewModel methods
+
+        /// <summary>
+        /// Fired when all controls should be re-bound.
+        /// </summary>
+        public event EventHandler ViewModelChanged;
+
+        /// <summary>
+        /// Property indicating if there is a pending change in the ViewModel that needs to 
+        /// be committed to the underlying text buffer.
+        /// 
+        /// Used by DoIdle to determine if we need to sync.
+        /// </summary>
+        public bool DesignerDirty
         {
-            get
-            {
-                return _webModel.TemplateData;
-            }
+            get;
+            set;
         }
 
-        public VSTemplateTemplateContent TemplateContent
-        {
-            get
-            {
-                return _webModel.TemplateContent;
-            }
-        }
 
-        public string TemplateID
+        /// <summary>
+        /// List of available control types.
+        /// </summary>
+        public Dictionary<HtmlControlTypeEnum, string> ControlTypes
         {
             get
             {
-                return _webModel.TemplateData.TemplateID;
-            }
-            set
-            {
-                if (_webModel.TemplateData.TemplateID != value)
+                return new Dictionary<HtmlControlTypeEnum, string>()
                 {
-                    _webModel.TemplateData.TemplateID = value;
-                    DesignerDirty = true;
-                    NotifyPropertyChanged("TemplateID");
-                }
+                    { HtmlControlTypeEnum.Button, "Button" },
+                    { HtmlControlTypeEnum.Checkbox, "Checkbox" },
+                    { HtmlControlTypeEnum.Div, "Div" },
+                    { HtmlControlTypeEnum.Image, "Image" },
+                    { HtmlControlTypeEnum.Listbox, "Listbox" },
+                    { HtmlControlTypeEnum.Link, "Link" },
+                    { HtmlControlTypeEnum.None, "None" },
+                    { HtmlControlTypeEnum.Object, "Object" },
+                    { HtmlControlTypeEnum.Paragraph, "Paragraph" },
+                    { HtmlControlTypeEnum.Radiobutton, "Radio button" },
+                    { HtmlControlTypeEnum.Select, "Select" },
+                    { HtmlControlTypeEnum.Span, "Span" },
+                    { HtmlControlTypeEnum.Table, "Table" },
+                    { HtmlControlTypeEnum.Text, "Textbox" },
+                    { HtmlControlTypeEnum.Textarea, "Text area" },
+                };
             }
         }
 
-        public string Name
+        /// <summary>
+        /// Called on idle time. This is when we check if the designer is out of sync with the underlying text buffer.
+        /// </summary>
+        public void DoIdle()
         {
-            get
+            if (BufferDirty || DesignerDirty)
             {
-                if (!IsNameEnabled)
-                {
-                    return _webModel.TemplateData.Name.Package + " " + _webModel.TemplateData.Name.ID;
-                }
-                return _webModel.TemplateData.Name.Value;
-            }
-            set
-            {
-                if (_webModel.TemplateData.Name.Value != value)
-                {
-                    _webModel.TemplateData.Name.Value = value;
-                    DesignerDirty = true;
-                    NotifyPropertyChanged("Name");
-                }
-            }
-        }
+                int delay = 100;
 
-        public bool IsNameEnabled
-        {
-            get
-            {
-                // only enable if not associated with a package (guid)
-                return string.IsNullOrEmpty(_webModel.TemplateData.Name.Package);
-            }
-        }
-
-        public string Description
-        {
-            get
-            {
-                if (!IsDescriptionEnabled)
+                if ((Environment.TickCount - _dirtyTime) > delay)
                 {
-                    return _webModel.TemplateData.Description.Package + " " + _webModel.TemplateData.Description.ID;
-                }
-                return _webModel.TemplateData.Description.Value;
-            }
-            set
-            {
-                if (_webModel.TemplateData.Description.Value != value)
-                {
-                    _webModel.TemplateData.Description.Value = value;
-                    DesignerDirty = true;
-                    NotifyPropertyChanged("Description");
-                }
-            }
-        }
-
-        public bool IsDescriptionEnabled
-        {
-            get
-            {
-                // only enable if not associated with a package (guid)
-                return string.IsNullOrEmpty(_webModel.TemplateData.Description.Package);
-            }
-        }
-
-        public string Icon
-        {
-            get
-            {
-                if (!IsIconEnabled)
-                {
-                    return _webModel.TemplateData.Icon.Package + " " + _webModel.TemplateData.Icon.ID;
-                }
-                return _webModel.TemplateData.Icon.Value;
-            }
-            set
-            {
-                if (_webModel.TemplateData.Icon.Value != value)
-                {
-                    _webModel.TemplateData.Icon.Value = value;
-                    DesignerDirty = true;
-                    NotifyPropertyChanged("Icon");
-                }
-            }
-        }
-
-        public bool IsIconEnabled
-        {
-            get
-            {
-                // only enable if not associated with a package (guid)
-                return string.IsNullOrEmpty(_webModel.TemplateData.Icon.Package);
-            }
-        }
-
-
-        public string PreviewImage
-        {
-            get
-            {
-                return _webModel.TemplateData.PreviewImage;
-            }
-            set
-            {
-                if (_webModel.TemplateData.PreviewImage != value)
-                {
-                    _webModel.TemplateData.PreviewImage = value;
-                    DesignerDirty = true;
-                    NotifyPropertyChanged("PreviewImage");
-                }
-            }
-        }
-
-        public string ProjectType
-        {
-            get
-            {
-                return _webModel.TemplateData.ProjectType;
-            }
-            set
-            {
-                if (_webModel.TemplateData.ProjectType != value)
-                {
-                    _webModel.TemplateData.ProjectType = value;
-                    DesignerDirty = true;
-                    NotifyPropertyChanged("ProjectType");
-                }
-            }
-        }
-
-        public string ProjectSubType
-        {
-            get
-            {
-                return _webModel.TemplateData.ProjectSubType;
-            }
-            set
-            {
-                if (_webModel.TemplateData.ProjectSubType != value)
-                {
-                    _webModel.TemplateData.ProjectSubType = value;
-                    DesignerDirty = true;
-                    NotifyPropertyChanged("ProjectSubType");
-                }
-            }
-        }
-
-        public string DefaultName
-        {
-            get
-            {
-                return _webModel.TemplateData.DefaultName;
-            }
-            set
-            {
-                if (_webModel.TemplateData.DefaultName != value)
-                {
-                    _webModel.TemplateData.DefaultName = value;
-                    DesignerDirty = true;
-                    NotifyPropertyChanged("DefaultName");
-                }
-            }
-        }
-
-        public string GroupID
-        {
-            get
-            {
-                return _webModel.TemplateData.TemplateGroupID;
-            }
-            set
-            {
-                if (_webModel.TemplateData.TemplateGroupID != value)
-                {
-                    _webModel.TemplateData.TemplateGroupID = value;
-                    DesignerDirty = true;
-                    NotifyPropertyChanged("TemplateGroupID");
-                }
-            }
-        }
-
-        public string SortOrder
-        {
-            get
-            {
-                return _webModel.TemplateData.SortOrder;
-            }
-            set
-            {
-                if (_webModel.TemplateData.SortOrder != value)
-                {
-                    _webModel.TemplateData.SortOrder = value;
-                    DesignerDirty = true;
-                    NotifyPropertyChanged("SortOrder");
-                }
-            }
-        }
-
-        public string LocationFieldMRUPrefix
-        {
-            get
-            {
-                return _webModel.TemplateData.LocationFieldMRUPrefix;
-            }
-            set
-            {
-                if (_webModel.TemplateData.LocationFieldMRUPrefix != value)
-                {
-                    _webModel.TemplateData.LocationFieldMRUPrefix = value;
-                    DesignerDirty = true;
-                    NotifyPropertyChanged("LocationFieldMRUPrefix");
-                }
-            }
-        }
-
-        public bool ProvideDefaultName
-        {
-            get
-            {
-                return _webModel.TemplateData.ProvideDefaultName;
-            }
-            set
-            {
-                if (_webModel.TemplateData.ProvideDefaultName != value)
-                {
-                    // if we don't make sure the XML model knows this value is specified,
-                    // it won't save it (and it will get reset the next time we read the model)
-                    _webModel.TemplateData.ProvideDefaultNameSpecified = true;
-                    _webModel.TemplateData.ProvideDefaultName = value;
-                    DesignerDirty = true;
-                    NotifyPropertyChanged("ProvideDefaultName");
-                }
-            }
-        }
-
-        public bool CreateNewFolder
-        {
-            get
-            {
-                return _webModel.TemplateData.CreateNewFolder;
-            }
-            set
-            {
-                if (_webModel.TemplateData.CreateNewFolder != value)
-                {
-                    // if we don't make sure the XML model knows this value is specified,
-                    // it won't save it (and it will get reset the next time we read the model)
-                    _webModel.TemplateData.CreateNewFolderSpecified = true;
-                    _webModel.TemplateData.CreateNewFolder = value;
-                    DesignerDirty = true;
-                    NotifyPropertyChanged("CreateNewFolder");
-                }
-            }
-        }
-
-        public bool PromptForSaveOnCreation
-        {
-            get
-            {
-                return _webModel.TemplateData.PromptForSaveOnCreation;
-            }
-            set
-            {
-                if (_webModel.TemplateData.PromptForSaveOnCreation != value)
-                {
-                    // if we don't make sure the XML model knows this value is specified,
-                    // it won't save it (and it will get reset the next time we read the model)
-                    _webModel.TemplateData.PromptForSaveOnCreationSpecified = true;
-                    _webModel.TemplateData.PromptForSaveOnCreation = value;
-                    DesignerDirty = true;
-                    NotifyPropertyChanged("PromptForSaveOnCreation");
-                }
-            }
-        }
-
-        public bool Hidden
-        {
-            get
-            {
-                return _webModel.TemplateData.Hidden;
-            }
-            set
-            {
-                if (_webModel.TemplateData.Hidden != value)
-                {
-                    // if we don't make sure the XML model knows this value is specified,
-                    // it won't save it (and it will get reset the next time we read the model)
-                    _webModel.TemplateData.HiddenSpecified = true;
-                    _webModel.TemplateData.Hidden = value;
-                    DesignerDirty = true;
-                    NotifyPropertyChanged("Hidden");
-                }
-            }
-        }
-
-        public bool SupportsMasterPage
-        {
-            get
-            {
-                return _webModel.TemplateData.SupportsMasterPage;
-            }
-            set
-            {
-                if (_webModel.TemplateData.SupportsMasterPage != value)
-                {
-                    // if we don't make sure the XML model knows this value is specified,
-                    // it won't save it (and it will get reset the next time we read the model)
-                    _webModel.TemplateData.SupportsMasterPageSpecified = true;
-                    _webModel.TemplateData.SupportsMasterPage = value;
-                    DesignerDirty = true;
-                    NotifyPropertyChanged("SupportsMasterPage");
-                }
-            }
-        }
-
-        public bool SupportsCodeSeparation
-        {
-            get
-            {
-                return _webModel.TemplateData.SupportsCodeSeparation;
-            }
-            set
-            {
-                if (_webModel.TemplateData.SupportsCodeSeparation != value)
-                {
-                    // if we don't make sure the XML model knows this value is specified,
-                    // it won't save it (and it will get reset the next time we read the model)
-                    _webModel.TemplateData.SupportsCodeSeparationSpecified = true;
-                    _webModel.TemplateData.SupportsCodeSeparation = value;
-                    DesignerDirty = true;
-                    NotifyPropertyChanged("SupportsCodeSeparation");
-                }
-            }
-        }
-
-        public bool SupportsLanguageDropDown
-        {
-            get
-            {
-                return _webModel.TemplateData.SupportsLanguageDropDown;
-            }
-            set
-            {
-                if (_webModel.TemplateData.SupportsLanguageDropDown != value)
-                {
-                    // if we don't make sure the XML model knows this value is specified,
-                    // it won't save it (and it will get reset the next time we read the model)
-                    _webModel.TemplateData.SupportsLanguageDropDownSpecified = true;
-                    _webModel.TemplateData.SupportsLanguageDropDown = value;
-                    DesignerDirty = true;
-                    NotifyPropertyChanged("SupportsLanguageDropDown");
-                }
-            }
-        }
-
-        public bool IsLocationFieldSpecified
-        {
-            get
-            {
-                return _webModel.TemplateData.LocationFieldSpecified;
-            }
-        }
-
-        public VSTemplateTemplateDataLocationField LocationField
-        {
-            get
-            {
-                return _webModel.TemplateData.LocationField;
-            }
-            set
-            {
-                if (_webModel.TemplateData.LocationField != value)
-                {
-                    // if we don't make sure the XML model knows this value is specified,
-                    // it won't save it (and it will get reset the next time we read the model)
-                    _webModel.TemplateData.LocationFieldSpecified = true;
-                    _webModel.TemplateData.LocationField = value;
-                    DesignerDirty = true;
-                    NotifyPropertyChanged("LocationField");
-                }
-            }
-        }
-
-        public string WizardAssembly
-        {
-            get
-            {
-                if ((_webModel.WizardExtension != null) && (_webModel.WizardExtension.Count() == 1) && (_webModel.WizardExtension[0].Assembly.Count() == 1))
-                {
-                    return _webModel.WizardExtension[0].Assembly[0] as string;
-                }
-                return null;
-            }
-            set
-            {
-                // intentionally not implemented until the correct behavior is determined
-            }
-        }
-
-        public string WizardClassName
-        {
-            get
-            {
-                if ((_webModel.WizardExtension != null) && (_webModel.WizardExtension.Count() == 1) && (_webModel.WizardExtension[0].FullClassName.Count() == 1))
-                {
-                    return _webModel.WizardExtension[0].FullClassName[0] as string;
-                }
-                return null;
-            }
-            set
-            {
-                // intentionally not implemented until the correct behavior is determined
-            }
-        }
-
-        public string WizardData
-        {
-            get
-            {
-                string result = "";
-                if (_webModel.WizardData == null)
-                {
-                    return result;
-                }
-                foreach (var wizData in _webModel.WizardData)
-                {
-                    foreach (var xmlItem in wizData.Any)
+                    // Must not try and sync while XML editor is parsing otherwise we just confuse matters.
+                    if (IsXmlEditorParsing)
                     {
-                        result += xmlItem;
+                        _dirtyTime = Environment.TickCount;
+                        return;
+                    }
+
+                    //If there is contention, give the preference to the designer.
+                    if (DesignerDirty)
+                    {
+                        SaveModelToXmlModel(ResourceInfo.SynchronizeBuffer);
+                        //We don't do any merging, so just overwrite whatever was in the buffer.
+                        BufferDirty = false;
+                    }
+                    else if (BufferDirty)
+                    {
+                        LoadModelFromXmlModel();
                     }
                 }
-                return result;
-            }
-            set
-            {
-                // intentionally not implemented until the correct behavior is determined
             }
         }
 
-        #endregion
-#endif
+        /// <summary>
+        /// List of the controls
+        /// </summary>
+        public IEnumerable<HtmlControlViewModel> HtmlControls { get; set; }
 
-        #region IViewModel methods
 
         public string PageName
         {
@@ -965,6 +532,34 @@ namespace Microsoft.VsTemplateDesigner
                     _webModel.PageName = value;
                     DesignerDirty = true;
                     NotifyPropertyChanged("PageName");
+                }
+            }
+        }
+
+        public string PageTitle
+        {
+            get { return _webModel.PageInfo.PageTitle; }
+            set
+            {
+                if (_webModel.PageInfo.PageTitle != value)
+                {
+                    _webModel.PageInfo.PageTitle = value;
+                    DesignerDirty = true;
+                    NotifyPropertyChanged("PageTitle");
+                }
+            }
+        }
+
+        public string ClassName
+        {
+            get { return _webModel.PageInfo.Class; }
+            set
+            {
+                if (_webModel.PageInfo.Class != value)
+                {
+                    _webModel.PageInfo.Class = value;
+                    DesignerDirty = true;
+                    NotifyPropertyChanged("Class");
                 }
             }
         }
@@ -1026,10 +621,6 @@ namespace Microsoft.VsTemplateDesigner
             }
         }
 
-        public PageInfo PageInfo
-        {
-            get { return _webModel.PageInfo; }
-        }
         #endregion
 
         #region IDataErrorInfo
@@ -1094,7 +685,7 @@ namespace Microsoft.VsTemplateDesigner
 
                 public event PropertyChangedEventHandler PropertyChanged;
 
-                protected void NotifyPropertyChanged(string propertyName)
+                protected void NotifyPropertyChanged([CallerMemberName] string propertyName="")
                 {
                     if (PropertyChanged != null)
                     {
@@ -1120,7 +711,7 @@ namespace Microsoft.VsTemplateDesigner
                 private Microsoft.VisualStudio.Shell.SelectionContainer selContainer;
                 public void OnSelectChanged(object p)
                 {
-                    selContainer = new VisualStudio.Shell.SelectionContainer(true, false);
+                    selContainer = new Microsoft.VisualStudio.Shell.SelectionContainer(true, false);
                     ArrayList items = new ArrayList();
                     items.Add(p);
                     selContainer.SelectableObjects = items;

@@ -18,15 +18,6 @@ namespace SpecByExample.T4
         public PageInfo() { }
 
         /// <summary>
-        /// Url from which the HTML was loaded.
-        /// </summary>
-        public string Url
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
         /// String representation of the encoding used for this page.
         /// </summary>
         [XmlAttribute("Encoding")]

@@ -31,7 +31,6 @@ using EnvDTE;
 using ISysServiceProvider = System.IServiceProvider;
 using IOleServiceProvider = Microsoft.VisualStudio.OLE.Interop.IServiceProvider;
 using VSStd97CmdID = Microsoft.VisualStudio.VSConstants.VSStd97CmdID;
-using Microsoft.VsTemplateDesigner;
 
 namespace SpecByExample.WebmodelEditor
 {
@@ -44,7 +43,7 @@ namespace SpecByExample.WebmodelEditor
     public sealed class EditorPane : WindowPane, IOleComponent, IVsDeferredDocView, IVsLinkedUndoClient
     {
         #region Fields
-        private VsTemplateDesignerPackage _package;
+        private VsWebmodelDesignerPackage _package;
         private string _fileName = string.Empty;
         private VsWebmodelDesignerControl _vsDesignerControl;
         private IVsTextLines _textBuffer;
@@ -60,7 +59,7 @@ namespace SpecByExample.WebmodelEditor
         /// our initialization functions.
         /// </summary>
         /// <param name="package">Our Package instance.</param>
-        public EditorPane(VsTemplateDesignerPackage package, string fileName, IVsTextLines textBuffer)
+        public EditorPane(VsWebmodelDesignerPackage package, string fileName, IVsTextLines textBuffer)
             : base(null)
         {
             _package = package;

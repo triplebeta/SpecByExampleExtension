@@ -52,6 +52,9 @@
     </Content>
     <None Include="NuGet\CreateNuGetPackage.cmd" />
     <None Include="NuGet\SpecByExample.Common.nuspec" />
+    <Content Include="License.txt">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="packages\Castle.Core.3.3.3.nupkg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>

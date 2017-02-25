@@ -1,14 +1,4 @@
-﻿/***************************************************************************
-
-Copyright (c) Microsoft Corporation. All rights reserved.
-THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
-ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
-IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
-PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
-
-***************************************************************************/
-
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Globalization;
 using System.Runtime.InteropServices;
@@ -38,7 +28,7 @@ namespace SpecByExample.WebmodelEditor
     // Register the class as a Designer View in cooperation with the Xml Editor
     [ProvideXmlEditorChooserDesignerView("SpecByExampleWebmodelEditor", "webmodel", LogicalViewID.Designer, 0x60,
         DesignerLogicalViewEditor = typeof(EditorFactory),
-        Namespace = "http://schemas.microsoft.com/developer/vstemplate/2005",
+        Namespace = "http://specbyexample.triplebeta.nl/webmodel/2005",
         MatchExtensionAndNamespace = false)]
     // And which type of files we want to handle
     [ProvideEditorExtension(typeof(EditorFactory), EditorFactory.Extension, 0x40, NameResourceID = 106)]
@@ -58,7 +48,7 @@ namespace SpecByExample.WebmodelEditor
     // This attribute is needed to let the shell know that this package exposes some menus.
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [Guid(GuidList.guidVsTemplateDesignerPkgString)]
-    public sealed class VsTemplateDesignerPackage : Package
+    public sealed class VsWebmodelDesignerPackage : Package
     {
         /// <summary>
         /// Default constructor of the package.
@@ -67,7 +57,7 @@ namespace SpecByExample.WebmodelEditor
         /// not sited yet inside Visual Studio environment. The place to do all the other 
         /// initialization is the Initialize method.
         /// </summary>
-        public VsTemplateDesignerPackage()
+        public VsWebmodelDesignerPackage()
         {
             
         }
