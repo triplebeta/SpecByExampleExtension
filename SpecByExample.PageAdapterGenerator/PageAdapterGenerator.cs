@@ -109,7 +109,10 @@ namespace SpecByExample.PageAdapterGenerator
                 // Put all generated code back into one replacement parameter to inject it.
                 string pageObjectCode = T4Helper.TransformToCode(Dte, fullTemplateFile, model);
                 pageObjectCode = pageObjectCode.Trim();
-                generatedCode = T4Helper.ReplaceParametersInCode(pageObjectCode, model.CodePlaceholders.ReplacementDictionary);
+
+                var replacementDictionary = new Dictionary<string, string>();
+                model.Placeholders.ForEach(x=>replacementDictionary.Add(x.Name, x.Value));
+                generatedCode = T4Helper.ReplaceParametersInCode(pageObjectCode, replacementDictionary);
             }
             catch (FileNotFoundException ex)
             {

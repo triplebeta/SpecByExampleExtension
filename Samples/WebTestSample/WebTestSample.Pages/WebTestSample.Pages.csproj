@@ -66,35 +66,61 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModuleA\HomePage.PageAdapter.cs">
+    <Compile Include="ModuleA\MyPage1.PageAdapter.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HomePage.webmodel</DependentUpon>
+      <DependentUpon>MyPage1.webmodel</DependentUpon>
     </Compile>
-    <Compile Include="ModuleA\HomePage.Steps.cs">
-      <DependentUpon>HomePage.webmodel</DependentUpon>
+    <Compile Include="ModuleA\MyPage1.Steps.cs">
+      <DependentUpon>MyPage1.webmodel</DependentUpon>
     </Compile>
-    <Compile Include="ModuleA\RegisterAccount.PageAdapter.cs">
+    <Compile Include="ModuleA\Test3.PageAdapter.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RegisterAccount.webmodel</DependentUpon>
+      <DependentUpon>Test3.webmodel</DependentUpon>
     </Compile>
-    <Compile Include="ModuleA\RegisterAccount.Steps.cs">
-      <DependentUpon>RegisterAccount.webmodel</DependentUpon>
+    <Compile Include="ModuleA\Test3.Steps.cs">
+      <DependentUpon>Test3.webmodel</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleA\Test4.PageAdapter.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Test4.webmodel</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleA\Test4.Steps.cs">
+      <DependentUpon>Test4.webmodel</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleA\Test6.PageAdapter.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Test6.webmodel</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleA\Test6.Steps.cs">
+      <DependentUpon>Test6.webmodel</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="ModuleA\HomePage.webmodel">
+    <None Include="ModuleA\MyPage1.webmodel">
       <SubType>Xml</SubType>
       <Generator>PageAdapterGenerator</Generator>
-      <LastGenOutput>HomePage.PageAdapter.cs</LastGenOutput>
+      <LastGenOutput>MyPage1.PageAdapter.cs</LastGenOutput>
     </None>
-    <None Include="ModuleA\RegisterAccount.webmodel">
+    <None Include="ModuleA\Test3.webmodel">
       <SubType>Xml</SubType>
       <Generator>PageAdapterGenerator</Generator>
-      <LastGenOutput>RegisterAccount.PageAdapter.cs</LastGenOutput>
+      <LastGenOutput>Test3.PageAdapter.cs</LastGenOutput>
+    </None>
+    <None Include="ModuleA\Test4.webmodel">
+      <SubType>Xml</SubType>
+      <Generator>PageAdapterGenerator</Generator>
+      <LastGenOutput>Test4.PageAdapter.cs</LastGenOutput>
+    </None>
+    <None Include="ModuleA\Test6.webmodel">
+      <SubType>Xml</SubType>
+      <Generator>PageAdapterGenerator</Generator>
+      <LastGenOutput>Test6.PageAdapter.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Readme.html" />

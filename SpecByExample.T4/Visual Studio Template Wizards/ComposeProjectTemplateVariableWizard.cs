@@ -36,12 +36,11 @@ namespace SpecByExample.T4
 
 
         /// <summary>
-        ///  Create extra variables to use in the templates
+        ///  Main routine for the Project Template Wizard.
+        ///  This wizard does not have a UI, it's just used to create some variables to use in creating the files.
         /// </summary>
-        /// <param name="automationObject"></param>
+        /// <param name="automationObject">Reference to the Dte</param>
         /// <param name="replacementsDictionary">Key/Value pairs to inject contextual values.</param>
-        /// <param name="runKind"></param>
-        /// <param name="customParams"></param>
         public void RunStarted(object automationObject, Dictionary<string, string> replacementsDictionary, WizardRunKind runKind, object[] customParams)
         {
             // Get the full name
@@ -56,6 +55,7 @@ namespace SpecByExample.T4
                     rootname = safeProjectName.Substring(0, pos);
             }
 
+            // Configure teh replacement dictionary to use when creating the files of the project
             var dte = (_DTE)automationObject;
             var helper = new ReplacementDictionaryHelper(dte.GetRootNamespace(replacementsDictionary), replacementsDictionary);
             replacementsDictionary[PlaceholdersName.RootName] = rootname ?? safeProjectName;

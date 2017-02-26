@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using EnvDTE;
 using System.Text.RegularExpressions;
+using System.IO;
 
 namespace SpecByExample.T4
 {
@@ -31,7 +32,20 @@ namespace SpecByExample.T4
             dictionary = dict;
             RootNamespace = rootNamespace;
         }
-        
+
+        /// <summary>
+        /// Name of the codefile implementing page.
+        /// </summary>
+        internal string PageName
+        {
+            get
+            {
+                // Return the name of the current item
+                string pageName = (dictionary[PlaceholdersName.RootName] ?? "").Replace(".cs", "");
+                return pageName;
+            }
+        }
+
         /// <summary>
         /// Name of the codefile implementing the Steps.
         /// </summary>
@@ -46,19 +60,6 @@ namespace SpecByExample.T4
         public string SpecFlowFeatureClassname
         {
             get { return PageName + "Feature"; }
-        }
-
-        /// <summary>
-        /// Name of the codefile implementing page.
-        /// </summary>
-        internal string PageName
-        {
-            get
-            {
-                // Return the name of the current item
-                string pageName = (dictionary[PlaceholdersName.RootName] ?? "").Replace(".cs", "");
-                return pageName;
-            }
         }
 
         /// <summary>
@@ -84,19 +85,38 @@ namespace SpecByExample.T4
             set;
         }
 
-
         /// <summary>
-        /// Base projectname. First part of the projectname, like Google  in Google.Pages.
+        /// Base name of the project, like Google in the project filename: Google.Pages.csproj
+        /// This is the starting point for creating:
+        ///     Name of the base class for all PageAdapter classes
+        ///     .Specs project filename
         /// </summary>
-        internal string BaseName
-        {
+        public string BaseName {
             get
             {
-                // Define two additional replacement variables to use in the code files
-                // basepageclass: name of the base class to use when creating pages
-                string baseName = RootNamespace.Replace(".Pages", "").Replace(".", "_");
+                string baseName = RootNamespace;
+                if (RootNamespace.IndexOf(".Pages")>0) baseName = RootNamespace.Substring(0, RootNamespace.IndexOf(".Pages"));
+                if (String.IsNullOrEmpty(baseName)) baseName = RootNamespace.Substring(0, RootNamespace.IndexOf("."));
                 return baseName;
             }
+        }
+
+        /// <summary>
+        /// Use the full path of the new file and of the projectfile to find out the namespace of the new file.
+        /// </summary>
+        /// <param name="projectDir">Root directory of the project</param>
+        /// <param name="newFile">Full filename of the file to be created.</param>
+        /// <returns>The full default namespace for the new to be created file</returns>
+        internal string GetNamespaceForFile(string rootNamespace, string projectDir1, string newFile)
+        {
+            string newFilePath = Path.GetDirectoryName(newFile);
+            if (newFilePath.StartsWith(projectDir1) == false)
+                return rootNamespace; // Files are not in the same tree: just use the default namespace
+
+            string difference = newFilePath.Replace(projectDir1, "");
+            string suffix = difference.Replace('\\', '.').Trim(new[] {'.'});
+            if (rootNamespace.EndsWith(".") == false) rootNamespace += ".";
+            return rootNamespace + suffix;
         }
 
         /// <summary>
@@ -106,7 +126,8 @@ namespace SpecByExample.T4
         /// <returns>Name of the baseclass.</returns>
         internal string GetPageBaseclass(PageTemplatesEnum pageType)
         {
-            switch(pageType)
+            //var baseProjectName = RootNamespace.Replace(".", "_").Replace(".Pages", "");
+            switch (pageType)
             {
                 case PageTemplatesEnum.GenericPage: return String.Format("Base{0}Page", BaseName);
                 case PageTemplatesEnum.TablePage: return String.Format("Base{0}ListPage", BaseName);

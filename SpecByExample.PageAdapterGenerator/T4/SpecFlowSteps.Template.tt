@@ -5,11 +5,12 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechTalk.SpecFlow;
 using SpecByExample.Common;
-using $basename$.Pages;
+using $rootnamespace$;
+
 <#
 	var stepsClass = Settings.PageInfo.Class + "Steps";
 #>
-namespace $basename$.Specs
+namespace $rootnamespace$.Specs
 {
     [Binding]
     public partial class <#= stepsClass #> : BaseSeleniumSteps

@@ -24,6 +24,7 @@ namespace SpecByExample.T4
                 ControlIdentificationType.LinkText,
                 ControlIdentificationType.Cssclass };
             PageInfo = new PageInfo();
+            Placeholders = new List<Placeholder>();
 
             // Configure the default options
             CreateSpecFlowStepsFile = true;
@@ -51,9 +52,9 @@ namespace SpecByExample.T4
         /// <summary>
         /// Placeholder values to inject specific values that are available in the context of the T4 engine.
         /// </summary>
-        [XmlElement]
-        public CodePlaceholders CodePlaceholders { get; set; } = new CodePlaceholders();
-
+        [XmlArray("Placeholders"), XmlArrayItem(typeof(Placeholder), ElementName = "Placeholder")]
+        public List<Placeholder> Placeholders { get; set; }
+        
         /// <summary>
         /// Defines the scope for finding controls within the webpage.
         /// By default, it will search the complete document but you can change this
@@ -62,7 +63,7 @@ namespace SpecByExample.T4
         /// WITHIN that DIV. Use this when all your pages use the same masterpage with a
         /// menu structure. You can then just use the Div with the page-specific content.
         /// </summary>
-        [XmlElement]
+        [XmlAttribute]
         public string HtmlRootNodeXPath { get; set; }
 
         [XmlElement]

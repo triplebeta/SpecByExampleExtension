@@ -34,7 +34,7 @@ namespace SpecByExample.T4
         #region IWizard implementation
 
         // This method is called before opening any item that has the OpenInEditor attribute.
-        public void BeforeOpeningFile(ProjectItem projectItem)  { }
+        public void BeforeOpeningFile(ProjectItem projectItem) { }
         public void ProjectFinishedGenerating(Project project) { }
 
 
@@ -52,7 +52,8 @@ namespace SpecByExample.T4
             try
             {
                 dte = (_DTE)automationObject;
-                var helper = new ReplacementDictionaryHelper(dte.GetRootNamespace(replacementsDictionary), replacementsDictionary);
+                string rootNamespace = replacementsDictionary[PlaceholdersName.RootNamespace];
+                var helper = new ReplacementDictionaryHelper(rootNamespace, replacementsDictionary);
                 string vstemplateFile = (string)customParams[0];
                 string rootTemplatePath = Path.GetDirectoryName(vstemplateFile);
 
@@ -104,7 +105,7 @@ namespace SpecByExample.T4
                 }
 
                 // When configuration was properly loaded: Show the wizard
-                string safeItemName = replacementsDictionary["$safeitemname$"];
+                string safeItemName = replacementsDictionary[PlaceholdersName.SafeItemName];
                 settings = PageObjectWizardForm.ShowAndGetData(helper.PageName, safeItemName, config);
                 if (settings == null || settings.IsCancelled)
                     throw new WizardCancelledException("Wizard cancelled by the user.");
@@ -116,22 +117,27 @@ namespace SpecByExample.T4
                 serializerSettings.Indent = true;
                 serializerSettings.OmitXmlDeclaration = false;
 
+                // Make sure all values of the ReplacementDictionary are in the Placeholder property so they will be serialized to file.
+                AddReplacementVariablesForTemplates(helper, settings, replacementsDictionary, dte);
+                settings.Placeholders.Clear();
+                foreach (KeyValuePair<string, string> x in replacementsDictionary)
+                {
+                    // Only save certain elements as placeholders
+                    if (PlaceholdersName.KnownPlaceholders.Contains(x.Key))
+                        settings.Placeholders.Add(new Placeholder(x.Key, x.Value));
+                }
+
                 using (var textWriter = new StringWriter())
                 {
                     using (XmlWriter xmlWriter = XmlWriter.Create(textWriter, serializerSettings))
                     {
                         serializer.Serialize(xmlWriter, settings);
-
-                        // Replace placeholders
-                        AddReplacementVariablesForTemplates(settings, replacementsDictionary, dte);
-                        var webmodelXml = T4Helper.ReplaceParametersInCode(textWriter.ToString(), replacementsDictionary);
-
-                        replacementsDictionary.Add("$generatedmodel$", webmodelXml);
+                        replacementsDictionary.Add("$generatedmodel$", textWriter.ToString());
                     }
                 }
 
-                SpecsProjectName = helper.BaseName + ".Specs";
-                PagesProjectName = helper.BaseName + ".Pages";
+                SpecsProjectName = $"{helper.BaseName}.Specs";
+                PagesProjectName = $"{helper.BaseName}.Pages";
                 BasePageName = helper.PageName;
 
                 if (settings.CreateSpecFlowFeatureFile)
@@ -141,6 +147,9 @@ namespace SpecByExample.T4
                     if (!File.Exists(templateFile))
                         throw new WizardCancelledException($"T4 Template file '{t4Template}' not found in the installer package.\nCheck that the VSIX package is created correctly.");
 
+                    // ==========================================================================
+                    // Prepare the FeatureCode variable for use in ProjectItemFinishedGenerating
+                    // ==========================================================================
                     string partialFeatureCode = T4Helper.TransformToCode(dte, templateFile, settings);
                     FeatureCode = T4Helper.ReplaceParametersInCode(partialFeatureCode, replacementsDictionary);
                 }
@@ -154,7 +163,7 @@ namespace SpecByExample.T4
 
 
         /// <summary>
-        /// 
+        /// Post-processing
         /// </summary>
         /// <remarks>Invoked for Item Templates, not for Project Templates.</remarks>
         /// <param name="projectItem"></param>
@@ -169,6 +178,7 @@ namespace SpecByExample.T4
             string fullFilePath = Path.GetDirectoryName(projectItem.Properties.Item("FullPath").Value as string);
             string subdirectory = fullFilePath.Replace(fullPagesProjectPath, "").TrimStart(new char[] { '\\' });
 
+            // Create the Feature file by just adding a new file to the solution.
             if (settings.CreateSpecFlowFeatureFile)
             {
                 string featureFilename = BasePageName + "Feature.feature";
@@ -340,26 +350,22 @@ namespace SpecByExample.T4
         }
 
 #endregion
-
         
 #region Helpers to create the code
 
         /// <summary>
-        /// Adds new elements to the replacement dictionary to use in the templates
+        /// Adds new elements to the replacement dictionary to use in the templates.
         /// </summary>
         /// <param name="settings">Settings to use for the code generation.</param>
         /// <param name="replacementsDictionary">Replacement values</param>
         /// <param name="dte">Reference to the IDE</param>
-        public void AddReplacementVariablesForTemplates(CodeGenerationSettings settings, Dictionary<string, string> replacementsDictionary, _DTE dte)
+        public void AddReplacementVariablesForTemplates(ReplacementDictionaryHelper helper, CodeGenerationSettings settings, Dictionary<string, string> replacementsDictionary, _DTE dte)
         {
-            var helper = new ReplacementDictionaryHelper(dte.GetRootNamespace(replacementsDictionary), replacementsDictionary);
-
-            // Inject the generated code into the PageClassPlaceholder.txt file and rename it
             replacementsDictionary[PlaceholdersName.SpecFlowStepsClass] = helper.SpecFlowStepsClassname;
             replacementsDictionary[PlaceholdersName.TargetFilename] = helper.OutputFile;
             replacementsDictionary[PlaceholdersName.RootNamespace] = helper.RootNamespace;
-            replacementsDictionary[PlaceholdersName.Basename] = helper.BaseName;
             replacementsDictionary[PlaceholdersName.BasePageclass] = helper.GetPageBaseclass(settings.TypeOfPage);
+            replacementsDictionary[PlaceholdersName.Basename] = helper.BaseName;
             if (this.settings.TypeOfPage == PageTemplatesEnum.TablePage)
             {
                 replacementsDictionary[PlaceholdersName.EntityName] = settings.TableInfo.EntityName;

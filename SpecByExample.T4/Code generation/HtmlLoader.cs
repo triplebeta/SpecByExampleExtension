@@ -158,7 +158,6 @@ namespace SpecByExample.T4
 
             var titleNode = doc.DocumentNode.SelectSingleNode("//head/title");
             if (titleNode != null) info.PageTitle = titleNode.InnerText.Trim();
-            info.PageEncoding = doc.Encoding.ToString();
 
             return info;
         }

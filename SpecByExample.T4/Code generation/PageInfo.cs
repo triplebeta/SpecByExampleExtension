@@ -17,16 +17,6 @@ namespace SpecByExample.T4
         // Required for serialization
         public PageInfo() { }
 
-        /// <summary>
-        /// String representation of the encoding used for this page.
-        /// </summary>
-        [XmlAttribute("Encoding")]
-        public string PageEncoding
-        {
-            get;
-            set;
-        }
-
         [XmlAttribute(AttributeName="Title")]
         public string PageTitle
         {

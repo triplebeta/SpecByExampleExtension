@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<CodeGenerationSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" PageName="MyPage3" CreateSpecFlowStepsFile="true" HtmlRootNodeXPath="/">
+  <Url>http://specbyexamplesamplewebsite.azurewebsites.net/</Url>
+  <Placeholders>
+    <Placeholder Name="$rootname$" Value="MyPage3.cs" />
+    <Placeholder Name="$rootnamespace$" Value="WebTestSample.Pages" />
+    <Placeholder Name="$specflowstepsclass$" Value="MyPage3Steps" />
+    <Placeholder Name="$targetfilename$" Value="MyPage3.cs" />
+    <Placeholder Name="$basename$" Value="WebTestSample" />
+    <Placeholder Name="$basepageclass$" Value="BaseWebTestSamplePage" />
+  </Placeholders>
+  <PageInfo Title="Home Page - SpecByExample.SampleWebsite" Class="MyPage3">
+    <HtmlElements>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>navbar-brand</HtmlCssClass>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/div[1]/a[1]</HtmlXPath>
+        <InnerText>Home</InnerText>
+        <CodeControlName>HomeLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/a[1]</HtmlXPath>
+        <InnerText>About</InnerText>
+        <CodeControlName>AboutLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]</HtmlXPath>
+        <InnerText>Contact</InnerText>
+        <CodeControlName>ContactLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/div[2]/ul[2]/li[1]/a[1]</HtmlXPath>
+        <InnerText>Register</InnerText>
+        <CodeControlName>RegisterLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/div[2]/ul[2]/li[2]/a[1]</HtmlXPath>
+        <InnerText>Log in</InnerText>
+        <CodeControlName>LogInLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>btn btn-default</HtmlCssClass>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[1]/p[1]/a[1]</HtmlXPath>
+        <InnerText>Learn More</InnerText>
+        <CodeControlName>LearnMoreLink1</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>btn btn-default</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]/div[2]/div[1]/p[1]/a[1]</HtmlXPath>
+        <InnerText>Learn More</InnerText>
+        <CodeControlName>LearnMoreLink21</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>btn btn-default</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]/div[3]/div[1]/p[1]/a[1]</HtmlXPath>
+        <InnerText>Learn More</InnerText>
+        <CodeControlName>LearnMoreLink31</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>btn btn-default</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]/div[4]/div[1]/p[1]/a[1]</HtmlXPath>
+        <InnerText>Learn More</InnerText>
+        <CodeControlName>LearnMoreLink41</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>left carousel-control</HtmlCssClass>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/a[1]</HtmlXPath>
+        <InnerText>Previous</InnerText>
+        <CodeControlName>PreviousLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>right carousel-control</HtmlCssClass>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/a[2]</HtmlXPath>
+        <InnerText>Next</InnerText>
+        <CodeControlName>NextLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[1]/ul[1]/li[2]/a[1]</HtmlXPath>
+        <InnerText>Bower</InnerText>
+        <CodeControlName>BowerLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[1]/ul[1]/li[3]/a[1]</HtmlXPath>
+        <InnerText>Bootstrap</InnerText>
+        <CodeControlName>BootstrapLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[2]/ul[1]/li[1]/a[1]</HtmlXPath>
+        <InnerText>Add a Controller and View</InnerText>
+        <CodeControlName>AddAControllerAndViewLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <IdentifiedBy>LinkText</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[2]/ul[1]/li[2]/a[1]</HtmlXPath>
+        <InnerText>Add an appsetting in config and access it in app.</InnerText>
+        <CodeControlName>AddAnAppsettingInConfigAndAccessItInAppLink</CodeControlName>
+        <CodeControlType>Link</CodeControlType>
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>navbar-toggle</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/div[1]/button[1]</HtmlXPath>
+        <InnerText>Toggle navigation</InnerText>
+        <CodeControlName>ToggleNavigationButton</CodeControlName>
+        <CodeControlType>Button</CodeControlType>
+        <HtmlControlType>Button</HtmlControlType>
+      </HtmlControlInfo>
+    </HtmlElements>
+    <HtmlContainers>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/</HtmlXPath>
+        <InnerText />
+        <CodeControlName />
+        <HtmlControlType>Link</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>navbar navbar-inverse navbar-fixed-top</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]</HtmlXPath>
+        <InnerText />
+        <CodeControlName>Div1</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>container</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]</HtmlXPath>
+        <InnerText />
+        <CodeControlName>Div21</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>navbar-header</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/div[1]</HtmlXPath>
+        <InnerText />
+        <CodeControlName>Div31</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>navbar-collapse collapse</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[1]/div[1]/div[2]</HtmlXPath>
+        <InnerText />
+        <CodeControlName>Div41</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>MainPageContent</HtmlId>
+        <HtmlCssClass>container body-content</HtmlCssClass>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]</HtmlXPath>
+        <InnerText />
+        <CodeControlName>MainPageContentDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlId>myCarousel</HtmlId>
+        <HtmlCssClass>carousel slide</HtmlCssClass>
+        <IdentifiedBy>Id</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]</HtmlXPath>
+        <InnerText />
+        <CodeControlName>MyCarouselDiv</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>carousel-inner</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]</HtmlXPath>
+        <InnerText />
+        <CodeControlName>Div51</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>item active</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]</HtmlXPath>
+        <InnerText />
+        <CodeControlName>Div61</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>carousel-caption</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[1]</HtmlXPath>
+        <InnerText />
+        <CodeControlName>Div71</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>item</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]/div[2]</HtmlXPath>
+        <InnerText />
+        <CodeControlName>Div81</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>carousel-caption</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]/div[2]/div[1]</HtmlXPath>
+        <InnerText />
+        <CodeControlName>Div91</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>item</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]/div[3]</HtmlXPath>
+        <InnerText />
+        <CodeControlName>Div101</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>carousel-caption</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]/div[3]/div[1]</HtmlXPath>
+        <InnerText />
+        <CodeControlName>Div111</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>item</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]/div[4]</HtmlXPath>
+        <InnerText />
+        <CodeControlName>Div121</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>carousel-caption</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[1]/div[1]/div[4]/div[1]</HtmlXPath>
+        <InnerText />
+        <CodeControlName>Div131</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>row</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]</HtmlXPath>
+        <InnerText />
+        <CodeControlName>Div141</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>true</GenerateCodeForThisItem>
+        <HtmlCssClass>col-md-6</HtmlCssClass>
+        <IdentifiedBy>Cssclass</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[1]</HtmlXPath>
+        <InnerText />
+        <CodeControlName>Div151</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+      <HtmlControlInfo>
+        <GenerateCodeForThisItem>false</GenerateCodeForThisItem>
+        <HtmlCssClass>col-md-6</HtmlCssClass>
+        <IdentifiedBy>None</IdentifiedBy>
+        <HtmlXPath>/html[1]/body[1]/div[2]/div[2]/div[2]</HtmlXPath>
+        <InnerText />
+        <CodeControlName>Div161</CodeControlName>
+        <CodeControlType>Div</CodeControlType>
+        <HtmlControlType>Div</HtmlControlType>
+      </HtmlControlInfo>
+    </HtmlContainers>
+  </PageInfo>
+  <Options>
+    <PreferredIdentifications>
+      <ControlIdentificationType>Id</ControlIdentificationType>
+      <ControlIdentificationType>Name</ControlIdentificationType>
+      <ControlIdentificationType>LinkText</ControlIdentificationType>
+      <ControlIdentificationType>Cssclass</ControlIdentificationType>
+    </PreferredIdentifications>
+    <ExcludeNonUniqueControls>true</ExcludeNonUniqueControls>
+  </Options>
+  <TypeOfPage>GenericPage</TypeOfPage>
+</CodeGenerationSettings>

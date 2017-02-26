@@ -73,6 +73,11 @@ namespace SpecByExample.WebmodelEditor
             if (ViewModel != null) ViewModel.DesignerDirty = true;
         }
 
+        private void SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ViewModel != null) ViewModel.DesignerDirty = true;
+        }
+
         #endregion
     }
 }
