@@ -21,7 +21,7 @@ namespace SpecByExample.T4
         /// <summary>
         /// Statebag for Wizard properties. Use it to store the values the user entered on the pages.
         /// </summary>
-        public CodeGenerationSettings WizardState;
+        public PageAdapterWizardViewModel WizardState;
 
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace SpecByExample.T4
             next = nextButton;
             wizard = wizardControl;
             WizardConfig = config;
-            WizardState = new CodeGenerationSettings();
+            WizardState = new PageAdapterWizardViewModel();
 
             bool designMode = (LicenseManager.UsageMode == LicenseUsageMode.Designtime);
             if (designMode == false)

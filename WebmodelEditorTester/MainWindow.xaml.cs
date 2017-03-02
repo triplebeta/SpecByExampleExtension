@@ -31,7 +31,7 @@ namespace WebmodelEditorTester
             InitializeComponent();
         }
 
-        private CodeGenerationSettings InternalModel;
+        private PageInfo InternalModel;
 
         public IEditorViewModel ViewModel { get; set; }
 
@@ -56,17 +56,16 @@ namespace WebmodelEditorTester
         }
 
 
-        private CodeGenerationSettings LoadInternalModel()
+        private PageInfo LoadInternalModel()
         {
             // Load the data
-            var codeGenerationSettings = new CodeGenerationSettings();
-            codeGenerationSettings.PageName = "TestPage";
-            codeGenerationSettings.HtmlRootNodeXPath = "/";
-            codeGenerationSettings.Url = "http://www.mytestpage.org";
-            codeGenerationSettings.CreateSpecFlowFeatureFile = true;
-            codeGenerationSettings.PageInfo.Class = "TestClass";
-            codeGenerationSettings.PageInfo.PageTitle = "TestTitle";
-            codeGenerationSettings.PageInfo.HtmlElements = new List<HtmlControlInfo>
+            var model = new PageInfo();
+            model.PageName = "TestPage";
+            model.HtmlRootNodeXPath = "/";
+            model.Url = "http://www.mytestpage.org";
+            model.Class = "TestClass";
+            model.PageTitle = "TestTitle";
+            model.HtmlElements = new List<HtmlControlInfo>
             {
                 new HtmlControlInfo() { HtmlTitle="Home link", HtmlXPath="/body/a", HtmlId="link1", HtmlControlType=HtmlControlTypeEnum.Link, CodeControlType="Link", IdentifiedBy=ControlIdentificationType.Id },
                 new HtmlControlInfo() { HtmlTitle="Start", HtmlXPath="/body/div/div/input", HtmlId="btnStart", HtmlControlType=HtmlControlTypeEnum.Button, CodeControlType= "Button1", IdentifiedBy=ControlIdentificationType.LinkText },
@@ -74,14 +73,14 @@ namespace WebmodelEditorTester
                 new HtmlControlInfo() { HtmlTitle="BooSpan", HtmlXPath="/body/div/div/span", HtmlId="spanX", HtmlCssClass="topSpan", HtmlControlType=HtmlControlTypeEnum.Span, CodeControlType="Span", IdentifiedBy=ControlIdentificationType.Cssclass },
                 new HtmlControlInfo() { HtmlTitle="Choose", HtmlXPath="/body/div/div/select", HtmlId="listSelect", HtmlControlType=HtmlControlTypeEnum.Select, CodeControlType="Select3" }
             };
-            return codeGenerationSettings;
+            return model;
         }
 
-        private CodeGenerationSettings LoadModelFromFile(string filename)
+        private PageInfo LoadModelFromFile(string filename)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(CodeGenerationSettings));
+            XmlSerializer serializer = new XmlSerializer(typeof(PageInfo));
             TextReader textReader = new StreamReader(filename);
-            var model = (CodeGenerationSettings)serializer.Deserialize(textReader);
+            var model = (PageInfo)serializer.Deserialize(textReader);
             textReader.Close();
             return model;
         }

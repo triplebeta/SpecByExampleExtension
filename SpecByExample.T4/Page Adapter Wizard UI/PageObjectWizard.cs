@@ -41,9 +41,9 @@ namespace SpecByExample.T4
             if (pageName != null)
             {
                 // Use the name entered by the user as the pagename and make sure it ends with Page
-                WizardController.WizardState.PageName = pageName;
+                WizardController.WizardState.PageInfo.PageName = pageName;
                 if (Regex.IsMatch(pageName, "Page[0-9]*$", RegexOptions.IgnoreCase)==false)
-                    WizardController.WizardState.PageName = pageName + "Page";
+                    WizardController.WizardState.PageInfo.PageName = pageName + "Page";
             }
         }
 
@@ -62,19 +62,18 @@ namespace SpecByExample.T4
         /// Show the dialog and get its settings.
         /// </summary>
         /// <returns>An entity with the settings, or null if cancelled.</returns>
-        public static CodeGenerationSettings ShowAndGetData(string pageName, string safeItemName, WizardConfiguration config)
+        public static PageAdapterWizardViewModel ShowAndGetData(string pageName, string safeItemName, WizardConfiguration config)
         {
             // Create and show the dialog
             var dialog = new PageObjectWizardForm(pageName, safeItemName, config);
             dialog.ShowDialog();
 
-            // For each control, generate a private field and decorate it with an attribute to access the item by its ID
-            // Then, generate a public property to wrap it in a control instance.
-            var settings = dialog.WizardController.WizardState;
-
             // Stop the transformation if not OK
             dialog.WizardController.WizardState.IsCancelled = (dialog.IsOke == false);
-            return settings;
+
+            // For each control, generate a private field and decorate it with an attribute to access the item by its ID
+            // Then, generate a public property to wrap it in a control instance.
+            return dialog.WizardController.WizardState;
         }
 
 

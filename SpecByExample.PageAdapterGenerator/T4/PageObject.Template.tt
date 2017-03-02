@@ -29,10 +29,10 @@ if (Settings.TypeOfPage == PageTemplatesEnum.GenericPage)
     /// Implements the <seealso cref="https://code.google.com/p/selenium/wiki/PageObjects">PageObject</seealso> for <#= Settings.PageName #>.
     /// </summary>
 	/// <remarks>Generated using the T4 tempate.</remarks>
-    public partial class <#= Settings.PageInfo.Class #> : $basepageclass$
+    public partial class <#= Settings.Class #> : $basepageclass$
     {
-        public <#= Settings.PageInfo.Class #>(IWindsorContainer container, IWebDriver driver)
-            : base(container, driver, "<#=Settings.PageInfo.PageTitle.Trim() #>", null)
+        public <#= Settings.Class #>(IWindsorContainer container, IWebDriver driver)
+            : base(container, driver, "<#=Settings.PageTitle.Trim() #>", null)
         {
             // Nothing to do here
         }
@@ -44,9 +44,9 @@ if (Settings.TypeOfPage == PageTemplatesEnum.GenericPage)
     /// Table Page Adapter for <#= Settings.PageName #>.
     /// </summary>
 	/// <remarks>Generated using the T4 tempate.</remarks>
-    public class <#= Settings.PageInfo.Class #> : $basepageclass$<$entityname$Columns>
+    public class <#= Settings.Class #> : $basepageclass$<$entityname$Columns>
     {
-		public <#= Settings.PageInfo.Class #>(IWindsorContainer container, IWebDriver driver)
+		public <#= Settings.Class #>(IWindsorContainer container, IWebDriver driver)
             : base(container, driver)
         {
             // Nothing to do here
@@ -61,8 +61,8 @@ if (Settings.TypeOfPage == PageTemplatesEnum.GenericPage)
 <# } #>
 }
 <#+
-    CodeGenerationSettings Settings
+    PageInfo Settings
     {
-        get { return (CodeGenerationSettings)CallContext.GetData("PageObject.Settings"); }
+        get { return (PageInfo)CallContext.GetData("PageObject.Settings"); }
     }
 #>

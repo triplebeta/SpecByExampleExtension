@@ -1,6 +1,6 @@
 ﻿<#  
 	// Show a list of all excluded items
-	var excludedItems = Settings.PageInfo.HtmlElements.Where(x=>x.GenerateCodeForThisItem==false);
+	var excludedItems = Settings.HtmlElements.Where(x=>x.GenerateCodeForThisItem==false);
 	if (excludedItems.Count()>0)
 	{ 
 		WriteLine("\t\t/* For the following controls we did not generate code since they could not be uniquely identified");
@@ -18,7 +18,7 @@
 // Disable warning for: Field XYZ is never assigned to, and will always have its default value XX
 #pragma warning disable 0649
 <#
-foreach(var node in Settings.PageInfo.HtmlElements) {
+foreach(var node in Settings.HtmlElements) {
 
 	// Only  create code for selected nodes
 	if (node.GenerateCodeForThisItem==false)
@@ -49,7 +49,7 @@ foreach(var node in Settings.PageInfo.HtmlElements) {
 /* For a TablePage: do not create the WebTable control since it will be created lateron */
 string tableToExclude = null;
 if (Settings.TableInfo!=null) tableToExclude = Settings.TableInfo.TableControlName;
-foreach(var node in Settings.PageInfo.HtmlElements)
+foreach(var node in Settings.HtmlElements)
 {
 	// Only  create code for nodes we want to have
 	if (node.GenerateCodeForThisItem==false)

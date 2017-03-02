@@ -75,23 +75,23 @@ namespace SpecByExample.T4.Wizard
             set;
         }
 
-        public void LoadState(CodeGenerationSettings container)
+        public void LoadState(PageAdapterWizardViewModel container)
         {
-            bool isTablePage = (container.TypeOfPage == PageTemplatesEnum.TablePage);
-            PageUrl = container.Url;
+            bool isTablePage = (container.PageInfo.TypeOfPage == PageTemplatesEnum.TablePage);
+            PageUrl = container.PageInfo.Url;
             ToggleTableFields(isTablePage);
         }
 
 
-        public void SaveState(CodeGenerationSettings container)
+        public void SaveState(PageAdapterWizardViewModel container)
         {
             if (chkCreateTableWrapper.Checked)
             {
-                container.TypeOfPage = PageTemplatesEnum.TablePage;
-                container.TableInfo = ComposeTableInfo();
+                container.PageInfo.TypeOfPage = PageTemplatesEnum.TablePage;
+                container.PageInfo.TableInfo = ComposeTableInfo();
             }
             else
-                container.TypeOfPage = PageTemplatesEnum.GenericPage;
+                container.PageInfo.TypeOfPage = PageTemplatesEnum.GenericPage;
         }
 
         public bool ValidateInput()

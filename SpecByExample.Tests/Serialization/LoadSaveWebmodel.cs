@@ -66,9 +66,9 @@ namespace SpecByExample.Selenium.Tests.Serialization
         public void SaveModel()
         {
             string newModel = @"c:\temp\model.xml";
-            var state = new CodeGenerationSettings();
+            var state = new PageAdapterWizardViewModel();
 
-            XmlSerializer serializer = new XmlSerializer(typeof(CodeGenerationSettings));
+            XmlSerializer serializer = new XmlSerializer(typeof(PageAdapterWizardViewModel));
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Encoding = new UnicodeEncoding(false, false); // no BOM in a .NET string
             settings.Indent = true;
@@ -88,9 +88,9 @@ namespace SpecByExample.Selenium.Tests.Serialization
         {
             // Read model it back into an object...
             string file = @"c:\temp\model.xml";
-            XmlSerializer deserializer = new XmlSerializer(typeof(CodeGenerationSettings));
+            XmlSerializer deserializer = new XmlSerializer(typeof(PageAdapterWizardViewModel));
             TextReader textReader = new StreamReader(file);
-            var state = (CodeGenerationSettings)deserializer.Deserialize(textReader);
+            var state = (PageAdapterWizardViewModel)deserializer.Deserialize(textReader);
             textReader.Close();
         }
     }

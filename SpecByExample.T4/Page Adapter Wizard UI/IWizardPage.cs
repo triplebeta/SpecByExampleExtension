@@ -19,13 +19,13 @@ namespace SpecByExample.T4.Wizard
         /// Allows the page to load its state from a statebag. 
         /// </summary>
         /// <param name="container">Container from which to load the values.</param>
-        void LoadState(CodeGenerationSettings container);
+        void LoadState(PageAdapterWizardViewModel container);
 
         /// <summary>
         /// Allows the page to save its state to a statebag. 
         /// </summary>
         /// <param name="container">Container to fill.</param>
-        void SaveState(CodeGenerationSettings container);
+        void SaveState(PageAdapterWizardViewModel container);
 
         /// <summary>
         /// Validate the content of this page

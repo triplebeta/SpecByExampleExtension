@@ -40,7 +40,7 @@ namespace WizardTester
                     Application.Run(dialog);
 
                     string newModel = @"c:\temp\model.xml";
-                    XmlSerializer serializer = new XmlSerializer(typeof(CodeGenerationSettings));
+                    XmlSerializer serializer = new XmlSerializer(typeof(PageAdapterWizardViewModel));
                     XmlWriterSettings settings = new XmlWriterSettings();
                     settings.Encoding = new UnicodeEncoding(false, false); // no BOM in a .NET string
                     settings.Indent = true;

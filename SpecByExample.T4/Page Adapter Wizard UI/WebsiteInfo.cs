@@ -22,21 +22,21 @@ namespace SpecByExample.T4.Wizard_pages
             set;
         }
 
-        public void LoadState(CodeGenerationSettings container)
+        public void LoadState(PageAdapterWizardViewModel container)
         {
-            PageUrl = container.Url;
+            PageUrl = container.PageInfo.Url;
             ActiveControl = txtUrl;
             pageInfo = container.PageInfo;  // Take a reference to this property so we can work with it.
             ExcludeNonUniqueControls = container.Options.ExcludeNonUniqueControls;
         }
 
-        public void SaveState(CodeGenerationSettings container)
+        public void SaveState(PageAdapterWizardViewModel container)
         {
             // Only when the url changes (going back and forth in the wizard) we must update
             // the collection of selected HTML controls.
-            if (String.Equals(container.Url, PageUrl,StringComparison.InvariantCultureIgnoreCase) == false)
+            if (String.Equals(container.PageInfo.Url, PageUrl,StringComparison.InvariantCultureIgnoreCase) == false)
             {
-                container.Url = PageUrl;
+                container.PageInfo.Url = PageUrl;
                 container.Options.ExcludeNonUniqueControls = ExcludeNonUniqueControls;
             }
         }

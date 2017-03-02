@@ -1,0 +1,59 @@
+<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Windows.Forms" #>
+<#@ import namespace="System.Windows.Forms" #>
+<#@ import namespace="System.Runtime.Remoting.Messaging" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="SpecByExample.T4" #>
+<#@ parameter type="SpecByExample.T4.PageInfo" name="WizardSettings" #>
+<#  // We must have settings for how to generate the code
+	// These settings can be passed in as a parameter but if not available, the template will ask for them.
+
+	// We support two ways to get data to this template:
+	// - using a parameter		Used when this template gets invoked by the wizard
+	// - using a session		When the template gets invoked from another template
+	var mySettings = WizardSettings;
+	if (mySettings==null && Session.ContainsKey("WizardSettings"))
+		mySettings = (SpecByExample.T4.PageInfo) Session["WizardSettings"];
+
+	InitializeHtmlSettings(mySettings);
+    try 
+    { #>
+<#@ include file="PageObject.Template.tt" #>
+<#
+    }
+    catch (Exception ex)
+    {
+		WriteLine("/* Fail: " + ex.Message + " */");
+    }
+#><#+
+	/// <summary>
+	/// This template can be started in 2 ways:
+	///   - from the Wizard (after installing the VSIX)
+	///   - directly from within this project (from the Tester template, for testing only)
+	/// For each of these situations, the path to the included assemblies is different.
+	/// In the former case, we need to include the assembly references to local assembly files.
+	/// In the latter case, the Tester template already included the reference so we must not include them here.
+	/// </summary>
+	bool IsStartedFromWizard
+	{
+		get { return (WizardSettings!=null); }
+	}
+
+	/// <summary>
+	/// Initialize the settings to use for code generation
+	/// </summary>
+	void InitializeHtmlSettings(PageInfo settings)
+    {
+		// Load the HTML page source
+		if (settings==null)
+		{
+			WriteLine("/* Settings are null */");
+			return;
+        }
+
+		// Pass parameters to the appropriate T4 template
+		CallContext.SetData("PageObject.Settings", settings);
+    }
+#>

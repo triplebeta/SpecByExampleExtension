@@ -152,12 +152,12 @@ namespace SpecByExample.T4.Wizard
             set;
         }
 
-        public void LoadState(CodeGenerationSettings container)
+        public void LoadState(PageAdapterWizardViewModel container)
         {
             IsSaved = false;
 
             // Remember the rootnode for the scope
-            pageUrl = container.Url;
+            pageUrl = container.PageInfo.Url;
             options = container.Options;
 
             // Fill the list of containers
@@ -172,13 +172,13 @@ namespace SpecByExample.T4.Wizard
             currentlySelectedControls = new List<HtmlControlInfo>();
             currentlySelectedControls.AddRange(allSelectableControls.Where(x => x.GenerateCodeForThisItem));
 
-            LoadAndSelectHtmlControls(currentlySelectedControls,container.HtmlRootNodeXPath);
+            LoadAndSelectHtmlControls(currentlySelectedControls,container.PageInfo.HtmlRootNodeXPath);
         }
 
 
-        public void SaveState(CodeGenerationSettings container)
+        public void SaveState(PageAdapterWizardViewModel container)
         {
-            container.HtmlRootNodeXPath = HtmlRootNodeXPath;
+            container.PageInfo.HtmlRootNodeXPath = HtmlRootNodeXPath;
             IsSaved = true;
         }
 

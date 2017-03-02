@@ -68,7 +68,7 @@ namespace SpecByExample.WebmodelEditor
 
         XmlModel _xmlModel;
         XmlStore _xmlStore;
-        CodeGenerationSettings _webModel;
+        PageInfo _webModel;
 
         IServiceProvider _serviceProvider;
         IVsTextLines _buffer;
@@ -78,6 +78,7 @@ namespace SpecByExample.WebmodelEditor
         EventHandler<XmlEditingScopeEventArgs> _editingScopeCompletedHandler;
         EventHandler<XmlEditingScopeEventArgs> _undoRedoCompletedHandler;
         EventHandler _bufferReloadedHandler;
+        bool _createSpecFlowFeatureFile = false;
 
         LanguageService _xmlLanguageService;
 
@@ -163,9 +164,9 @@ namespace SpecByExample.WebmodelEditor
             try
             {
                 // Load the model
-                XmlSerializer deserializer = new XmlSerializer(typeof(CodeGenerationSettings));
+                XmlSerializer deserializer = new XmlSerializer(typeof(PageInfo));
                 XmlReader textReader = GetParseTree().CreateReader();
-                _webModel = (CodeGenerationSettings)deserializer.Deserialize(textReader);
+                _webModel = (PageInfo)deserializer.Deserialize(textReader);
                 textReader.Close();
             }
             catch (Exception e)
@@ -180,7 +181,7 @@ namespace SpecByExample.WebmodelEditor
             }
 
             // Wrap the Html controls
-            HtmlControls = HtmlControlViewModel.Load(_webModel.PageInfo.HtmlElements);
+            HtmlControls = HtmlControlViewModel.Load(_webModel.HtmlElements);
             BufferDirty = false;
 
             if (ViewModelChanged != null)
@@ -286,7 +287,7 @@ namespace SpecByExample.WebmodelEditor
                     throw new Exception();
                 }
                 
-                XmlSerializer serializer = new XmlSerializer(typeof(CodeGenerationSettings));
+                XmlSerializer serializer = new XmlSerializer(typeof(PageAdapterWizardViewModel));
                 XDocument documentFromDesignerState = new XDocument();
                 using (XmlWriter w = documentFromDesignerState.CreateWriter())
                 {
@@ -538,12 +539,12 @@ namespace SpecByExample.WebmodelEditor
 
         public string PageTitle
         {
-            get { return _webModel.PageInfo.PageTitle; }
+            get { return _webModel.PageTitle; }
             set
             {
-                if (_webModel.PageInfo.PageTitle != value)
+                if (_webModel.PageTitle != value)
                 {
-                    _webModel.PageInfo.PageTitle = value;
+                    _webModel.PageTitle = value;
                     DesignerDirty = true;
                     NotifyPropertyChanged("PageTitle");
                 }
@@ -552,12 +553,12 @@ namespace SpecByExample.WebmodelEditor
 
         public string ClassName
         {
-            get { return _webModel.PageInfo.Class; }
+            get { return _webModel.Class; }
             set
             {
-                if (_webModel.PageInfo.Class != value)
+                if (_webModel.Class != value)
                 {
-                    _webModel.PageInfo.Class = value;
+                    _webModel.Class = value;
                     DesignerDirty = true;
                     NotifyPropertyChanged("Class");
                 }
@@ -609,12 +610,12 @@ namespace SpecByExample.WebmodelEditor
 
         public bool CreateSpecFlowFeatureFile
         {
-            get { return _webModel.CreateSpecFlowFeatureFile; }
+            get { return _createSpecFlowFeatureFile; }
             set
             {
-                if (_webModel.CreateSpecFlowFeatureFile != value)
+                if (_createSpecFlowFeatureFile != value)
                 {
-                    _webModel.CreateSpecFlowFeatureFile = value;
+                    _createSpecFlowFeatureFile = value;
                     DesignerDirty = true;
                     NotifyPropertyChanged("CreateSpecFlowFeatureFile");
                 }

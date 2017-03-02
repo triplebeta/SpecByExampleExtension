@@ -6,6 +6,5 @@
   <ImportGroup>
     <Import Project="$(NuGetPackageRoot)microsoft.visualstudio.sdk.embedinteroptypes\14.1.2\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.visualstudio.sdk.embedinteroptypes\14.1.2\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.visualstudio.sdk.vsixsuppression\14.0.50420-pre\build\Microsoft.VisualStudio.SDK.VsixSuppression.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.visualstudio.sdk.vsixsuppression\14.0.50420-pre\build\Microsoft.VisualStudio.SDK.VsixSuppression.targets')" />
-    <Import Project="$(NuGetPackageRoot)microsoft.vssdk.buildtools\14.0.23205\build\Microsoft.VSSDK.BuildTools.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.vssdk.buildtools\14.0.23205\build\Microsoft.VSSDK.BuildTools.targets')" />
   </ImportGroup>
 </Project>

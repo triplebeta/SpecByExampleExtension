@@ -2,7 +2,7 @@
 
         protected override ITableMappingDefinition<$entityname$Columns> CreateTableMapping()
         {
-            return new <#= Settings.PageInfo.Class #>TableMappingDefinition();
+            return new <#= Settings.Class #>TableMappingDefinition();
         }
 
         protected override List<$entityname$Columns> CreateListOfColumns()

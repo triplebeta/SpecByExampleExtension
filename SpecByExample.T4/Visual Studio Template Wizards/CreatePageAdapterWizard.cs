@@ -19,7 +19,8 @@ namespace SpecByExample.T4
     public class CreatePageAdapterWizard : IWizard
     {
         // Add items only if the wizard is completed successfully
-        private CodeGenerationSettings settings = null;
+        private PageInfo settings = null;
+        private bool _createSpecFlowFeatureFile = false;
         const string WIZARD_CONFIG_FILENAME = "ControlAdapterMapping.config";
 
         // Declare a set of variables to remember some values when enterin ProjectItemFinishedGenerating
@@ -106,12 +107,16 @@ namespace SpecByExample.T4
 
                 // When configuration was properly loaded: Show the wizard
                 string safeItemName = replacementsDictionary[PlaceholdersName.SafeItemName];
-                settings = PageObjectWizardForm.ShowAndGetData(helper.PageName, safeItemName, config);
-                if (settings == null || settings.IsCancelled)
+                var model = PageObjectWizardForm.ShowAndGetData(helper.PageName, safeItemName, config);
+                if (model.IsCancelled)
                     throw new WizardCancelledException("Wizard cancelled by the user.");
 
+                // Keep a reference to the page info
+                settings = model.PageInfo;
+                _createSpecFlowFeatureFile = model.CreateSpecFlowFeatureFile;
+
                 // New implementation: Save the full model instead of the generated code
-                XmlSerializer serializer = new XmlSerializer(typeof(CodeGenerationSettings));
+                XmlSerializer serializer = new XmlSerializer(typeof(PageInfo));
                 XmlWriterSettings serializerSettings = new XmlWriterSettings();
                 serializerSettings.Encoding = new UnicodeEncoding(false, false); // no BOM in a .NET string
                 serializerSettings.Indent = true;
@@ -140,7 +145,7 @@ namespace SpecByExample.T4
                 PagesProjectName = $"{helper.BaseName}.Pages";
                 BasePageName = helper.PageName;
 
-                if (settings.CreateSpecFlowFeatureFile)
+                if (model.CreateSpecFlowFeatureFile)
                 {
                     string t4Template = "SpecFlowFeature.Init.tt";
                     string templateFile = Path.Combine(rootTemplatePath, "T4", t4Template);
@@ -179,7 +184,7 @@ namespace SpecByExample.T4
             string subdirectory = fullFilePath.Replace(fullPagesProjectPath, "").TrimStart(new char[] { '\\' });
 
             // Create the Feature file by just adding a new file to the solution.
-            if (settings.CreateSpecFlowFeatureFile)
+            if (_createSpecFlowFeatureFile)
             {
                 string featureFilename = BasePageName + "Feature.feature";
                 var featureFile = CreateNewFileInProject(dte, SpecsProjectName, subdirectory, featureFilename, FeatureCode);
@@ -359,7 +364,7 @@ namespace SpecByExample.T4
         /// <param name="settings">Settings to use for the code generation.</param>
         /// <param name="replacementsDictionary">Replacement values</param>
         /// <param name="dte">Reference to the IDE</param>
-        public void AddReplacementVariablesForTemplates(ReplacementDictionaryHelper helper, CodeGenerationSettings settings, Dictionary<string, string> replacementsDictionary, _DTE dte)
+        public void AddReplacementVariablesForTemplates(ReplacementDictionaryHelper helper, PageInfo settings, Dictionary<string, string> replacementsDictionary, _DTE dte)
         {
             replacementsDictionary[PlaceholdersName.SpecFlowStepsClass] = helper.SpecFlowStepsClassname;
             replacementsDictionary[PlaceholdersName.TargetFilename] = helper.OutputFile;

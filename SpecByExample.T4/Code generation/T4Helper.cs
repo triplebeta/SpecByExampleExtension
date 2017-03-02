@@ -36,7 +36,7 @@ namespace SpecByExample.T4
         /// <param name="templateFile"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        public static string TransformToCode(_DTE dte, string templateFile, CodeGenerationSettings settings)
+        public static string TransformToCode(_DTE dte, string templateFile, PageInfo settings)
         {
             // TODO Add errorhandling
             Dictionary<string, object> parameters = ConvertSettingsToT4Parameters(settings);
@@ -71,7 +71,7 @@ namespace SpecByExample.T4
         /// </summary>
         /// <param name="settings">Settings as entered in the Wizard</param>
         /// <returns>A dictionary containing all the settings</returns>
-        private static Dictionary<string, object> ConvertSettingsToT4Parameters(CodeGenerationSettings settings)
+        private static Dictionary<string, object> ConvertSettingsToT4Parameters(PageInfo settings)
         {
             var parameters = new Dictionary<string, object>();
 

@@ -15,7 +15,30 @@ namespace SpecByExample.T4
         private string pageTitle, className;
 
         // Required for serialization
-        public PageInfo() { }
+        public PageInfo()
+        {
+            TypeOfPage = PageTemplatesEnum.GenericPage;
+            Placeholders = new List<Placeholder>();
+
+            // Configure the default options
+            CreateSpecFlowStepsFile = true;
+        }
+
+        [XmlAttribute]
+        public string PageName { get; set; }
+
+        /// <summary>
+        /// True to create a new SpecFlow Steps file.
+        /// </summary>
+        [XmlAttribute]
+        public bool CreateSpecFlowStepsFile { get; set; }
+
+        [XmlElement]
+        public string Url
+        {
+            get;
+            set;
+        }
 
         [XmlAttribute(AttributeName="Title")]
         public string PageTitle
@@ -27,12 +50,41 @@ namespace SpecByExample.T4
         /// <summary>
         /// Name of the class to create for this page.
         /// </summary>
-        [XmlAttribute(AttributeName = "Class")]
+        [XmlAttribute(AttributeName = "ClassName")]
         public string Class
         {
             get { return className ?? ""; }
             set { className = value; }
         }
+
+        /// <summary>
+        /// Defines the scope for finding controls within the webpage.
+        /// By default, it will search the complete document but you can change this
+        /// by assinging an HtmlAgilityPack XPath expression to a DIV to this field.
+        /// In that case, the list of SelectedHtmlElements will only contain the elements
+        /// WITHIN that DIV. Use this when all your pages use the same masterpage with a
+        /// menu structure. You can then just use the Div with the page-specific content.
+        /// </summary>
+        [XmlAttribute]
+        public string HtmlRootNodeXPath { get; set; }
+
+        /// <summary>
+        /// Type of page.
+        /// </summary>
+        [XmlAttribute]
+        public PageTemplatesEnum TypeOfPage { get; set; }
+
+        /// <summary>
+        /// Placeholder values to inject specific values that are available in the context of the T4 engine.
+        /// </summary>
+        [XmlArray("Placeholders"), XmlArrayItem(typeof(Placeholder), ElementName = "Placeholder")]
+        public List<Placeholder> Placeholders { get; set; }
+
+        /// <summary>
+        /// Container for information about the table
+        /// </summary>
+        [XmlElement]
+        public SeleniumTableInfo TableInfo { get; set; }
 
         /// <summary>
         /// The set of all HTML input elements on the page, the SelectedHtmlElements is a subset of this collection.

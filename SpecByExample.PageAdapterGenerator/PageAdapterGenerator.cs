@@ -37,7 +37,7 @@ namespace SpecByExample.PageAdapterGenerator
 
         #region Private members
 
-        private CodeGenerationSettings Model
+        private PageInfo Model
         {
             get;
             set;
@@ -47,12 +47,12 @@ namespace SpecByExample.PageAdapterGenerator
         /// Load a model from file.
         /// </summary>
         /// <returns></returns>
-        private CodeGenerationSettings LoadModel(string modelFile)
+        private PageInfo LoadModel(string modelFile)
         {
             // Load the model
-            XmlSerializer deserializer = new XmlSerializer(typeof(CodeGenerationSettings));
+            XmlSerializer deserializer = new XmlSerializer(typeof(PageInfo));
             TextReader textReader = new StringReader(modelFile);
-            var model = (CodeGenerationSettings)deserializer.Deserialize(textReader);
+            var model = (PageInfo)deserializer.Deserialize(textReader);
             textReader.Close();
             return model;
         }
@@ -98,7 +98,7 @@ namespace SpecByExample.PageAdapterGenerator
         /// <param name="model">Model as input for the template.</param>
         /// <param name="templateFile">Name of T4 file without path.</param>
         /// <returns>Byte array representing the generated code.</returns>
-        private string GenerateCodeFromFile(CodeGenerationSettings model, string templateFile)
+        private string GenerateCodeFromFile(PageInfo model, string templateFile)
         {
             string generatedCode = String.Empty;
             try

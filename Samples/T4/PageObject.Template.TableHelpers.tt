@@ -1,0 +1,136 @@
+﻿	#region Typed dataset and helper classes for the table
+
+// Since we use attributes to assign values to the fields, the compiler does not find an explicit assignment
+// and will complain with: Field... is never used
+// Using the pragma compiler directive will remove those warning.
+#pragma warning disable 0649
+#pragma warning disable 1591  // Ignore missing XML comment
+
+
+    /// <summary>
+    /// Define an enumerator containing all contain one value for each column in we know in the $entityname$.
+    /// This will be used as a mathematical "set"-construct to pass a set of columns to a method.
+    /// </summary>
+    /// <example>
+    /// Use like: 
+    ///     EmployeeColumns requiredColumns = EmployeeColumns.ReferentieNr | WerkbakColumns.Achternaam
+    ///     MyPage.GetTableData(container, requiredColumns);
+    ///     
+    /// This will tell the routine to read only the ReferentieNr and Achternaam column from the table.
+    /// All other columns will be ignored. This is a great performance inprovement.
+    /// </example>
+    /// <remarks>
+    /// This enumerator MUST be kept in sync with BOTH the corresponding Container class AND the corresponding Row class.
+    /// </remarks>
+	public enum $entityname$Columns
+	{
+<# foreach(var column in Settings.TableInfo.Columns)
+	   WriteLine("\t\t{0},",column.CodeEnumItem);
+#>
+	}
+
+
+	/// <summary>
+    /// Container to store the information of a table.
+    /// Use this container for calling scenarios.
+    /// Then, use the Adapter pattern to adapt the data to your own container format.
+    /// For more information: http://www.dofactory.com/Patterns/PatternAdapter.aspx
+    /// </summary>
+    [System.ComponentModel.DesignerCategory("")]
+    public class $entityname$Container : BaseDataContainer<$entityname$Row>
+    {
+        // Nothing to do here
+    }
+
+
+    /// <summary>
+    /// Defines the mapping between an enumerator value and a field.
+    /// </summary>
+    /// <remarks>
+    /// Generics are not supported in Attributes, so you cannot use
+    ///     [MyEnum&lt;MyEnum&gt;(MyEnum.FirstName]
+    /// That's why we need to create a new subclass with the new enum in it.
+    /// </remarks>
+    [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
+    public class $entityname$EnumMappingAttribute : BaseEnumMappingAttribute
+    {
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="enumValue">Enumerator item to use.</param>
+        public $entityname$EnumMappingAttribute($entityname$Columns enumValue)
+            : base()
+        {
+            // Nothing to do here
+            StoredEnumValue = enumValue;
+        }
+    }
+
+
+	/// <summary>
+    /// Wrapper for one row of data of the $entityname$Container
+    /// </summary>
+    public class $entityname$Row : BaseDataRow<$entityname$Columns>
+    {
+        /// <summary>
+        /// Constructors
+        /// </summary>
+        public $entityname$Row() : base() { }
+
+<# foreach(var column in Settings.TableInfo.Columns)
+   {
+	   WriteLine("\t\t\t[$entityname$EnumMappingAttribute($entityname$Columns.{0})]",column.CodeEnumItem);
+	   WriteLine("\t\t\t[FieldMappingAttribute]");
+	   WriteLine("\t\t\tpublic {0} {1};\r\n", column.CodeFieldDatatype, column.CodeFieldname);
+   }
+#>
+    }
+
+
+    /// <summary>
+    /// Container for the mapping definitions for the $rootname$ HTML Tables.
+    /// </summary>
+    public class <#= Settings.Class #>TableMappingDefinition : ITableMappingDefinition<$entityname$Columns>
+    {
+        /// <summary>
+        /// Static lookup table to define which columnname in the HTML table corresponds to an enumerator
+        /// If the names are different for another environment (acceptance/production), just create an extra table.
+        /// </summary>
+        public Dictionary<$entityname$Columns, string> HtmlColumnNames
+        {
+			// The column with title .... will be mapped to enumerator item ...
+            get {
+                return new Dictionary<$entityname$Columns, string>() {
+<# foreach(var column in Settings.TableInfo.Columns)
+	   WriteLine("\t\t\t\t\t\t{{$entityname$Columns.{0}, \"{1}\"}},", column.CodeEnumItem, column.ColumnTitle);
+#>
+                    };
+            }
+        }
+
+
+        /// <summary>
+        /// Returns a dictionary which defines how each enumerator item maps to the database
+        /// </summary>
+        /// <returns>The mapping table.</returns>
+        public Dictionary<TEnum, string> GetHtmlColumnMapping<TEnum>(string tableName)
+        {
+            // Check the types we support
+            if (typeof(TEnum) == typeof($entityname$Columns))
+            {
+                var col = HtmlColumnNames;
+                return (col as Dictionary<TEnum, string>);
+            }
+            else
+            {
+                // If not supported: have our parent class resolve it.
+                string msg = "Definition {0} does not implement a column mapping for enumerator {1} and table {2}.";
+                throw new NotSupportedException(String.Format(msg, this.GetType().Name, typeof(TEnum).Name, tableName));
+            }
+        }
+    }
+
+#pragma warning restore 0649
+#pragma warning restore 1591
+
+	#endregion

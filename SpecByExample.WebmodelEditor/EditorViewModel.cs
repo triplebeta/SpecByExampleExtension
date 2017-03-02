@@ -15,36 +15,33 @@ namespace SpecByExample.WebmodelEditor
     /// </summary>
     public class EditorViewModel : IEditorViewModel, INotifyPropertyChanged
     {
-        private readonly CodeGenerationSettings _settings;
+        private readonly PageInfo _settings;
+        private bool _createSpecFlowFeatureFile = true;
 
         /// <summary>
         /// Define a static object to use in case no data is supplied - intended for the designer view only
         /// </summary>
-        private static CodeGenerationSettings staticModel = new CodeGenerationSettings()
+        private static PageInfo staticModel = new PageInfo()
         {
-            CreateSpecFlowFeatureFile = true,
             HtmlRootNodeXPath = "/",
             PageName = "BooPage",
             Url = "http://www.test.com",
-            PageInfo = new PageInfo()
-            {
-                Class = "BooClass",
-                PageTitle = "BooTitle",
-                HtmlElements = new List<HtmlControlInfo>() {
-                    new HtmlControlInfo() { CodeControlName="MyLink", HtmlId="myLink", HtmlXPath="/html/body/a", HtmlControlType=HtmlControlTypeEnum.Link, HtmlCssClass="toplink red", HtmlTitle="Click me", InnerText="Click me", IdentifiedBy=ControlIdentificationType.Id },
-                    new HtmlControlInfo() { CodeControlName="SecondLink", HtmlId="secondLink", HtmlXPath="/html/body/a", IdentifiedBy=ControlIdentificationType.LinkText, GenerateCodeForThisItem=true }
-                }
+            Class = "BooClass",
+            PageTitle = "BooTitle",
+            HtmlElements = new List<HtmlControlInfo>() {
+                new HtmlControlInfo() { CodeControlName="MyLink", HtmlId="myLink", HtmlXPath="/html/body/a", HtmlControlType=HtmlControlTypeEnum.Link, HtmlCssClass="toplink red", HtmlTitle="Click me", InnerText="Click me", IdentifiedBy=ControlIdentificationType.Id },
+                new HtmlControlInfo() { CodeControlName="SecondLink", HtmlId="secondLink", HtmlXPath="/html/body/a", IdentifiedBy=ControlIdentificationType.LinkText, GenerateCodeForThisItem=true }
             }
         };
 
         public EditorViewModel() : this(staticModel) { }
 
-        public EditorViewModel(CodeGenerationSettings settings)
+        public EditorViewModel(PageInfo settings)
         {
             _settings = settings;
 
             DesignerDirty = false;
-            HtmlControls = HtmlControlViewModel.Load(settings.PageInfo.HtmlElements);
+            HtmlControls = HtmlControlViewModel.Load(settings.HtmlElements);
         }
 
         #region IEditorViewModel
@@ -80,12 +77,12 @@ namespace SpecByExample.WebmodelEditor
 
         public bool CreateSpecFlowFeatureFile
         {
-            get { return _settings.CreateSpecFlowFeatureFile; }
+            get { return _createSpecFlowFeatureFile; }
             set
             {
-                if (_settings.CreateSpecFlowFeatureFile != value)
+                if (_createSpecFlowFeatureFile != value)
                 {
-                    _settings.CreateSpecFlowFeatureFile = value;
+                    _createSpecFlowFeatureFile = value;
                     DesignerDirty = true;
                 }
             }
@@ -137,9 +134,9 @@ namespace SpecByExample.WebmodelEditor
             get { return _settings.PageName; }
             set
             {
-                if (_settings.PageInfo.PageTitle != value)
+                if (_settings.PageTitle != value)
                 {
-                    _settings.PageInfo.PageTitle = value;
+                    _settings.PageTitle = value;
                     DesignerDirty = true;
                 }
             }
@@ -147,12 +144,12 @@ namespace SpecByExample.WebmodelEditor
 
         public string ClassName
         {
-            get { return _settings.PageInfo.Class; }
+            get { return _settings.Class; }
             set
             {
-                if (_settings.PageInfo.Class != value)
+                if (_settings.Class != value)
                 {
-                    _settings.PageInfo.Class = value;
+                    _settings.Class = value;
                     DesignerDirty = true;
                 }
             }

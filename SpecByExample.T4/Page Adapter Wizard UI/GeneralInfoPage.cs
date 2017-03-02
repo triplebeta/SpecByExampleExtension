@@ -70,19 +70,19 @@ namespace SpecByExample.T4.Wizard_pages
             set;
         }
 
-        public void LoadState(CodeGenerationSettings container)
+        public void LoadState(PageAdapterWizardViewModel container)
         {
-            HtmlPageName = container.PageName;
+            HtmlPageName = container.PageInfo.PageName;
             PageTitle = container.PageInfo.PageTitle;
-            chkAddSpecFlowStepsFile.Checked = container.CreateSpecFlowStepsFile;
+            chkAddSpecFlowStepsFile.Checked = container.PageInfo.CreateSpecFlowStepsFile;
             chkAddSpecFlowFeatureFile.Checked = container.CreateSpecFlowFeatureFile;
         }
 
-        public void SaveState(CodeGenerationSettings container)
+        public void SaveState(PageAdapterWizardViewModel container)
         {
-            container.PageName = HtmlPageName;
+            container.PageInfo.PageName = HtmlPageName;
             container.PageInfo.PageTitle = PageTitle;
-            container.CreateSpecFlowStepsFile = chkAddSpecFlowStepsFile.Checked;
+            container.PageInfo.CreateSpecFlowStepsFile = chkAddSpecFlowStepsFile.Checked;
             container.CreateSpecFlowFeatureFile = chkAddSpecFlowFeatureFile.Checked;
         }
 

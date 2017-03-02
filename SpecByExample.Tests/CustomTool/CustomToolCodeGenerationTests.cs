@@ -92,9 +92,9 @@ namespace SpecByExample.Selenium.Tests.CustomTool
             string expectedOutput = @"C:\Users\jeroe\Source\Repos\WebUITestAutomationExtension\SpecByExample.Tests\Testdata\ExpectedTransformedCode.txt";
 
             // Load the model
-            XmlSerializer deserializer = new XmlSerializer(typeof(CodeGenerationSettings));
+            XmlSerializer deserializer = new XmlSerializer(typeof(PageAdapterWizardViewModel));
             TextReader textReader = new StreamReader(modelFile);
-            var model = (CodeGenerationSettings)deserializer.Deserialize(textReader);
+            var model = (PageAdapterWizardViewModel)deserializer.Deserialize(textReader);
             textReader.Close();
 
             // Create the code and replace the parameters and use that code.

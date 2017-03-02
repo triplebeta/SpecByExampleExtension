@@ -46,15 +46,15 @@ namespace SpecByExample.T4.Wizard
             set;
         }
 
-        public void LoadState(CodeGenerationSettings container)
+        public void LoadState(PageAdapterWizardViewModel container)
         {
-            chkAddSpecFlowStepsFile.Checked = container.CreateSpecFlowStepsFile;
+            chkAddSpecFlowStepsFile.Checked = container.PageInfo.CreateSpecFlowStepsFile;
             chkAddSpecFlowFeatureFile.Checked = container.CreateSpecFlowFeatureFile;
         }
 
-        public void SaveState(CodeGenerationSettings container)
+        public void SaveState(PageAdapterWizardViewModel container)
         {
-            container.CreateSpecFlowStepsFile = chkAddSpecFlowStepsFile.Checked;
+            container.PageInfo.CreateSpecFlowStepsFile = chkAddSpecFlowStepsFile.Checked;
             container.CreateSpecFlowFeatureFile = chkAddSpecFlowFeatureFile.Checked;
         }
 
