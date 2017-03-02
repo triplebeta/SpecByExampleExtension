@@ -118,7 +118,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\HtmlControlViewModel.cs" />
-    <Compile Include="ViewModels\ICodeGenerationSettings.cs" />
     <Compile Include="Page Adapter Wizard UI\CodeGenerationOptionsPage.cs">
       <SubType>UserControl</SubType>
     </Compile>

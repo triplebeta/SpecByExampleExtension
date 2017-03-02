@@ -67,7 +67,7 @@ namespace Google.Pages
         #endregion
 
 
-        public void NavigateGoogleNewsLink()
+        public void NavigateGoogleYouLink()
         {
             GoogleNewsLinkControl.Click();
         }
@@ -77,7 +77,7 @@ namespace Google.Pages
         /// Google Jij link
         /// </summary>
         [FindsBy(How = How.PartialLinkText, Using = "Afbeelding")]
-        IWebElement GoogleYou;
+        IWebElement GoogleImages;
 
         public void NavigateGoogleImagesLink()
         {

@@ -17,7 +17,7 @@ namespace SpecByExample.WebmodelEditor
     /// <summary>
     /// Model for the Editor
     /// </summary>
-    public interface IEditorViewModel : ICodeGenerationSettings
+    public interface IEditorViewModel
     {
         Dictionary<HtmlControlTypeEnum, string> ControlTypes { get; }
 

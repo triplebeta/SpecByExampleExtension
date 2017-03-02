@@ -104,7 +104,6 @@
     <Compile Include="Serialization\ReplacementDictionaryHelperTests.cs" />
     <Compile Include="Serialization\LoadSaveWebmodel.cs" />
     <Compile Include="T4Test.cs" />
-    <Compile Include="VisualStudioDteHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
