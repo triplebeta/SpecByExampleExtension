@@ -21,14 +21,13 @@ namespace SpecByExample.WebmodelEditor
     /// IVsPackage interface and uses the registration attributes defined in the framework to 
     /// register itself and its components with the shell.
     /// </summary>
-    // This attribute tells the PkgDef creation utility (CreatePkgDef.exe) that this class is
-    // a package.
+    // This attribute tells the PkgDef creation utility (CreatePkgDef.exe) that this class is a package.
     [PackageRegistration(UseManagedResourcesOnly = true)]
 
     // Register the class as a Designer View in cooperation with the Xml Editor
     [ProvideXmlEditorChooserDesignerView("SpecByExampleWebmodelEditor", "webmodel", LogicalViewID.Designer, 0x60,
         DesignerLogicalViewEditor = typeof(EditorFactory),
-        Namespace = "http://specbyexample.triplebeta.nl/webmodel/2005",
+        Namespace = T4.PageInfo.WebmodelXmlNamespace,
         MatchExtensionAndNamespace = false)]
     // And which type of files we want to handle
     [ProvideEditorExtension(typeof(EditorFactory), EditorFactory.Extension, 0x40, NameResourceID = 106)]

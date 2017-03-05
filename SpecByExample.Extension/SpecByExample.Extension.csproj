@@ -44,12 +44,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\SpecByExample.T4\Webmodel.xsd">
-      <Link>Webmodel.xsd</Link>
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
+    <None Include="app.config" />
     <None Include="NuGet\CreateNuGetPackage.cmd" />
     <None Include="NuGet\SpecByExample.Common.nuspec" />
     <Content Include="License.txt">

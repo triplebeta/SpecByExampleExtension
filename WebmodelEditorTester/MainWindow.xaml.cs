@@ -40,7 +40,10 @@ namespace WebmodelEditorTester
             // If file passed on commandline: load it. If not: load a static default model.
             var args = Environment.GetCommandLineArgs();
             if (args.Length == 2 && File.Exists(args[1]))
-                InternalModel = LoadModelFromFile(args[1]);
+            {
+                string filename = args[1];
+                InternalModel = PageInfo.LoadModelFromFile(filename);
+            }
             else
                 InternalModel = LoadInternalModel();
 
@@ -51,6 +54,10 @@ namespace WebmodelEditorTester
 
         private void Window_Closed(object sender, EventArgs e)
         {
+            // Save model to disk
+            string xml = InternalModel.SerializeToXml();
+            File.WriteAllText(@"c:\temp\test.xml", xml);
+
             // Show the resulting XML in the Debug window
             Trace.WriteLine(InternalModel.Url);
         }
@@ -63,7 +70,7 @@ namespace WebmodelEditorTester
             model.PageName = "TestPage";
             model.HtmlRootNodeXPath = "/";
             model.Url = "http://www.mytestpage.org";
-            model.Class = "TestClass";
+            model.ClassName = "TestClass";
             model.PageTitle = "TestTitle";
             model.HtmlElements = new List<HtmlControlInfo>
             {
@@ -73,15 +80,6 @@ namespace WebmodelEditorTester
                 new HtmlControlInfo() { HtmlTitle="BooSpan", HtmlXPath="/body/div/div/span", HtmlId="spanX", HtmlCssClass="topSpan", HtmlControlType=HtmlControlTypeEnum.Span, CodeControlType="Span", IdentifiedBy=ControlIdentificationType.Cssclass },
                 new HtmlControlInfo() { HtmlTitle="Choose", HtmlXPath="/body/div/div/select", HtmlId="listSelect", HtmlControlType=HtmlControlTypeEnum.Select, CodeControlType="Select3" }
             };
-            return model;
-        }
-
-        private PageInfo LoadModelFromFile(string filename)
-        {
-            XmlSerializer serializer = new XmlSerializer(typeof(PageInfo));
-            TextReader textReader = new StreamReader(filename);
-            var model = (PageInfo)serializer.Deserialize(textReader);
-            textReader.Close();
             return model;
         }
 
@@ -97,7 +95,7 @@ namespace WebmodelEditorTester
             var result = openFileDialog1.ShowDialog();
             if (result.HasValue && result.Value)
             {
-                InternalModel = LoadModelFromFile(openFileDialog1.FileName);
+                InternalModel = PageInfo.LoadModelFromFile(openFileDialog1.FileName);
                 // then create a viewmodel from it
                 ViewModel = new EditorViewModel(InternalModel);
                 DataContext = null;

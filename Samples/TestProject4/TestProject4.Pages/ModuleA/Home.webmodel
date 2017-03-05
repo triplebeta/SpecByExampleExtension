@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-16"?>
-<PageInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" PageName="HomePage" CreateSpecFlowStepsFile="true" Title="Home Page - SpecByExample.SampleWebsite" ClassName="Home" HtmlRootNodeXPath="/" TypeOfPage="GenericPage">
+<PageInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" PageName="HomePage" CreateSpecFlowStepsFile="true" Title="Home Page - SpecByExample.SampleWebsite" ClassName="Home" HtmlRootNodeXPath="/" TypeOfPage="GenericPage" xmlns="http://specbyexample.triplebeta.nl/webmodel/2005">
   <Url>http://specbyexamplesamplewebsite.azurewebsites.net/</Url>
   <Placeholders>
     <Placeholder Name="$rootname$" Value="Home.cs" />

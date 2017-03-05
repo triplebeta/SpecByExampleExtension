@@ -36,7 +36,7 @@ namespace SpecByExample.T4
         /// Flag to define if we need to generate code for this item.
         /// Can only be set to True if SupportsCodeGeneration is true.
         /// </summary>
-        public bool GenerateCodeForThisItem
+        public bool GenerateCode
         {
             get; set;
         }

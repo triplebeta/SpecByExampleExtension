@@ -125,7 +125,7 @@ namespace SpecByExample.T4.Wizard
                 bool enabled = thisCheckbox.Checked;
                 foreach (HtmlControlInfo ctrl in currentlySelectedControls)
                     if (ctrl.HtmlControlType == controlType)
-                        ctrl.GenerateCodeForThisItem = enabled;
+                        ctrl.GenerateCode = enabled;
                 gridControls.Refresh();
             }
             else
@@ -170,7 +170,7 @@ namespace SpecByExample.T4.Wizard
             allSelectableControls = new List<HtmlControlInfo>();
             allSelectableControls.AddRange(container.PageInfo.HtmlElements.Where(x=>x.HtmlControlType!=HtmlControlTypeEnum.Div));
             currentlySelectedControls = new List<HtmlControlInfo>();
-            currentlySelectedControls.AddRange(allSelectableControls.Where(x => x.GenerateCodeForThisItem));
+            currentlySelectedControls.AddRange(allSelectableControls.Where(x => x.GenerateCode));
 
             LoadAndSelectHtmlControls(currentlySelectedControls,container.PageInfo.HtmlRootNodeXPath);
         }
@@ -208,7 +208,7 @@ namespace SpecByExample.T4.Wizard
         private void gridControls_Validating(object sender, CancelEventArgs e)
         {
             // Check that at least one item is selected
-            if (currentlySelectedControls.Count(x => x.GenerateCodeForThisItem) == 0)
+            if (currentlySelectedControls.Count(x => x.GenerateCode) == 0)
             {
                 errorProvider1.SetError(gridControls, "At least one HTML control must be selected.");
                 e.Cancel = true;
@@ -218,14 +218,14 @@ namespace SpecByExample.T4.Wizard
 
 
             // Check that each control has a valid custom name.
-            if (currentlySelectedControls.Count(x => x.GenerateCodeForThisItem && String.IsNullOrWhiteSpace(x.UserDefinedName)) > 0)
+            if (currentlySelectedControls.Count(x => x.GenerateCode && String.IsNullOrWhiteSpace(x.UserDefinedName)) > 0)
             {
                 errorProvider1.SetError(gridControls, "Each selected control must have a unique custom name.");
                 e.Cancel = true;
             }
 
             var onlySelectedItems = from c in currentlySelectedControls
-                                    where c.GenerateCodeForThisItem
+                                    where c.GenerateCode
                                     select c;
 
             var duplicates = onlySelectedItems
@@ -247,11 +247,11 @@ namespace SpecByExample.T4.Wizard
         private void LoadAndSelectHtmlControls(List<HtmlControlInfo> controlsToLoad, string htmlRootNodeXPath)
         {
             // Now reload the list of SelectedHtmlControls
-            currentlySelectedControls = allSelectableControls.OrderByDescending(x => x.GenerateCodeForThisItem).ToList();
+            currentlySelectedControls = allSelectableControls.OrderByDescending(x => x.GenerateCode).ToList();
 
             // Ensure only the visible controls are selected
-            allSelectableControls.ForEach(x => x.GenerateCodeForThisItem = false);
-            currentlySelectedControls.ForEach(x => x.GenerateCodeForThisItem = x.SupportsCodeGeneration);
+            allSelectableControls.ForEach(x => x.GenerateCode = false);
+            currentlySelectedControls.ForEach(x => x.GenerateCode = x.SupportsCodeGeneration);
 
             // Then show the new selection and update the applicable filter checkboxes.
             htmlControlInfoBindingSource.DataSource = currentlySelectedControls;
@@ -262,7 +262,7 @@ namespace SpecByExample.T4.Wizard
         private void UpdateSelectedControlCounter()
         {
             if (currentlySelectedControls != null)
-                lblSelectedCount.Text = currentlySelectedControls.Count(x => x.GenerateCodeForThisItem).ToString();
+                lblSelectedCount.Text = currentlySelectedControls.Count(x => x.GenerateCode).ToString();
         }
 
         #endregion

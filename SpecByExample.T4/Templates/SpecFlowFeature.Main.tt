@@ -27,7 +27,7 @@
 	foreach(var node in mySettings.HtmlElements)
 	{
 		// Only  create code for nodes we want to have
-		if (node.GenerateCodeForThisItem==false || node.HtmlControlType != HtmlControlTypeEnum.Link)
+		if (node.GenerateCode==false || node.HtmlControlType != HtmlControlTypeEnum.Link)
 			continue;
 		else
         {
@@ -38,13 +38,13 @@
 	InitializeHtmlSettings(mySettings);
     try 
     { #>
-Feature: <#= Settings.Class #>
-	In order to test page <#= Settings.Class #>
+Feature: <#= Settings.ClassName #>
+	In order to test page <#= Settings.ClassName #>
 	As a tester
 	I want to run some tests on this page
 
 Scenario: My first test
-	Given I go to the <#= Settings.Class #> on url '<#= Settings.Url #>'
+	Given I go to the <#= Settings.ClassName #> on url '<#= Settings.Url #>'
 	When I remember the current url
 		And I click the <#= firstLinkControlName #>
 	Then I am no longer on the original url

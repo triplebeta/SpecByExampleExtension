@@ -21,7 +21,7 @@ namespace SpecByExample.PageAdapterGenerator
     {
         protected override byte[] GeneratePageAdapterCode()
         {
-            Model = LoadModel(InputFileContents);
+            Model = PageInfo.LoadModelFromXml(InputFileContents);
             string generatedCode = GenerateCodeFromFile(Model, "PageObject.Init.tt");
             byte[] data = Encoding.UTF8.GetBytes(generatedCode);
             return data;
@@ -29,7 +29,7 @@ namespace SpecByExample.PageAdapterGenerator
 
         protected override byte[] GenerateStepsCode()
         {
-            if (Model == null) Model = LoadModel(InputFileContents);
+            if (Model == null) Model = PageInfo.LoadModelFromXml(InputFileContents);
             string generatedCode = GenerateCodeFromFile(Model, "SpecFlowSteps.Init.tt");
             byte[] data = Encoding.UTF8.GetBytes(generatedCode);
             return data;
@@ -41,20 +41,6 @@ namespace SpecByExample.PageAdapterGenerator
         {
             get;
             set;
-        }
-
-        /// <summary>
-        /// Load a model from file.
-        /// </summary>
-        /// <returns></returns>
-        private PageInfo LoadModel(string modelFile)
-        {
-            // Load the model
-            XmlSerializer deserializer = new XmlSerializer(typeof(PageInfo));
-            TextReader textReader = new StringReader(modelFile);
-            var model = (PageInfo)deserializer.Deserialize(textReader);
-            textReader.Close();
-            return model;
         }
 
         /// <summary>
@@ -111,7 +97,7 @@ namespace SpecByExample.PageAdapterGenerator
                 pageObjectCode = pageObjectCode.Trim();
 
                 var replacementDictionary = new Dictionary<string, string>();
-                model.Placeholders.ForEach(x=>replacementDictionary.Add(x.Name, x.Value));
+                model.Placeholders.ForEach(x => replacementDictionary.Add(x.Name, x.Value));
                 generatedCode = T4Helper.ReplaceParametersInCode(pageObjectCode, replacementDictionary);
             }
             catch (FileNotFoundException ex)
@@ -132,7 +118,6 @@ namespace SpecByExample.PageAdapterGenerator
                 sb.AppendLine("*/");
                 generatedCode = sb.ToString();
             }
-
             return generatedCode;
         }
 

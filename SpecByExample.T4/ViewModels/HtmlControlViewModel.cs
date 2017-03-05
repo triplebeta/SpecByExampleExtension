@@ -151,10 +151,10 @@ namespace SpecByExample.T4
             }
         }
 
-        public bool GenerateCodeForThisItem
+        public bool GenerateCode
         {
-            get { return ControlInfo.GenerateCodeForThisItem; }
-            set { ControlInfo.GenerateCodeForThisItem = value; }
+            get { return ControlInfo.GenerateCode; }
+            set { ControlInfo.GenerateCode = value; }
         }
 
         /// <summary>

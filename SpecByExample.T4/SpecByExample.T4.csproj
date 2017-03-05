@@ -177,9 +177,6 @@
       <LastGenOutput>PageObject.Init.cs</LastGenOutput>
     </None>
     <None Include="Templates\PageObject.Template.TablePage.tt" />
-    <None Include="Webmodel.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="SpecByExample.Selenium.PageCreator.Keyfile.snk" />

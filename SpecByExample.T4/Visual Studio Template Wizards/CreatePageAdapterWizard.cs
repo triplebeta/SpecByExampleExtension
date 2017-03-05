@@ -115,13 +115,6 @@ namespace SpecByExample.T4
                 settings = model.PageInfo;
                 _createSpecFlowFeatureFile = model.CreateSpecFlowFeatureFile;
 
-                // New implementation: Save the full model instead of the generated code
-                XmlSerializer serializer = new XmlSerializer(typeof(PageInfo));
-                XmlWriterSettings serializerSettings = new XmlWriterSettings();
-                serializerSettings.Encoding = new UnicodeEncoding(false, false); // no BOM in a .NET string
-                serializerSettings.Indent = true;
-                serializerSettings.OmitXmlDeclaration = false;
-
                 // Make sure all values of the ReplacementDictionary are in the Placeholder property so they will be serialized to file.
                 AddReplacementVariablesForTemplates(helper, settings, replacementsDictionary, dte);
                 settings.Placeholders.Clear();
@@ -132,14 +125,7 @@ namespace SpecByExample.T4
                         settings.Placeholders.Add(new Placeholder(x.Key, x.Value));
                 }
 
-                using (var textWriter = new StringWriter())
-                {
-                    using (XmlWriter xmlWriter = XmlWriter.Create(textWriter, serializerSettings))
-                    {
-                        serializer.Serialize(xmlWriter, settings);
-                        replacementsDictionary.Add("$generatedmodel$", textWriter.ToString());
-                    }
-                }
+                replacementsDictionary.Add("$generatedmodel$", settings.SerializeToXml());
 
                 SpecsProjectName = $"{helper.BaseName}.Specs";
                 PagesProjectName = $"{helper.BaseName}.Pages";

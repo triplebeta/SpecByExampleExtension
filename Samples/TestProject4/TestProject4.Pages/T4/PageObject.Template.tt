@@ -8,6 +8,7 @@
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="SpecByExample.T4" #>
 <#@ import namespace="HtmlAgilityPack" #>
+// Custom header!
 using System;
 using System.Linq;
 using System.Text;
@@ -29,9 +30,9 @@ if (Settings.TypeOfPage == PageTemplatesEnum.GenericPage)
     /// Implements the <seealso cref="https://code.google.com/p/selenium/wiki/PageObjects">PageObject</seealso> for <#= Settings.PageName #>.
     /// </summary>
 	/// <remarks>Generated using the T4 tempate.</remarks>
-    public partial class <#= Settings.Class #> : $basepageclass$
+    public partial class <#= Settings.ClassName #> : $basepageclass$
     {
-        public <#= Settings.Class #>(IWindsorContainer container, IWebDriver driver)
+        public <#= Settings.ClassName #>(IWindsorContainer container, IWebDriver driver)
             : base(container, driver, "<#=Settings.PageTitle.Trim() #>", null)
         {
             // Nothing to do here
@@ -44,9 +45,9 @@ if (Settings.TypeOfPage == PageTemplatesEnum.GenericPage)
     /// Table Page Adapter for <#= Settings.PageName #>.
     /// </summary>
 	/// <remarks>Generated using the T4 tempate.</remarks>
-    public class <#= Settings.Class #> : $basepageclass$<$entityname$Columns>
+    public class <#= Settings.ClassName #> : $basepageclass$<$entityname$Columns>
     {
-		public <#= Settings.Class #>(IWindsorContainer container, IWebDriver driver)
+		public <#= Settings.ClassName #>(IWindsorContainer container, IWebDriver driver)
             : base(container, driver)
         {
             // Nothing to do here

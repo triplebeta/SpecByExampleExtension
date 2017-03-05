@@ -26,11 +26,11 @@ namespace SpecByExample.WebmodelEditor
             HtmlRootNodeXPath = "/",
             PageName = "BooPage",
             Url = "http://www.test.com",
-            Class = "BooClass",
+            ClassName = "BooClass",
             PageTitle = "BooTitle",
             HtmlElements = new List<HtmlControlInfo>() {
                 new HtmlControlInfo() { CodeControlName="MyLink", HtmlId="myLink", HtmlXPath="/html/body/a", HtmlControlType=HtmlControlTypeEnum.Link, HtmlCssClass="toplink red", HtmlTitle="Click me", InnerText="Click me", IdentifiedBy=ControlIdentificationType.Id },
-                new HtmlControlInfo() { CodeControlName="SecondLink", HtmlId="secondLink", HtmlXPath="/html/body/a", IdentifiedBy=ControlIdentificationType.LinkText, GenerateCodeForThisItem=true }
+                new HtmlControlInfo() { CodeControlName="SecondLink", HtmlId="secondLink", HtmlXPath="/html/body/a", IdentifiedBy=ControlIdentificationType.LinkText, GenerateCode=true }
             }
         };
 
@@ -144,12 +144,12 @@ namespace SpecByExample.WebmodelEditor
 
         public string ClassName
         {
-            get { return _settings.Class; }
+            get { return _settings.ClassName; }
             set
             {
-                if (_settings.Class != value)
+                if (_settings.ClassName != value)
                 {
-                    _settings.Class = value;
+                    _settings.ClassName = value;
                     DesignerDirty = true;
                 }
             }

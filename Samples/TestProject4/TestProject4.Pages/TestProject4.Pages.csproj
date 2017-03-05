@@ -95,6 +95,41 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="T4\PageObject.Init.tt">
+      <Generator>None</Generator>
+    </Content>
+    <Content Include="T4\PageObject.Main.tt">
+      <Generator>None</Generator>
+    </Content>
+    <Content Include="T4\PageObject.Template.GenericPage.tt">
+      <Generator>None</Generator>
+    </Content>
+    <Content Include="T4\PageObject.Template.TableHelpers.tt">
+      <Generator>None</Generator>
+    </Content>
+    <Content Include="T4\PageObject.Template.TablePage.tt">
+      <Generator>None</Generator>
+    </Content>
+    <Content Include="T4\PageObject.Template.tt">
+      <Generator>None</Generator>
+    </Content>
+    <Content Include="T4\SpecFlowFeature.Init.tt">
+      <Generator>None</Generator>
+    </Content>
+    <Content Include="T4\SpecFlowFeature.Main.tt">
+      <Generator>None</Generator>
+    </Content>
+    <Content Include="T4\SpecFlowSteps.Init.tt">
+      <Generator>None</Generator>
+    </Content>
+    <Content Include="T4\SpecFlowSteps.Main.tt">
+      <Generator>None</Generator>
+    </Content>
+    <Content Include="T4\SpecFlowSteps.Template.tt">
+      <Generator>None</Generator>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:SpecByExample.WebmodelEditor"
              xmlns:t4="clr-namespace:SpecByExample.T4;assembly=SpecByExample.T4"
              xmlns:i="using:Microsoft.Xaml.Interactions.Core"
-             mc:Ignorable="d" d:DesignHeight="565.583" d:DesignWidth="962">
+             mc:Ignorable="d" d:DesignHeight="565.583" d:DesignWidth="1227.5">
     <UserControl.Resources>
         <local:EditorViewModel x:Key="mockViewModel"/>
     </UserControl.Resources>
@@ -39,7 +39,7 @@
                 </Grid.RowDefinitions>
 
                 <Label x:Name="lblUrl" Content="Webpage url" Grid.Column="0" Grid.Row="0" Width="120" VerticalAlignment="Center" />
-                <TextBox Name="txtUrl" Text="{Binding Path=Url}" Grid.Column="1" Grid.Row="0" Width="400" Margin="0,0,4,0" VerticalAlignment="Center" TextChanged="TextChanged" />
+                <TextBox Name="txtUrl" Text="{Binding Path=Url}" Grid.Column="1" Grid.Row="0"  VerticalAlignment="Center" MinWidth="200" TextChanged="TextChanged" />
 
                 <Label x:Name="lblHtmlRootNodeXPath" Grid.Column="0" Grid.Row="1" Content="XPath to rootnode" Width="120" VerticalAlignment="Center" />
                 <TextBox Name="txtHtmlRootNodeXPath" Grid.Column="1" Grid.Row="1" Text="{Binding Path=HtmlRootNodeXPath}" MinWidth="200" MaxWidth="200" HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="TextChanged" />
@@ -98,7 +98,7 @@
 
                 <CheckBox Name="chkCreateSpecFlowStepsFile" Grid.Row="1" Grid.Column="1" Content="Generate SpecFlow Steps File" IsChecked="{Binding Path=CreateSpecFlowStepsFile}" HorizontalAlignment="Left" Margin="0,4" Unchecked="CheckboxUnchecked" Checked="CheckboxUnchecked" />
             </Grid>
-
+           
             <Grid Height="20" Margin="0,20,0,10" Width="800">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -109,6 +109,7 @@
             </Grid>
 
         </StackPanel>
+
         <ListBox  Grid.Column="0" Name="lstHtmlElements" Width="800" Margin="20,0,16,16" ItemsSource="{Binding Path=HtmlControls}" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left">
             <ItemsControl.ItemTemplate>
                 <DataTemplate DataType="{x:Type t4:HtmlControlViewModel}">
@@ -124,7 +125,7 @@
                             <RowDefinition Height="28" />
                             <RowDefinition Height="24" />
                         </Grid.RowDefinitions>
-                        <CheckBox Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Margin="0,20,0,0" VerticalContentAlignment="Top" IsChecked="{Binding GenerateCodeForThisItem}" Unchecked="CheckboxUnchecked" Checked="CheckboxUnchecked" HorizontalContentAlignment="Center" />
+                        <CheckBox Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Margin="0,20,0,0" VerticalContentAlignment="Top" IsChecked="{Binding GenerateCode}" Unchecked="CheckboxUnchecked" Checked="CheckboxUnchecked" HorizontalContentAlignment="Center" />
 
                         <StackPanel Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Margin="8,8,16,0" VerticalAlignment="Top" HorizontalAlignment="Left">
                             <TextBlock Text="{Binding ControlTypeImage, FallbackValue='\uf2bc'}" FontFamily="pack://application:,,,/Resources/#FontAwesome" FontSize="32" Width="32" Height="32" Margin="0,4,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" />

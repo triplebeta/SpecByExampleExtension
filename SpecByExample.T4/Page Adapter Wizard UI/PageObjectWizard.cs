@@ -35,7 +35,7 @@ namespace SpecByExample.T4
 
             // Create a controller to handle the actions
             WizardController = new WizardController(wizardControl, btnPrevious, btnNext, config);
-            WizardController.WizardState.PageInfo.Class = safeItemName;
+            WizardController.WizardState.PageInfo.ClassName = safeItemName;
             WizardController.OnCommit += new WizardController.CommitHandler(controller_OnCommit);
 
             if (pageName != null)

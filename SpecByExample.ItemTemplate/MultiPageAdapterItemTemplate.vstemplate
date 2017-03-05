@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
   <TemplateData>
-    <Name>SpecByExample Page Adapter</Name>
-    <Description>Create an adapter for an HTML page to access the elements on that page using an object model.</Description>
-    <Icon>Resources\PageAdapterItemTemplate.ico</Icon>
-    <TemplateID>71480193-fe09-497d-9003-0058e61acf4f</TemplateID>
+    <Name>SpecByExample Multiple Page Adapter</Name>
+    <Description>Create a series of page adapters from a browsing session.</Description>
+    <Icon>Resources\MultiPageAdapterItemTemplate.ico</Icon>
+    <TemplateID>85111755-9fce-46a8-a1ea-29de08ce1cc2</TemplateID>
     <ProjectType>CSharp</ProjectType>
     <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
     <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
-    <DefaultName>MyPage.cs</DefaultName>
+    <DefaultName>Session.cs</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
   </TemplateData>
   <TemplateContent>
@@ -31,7 +31,7 @@
     <ProjectItem ItemType="Code">T4\SpecFlowFeature.Main.tt</ProjectItem>
     <!-- =========== END OF SECTION FOR THE WIZARD SUPPORT FILES =========== -->
 
-    <ProjectItem ItemType="None" SubType="Xml" TargetFileName="$safeitemname$.webmodel" CustomTool="PageAdapterGenerator" ReplaceParameters="true">PageModelPlaceholder.txt</ProjectItem>
+    <ProjectItem ItemType="None" SubType="Xml" TargetFileName="$safeitemname$.webmodel" CustomTool="PageAdapterGenerator" ReplaceParameters="true">MultiPageModelPlaceholder.txt</ProjectItem>
   </TemplateContent>
 
   <!-- Install a NuGet package when using this wizard -->

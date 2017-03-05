@@ -84,19 +84,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="PageAdapterItemTemplate.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="ControlAdapterConfigFile.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <Content Include="MultiPageAdapterItemTemplate.vstemplate" />
+    <Content Include="MultiPageModelPlaceholder.txt" />
+    <Content Include="Resources\ControlAdapterConfigFile.ico" />
+    <Content Include="Resources\MultiPageAdapterItemTemplate.ico" />
+    <Content Include="Resources\PageAdapterItemTemplate.ico" />
+    <Content Include="Resources\T4TemplatesItemTemplate.ico" />
     <VSTemplate Include="ControlAdapterConfigFileItemTemplate.vstemplate" />
     <VSTemplate Include="T4TemplatesItemTemplate.vstemplate">
       <SubType>Designer</SubType>
     </VSTemplate>
-    <None Include="T4TemplatesItemTemplate.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="..\SpecByExample.T4\Templates\PageObject.Init.tt">
       <Link>T4\PageObject.Init.tt</Link>
       <LastGenOutput>PageObject.Init.cs</LastGenOutput>
@@ -132,7 +129,6 @@
       <Link>T4\SpecFlowSteps.Template.tt</Link>
     </None>
     <Content Include="PageModelPlaceholder.txt" />
-    <Content Include="PageClassPlaceholder.txt" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

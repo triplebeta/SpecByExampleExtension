@@ -3,7 +3,7 @@
   <TemplateData>
     <Name>SpecByExample Control Adapter Mapping Configuration</Name>
     <Description>Add this item to the root or the Properties directory of your PageAdapters project to change which controls are created for an html element.</Description>
-    <Icon>ControlAdapterConfigFile.ico</Icon>
+    <Icon>Resources\ControlAdapterConfigFile.ico</Icon>
     <TemplateID>917811b3-fddd-4fea-b9a5-f8301b9dd44b</TemplateID>
     <ProjectType>CSharp</ProjectType>
     <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>

@@ -45,7 +45,7 @@ namespace SpecByExample.WebmodelEditor
     public class ResourceInfo
     {
         public static string ErrorMessageBoxTitle = "WebmodelDesigner";
-        public static string InvalidWebmodel = "The webmodel file you are attempting to load is missing the PageInfo";
+        public static string InvalidWebmodel = "The webmodel file you are attempting to load is missing the PageInfo.";
         public static string SynchronizeBuffer = "Synchronize XML file with view";
         public static string ReformatBuffer = "Reformat";
         public static string FieldNameDescription = "Description";
@@ -163,17 +163,13 @@ namespace SpecByExample.WebmodelEditor
         {
             try
             {
-                // Load the model
-                XmlSerializer deserializer = new XmlSerializer(typeof(PageInfo));
-                XmlReader textReader = GetParseTree().CreateReader();
-                _webModel = (PageInfo)deserializer.Deserialize(textReader);
-                textReader.Close();
+                _webModel = PageInfo.LoadModelFromXml(GetParseTree());
             }
             catch (Exception e)
             {
                 //Display error message
                 ErrorHandler.ThrowOnFailure(VsShellUtilities.ShowMessageBox(_serviceProvider,
-                    ResourceInfo.InvalidWebmodel + e.Message,
+                    ResourceInfo.InvalidWebmodel + "\n" + e.Message,
                     ResourceInfo.ErrorMessageBoxTitle,
                     OLEMSGICON.OLEMSGICON_CRITICAL,
                     OLEMSGBUTTON.OLEMSGBUTTON_OK,
@@ -553,12 +549,12 @@ namespace SpecByExample.WebmodelEditor
 
         public string ClassName
         {
-            get { return _webModel.Class; }
+            get { return _webModel.ClassName; }
             set
             {
-                if (_webModel.Class != value)
+                if (_webModel.ClassName != value)
                 {
-                    _webModel.Class = value;
+                    _webModel.ClassName = value;
                     DesignerDirty = true;
                     NotifyPropertyChanged("Class");
                 }

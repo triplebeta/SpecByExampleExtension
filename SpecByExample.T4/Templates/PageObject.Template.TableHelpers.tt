@@ -90,7 +90,7 @@
     /// <summary>
     /// Container for the mapping definitions for the $rootname$ HTML Tables.
     /// </summary>
-    public class <#= Settings.Class #>TableMappingDefinition : ITableMappingDefinition<$entityname$Columns>
+    public class <#= Settings.ClassName #>TableMappingDefinition : ITableMappingDefinition<$entityname$Columns>
     {
         /// <summary>
         /// Static lookup table to define which columnname in the HTML table corresponds to an enumerator

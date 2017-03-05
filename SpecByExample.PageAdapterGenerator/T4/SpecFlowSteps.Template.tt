@@ -8,7 +8,7 @@ using SpecByExample.Common;
 using $rootnamespace$;
 
 <#
-	var stepsClass = Settings.Class + "Steps";
+	var stepsClass = Settings.ClassName + "Steps";
 #>
 namespace $rootnamespace$.Specs
 {
@@ -24,7 +24,7 @@ namespace $rootnamespace$.Specs
 
         #region Arrange - Given
 
-        [Given("I go to the <#= Settings.Class #> on url '(.*)'")]
+        [Given("I go to the <#= Settings.ClassName #> on url '(.*)'")]
         public void Given_I_Go_To_Url(string url)
         {
             CurrentWebDriver.Url = url;
@@ -39,7 +39,7 @@ namespace $rootnamespace$.Specs
 foreach(var node in Settings.HtmlElements) {
 
 	// Only  create code for nodes we want to have ant to
-	if (node.GenerateCodeForThisItem==false)
+	if (node.GenerateCode==false)
 		continue;
 
 	if (node.HtmlControlType == HtmlControlTypeEnum.Link ||
@@ -50,7 +50,7 @@ foreach(var node in Settings.HtmlElements) {
         [When(@"I click the <#=node.CodeControlName #>")]
         public void When_I_Click_The_<#=node.CodeControlName #>()
         {
-            var screen = GetScreen<<#= Settings.Class #>>();
+            var screen = GetScreen<<#= Settings.ClassName #>>();
             screen.<#=node.CodeControlName #>.Click();
         }
 <#
@@ -60,14 +60,14 @@ foreach(var node in Settings.HtmlElements) {
         [When(@"I select item ""(.*)"" in <#=node.HtmlControlType.ToString().ToLower() #> <#=node.CodeControlName #>")]
         public void When_I_Select_Item_In_<#=node.HtmlControlType #>_<#=node.CodeControlName #>(string itemText)
         {
-            var screen = GetScreen<<#= Settings.Class #>>();
+            var screen = GetScreen<<#= Settings.ClassName #>>();
             screen.<#=node.CodeControlName #>.Select(itemText);
         }
 
         [When(@"I clear the selection of <#=node.HtmlControlType.ToString().ToLower() #> <#=node.CodeControlName #>")]
         public void When_I_Clear_The_Selection_Of_<#=node.HtmlControlType #>_<#=node.CodeControlName #>()
         {
-            var screen = GetScreen<<#= Settings.Class #>>();
+            var screen = GetScreen<<#= Settings.ClassName #>>();
             screen.<#=node.CodeControlName #>.Clear();
         }
 <#
@@ -77,7 +77,7 @@ foreach(var node in Settings.HtmlElements) {
         [When(@"I type ""(.*)"" in <#=node.HtmlControlType.ToString().ToLower() #> <#=node.CodeControlName #>")]
         public void When_I_Type_In_<#=node.HtmlControlType #>_<#=node.CodeControlName #>(string text)
         {
-            var screen = GetScreen<<#= Settings.Class #>>();
+            var screen = GetScreen<<#= Settings.ClassName #>>();
             screen.<#=node.CodeControlName #>.Text = text;
         }
 <#
@@ -92,7 +92,7 @@ foreach(var node in Settings.HtmlElements) {
 foreach(var node in Settings.HtmlElements) {
 
 	// Only  create code for nodes we want to have ant to
-	if (node.GenerateCodeForThisItem==false)
+	if (node.GenerateCode==false)
 		continue;
 
 	// For each control: generate a Then step to check if it's enabled or displayed
@@ -101,7 +101,7 @@ foreach(var node in Settings.HtmlElements) {
         [Then(@"<#=node.HtmlControlType.ToString().ToLower() #> <#=node.CodeControlName #> is ([not]?) visible")]
         public void Then_<#=node.HtmlControlType #>_<#=node.CodeControlName #>_Check_Visibility(string not)
         {
-            var screen = GetScreen<<#= Settings.Class #>>();
+            var screen = GetScreen<<#= Settings.ClassName #>>();
 			bool visible = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.<#=node.CodeControlName #>.IsDisplayed, visible);
         }
@@ -115,7 +115,7 @@ foreach(var node in Settings.HtmlElements) {
         [Then(@"<#=node.HtmlControlType.ToString().ToLower() #> <#=node.CodeControlName #> is ([not]?) enabled")]
         public void Then_<#=node.HtmlControlType #>_<#=node.CodeControlName #>_Check_Enabled(string not)
         {
-            var screen = GetScreen<<#= Settings.Class #>>();
+            var screen = GetScreen<<#= Settings.ClassName #>>();
 			bool enabled = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.<#=node.CodeControlName #>.IsEnabled, enabled);
         }
@@ -128,7 +128,7 @@ foreach(var node in Settings.HtmlElements) {
         [Then(@"<#=node.HtmlControlType.ToString().ToLower() #> <#=node.CodeControlName #> is ""(.*)""")]
         public void Then_<#=node.HtmlControlType #>_<#=node.CodeControlName #>_Check_Enabled(string text)
         {
-			var screen = GetScreen<<#= Settings.Class #>>();
+			var screen = GetScreen<<#= Settings.ClassName #>>();
 			Assert.AreEqual (screen.<#=node.CodeControlName #>.Text, text);
         }
 <#
@@ -138,7 +138,7 @@ foreach(var node in Settings.HtmlElements) {
         [Then(@"I <#=node.HtmlControlType.ToString().ToLower() #> <#=node.CodeControlName #> has selected item ""(.*)""")]
         public void Then_The_Select_Item_In_<#=node.HtmlControlType #>_<#=node.CodeControlName #>_Is(string selectedOption)
         {
-            var screen = GetScreen<<#= Settings.Class #>>();
+            var screen = GetScreen<<#= Settings.ClassName #>>();
             Assert.AreEqual(screen.<#=node.CodeControlName #>.CurrentSelectedItem, selectedOption);
         }
 <#
@@ -148,7 +148,7 @@ foreach(var node in Settings.HtmlElements) {
         [Then(@"the text in <#=node.HtmlControlType.ToString().ToLower() #> <#=node.CodeControlName #> is ""(.*)""")]
         public void Then_The_Text_in_<#=node.HtmlControlType #>_<#=node.CodeControlName #>_Is(string text)
         {
-            var screen = GetScreen<<#= Settings.Class #>>();
+            var screen = GetScreen<<#= Settings.ClassName #>>();
             Assert.AreEqual(screen.<#=node.CodeControlName #>.Text, text);
         }
 <#
@@ -159,7 +159,7 @@ foreach(var node in Settings.HtmlElements) {
         [Then(@"The <#=node.HtmlControlType.ToString().ToLower() #> <#=node.CodeControlName #> is ([not]?) checked")]
         public void Then_<#=node.HtmlControlType #>_<#=node.CodeControlName #>_Checked(string not)
         {
-            var screen = GetScreen<<#= Settings.Class #>>();
+            var screen = GetScreen<<#= Settings.ClassName #>>();
 			bool isChecked = String.IsNullOrEmpty(not);
 			Assert.AreEqual(screen.<#=node.CodeControlName #>.IsChecked, isChecked);
         }
@@ -171,7 +171,7 @@ foreach(var node in Settings.HtmlElements) {
         [Then(@"The title of table <#=node.CodeControlName #> should be ""(.*)""")]
         public void Then_The_Title_Of_Table_<#=node.CodeControlName #>_Should_Be(string title)
         {
-            var screen = GetScreen<<#= Settings.Class #>>();
+            var screen = GetScreen<<#= Settings.ClassName #>>();
             Assert.AreEqual(screen.<#=node.CodeControlName #>.Title, title);
         }
 
@@ -179,7 +179,7 @@ foreach(var node in Settings.HtmlElements) {
         [Then(@"Table <#=node.CodeControlName #> should contain a header row")]
         public void Then_Table_<#=node.CodeControlName #>_Should_Contain_A_HeaderRow()
         {
-            var screen = GetScreen<<#= Settings.Class #>>();
+            var screen = GetScreen<<#= Settings.ClassName #>>();
             Assert.IsTrue(screen.<#=node.CodeControlName #>.HasHeaderRow);
         }
 
@@ -191,14 +191,14 @@ foreach(var node in Settings.HtmlElements) {
         [Then(@"Table <#=node.CodeControlName #> should contain (\d+) rows")]
         public void Then_Table_<#=node.CodeControlName #>_Should_Contain_X_Rows(int expectedRowCount)
         {
-            var screen = GetScreen<<#= Settings.Class #>>();
+            var screen = GetScreen<<#= Settings.ClassName #>>();
             Assert.AreEqual(expectedRowCount, screen.<#= Settings.TableInfo.EntityName + "Container" #>.Rows.Count);
         }
 
         [Then(@"In table <#=node.CodeControlName #> the value in cell \((\d+),(\d+)\) should be ""(.*)""")]
         public void Then_In_Table_<#=node.CodeControlName #>_The_Value_In_Cell_Should_Be(int x, int y, string value)
         {
-            var screen = GetScreen<<#= Settings.Class #>>();
+            var screen = GetScreen<<#= Settings.ClassName #>>();
             Assert.AreEqual(value, screen.<#= Settings.TableInfo.EntityName + "Container" #>.Rows[y][x] ?? "");
         }
 <#   } // if TablePage

@@ -1,6 +1,4 @@
-//
-// Header!
-//
+// Custom header!
 using System;
 using System.Linq;
 using System.Text;
@@ -21,7 +19,7 @@ namespace TestProject4.Pages.ModuleA
     public partial class Home : BaseTestProject4Page
     {
         public Home(IWindsorContainer container, IWebDriver driver)
-            : base(container, driver, "Home Page - SpecByExample.SampleWebsite", null)
+            : base(container, driver, "", null)
         {
             // Nothing to do here
         }

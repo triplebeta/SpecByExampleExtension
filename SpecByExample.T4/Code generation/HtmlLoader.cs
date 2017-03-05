@@ -149,7 +149,7 @@ namespace SpecByExample.T4
             // Assume we want to generate a property for each item that supports this.
             var allExceptDiv = from x in config.RegisteredControlTypes where x.TypeName != "Div" select x;
             info.HtmlElements = GetHtmlControls(doc, allExceptDiv, options);
-            info.HtmlElements.ForEach(x => x.GenerateCodeForThisItem = x.SupportsCodeGeneration);
+            info.HtmlElements.ForEach(x => x.GenerateCode = x.SupportsCodeGeneration);
 
             // Get all DIVs by filtering the list of registered controls
             var divOnly = from x in config.RegisteredControlTypes where x.TypeName == "Div" select x;
@@ -198,7 +198,7 @@ namespace SpecByExample.T4
                         ctrl.InnerText = node.InnerText.Trim();   // Do not store the content of certain controls
 
                     ctrl.AssignIdentificationMethod(controls.AsQueryable(), options.PreferredIdentifications);
-                    ctrl.GenerateCodeForThisItem = ctrl.SupportsCodeGeneration; // By default: generate code for every element that support it
+                    ctrl.GenerateCode = ctrl.SupportsCodeGeneration; // By default: generate code for every element that support it
                     controls.Add(ctrl);
                 }
 

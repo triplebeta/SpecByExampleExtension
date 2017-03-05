@@ -3,7 +3,7 @@
   <TemplateData>
     <Name>SpecByExample T4 Templates</Name>
     <Description>Adds a T4 directory containing all templates used to generate the PageAdapter classes. You can then customize these templates as you see fit.</Description>
-    <Icon>T4TemplatesItemTemplate.ico</Icon>
+    <Icon>Resources\T4TemplatesItemTemplate.ico</Icon>
     <TemplateID>36679661-e3bf-44ff-b344-9d3507b2bd54</TemplateID>
     <ProjectType>CSharp</ProjectType>
     <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
