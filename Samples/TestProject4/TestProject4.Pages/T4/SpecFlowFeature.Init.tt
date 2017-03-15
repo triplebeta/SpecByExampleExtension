@@ -1,4 +1,0 @@
-<#@ assembly name="HtmlAgilityPack.dll" #>
-<#@ assembly name="SpecByExample.T4.dll" #>
-<#@ include file="SpecFlowFeature.Main.tt" #>
-<# /* This file will be invoked from the Wizard and adds references without path */ #>
