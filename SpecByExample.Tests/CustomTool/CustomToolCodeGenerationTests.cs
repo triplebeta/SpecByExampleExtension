@@ -12,7 +12,8 @@ using Microsoft.VisualStudio.TextTemplating.VSHost;
 
 namespace SpecByExample.Selenium.Tests.CustomTool
 {
-    [TestClass, DeploymentItem(@"..\..\Testdata\MyFirst.webmodel")]
+    /* Just for testing during development
+    [TestClass, DeploymentItem(@"..\..\Testdata\MyPage.webmodel")]
     public class CustomToolCodeGenerationTests
     {
         [TestMethod]
@@ -30,10 +31,7 @@ namespace SpecByExample.Selenium.Tests.CustomTool
             // Get the text template service:
             ITextTemplating t4 = serviceProvider.GetService(typeof(STextTemplating)) as ITextTemplating;
             ITextTemplatingSessionHost sessionHost = t4 as ITextTemplatingSessionHost;
-
-//            sessionHost.Session = sessionHost.CreateSession();
-            //sessionHost.Session["MyStringFromSession"] = "Boo";
-
+            
             // Pass another value in CallContext:  
             System.Runtime.Remoting.Messaging.CallContext.LogicalSetData("MyString", "Foo");
 
@@ -43,7 +41,6 @@ namespace SpecByExample.Selenium.Tests.CustomTool
 
             // The real work:
             var host = new TextTemplatingEngineHost();
-//            String output = engine.ProcessTemplate(input, host);
             String output = t4.ProcessTemplate(templateFile, input);
             Assert.AreEqual("Boo\n", output);
         }
@@ -116,4 +113,5 @@ namespace SpecByExample.Selenium.Tests.CustomTool
             Assert.AreEqual(expected, output);
         }
     }
+    */
 }

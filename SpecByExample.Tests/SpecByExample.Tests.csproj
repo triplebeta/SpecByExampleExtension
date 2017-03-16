@@ -139,7 +139,6 @@
       <DesignTime>True</DesignTime>
     </Content>
     <Content Include="Testdata\ExpectedTransformedCode.txt" />
-    <Content Include="Testdata\MyFirst.webmodel" />
     <None Include="Testdata\MyPage.webmodel" />
   </ItemGroup>
   <ItemGroup>
