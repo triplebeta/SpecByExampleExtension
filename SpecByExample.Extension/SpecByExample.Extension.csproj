@@ -44,38 +44,43 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\packages\Castle.Core.3.3.3\Castle.Core.3.3.3.nupkg">
+      <Link>packages\Castle.Core.3.3.3.nupkg</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\packages\Castle.Windsor.3.3.0\Castle.Windsor.3.3.0.nupkg">
+      <Link>packages\Castle.Windsor.3.3.0.nupkg</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\packages\HtmlAgilityPack.1.4.9.5\HtmlAgilityPack.1.4.9.5.nupkg">
+      <Link>packages\HtmlAgilityPack.1.4.9.5.nupkg</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\packages\Selenium.Support.3.0.1\Selenium.Support.3.0.1.nupkg">
+      <Link>packages\Selenium.Support.3.0.1.nupkg</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\packages\Selenium.WebDriver.3.0.1\Selenium.WebDriver.3.0.1.nupkg">
+      <Link>packages\Selenium.WebDriver.3.0.1.nupkg</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\packages\SpecFlow.2.1.0\SpecFlow.2.1.0.nupkg">
+      <Link>packages\SpecFlow.2.1.0.nupkg</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\packages\SpecByExample.Common.1.0.0\SpecByExample.Common.1.0.0.nupkg">
+      <Link>packages\SpecByExample.Common.1.0.0.nupkg</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <None Include="app.config" />
-    <None Include="NuGet\CreateNuGetPackage.cmd" />
-    <None Include="NuGet\SpecByExample.Common.nuspec" />
     <Content Include="License.txt">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="packages\Castle.Core.3.3.3.nupkg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="packages\Castle.Windsor.3.3.0.nupkg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="packages\HtmlAgilityPack.1.4.9.5.nupkg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="packages\Selenium.Support.3.0.1.nupkg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="packages\Selenium.WebDriver.3.0.1.nupkg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="packages\SpecByExample.Common.1.0.0.nupkg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="packages\SpecFlow.2.1.0.nupkg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <None Include="source.extension.vsixmanifest">
@@ -88,7 +93,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="NuGet\lib\net45\SpecByExample.Common.dll" />
     <Content Include="stylesheet.css" />
   </ItemGroup>
   <ItemGroup>
@@ -172,9 +176,8 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup>
-    <PreBuildEvent>DEL /q "$(ProjectDir)packages\SpecByExample.Common.nupkg"
-"$(ProjectDir)..\packages\NuGet.CommandLine.3.5.0\tools\NuGet.exe" pack "$(ProjectDir)NuGet\SpecByExample.Common.nuspec"
-XCOPY /R /Y "$(TargetDir)*.nupkg" "$(ProjectDir)packages"</PreBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

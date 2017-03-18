@@ -28,7 +28,7 @@ After installing it you will find some extra templates:
 The Project Templates creates 3 projects to set the stage.
 In the Pages project you can add a new item and choose the template named "SpecByExample Page Adapter". This will show a wizard where you can select the url for your page. In case you just want to test with an example site you can use:
 [SpecByExample Sample Website](http://specbyexamplesamplewebsite.azurewebsites.net/)
-]http://specbyexamplesamplewebsite.azurewebsites.net/
+http://specbyexamplesamplewebsite.azurewebsites.net/
 ![Wizard](https://github.com/triplebeta/SpecByExampleExtension/wiki/img/AddPageAdapterWizard.png)
 
 This wizard parses the HTML of the webpage and extracts the containers (divs, spans) and controls (input, button, ...). At completion it will create a .webmodel file in your project containing all of these.
@@ -41,7 +41,7 @@ These control types are adapters for the controls and allow you to easily intera
 
 Optionally, the custom tool can generate a Steps file for this webmodel, containing Steps like "I click button Login".
 
-### Extensibility
+## Extensibility
 The page adapter and steps classes are defined as partial and can easily be extended.
 All code generation can be customized by adding the underlying T4 templates to your solution. To do so, use the template "SpecByExample T4 Templates".
 
