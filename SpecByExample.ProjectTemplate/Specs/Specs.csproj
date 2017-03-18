@@ -120,8 +120,7 @@
     <Compile Include="SharedTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="WebDrivers\ChromeDriver.exe" />
-    <None Include="WebDrivers\IEDriverServer.exe" />
+    <None Include="WebDrivers\Readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -145,8 +144,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>COPY "$(ProjectDir)WebDrivers\ChromeDriver.exe" "$(TargetDir)ChromeDriver.exe"
-COPY "$(ProjectDir)WebDrivers\IEDriverServer.exe" "$(TargetDir)IEDriverServer.exe"</PostBuildEvent>
+    <PostBuildEvent>
+      COPY "$(ProjectDir)WebDrivers\*.exe" "$(TargetDir)"
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extension", "Extension", "{121173EA-1063-405C-84DF-406629D30992}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{A7E4F8F3-CC23-4369-A80E-6E096FC1F746}"
+	ProjectSection(SolutionItems) = preProject
+		Test.runsettings = Test.runsettings
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumTester", "SeleniumTester\SeleniumTester.csproj", "{1E2831B7-7587-4AE5-B864-674B01DEE8E4}"
 EndProject
