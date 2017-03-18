@@ -24,9 +24,8 @@
       <Folder Name="ModuleA" TargetFolderName="ModuleA" />
       <ProjectItem ReplaceParameters="true" TargetFileName="SharedTests.cs">SharedTests.cs</ProjectItem>
 
-      <!-- Selenium drivers -->
-      <ProjectItem>WebDrivers\ChromeDriver.exe</ProjectItem>
-      <ProjectItem>WebDrivers\IEDriverServer.exe</ProjectItem>
+      <!-- Selenium drivers directory - drivers not included, need to be downloaded separately -->
+      <ProjectItem>WebDrivers\Readme.txt</ProjectItem>
     </Project>
   </TemplateContent>
 

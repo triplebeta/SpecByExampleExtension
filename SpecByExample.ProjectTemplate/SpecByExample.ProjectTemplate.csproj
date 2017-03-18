@@ -124,11 +124,10 @@
     <None Include="Specs\Specs.csproj">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Specs\WebDrivers\ChromeDriver.exe" />
-    <Content Include="Specs\WebDrivers\IEDriverServer.exe" />
     <Content Include="Specs\Specs.vstemplate">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Specs\WebDrivers\Readme.txt" />
     <Content Include="Specs\__TemplateIcon.ico" />
   </ItemGroup>
   <ItemGroup>
