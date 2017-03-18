@@ -22,32 +22,35 @@
             <li><a href="http://www.seleniumhq.org/projects/webdriver/">Download the webdriver(s)</a> you want to use</li>
             <li>Put the webdrivers in the WebDrivers directory of the Specs project</li>
         </ol>
+        <b>ATTENTION: Do not forget to mark the downloaded webdriver executables af Unblocked (right-click the file, Properties > General > Unblock)</b>
     </p>
     <p>
         Then you are ready to start the real work: adding code to test your first web page.<br />
-        As an example we will test the <a href="http://www.google.com">Google homepage</a>.
+        As an example we will test the <a href="http://specbyexamplesamplewebsite.azurewebsites.net/">SpecByExample Sample Website</a>.
         <ol>
             <li>Expand the Pages project and right-click on the ModuleA folder</li>
-            <li>Chose Add &gt; New item &gt; SpecByExample PageObject</li>
-            <li>As a name you just enter Google and press Enter</li>
-            <li>In the next wizard you enter the url: www.google.com  and click Next</li>
-            <li>For the next 3 steps you just accept the defaults by clicking Next</li>
-            <li>On the last Wizard page you select both checkboxes to create a SpecFlow Steps and Features file.</li>
+            <li>Choose Add &gt; New item &gt; SpecByExample Page Adapter</li>
+            <li>As a name you just enter <i><code>Homepage</code></i> and press Enter</li>
+            <li>In the next wizard you enter the url: http://specbyexamplesamplewebsite.azurewebsites.net/ and click Next<br/>
+            In case you get the error "Cannot load HTML from the specified url", the website is just warming up, wait a second and try again.</li>
+            <li>For the next steps just accept the defaults by clicking Next</li>
+            <li>On the last Wizard page also select create a Features file.</li>
             <li>Click Finish to close the Wizard</li>
         </ol>
     </p>
     <p>
         A set of new files is now created in your project:
         <ul>
-            <li>The Pages project contains a new file called GooglePage.cs containing the <a href="https://code.google.com/p/selenium/wiki/PageObjects">PageObject</a> implementation for automating the Google homepage.</li>
+            <li>The Pages project contains a new file called Homepage.webmodel.</li>
+            <li>The custom tool created a Homepage.cs from it containing the <a href="https://martinfowler.com/bliki/PageObject.html">PageObject</a> implementation for automating the homepage.</li>
+            <li>As well as a a file named HomepageSteps.cs implementating the Given/When/Then steps to arrange, act and assert.</li>
             <li>In the Specs project a similar folder ModuleA is created</li>
-            <li>Within that folder a specs file is created with GoogleFeature.feature with an example of a scenario (executable as a unit test)</li>
-            <li>And a file GoogleSteps.cs implementating the Given/When/Then steps to arrange, act and assert.</li>
+            <li>Within that folder a specs file is created with HomepageFeature.feature with an example of a scenario (executable as a unit test)</li>
         </ul>
     </p>
     <p>
         The proof of the pudding is to build the project, reopen the Test Explorer and run MyFirstTest.<br/>
-        This should open a web browser, go to Google, then click a random link and check the navigation actually occurred.
+        This should open a web browser, go to Sample website, then click a random link and check the navigation actually occurred.
     </p>
     <p>This extension can be found under Tools > Extensions and Updates and is named "Specification By Example Extension".</p>
 </body>
