@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="SpecByExample.Extension.TripleBeta.c423163d-7b91-4dac-b451-9e509b0a4482" Version="1.0" Language="en-US" Publisher="Jeroen Bijleveld / Triple Beta" />
+    <Identity Id="SpecByExample.Extension.TripleBeta.c423163d-7b91-4dac-b451-9e509b0a4482" Version="1.1" Language="en-US" Publisher="Jeroen Bijleveld / Triple Beta" />
     <DisplayName>Specification By Example Extension</DisplayName>
     <Description xml:space="preserve">Extension to scaffold Selenium-based specification by example tests for any webpage. First use the Project Template to create a pre-configured set of 3 projects to host the tests. The Item Template then takes an webpage, generates adapters controls, When/Then statements and a Feature file. In under 5 minutes you will have a working web UI test up and running!</Description>
     <Tags>SpecFlow;Specification by Example;</Tags>
