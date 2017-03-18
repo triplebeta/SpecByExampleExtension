@@ -1,10 +1,10 @@
-# Extension for testing web applications using Selenium and SpecFlow.
+# Extension for testing web applications using Selenium and SpecFlow
 
 This Visual Studio extension was created to simplify using Selenium with SpecFlow and to get a working setup in under 5 minutes.
 The extension containing a Project and Items templates to get started testing websites with Specflow and Selenium in under 5 minutes.
 
 It contains a number of components to get you started quickly:
-*Your can have your first Selenium-based SpecFlow test running in under 5 minutes if you follow just the quick tutorial - no coding required.*
+*Your can have your first Selenium-based SpecFlow test running in under 5 minutes if you follow just the quick tutorial.*
 
 ## Getting started
 
