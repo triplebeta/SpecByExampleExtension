@@ -1,0 +1,57 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>Specs</Name>
+    <Description>Container for the Specflow tests for web pages</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Specs</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="Specs.csproj" File="Specs.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="App.config">App.config</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="CommonNavigationSteps.cs">CommonNavigationSteps.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="packages.config">packages.config</ProjectItem>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      </Folder>
+      <Folder Name="ModuleA" TargetFolderName="ModuleA" />
+      <ProjectItem ReplaceParameters="true" TargetFileName="SharedTests.cs">SharedTests.cs</ProjectItem>
+
+      <!-- Selenium drivers -->
+      <ProjectItem>WebDrivers\ChromeDriver.exe</ProjectItem>
+      <ProjectItem>WebDrivers\IEDriverServer.exe</ProjectItem>
+    </Project>
+  </TemplateContent>
+
+  <!-- Install a NuGet package when using this wizard -->
+  <WizardExtension>
+    <!-- These names must be fully qualified! Registration in the GAC is NOT necessary -->
+    <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
+    <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
+  </WizardExtension>
+  <WizardExtension>
+    <!-- Our wizards assembly must have a strong name as well -->
+    <Assembly>SpecByExample.T4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6c92e879ce97be78</Assembly>
+    <FullClassName>SpecByExample.T4.ComposeProjectTemplateVariableWizard</FullClassName>
+  </WizardExtension>
+
+  <!-- Define which NuGet packages to install -->
+  <WizardData>
+    <!-- BE CAREFUL: These MUST be all lowercases! As well as the directory must be named in all lowercase: packages -->
+    <packages repository="extension" repositoryId="SpecByExample.Extension.TripleBeta.c423163d-7b91-4dac-b451-9e509b0a4482">
+      <package id="Castle.Core" version="3.3.3" />
+      <package id="Castle.Windsor" version="3.3.0" />
+      <package id="Selenium.WebDriver" version="3.0.1" />
+      <package id="Selenium.Support" version="3.0.1" />
+      <package id="SpecFlow" version="2.1.0" />
+      <package id="SpecByExample.Common" version="1.0.0" />
+    </packages>
+  </WizardData>
+</VSTemplate>

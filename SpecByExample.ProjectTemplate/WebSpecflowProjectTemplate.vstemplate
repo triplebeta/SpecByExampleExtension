@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="2.0.0" Type="ProjectGroup"
+    xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>Selenium/Specflow Web Testproject</Name>
+    <Description>Set of projects to create a test</Description>
+    <Icon></Icon>
+    <ProjectType>CSharp</ProjectType>
+    <CreateInPlace>true</CreateInPlace>
+    <CreateNewFolder>false</CreateNewFolder>
+    <DefaultName>TestProject</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectCollection>
+      <SolutionFolder Name="WebTest" >
+        <ProjectTemplateLink ProjectName="$safeprojectname$.Common">
+          Common\Common.vstemplate
+        </ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$safeprojectname$.Pages">
+          Pages\Pages.vstemplate
+        </ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$safeprojectname$.Specs">
+          Specs\Specs.vstemplate
+        </ProjectTemplateLink>
+      </SolutionFolder>
+    </ProjectCollection>
+  </TemplateContent>
+</VSTemplate>

@@ -1,0 +1,150 @@
+﻿<UserControl x:Class="SpecByExample.WebmodelEditor.VsWebmodelDesignerControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SpecByExample.WebmodelEditor"
+             xmlns:t4="clr-namespace:SpecByExample.T4;assembly=SpecByExample.T4"
+             xmlns:i="using:Microsoft.Xaml.Interactions.Core"
+             mc:Ignorable="d" d:DesignHeight="565.583" d:DesignWidth="1227.5">
+    <UserControl.Resources>
+        <local:EditorViewModel x:Key="mockViewModel"/>
+    </UserControl.Resources>
+    <DockPanel d:DataContext="{StaticResource mockViewModel}">
+        <DockPanel.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFDEDEDE" Offset="0" />
+                <GradientStop Color="#FFE8E8E8" Offset="1" />
+            </LinearGradientBrush>
+        </DockPanel.Background>
+        <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Left">
+            <Grid Height="20" Margin="0,20,0,10" Width="800">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" HorizontalAlignment="Center" Margin="8, 0" Text="Webpage"/>
+                <Separator Grid.Column="1" VerticalAlignment="Center" Margin="0,0,24, 0"/>
+            </Grid>
+
+            <Grid Margin="20,0" Width="800">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition MaxWidth="400" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Label x:Name="lblUrl" Content="Webpage url" Grid.Column="0" Grid.Row="0" Width="120" VerticalAlignment="Center" />
+                <TextBox Name="txtUrl" Text="{Binding Path=Url}" Grid.Column="1" Grid.Row="0"  VerticalAlignment="Center" MinWidth="200" TextChanged="TextChanged" />
+
+                <Label x:Name="lblHtmlRootNodeXPath" Grid.Column="0" Grid.Row="1" Content="XPath to rootnode" Width="120" VerticalAlignment="Center" />
+                <TextBox Name="txtHtmlRootNodeXPath" Grid.Column="1" Grid.Row="1" Text="{Binding Path=HtmlRootNodeXPath}" MinWidth="200" MaxWidth="200" HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="TextChanged" />
+            </Grid>
+
+            <Grid Height="20" Margin="0,20,0,10" Width="800">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="328*"/>
+                    <ColumnDefinition Width="241*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" HorizontalAlignment="Center" Margin="8, 0" Text="Details"/>
+                <Separator Grid.Column="1" VerticalAlignment="Center" Margin="0,9,24.333,9" Grid.ColumnSpan="2"/>
+            </Grid>
+
+            <Grid Margin="20,0" Width="800">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition MaxWidth="400" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Label x:Name="lblPageInfoPageTitle" Grid.Column="0" Grid.Row="0" Content="Title" VerticalAlignment="Center" />
+                <TextBox Name="txtPageInfoPageTitle" Grid.Column="1" Grid.Row="0" Text="{Binding Path=PageTitle}" VerticalAlignment="Center" MinWidth="200" TextChanged="TextChanged" />
+
+                <Label x:Name="lblPageName" Grid.Column="0" Grid.Row="1" Content="Page name" VerticalAlignment="Center" />
+                <TextBox Name="txtPageName" Grid.Column="1" Grid.Row="1" Text="{Binding Path=PageName}" Width="150" Margin="0" MaxWidth="400" VerticalAlignment="Center" HorizontalAlignment="Left" TextChanged="TextChanged" />
+            </Grid>
+
+            <Grid Height="20" Margin="0,20,0,10" Width="800">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" HorizontalAlignment="Center" Margin="8, 0" Text="Code generation"/>
+                <Separator Grid.Column="1" VerticalAlignment="Center" Margin="0,0,24, 0"/>
+            </Grid>
+
+            <Grid Margin="20,0" Width="800">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition MaxWidth="400" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Label x:Name="lblPageInfoClass" Grid.Row="0" Grid.Column="0" Content="Class name" />
+                <TextBox Name="txtPageInfoClass" Grid.Row="0" Grid.Column="1" Text="{Binding Path=ClassName}" Width="150" MaxWidth="400" VerticalAlignment="Center" HorizontalAlignment="Left" TextChanged="TextChanged" />
+
+                <CheckBox Name="chkCreateSpecFlowStepsFile" Grid.Row="1" Grid.Column="1" Content="Generate SpecFlow Steps File" IsChecked="{Binding Path=CreateSpecFlowStepsFile}" HorizontalAlignment="Left" Margin="0,4" Unchecked="CheckboxUnchecked" Checked="CheckboxUnchecked" />
+            </Grid>
+           
+            <Grid Height="20" Margin="0,20,0,10" Width="800">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" HorizontalAlignment="Center" Margin="8, 0" Text="Controls"/>
+                <Separator Grid.Column="1" VerticalAlignment="Center" Margin="0,0,16, 0"/>
+            </Grid>
+
+        </StackPanel>
+
+        <ListBox  Grid.Column="0" Name="lstHtmlElements" Width="800" Margin="20,0,16,16" ItemsSource="{Binding Path=HtmlControls}" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate DataType="{x:Type t4:HtmlControlViewModel}">
+                    <Grid ToolTip="{Binding XPath}" Margin="0,4,0,4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="24" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="24" />
+                        </Grid.RowDefinitions>
+                        <CheckBox Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Margin="0,20,0,0" VerticalContentAlignment="Top" IsChecked="{Binding GenerateCode}" Unchecked="CheckboxUnchecked" Checked="CheckboxUnchecked" HorizontalContentAlignment="Center" />
+
+                        <StackPanel Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Margin="8,8,16,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                            <TextBlock Text="{Binding ControlTypeImage, FallbackValue='\uf2bc'}" FontFamily="pack://application:,,,/Resources/#FontAwesome" FontSize="32" Width="32" Height="32" Margin="0,4,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        </StackPanel>
+
+                        <TextBlock Text="{Binding DisplayName}" FontWeight="Bold" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center" FontSize="14" />
+
+                        <TextBlock Text="Find by" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding IdentifiedByDescription}" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" />
+
+                        <TextBlock Text="Property" Grid.Row="2" Grid.Column="2" VerticalAlignment="Top" />
+                        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="3" VerticalAlignment="Top">
+                            <TextBox Text="{Binding ControlName}" MinWidth="150" TextChanged="TextChanged" />
+                            <TextBlock Text="of type" Margin="8,0,8,0"/>
+                            <ComboBox ItemsSource="{Binding DataContext.ControlTypes, RelativeSource={RelativeSource  AncestorType={x:Type local:VsWebmodelDesignerControl}}}" Width="200" SelectedValue="{Binding ControlType}" SelectionChanged="SelectionChanged" DisplayMemberPath="Value" SelectedValuePath="Key"  />
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ListBox>
+    </DockPanel>
+</UserControl>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+	<metadata>
+	  <id>SpecByExample.Common</id>
+	  <version>1.0.0</version>
+	  <authors>Triple Beta</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+	  <description>
+      Common components to support the projects for the SpecByExample Visual Studio extension. The extension offers an intuitive way to create a testing-solution for a Specification by Example approach to automated testing of webbased application.</description>
+		<tags>NuGet Specification by Example Selenium PageObject Specflow</tags>
+		<language>en-US</language>
+    <dependencies>
+      <dependency id="Castle.Core" version="[3.3.3,)" />
+      <dependency id="Castle.Windsor" version="[3.3,)" />
+      <dependency id="HtmlAgilityPack" version="[1.4.9.5,)" />
+      <dependency id="Specflow" version="[1.9.0,)" />
+      <dependency id="Selenium.WebDriver" version="[3.0.1,)" />
+      <dependency id="Selenium.Support" version="[3.0.1,)" />
+    </dependencies>
+	</metadata>
+  <files>
+    <file src="lib\net45\SpecByExample.Common.dll" target="lib\net45" />
+  </files>
+</package>

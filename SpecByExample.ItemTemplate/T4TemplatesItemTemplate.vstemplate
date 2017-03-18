@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>SpecByExample T4 Templates</Name>
+    <Description>Adds a T4 directory containing all templates used to generate the PageAdapter classes. You can then customize these templates as you see fit.</Description>
+    <Icon>Resources\T4TemplatesItemTemplate.ico</Icon>
+    <TemplateID>36679661-e3bf-44ff-b344-9d3507b2bd54</TemplateID>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <LocationField>Hidden</LocationField>
+    <AppendDefaultFileExtension>false</AppendDefaultFileExtension>
+  </TemplateData>
+  <TemplateContent>
+    <!-- Use the given name as the name of the folder -->
+    <Folder Name="T4" TargetFolderName="T4">
+      <ProjectItem TargetFileName="PageObject.Init.tt" CustomTool="None">PageObject.Init.tt</ProjectItem>
+      <ProjectItem TargetFileName="PageObject.Main.tt" CustomTool="None">PageObject.Main.tt</ProjectItem>
+      <ProjectItem TargetFileName="PageObject.Template.GenericPage.tt" CustomTool="None">PageObject.Template.GenericPage.tt</ProjectItem>
+      
+      <ProjectItem TargetFileName="PageObject.Template.TableHelpers.tt" CustomTool="None">PageObject.Template.TableHelpers.tt</ProjectItem>
+      <ProjectItem TargetFileName="PageObject.Template.TablePage.tt" CustomTool="None">PageObject.Template.TablePage.tt</ProjectItem>
+      <ProjectItem TargetFileName="PageObject.Template.tt" CustomTool="None">PageObject.Template.tt</ProjectItem>
+
+      <ProjectItem TargetFileName="SpecFlowFeature.Init.tt" CustomTool="None">SpecFlowFeature.Init.tt</ProjectItem>
+      <ProjectItem TargetFileName="SpecFlowFeature.Main.tt" CustomTool="None">SpecFlowFeature.Main.tt</ProjectItem>
+
+      <ProjectItem TargetFileName="SpecFlowSteps.Init.tt" CustomTool="None">SpecFlowSteps.Init.tt</ProjectItem>
+      <ProjectItem TargetFileName="SpecFlowSteps.Main.tt" CustomTool="None">SpecFlowSteps.Main.tt</ProjectItem>
+      <ProjectItem TargetFileName="SpecFlowSteps.Template.tt" CustomTool="None">SpecFlowSteps.Template.tt</ProjectItem>
+    </Folder>
+  </TemplateContent>
+</VSTemplate>

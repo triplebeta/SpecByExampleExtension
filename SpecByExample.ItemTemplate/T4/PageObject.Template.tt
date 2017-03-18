@@ -1,0 +1,68 @@
+﻿<#@ assembly name="System.Windows.Forms" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Runtime.Remoting.Messaging" #>
+<#@ import namespace="Microsoft.VisualStudio.TextTemplating" #>
+<#@ import namespace="System.Windows.Forms" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="SpecByExample.T4" #>
+<#@ import namespace="HtmlAgilityPack" #>
+using System;
+using System.Linq;
+using System.Text;
+using System.Collections.Generic;
+using Castle.Windsor;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.PageObjects;
+using SpecByExample.Common;
+using SpecByExample.Common.Controls;
+using $basename$.Common.Pages;
+
+namespace $rootnamespace$
+{
+<#
+if (Settings.TypeOfPage == PageTemplatesEnum.GenericPage)
+{
+#>
+    /// <summary>
+    /// Implements the <seealso cref="https://code.google.com/p/selenium/wiki/PageObjects">PageObject</seealso> for <#= Settings.PageName #>.
+    /// </summary>
+	/// <remarks>Generated using the T4 tempate.</remarks>
+    public partial class <#= Settings.ClassName #> : $basepageclass$
+    {
+        public <#= Settings.ClassName #>(IWindsorContainer container, IWebDriver driver)
+            : base(container, driver, "<#=Settings.PageTitle.Trim() #>", null)
+        {
+            // Nothing to do here
+        }
+
+		<#@ include file="PageObject.Template.GenericPage.tt" #>
+	}
+<# } else { #>
+    /// <summary>
+    /// Table Page Adapter for <#= Settings.PageName #>.
+    /// </summary>
+	/// <remarks>Generated using the T4 tempate.</remarks>
+    public class <#= Settings.ClassName #> : $basepageclass$<$entityname$Columns>
+    {
+		public <#= Settings.ClassName #>(IWindsorContainer container, IWebDriver driver)
+            : base(container, driver)
+        {
+            // Nothing to do here
+        }
+
+<#@ include file="PageObject.Template.GenericPage.tt" #>
+
+<#@ include file="PageObject.Template.TablePage.tt" #>
+	}
+
+<#@ include file="PageObject.Template.TableHelpers.tt" #>
+<# } #>
+}
+<#+
+    PageInfo Settings
+    {
+        get { return (PageInfo)CallContext.GetData("PageObject.Settings"); }
+    }
+#>

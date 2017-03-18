@@ -1,0 +1,9 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+
+<#
+	WriteLine("Gelukt!");
+//	WriteLine("MyString="+MyString);
+//	var myStringFromSession = (System.String) Session["MyStringFromSession"];
+
+//	WriteLine("MyStringFromSession="+myStringFromSession);
+#>

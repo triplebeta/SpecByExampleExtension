@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D7385152-80CF-4F6E-BDD4-5FCFE7636C4F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SpecByExample.T4</RootNamespace>
+    <AssemblyName>SpecByExample.T4</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>SpecByExample.Selenium.PageCreator.Keyfile.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.3.3\lib\net40-client\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="envdte, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\Common Files\Microsoft Shared\MSEnv\PublicAssemblies\envdte.dll</HintPath>
+    </Reference>
+    <Reference Include="EnvDTE80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.5, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.14.0, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.TemplateWizardInterface, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.14.0, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.VSHost.14.0, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VSLangProj, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>c:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\PublicAssemblies\VSLangProj.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.0.1\lib\net40\WebDriver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.0.1\lib\net40\WebDriver.Support.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModels\PageAdapterWizardViewModel.cs" />
+    <Compile Include="Code generation\CodePlaceholders.cs" />
+    <Compile Include="Code generation\DteHelperExtensions.cs" />
+    <Compile Include="Code generation\HtmlControlTypeEnum.cs" />
+    <Compile Include="Code generation\PageInfo.cs" />
+    <Compile Include="Code generation\PageTemplatesEnum.cs" />
+    <Compile Include="Code generation\ParsingOptions.cs" />
+    <Compile Include="Code generation\ControlIdentificationType.cs" />
+    <Compile Include="Code generation\ExclusionCodeGenerationReasons.cs" />
+    <Compile Include="Code generation\HtmlControlInfo.cs" />
+    <Compile Include="Code generation\HtmlLoader.cs" />
+    <Compile Include="Code generation\SeleniumTableInfo.cs" />
+    <Compile Include="Code generation\T4Helper.cs" />
+    <Compile Include="Code generation\TableColumnDef.cs" />
+    <Compile Include="Code generation\TemplateTransformer.cs" />
+    <Compile Include="Code generation\WizardConfigLoader.cs" />
+    <Compile Include="Visual Studio Template Wizards\ComposeProjectTemplateVariableWizard.cs" />
+    <Compile Include="Visual Studio Template Wizards\CreatePageAdapterWizard.cs" />
+    <Compile Include="Code generation\ReplacementDictionaryHelper.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\HtmlControlViewModel.cs" />
+    <Compile Include="Page Adapter Wizard UI\CodeGenerationOptionsPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Page Adapter Wizard UI\CodeGenerationOptionsPage.Designer.cs">
+      <DependentUpon>CodeGenerationOptionsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Page Adapter Wizard UI\HtmlControlsPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Page Adapter Wizard UI\HtmlControlsPage.Designer.cs">
+      <DependentUpon>HtmlControlsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Page Adapter Wizard UI\IWizardPage.cs" />
+    <Compile Include="Page Adapter Wizard UI\PageObjectWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Page Adapter Wizard UI\PageObjectWizard.Designer.cs">
+      <DependentUpon>PageObjectWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Page Adapter Wizard UI\GeneralInfoPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Page Adapter Wizard UI\GeneralInfoPage.Designer.cs">
+      <DependentUpon>GeneralInfoPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Page Adapter Wizard UI\TableInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Page Adapter Wizard UI\TableInfo.Designer.cs">
+      <DependentUpon>TableInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Page Adapter Wizard UI\WebsiteInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Page Adapter Wizard UI\WebsiteInfo.Designer.cs">
+      <DependentUpon>WebsiteInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Page Adapter Wizard UI\WizardConfiguration.cs" />
+    <Compile Include="Page Adapter Wizard UI\WizardTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Page Adapter Wizard UI\WizardController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Readme.txt" />
+    <Resource Include="Resources\Link.png" />
+    <None Include="app.config" />
+    <None Include="ControlAdapterMapping.config" />
+    <EmbeddedResource Include="selenium-logo.png" />
+    <None Include="Properties\DataSources\HtmlControlInfo.datasource" />
+    <None Include="Templates\SpecFlowFeature.Main.tt" />
+    <None Include="Templates\SpecFlowFeature.Init.tt" />
+    <None Include="Templates\SpecFlowSteps.Init.tt" />
+    <None Include="Templates\PageObject.Template.TableHelpers.tt" />
+    <None Include="Templates\PageObject.Init.tt">
+      <LastGenOutput>PageObject.Init.cs</LastGenOutput>
+    </None>
+    <None Include="Templates\PageObject.Template.TablePage.tt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SpecByExample.Selenium.PageCreator.Keyfile.snk" />
+    <None Include="Templates\PageObject.Template.GenericPage.tt" />
+    <None Include="Templates\SpecFlowSteps.Template.tt" />
+    <None Include="Templates\SpecFlowSteps.Main.tt" />
+    <None Include="packages.config" />
+    <None Include="Templates\PageObject.Main.tt" />
+    <None Include="Templates\PageObject.Template.tt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Page Adapter Wizard UI\CodeGenerationOptionsPage.resx">
+      <DependentUpon>CodeGenerationOptionsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Page Adapter Wizard UI\HtmlControlsPage.resx">
+      <DependentUpon>HtmlControlsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Page Adapter Wizard UI\PageObjectWizard.resx">
+      <DependentUpon>PageObjectWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Page Adapter Wizard UI\GeneralInfoPage.resx">
+      <DependentUpon>GeneralInfoPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Page Adapter Wizard UI\TableInfo.resx">
+      <DependentUpon>TableInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Page Adapter Wizard UI\WebsiteInfo.resx">
+      <DependentUpon>WebsiteInfo.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
