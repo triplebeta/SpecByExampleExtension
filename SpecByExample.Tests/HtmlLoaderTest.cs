@@ -37,7 +37,7 @@ namespace SpecByExample.Tests
         [TestMethod, DeploymentItem(@"..\..\Testdata\TestMetTabel.htm")]
         public void LoadDocumentTest()
         {
-            string url = @"TestMetTabel.htm";
+            string url = @"Testdata\TestMetTabel.htm";
             HtmlDocument actual;
 
             var controls = new List<ControlTypeRegistration>();

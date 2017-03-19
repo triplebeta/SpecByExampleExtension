@@ -148,12 +148,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Testdata\GoogleHome.htm" />
+    <Content Include="Testdata\GoogleHome.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Testdata\SpecialCharacters.htm" />
-    <Content Include="Testdata\PaginaMetDubbeleIDs.htm" />
+    <Content Include="Testdata\PaginaMetDubbeleIDs.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Testdata\TestMetAlert.htm" />
     <Content Include="Testdata\TestMetExterneLink.htm" />
-    <Content Include="Testdata\TestMetTabel.htm" />
+    <Content Include="Testdata\TestMetTabel.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

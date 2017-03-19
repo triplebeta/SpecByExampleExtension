@@ -26,7 +26,7 @@ namespace SpecByExample.Tests
         [TestMethod, DeploymentItem(@"..\..\Testdata\PaginaMetDubbeleIDs.htm")]
         public void TestLoadControls()
         {
-            string url = @"PaginaMetDubbeleIDs.htm";
+            string url = @"Testdata\PaginaMetDubbeleIDs.htm";
             var registeredControls = CreateRegisteredControls();
             var loader = new HtmlLoader(registeredControls);
             var doc = loader.LoadDocumentFromUrl(url);
@@ -48,7 +48,7 @@ namespace SpecByExample.Tests
         {
             var registeredControls = CreateRegisteredControls();
 
-            string url = @"PaginaMetDubbeleIDs.htm";
+            string url = @"Testdata\PaginaMetDubbeleIDs.htm";
             var loader = new HtmlLoader(registeredControls);
             var doc = loader.LoadDocumentFromUrl(url);
             var allControlInfo = loader.GetHtmlControls(doc, registeredControls, options);
@@ -75,7 +75,7 @@ namespace SpecByExample.Tests
             var registeredControls = CreateRegisteredControls();
             var loader = new HtmlLoader(registeredControls);
 
-            string url = @"PaginaMetDubbeleIDs.htm";
+            string url = @"Testdata\PaginaMetDubbeleIDs.htm";
             var doc = loader.LoadDocumentFromUrl(url);
             var allControlInfo = loader.GetHtmlControls(doc, registeredControls, options);
 
@@ -182,7 +182,7 @@ namespace SpecByExample.Tests
         private List<HtmlControlInfo> LoadGoogleHomePageInfo()
         {
             // Load a snapshot of the standard Google homepage
-            string url = @"GoogleHome.htm";
+            string url = @"Testdata\\GoogleHome.htm";
             var registeredControls = CreateRegisteredControls();
             var loader = new HtmlLoader(registeredControls);
             var doc = loader.LoadDocumentFromUrl(url);
